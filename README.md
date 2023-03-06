@@ -9,7 +9,6 @@ Clone the repository to your local machine:
 - Copy code `git clone https://github.com/bhklab/bhklab-website.git`
 - Move to `bhklab-website` directory
 - Install dependencies by running `npm install` at root
-- 
 - Move to `client` directory
 - Install dependencies by running `npm install`
 
