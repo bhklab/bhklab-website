@@ -1,6 +1,6 @@
 import Layout from '../../../Components/Utils/Layout';
 import styled from "styled-components";
-import { MdOutlineMailOutline } from 'react-icons/md';
+// import { MdOutlineMailOutline } from 'react-icons/md';
 import colors from "../../../styles/colors";
 import {ContactForm} from "../../../Components/Utils/ContactForm";
 import YouTubeIcon from '@mui/icons-material/YouTube';
@@ -78,7 +78,9 @@ const Contact= () => {
                                            Phone: +1 (416) 581-7628<br />
                                            <div style={{display:'flex', flexDirection:'row', flexWrap: 'wrap', justifyContent: 'center'}}>
                                                <StyledEmail href={`mailto:${'smiron@uhnresearch.ca'}`}>
-                                                   <MdOutlineMailOutline size={18} />Send a message<br />
+                                                   {/*<MdOutlineMailOutline size={18} />*/}
+                                                   Send a message
+                                                   <br />
                                                </StyledEmail>
                                            </div>
                                        </StyledContent>

@@ -32,9 +32,9 @@ const Banner = styled.div`
 
 const accessions = (items) => {
     return (
-        items.map((item) => {
+        items.map((item , index) => {
             return (
-                <div className="content">
+                <div className="content" key={index}>
                     <a href={item.link} target= '_blank'>{item.name}</a><br/>
                 </div>
             )
@@ -95,7 +95,7 @@ const Dataset= () => {
                             <TableBody>
                                 {datasets.map((row) => (
                                     <TableRow
-                                        key={row.id}
+                                        key={row._id}
                                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                     >
                                         <TableCell component="th" scope="row">

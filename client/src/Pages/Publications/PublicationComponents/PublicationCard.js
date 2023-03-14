@@ -4,10 +4,10 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import Moment from "moment";
-import {Link} from "@mui/icons-material";
+import { DateTime } from "luxon";
 
 function PresentationCard(props) {
+    const { DateTime } = require("luxon");
     const {image, title, event, url, members, date} = props.publication;
     return (
         <Card sx={{ display: 'flex', margin:'10px 0px'}}>
@@ -41,7 +41,7 @@ function PresentationCard(props) {
                     </Typography>
                     {   date &&
                             <Typography variant="h7" color="text.secondary" component="div" style={{fontSize: '12px'}}>
-                                {Moment(date).format("MMM Do, YYYY")}
+                                {DateTime.fromISO(date).toFormat("LLL dd, yyyy")}
                             </Typography>
                     }
                     {
@@ -97,13 +97,13 @@ function PaperCard(props) {
                     </Typography>
                     {   releaseDate &&
                     <Typography variant="h7" color="text.secondary" component="div" style={{fontSize: '12px'}}>
-                        {Moment(releaseDate).format("MMM Do, YYYY")}
+                        {releaseDate}
                     </Typography>
                     }
                     {
                         authors &&
                         <Typography color="text.secondary" component="div">
-                            {members.map(item=> <Link href = {item.slug}>{item.name}</Link>)}
+                            {members.map((item, index)=> <a key={index} href = {item.slug}>{item.name}</a>)}
                         </Typography>
                     }
                     {

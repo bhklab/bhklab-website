@@ -18,8 +18,11 @@ const colors = {
 
     // Navigation
     navbarLink: '#4796F5',
-    navbarBackground: "#FFFFFF",
-    navbarText: "#292d3e",
+    // navbarBackground: "#FFFFFF",
+    // navbarText: "#292d3e",
+    navbarBackground: "#31343e",
+    navbarHoverBG: "#23262e",
+    navbarText: "#c5c5c5",
     // gray_footer: '#1a2235',
     blue_footer: '#2E3B55',
     gray_footer: '#31343e',
@@ -34,11 +37,12 @@ const colors = {
     paginationHoverBG: '#FFFFFF',
 
     //BurgerMenu
-    burgerMenuBG: '#69819e',
+    burgerMenuBG: '#31343e',
     burgerMenuIcon: '',
     closeIcon: '#FFFFFF',
     burgerMenuItems: '#FFFFFF',
-    bmBurgerBars: '#2E3B55',
+    // bmBurgerBars: '#2E3B55',
+    bmBurgerBars: '#69819e',
 
     //Buttons
     expandButton: '#4796F5'

@@ -3,8 +3,6 @@ import React, {useEffect, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import styled from "styled-components";
-import colors from "../../../styles/colors";
-import ImageGallery from 'react-image-gallery';
 
 const StyledSocial= styled.div`
     width: 80%;

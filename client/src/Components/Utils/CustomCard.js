@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import React from "react";
 import colors from "../../styles/colors";
-import {StyledLink} from "../../styles/StyledLink";
 
 /**
  * Style components
@@ -30,7 +29,7 @@ const StyledTitle = styled.h2`
   text-align: center;
 `;
 
-const StyledDescription = styled.p`
+const StyledDescription = styled.div`
   font-size: 14px;
   margin: 10px 20px;
   text-align: center;
@@ -45,14 +44,12 @@ const StyledDescription = styled.p`
  * @example
  * <ResearchCard path = "linkToResearchPage" title = "Title" description= "description" image="src"/>
  */
-export const ResearchCard = ({ title, description, image, path }) => {
+export const ResearchCard = ({ title, description, image}) => {
     return (
         <StyledCard>
-            <StyledLink href={path}>
-                <StyledImage src={image || "/images/research/research.png"} alt={title} />
-                <StyledTitle>{title}</StyledTitle>
-                <StyledDescription>{description}</StyledDescription>
-            </StyledLink>
+            <StyledImage src={image || "/images/research/research.png"} alt={title} />
+            <StyledTitle>{title}</StyledTitle>
+            <StyledDescription>{description}</StyledDescription>
         </StyledCard>
     );
 };

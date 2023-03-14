@@ -4,11 +4,10 @@ import {StyledPaginate} from "../../../styles/StyledPaginate";
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
-function Items({ currentItems }) {
+function Items({ currentItems}) {
     return (
         <>
-            {currentItems &&
-            currentItems.map((item, index) => (
+            {currentItems && currentItems.map((item, index) => (
                 <div key={index}>
                     {item}
                 </div>

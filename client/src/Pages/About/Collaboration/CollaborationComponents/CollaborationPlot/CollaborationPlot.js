@@ -4,7 +4,6 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import SwipeableViews from "react-swipeable-views";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import colors from "../../../../../styles/colors";
 import {useTheme} from "@emotion/react";
 
@@ -21,7 +20,7 @@ function TabPanel(props) {
         >
             {value === index && (
                 <Box sx={{ p: 1}}>
-                    <Typography>{children}</Typography>
+                    {children}
                 </Box>
             )}
         </div>
@@ -35,19 +34,13 @@ function a11yProps(index) {
     };
 }
 
-
-const First = () => {
-    return(
-        <div>Hello</div>
-)};
-
 const EnterByForm = () => {
     return(
         <div>
             <div className="button-group">
                 <input type="button" className="form-button example" value="Enter example"/>
                 <input type="button" className="form-button clear" value="Clear"/>
-                <input type="button" className="form-button submit" value="Submit data" disabled='true'/>
+                <input type="button" className="form-button submit" value="Submit data" disabled={true}/>
             </div>
         </div>
     )
@@ -59,7 +52,7 @@ const EnterbyCSV = () => {
             <div className="button-group">
                 <input type="button" className="form-button example" value="Enter example"/>
                 <input type="button" className="form-button clear" value="Clear"/>
-                <input type="button" className="form-button submit" value="Submit data" disabled='true'/>
+                <input type="button" className="form-button submit" value="Submit data" disabled={true}/>
             </div>
         </div>
     )
@@ -69,7 +62,7 @@ const EnterbyLab = () => {
     return(
         <div>
             <div className="form-container">
-                <form className="upload-form" accept-charset="utf-8">
+                <form className="upload-form" acceptCharset="utf-8">
                     <div className="form-group">
                         <label>Please enter your CSV data below - PI in the first input and collaborators in the second
                             input.</label>
@@ -116,7 +109,7 @@ const CollaborationPlot = () => {
                     value={value}
                     onChange={handleChange}
                     indicatorColor={'secondary'}
-                    textColor="#00ff00"
+                    textColor="inherit"
                 >
                     <Tab label="Enter by form" {...a11yProps(0)} />
                     <Tab label="Enter by CSV" {...a11yProps(1)} />

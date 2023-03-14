@@ -13,7 +13,7 @@ const StyledCard = styled.div`
   height: 380px;
   border-radius: 10px;
   overflow: hidden;
-  background-color: ${colors.white};
+  background-color: ${colors.main};
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 `;
 
@@ -130,7 +130,6 @@ const People= () => {
             const res = await axios.get('/api/data/members');
             setPeople(res.data.members.filter(item => item.display));
             setReady(true);
-            console.log(people)
         }
         getPeople();
     }, []);

@@ -11,7 +11,6 @@ import Tab from "@mui/material/Tab";
 import SwipeableViews from "react-swipeable-views";
 import Box from "@mui/material/Box";
 import {useTheme} from "@mui/material/styles";
-import Typography from "@mui/material/Typography";
 import CollaborationPlot from "./CollaborationComponents/CollaborationPlot/CollaborationPlot";
 
 
@@ -28,7 +27,7 @@ function TabPanel(props) {
         >
             {value === index && (
                 <Box sx={{ p: 1}}>
-                    <Typography>{children}</Typography>
+                    {children}
                 </Box>
             )}
         </div>
@@ -58,13 +57,12 @@ const Collaboration = () => {
     return(
         <Layout>
             <Container>
-                <Box sx={{ bgcolor: `${colors.white}`, width: '100%' }}>
+                <Box sx={{ width: '100%' }}>
                     <AppBar position="static" style={{ background: '#2E3B55'}}>
                         <Tabs
                             value={value}
                             onChange={handleChange}
-                            indicatorColor={`"orange"`}
-                            textColor="#00ff00"
+                            indicatorColor="primary"
                             variant="fullWidth"
                         >
                             <Tab label="Collaboration Map" {...a11yProps(0)} />

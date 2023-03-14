@@ -5,8 +5,9 @@ import {PaginatedPublications} from "../PublicationComponents/PaginatedPublicati
 import {PaperCard} from "../PublicationComponents/PublicationCard";
 import Container from '@mui/material/Container';
 import {motion} from 'framer-motion';
+
 const customizedContent = (item, index) => {
-    return ( <PaperCard key = {index} publication={item}/>);
+    return ( <PaperCard index = {index} publication={item}/>);
 };
 
 

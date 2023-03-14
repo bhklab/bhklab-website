@@ -125,12 +125,12 @@ export const ResearchTopics = () => {
                             <ResearchCard
                                 key={index}
                                 title = {item.teamTitle}
-                                description= { item.teams.map(team =>
-                                    <div style={{display: 'flex', justifyContent:'left', marginBottom: '10px'}}>
+                                description= { item.teams.map((team, indx) =>
+                                    <div key={indx} style={{display: 'flex', justifyContent:'left', marginBottom: '10px'}}>
                                         <ArrowRightIcon fontSize="15"/>
-                                            <a href={team.url || `./research/${slugGeneratorHelper(team.teamTitle)}`}>
-                                                {team.teamTitle}
-                                            </a>
+                                        <a href={team.url || `./research/${slugGeneratorHelper(team.teamTitle)}`}>
+                                            {team.teamTitle}
+                                        </a>
                                     </div> )}
                                 image={item.image}
                             />

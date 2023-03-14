@@ -3,11 +3,11 @@ import colors from "./colors";
 
 const StyledNavigation = styled.div`
   /* The dropdown container */
-  
+
   .dropdown {
     float: right;
     overflow: hidden;
-    padding: 20px 0px;
+    padding: 22px 0px;
   }
 
   /* Dropdown button */
@@ -23,11 +23,20 @@ const StyledNavigation = styled.div`
     text-align: left;
   }
 
-  .navbar a:hover, .dropdown:hover .dropbtn {
-    color: ${colors.navbarLink}
+  .dropbtn {
+    color: ${colors.navbarText};
+  }
+  
+  
+
+  .navbar a:hover, .dropdown:hover , .dropbtn:hover{
+    color: ${colors.navbarLink};
+    background-color: #23262e;
+    transition: background-color 0.5s ease-out;
   }
 
   /* Dropdown content (hidden by default) */
+
   .dropdown-content {
     margin-top: 18px;
     display: none;
@@ -40,6 +49,7 @@ const StyledNavigation = styled.div`
   }
 
   /* Links inside the dropdown */
+
   .dropdown-content a {
     float: none;
     color: black;
@@ -54,9 +64,10 @@ const StyledNavigation = styled.div`
   }
 
   /* Add a grey background color to dropdown links on hover */
+
   .dropdown-content a:hover {
     background-color: ${colors.white_background};
-    border-radius: 1px;
+    border-radius: 1px;ƒ
     color: ${colors.navbarLink};
   }
 
@@ -65,25 +76,22 @@ const StyledNavigation = styled.div`
   }
 
   /* Show the dropdown menu on hover */
+
   .dropdown:hover .dropdown-content {
     display: block;
   }
-  
+
   position: fixed;
   width: 100%;
   height: 65px;
   background: ${colors.navbarBackground};
-  //background-color: #333;
   z-index: 999;
-  border-bottom: #d5d5d5;
-  border-bottom-style: solid;
-  border-width: 1px;
 
   a {
-    color: ${colors.header_deep_blue};
-    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","Fira Sans",Ubuntu,Oxygen,"Oxygen Sans",Cantarell,"Droid Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Emoji","Segoe UI Symbol","Lucida Grande",Helvetica,Arial,sans-serif
+    color: ${colors.navbarText};
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif
     font-family: 'Roboto', sans-serif;
-    font-weight: bold;
+    font-weight: normal;
   }
 `;
 
@@ -96,7 +104,7 @@ const NavLinks = styled.div`
   & a {
     color: ${colors.navbarText}
     text-decoration: none;
-    font-size: calc(0.2vw + 0.6em);
+    font-size: calc(0.3vw + 0.6em);
     margin: 0px 20px;
     letter-spacing: 1px;
     border-bottom: 2px solid transparent;

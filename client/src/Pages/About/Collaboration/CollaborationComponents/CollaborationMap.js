@@ -1,8 +1,5 @@
 import React, {useEffect, useState,  useMemo} from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from "axios";
 import styled from "styled-components";
-
 import {
     ComposableMap,
     Geographies,
@@ -13,8 +10,6 @@ import { csv } from "d3-fetch";
 import { scaleLinear } from "d3-scale";
 import sortBy from "lodash/sortBy";
 import colors from "../../../../styles/colors";
-
-
 const geoUrl =
     "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json";
 

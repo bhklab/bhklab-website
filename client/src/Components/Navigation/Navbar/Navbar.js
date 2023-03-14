@@ -12,7 +12,7 @@ const NavBar= () => {
     return (
         <StyledNavigation>
             <LogoContainer>
-                <Link to="/"><img alt="logo" src={'/images/Logo/bhklab-logo.png'} /></Link>
+                <Link to="/"><img alt="logo" src={'/images/Logo/bhklab-logo-white.png'} /></Link>
             </LogoContainer>
             <BurgerMenu/>
             <NavLinks className="header-links">
