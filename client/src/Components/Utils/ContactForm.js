@@ -4,6 +4,9 @@ import Box from "@mui/material/Box";
 import styled from "styled-components";
 import Button from '@mui/material/Button';
 
+/**
+ * A function to format text input fields and add a red start for mandatory inputs
+ */
 const StyledLabel = (props) => {
     const {title}= props;
     return(
@@ -28,6 +31,9 @@ function MarginBar() {
     );
 }
 
+/**
+ * Styles for PI information at the top of form
+ */
 const StyledHeading= styled.div`
   width: 100%;
   display: flex;
@@ -35,10 +41,12 @@ const StyledHeading= styled.div`
   justify-content: left;
   height: 60px;
   line-spacing: 20px;
-  font-size: 14px;
+  margin-bottom: 20px;
+  font-size: 16px;
   font-weight: normal;
   text-align: left;
 `
+
 /**
  * A custom React component that returns a contact form to receive emails by a registered
  * email account on SendGrid
@@ -55,8 +63,6 @@ export const ContactForm = () => {
     //   Form validation state
     const [errors, setErrors] = useState({});
 
-    const [buttonText, setButtonText] = useState("Send");
-
     // Setting success or failure messages states
     const [showSuccessMessage, setShowSuccessMessage] = useState(false);
     const [showFailureMessage, setShowFailureMessage] = useState(false);
@@ -71,8 +77,9 @@ export const ContactForm = () => {
             isValid = false;
         }
         if (email.length <= 0) {
-            tempErrors["email"] = true;
-            isValid = false;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            tempErrors["email"] = emailRegex.test(email);
+            isValid = emailRegex.test(email);
         }
         if (subject.length <= 0) {
             tempErrors["subject"] = true;
@@ -84,7 +91,6 @@ export const ContactForm = () => {
         }
 
         setErrors({ ...tempErrors });
-        console.log("errors", errors);
         return isValid;
     };
 
@@ -95,8 +101,7 @@ export const ContactForm = () => {
         let isValidForm = handleValidation();
 
         if (isValidForm) {
-            console.log("this")
-            setButtonText("Sending");
+
             const res = await fetch("api/mail/send", {
                 body: JSON.stringify({
                     email: email,
@@ -112,15 +117,18 @@ export const ContactForm = () => {
 
             const { error } = await res.json();
             if (error) {
-                console.log(error);
                 setShowSuccessMessage(false);
                 setShowFailureMessage(true);
-                setButtonText("Send");
                 return;
             }
+            // TODO: implement success and failure message
             setShowSuccessMessage(true);
             setShowFailureMessage(false);
-            setButtonText("Send");
+
+            setEmail("");
+            setFullName("");
+            setSubject("");
+            setMessage("");
         }
     };
     return (
@@ -171,14 +179,24 @@ export const ContactForm = () => {
                         id="outlined-multiline-static"
                         label={<StyledLabel title="Message"/>}
                         multiline
+                        variant="outlined"
                         rows={4}
                         fullWidth
+                        value={message}
                         onChange={(e) => {
                             setMessage(e.target.value);
                         }}
                     />
                     <MarginBar/>
-                    <Button variant="contained" type="submit">
+                    <Button
+                        sx={{
+                            display: 'flex',
+                            justifyContent: 'left',
+                            marginLeft: '5px'}}
+                        variant="contained"
+                        type="submit"
+                        disabled={!(fullName.length && email.length && subject.length && message.length)}
+                    >
                         Send
                     </Button>
                 </form>
