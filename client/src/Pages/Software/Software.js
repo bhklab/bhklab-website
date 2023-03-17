@@ -677,14 +677,17 @@ const Software= () => {
     return(
         <Layout>
             <Container fixed>
-                <Box sx={{ bgcolor: `${colors.white}`, width: '100%' }}>
+                <Box sx={{ width: '100%' }}>
                     <AppBar position="static" style={{ background: '#2E3B55'}}>
                         <Tabs
                             value={value}
                             onChange={handleChange}
-                            indicatorColor={`"orange"`}
-                            textColor="#00ff00"
                             variant="fullWidth"
+                            sx={{
+                                "& button": {color: 'white'},
+                                "& button:hover": {backgroundColor: `${colors.navbarHoverBG}`},
+                                "& button:active": {color: `${colors.navbarLink}`}
+                                }}
                         >
                             <Tab label="Web Apps" {...a11yProps(0)} />
                             <Tab label="Packages" {...a11yProps(1)} />

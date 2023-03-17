@@ -1,7 +1,5 @@
 import Layout from '../../../Components/Utils/Layout';
-import React, {useEffect} from 'react';
-import { useNavigate } from 'react-router-dom';
-import styled from "styled-components";
+import React from 'react';
 import CollaborationMap from "./CollaborationComponents/CollaborationMap";
 import Container from "@mui/material/Container";
 import colors from "../../../styles/colors";
@@ -16,7 +14,6 @@ import CollaborationPlot from "./CollaborationComponents/CollaborationPlot/Colla
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
-
     return (
         <div
             role="tabpanel"
@@ -58,12 +55,16 @@ const Collaboration = () => {
         <Layout>
             <Container>
                 <Box sx={{ width: '100%' }}>
-                    <AppBar position="static" style={{ background: '#2E3B55'}}>
+                    <AppBar position="static" style={{ background: '#2E3B55', color: 'white'}}>
                         <Tabs
                             value={value}
                             onChange={handleChange}
-                            indicatorColor="primary"
+                            // indicatorColor="primary"
                             variant="fullWidth"
+                            sx={{
+                                "& button": {color: 'white'},
+                                "& button:hover" : {backgroundColor: `${colors.navbarBackground}`}
+                            }}
                         >
                             <Tab label="Collaboration Map" {...a11yProps(0)} />
                             <Tab label="Collaboration Plot" {...a11yProps(1)} />
