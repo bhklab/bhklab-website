@@ -1,6 +1,5 @@
 import Layout from '../../../Components/Utils/Layout';
 import styled from "styled-components";
-// import { MdOutlineMailOutline } from 'react-icons/md';
 import colors from "../../../styles/colors";
 import {ContactForm} from "../../../Components/Utils/ContactForm";
 import YouTubeIcon from '@mui/icons-material/YouTube';
@@ -8,17 +7,22 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import Container from "@mui/material/Container";
 import {Grid} from "@mui/material";
-import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import {StyledHeading} from '../../../styles/StyledHeading';
 
-const Item = styled(Paper)(({ theme }) => ({
+/**
+ * A styled component for items on the page
+* */
+const Box = styled(Paper)(({ theme }) => ({
     backgroundColor: '#fff',
     padding: '20px',
     marginBottom: '20px',
     textAlign: 'center',
 }));
 
+/**
+ * Styling google map frame
+ * */
 const MapFrame = styled.iframe`
   width: 100%;
   height: 100%;
@@ -67,67 +71,59 @@ const Contact= () => {
             />
             <Container>
                 <StyledHeading>Contact Us</StyledHeading>
-                <Box sx={{marginBottom: '10px'}}>
-                    <Grid container spacing={1} sx={{ flexGrow: 1 }}>
-                        <Grid item xs={12} md={12} lg={12} container spacing={2}>
-                            <Grid item xs={4} lg={4}>
-                                <Item>
-                                    <Box id="category-a" sx={{ fontSize: "12px", textTransform: "uppercase" }}>
-                                       <StyledContent>
-                                           Soleil Miron, Administrative Assistant <br />
-                                           Phone: +1 (416) 581-7628<br />
-                                           <div style={{display:'flex', flexDirection:'row', flexWrap: 'wrap', justifyContent: 'center'}}>
-                                               <StyledEmail href={`mailto:${'smiron@uhnresearch.ca'}`}>
-                                                   {/*<MdOutlineMailOutline size={18} />*/}
-                                                   Send a message
-                                                   <br />
-                                               </StyledEmail>
-                                           </div>
-                                       </StyledContent>
-                                    </Box>
-                                </Item>
-                                <Item>
-                                    <Box id="category-b" sx={{ fontSize: "12px", textTransform: "uppercase" }}>
-                                        <StyledContent>
-                                            The MaRS Center, TMDT room 11-310<br />
-                                            101 College Street,<br />
-                                            Toronto, ON,<br />
-                                            M5G 1L7, Canada<br />
-                                        </StyledContent>
-                                    </Box>
-                                </Item>
-                                <Box sx={{ mt: 2 }}>
-                                    <Grid container columnSpacing={1}>
-                                        <StyledIcons>
-                                            <Grid item>
-                                                <a href="https://www.youtube.com/@bhklab2945">
-                                                    <YouTubeIcon style={{ color: "gray", fontSize: "30px", padding: "5px" }} />
-                                                </a>
-                                            </Grid>
-                                            <Grid item>
-                                                <a href="https://www.twitter.com/bhklab">
-                                                    <TwitterIcon style={{ color: "gray", fontSize: "30px", padding: "5px" }} />
-                                                </a>
-                                            </Grid>
-                                            <Grid item>
-                                                <a href="https://www.linkedin.com/in/bhklab/">
-                                                    <LinkedInIcon style={{ color: "gray", fontSize: "30px", padding: "5px" }} />
-                                                </a>
-                                            </Grid>
-                                        </StyledIcons>
+                <Grid container spacing={1} sx={{ marginBottom: '10px', flexGrow: 1 }}>
+                    <Grid item xs={12} md={12} lg={12} container spacing={2}>
+                        <Grid item xs={4} lg={4}>
+                            <Box id="category-a" sx={{ fontSize: "12px", textTransform: "uppercase" }}>
+                                <StyledContent>
+                                    Soleil Miron, Administrative Assistant <br />
+                                    Phone: +1 (416) 581-7628<br />
+                                    <div style={{display:'flex', flexDirection:'row', flexWrap: 'wrap', justifyContent: 'center'}}>
+                                        <StyledEmail href={`mailto:${'smiron@uhnresearch.ca'}`}>
+                                            {/*<MdOutlineMailOutline size={18} />*/}
+                                            Send a message
+                                            <br />
+                                        </StyledEmail>
+                                    </div>
+                                </StyledContent>
+                            </Box>
+                            <Box id="category-b" sx={{ fontSize: "12px", textTransform: "uppercase" }}>
+                                <StyledContent>
+                                    The MaRS Center, TMDT room 11-310<br />
+                                    101 College Street,<br />
+                                    Toronto, ON,<br />
+                                    M5G 1L7, Canada<br />
+                                </StyledContent>
+                            </Box>
+                            <Grid  sx={{ mt: 2 }} container columnSpacing={1}>
+                                <StyledIcons>
+                                    <Grid item>
+                                        <a href="https://www.youtube.com/@bhklab2945">
+                                            <YouTubeIcon style={{ color: "gray", fontSize: "30px", padding: "5px" }} />
+                                        </a>
                                     </Grid>
-                                </Box>
-                            </Grid>
-                            <Grid item xs={10} md={8} lg={8}>
-                                <Item style={{display: 'flex', justifyContent: 'left'}}>
-                                    <Grid container columnSpacing={1}>
-                                        <ContactForm/>
+                                    <Grid item>
+                                        <a href="https://www.twitter.com/bhklab">
+                                            <TwitterIcon style={{ color: "gray", fontSize: "30px", padding: "5px" }} />
+                                        </a>
                                     </Grid>
-                                </Item>
+                                    <Grid item>
+                                        <a href="https://www.linkedin.com/in/bhklab/">
+                                            <LinkedInIcon style={{ color: "gray", fontSize: "30px", padding: "5px" }} />
+                                        </a>
+                                    </Grid>
+                                </StyledIcons>
                             </Grid>
                         </Grid>
+                        <Grid item xs={10} md={8} lg={8}>
+                            <Box style={{display: 'flex', justifyContent: 'left'}}>
+                                <Grid container columnSpacing={1}>
+                                    <ContactForm/>
+                                </Grid>
+                            </Box>
+                        </Grid>
                     </Grid>
-                </Box>
+                </Grid>
             </Container>
         </Layout>
     );

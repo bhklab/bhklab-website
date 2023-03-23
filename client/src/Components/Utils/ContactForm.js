@@ -34,13 +34,14 @@ function MarginBar() {
 /**
  * Styles for PI information at the top of form
  */
-const StyledHeading= styled.div`
+const StyledPIInfo= styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: left;
   height: 60px;
   line-spacing: 20px;
+  margin-left: 5px;
   margin-bottom: 20px;
   font-size: 16px;
   font-weight: normal;
@@ -133,11 +134,11 @@ export const ContactForm = () => {
     };
     return (
         <main>
-            <StyledHeading>
+            <StyledPIInfo>
                 <b>Benjamin Haibe-Kains, Ph.D.</b>
                 Scientist, Princess Margaret Cancer Centre, University Health Network
                 Assistant Professor, Department of Medical Biophysics, University of Toronto
-            </StyledHeading>
+            </StyledPIInfo>
             <Box
                 sx={{  display: 'flex',
                     justifyContent: 'left'}}

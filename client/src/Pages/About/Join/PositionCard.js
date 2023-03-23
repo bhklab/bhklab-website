@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { useState} from "react";
 import { Markup } from 'interweave';
-import { Divider } from 'primereact/divider';
 import colors from "../../../styles/colors";
 import IconButton from "@mui/material/IconButton";
 import {ExpandLess, ExpandMore} from "@mui/icons-material";
@@ -15,23 +14,23 @@ const StyledCard = styled.div`
   flex-direction: column;
   text-align: left;
   line-height: 25px;
-  background-color: ${colors.white};
-  color: ${colors.text_black};
-  border-color: ${colors.white};
+  background-color: ${colors.card_bg};
+  color: ${colors.card_text};
+  border-color: ${colors.card_bg};
   border-radius: 5px;
   border-width: 1px;
   border-style: solid;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.3);
 
   .title {
-    color: ${colors.text_black};
+    color: ${colors.card_text};
     font-size: 14px;
     font-weight: bold;
   }
 
   .subtitle {
     margin: 15px 0px 10px 0px;
-    color: ${colors.text_black};
+    color: ${colors.card_text};
     font-size: 12px;
     font-weight: bold;
   }
@@ -54,18 +53,16 @@ const StyledCard = styled.div`
   }
 `;
 
-const StyledDivider = styled(Divider)`
-  background-color: ${colors.gray_divider};
-`;
-
 const StyledContent = ({ title, content }) => (
     <>
-        <StyledDivider />
         <div className="subtitle">{title}:</div>
         <Markup content={content} />
     </>
 );
 
+/**
+ * A Component for showing information of each available position in the lab ( ex. PhD position, Undergrad student, ect.)
+ * */
 const StyledPosition = ({ position }) => {
     const {
         title,

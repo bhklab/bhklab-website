@@ -45,7 +45,11 @@ const colors = {
     bmBurgerBars: '#69819e',
 
     //Buttons
-    expandButton: '#4796F5'
+    expandButton: '#4796F5',
+
+    //Card
+    card_bg: '#FFFFFF',
+    card_text: '#000000'
 
 }
 
