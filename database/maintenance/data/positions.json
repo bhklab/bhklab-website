@@ -12,6 +12,18 @@
     "__v": 0
   },
   {
+    "_id": "63c826feb0e3420e80ccec29",
+    "title": "Undergraduate Students",
+    "description": "<p>We always welcome undergraduate students for a summer/winter internship or coop experience. Do not hesitate to send us an email with subject line starting with “UNDERGRAD BHKLAB”. All documents should be provided in PDF.</p>",
+    "req_qualifications": "",
+    "pref_qualifications": "",
+    "responsibilities": "",
+    "apply": "",
+    "active": true,
+    "date": "2022-08-05T18:24:58.809Z",
+    "__v": 0
+  },
+  {
     "_id": "63c826feb0e3420e80ccec27",
     "title": "Postdoctoral Fellowships",
     "description": "<p>We seek postdoctoral fellows for several projects in cancer computational biology. Selected projects include:</p>\n<ol style=\"list-style-type:disc\">\n        <li>Single-cell RNA-sequencing analysis for drug repurposing.</li>\n\t<li>Integrative analysis of multiple <em>omics</em> data types (DNA, mRNA, epigenetics) to develop the next generation of multivariate biomarkers predictive of drug response in breast cancer.</li>\n</ol>",
@@ -31,18 +43,6 @@
     "pref_qualifications": "<p>Hands-on experience in high performance computing, especially for parallelizing code in C/C++ (openMP) and/or R in a cluster environment (Sun Grid Engine).</p>",
     "responsibilities": "",
     "apply": "We will accept applications until the position is filled. Please submit a CV, a copy of your most relevant paper, and the names, email addresses, and phone numbers of three references to  <a href=\"mailto:benjamin.haibe.kains@utoronto.ca\">benjamin.haibe.kains@utoronto.ca. </a> The subject line of your email should start with “PHD BHKLAB”. All documents should be provided in PDF.</p></br>",
-    "active": true,
-    "date": "2022-08-05T18:24:58.809Z",
-    "__v": 0
-  },
-  {
-    "_id": "63c826feb0e3420e80ccec29",
-    "title": "Undergraduate Students",
-    "description": "<p>We always welcome undergraduate students for a summer/winter internship or coop experience. Do not hesitate to send us an email with subject line starting with “UNDERGRAD BHKLAB”. All documents should be provided in PDF.</p>",
-    "req_qualifications": "",
-    "pref_qualifications": "",
-    "responsibilities": "",
-    "apply": "",
     "active": true,
     "date": "2022-08-05T18:24:58.809Z",
     "__v": 0

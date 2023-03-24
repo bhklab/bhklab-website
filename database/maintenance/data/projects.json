@@ -1,923 +1,303 @@
 [
   {
     "_id": "6331e4d68001b4e2616207b1",
+    "activity": "Active",
+    "indexProject": [],
     "title": "PMATCH",
-    "status": "Ongoing",
     "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e261620240"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e2616207b2",
-    "title": "Univariate Analysis",
     "status": "Ongoing",
-    "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e261620240"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e2616207b3",
-    "title": "Multivariate Analysis",
-    "status": "Ongoing",
-    "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e261620240"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e2616207b4",
-    "title": "Link to cBioPortal",
-    "status": "Ongoing",
-    "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e261620240"
-    ]
+    "grant": "632de3818001b4e261620240",
+    "__v": 0
   },
   {
     "_id": "6331e4d68001b4e2616207b5",
+    "activity": "Active",
+    "indexProject": [],
     "title": "Deep Learning: Noisy Data",
+    "researchArea": "PGx",
     "status": "Ongoing",
-    "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e261620243"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e2616207b6",
-    "title": "rCI",
-    "status": "Completed",
-    "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e261620243"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e2616207b7",
-    "title": "DeepCINet",
-    "status": "Incomplete and High Risk",
-    "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e261620243"
-    ]
+    "grant": "632de3818001b4e261620243",
+    "__v": 0
   },
   {
     "_id": "6331e4d68001b4e2616207b8",
+    "activity": "Active",
+    "indexProject": [],
     "title": "Isoforms",
+    "researchArea": "PGx",
     "status": "Ongoing",
-    "researchArea": "PGx"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207b9",
-    "title": "Inclusion of Datasets in PharmacoGx",
-    "status": "Completed",
-    "researchArea": "PGx"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207ba",
-    "title": "Biomarker Analysis",
-    "status": "Incomplete and High Risk",
-    "researchArea": "PGx"
+    "__v": 0
   },
   {
     "_id": "6331e4d68001b4e2616207bb",
+    "activity": "Active",
+    "indexProject": [],
     "title": "JAK-STAT",
+    "researchArea": "PGx",
     "status": "Ongoing",
-    "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e261620245"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e2616207bc",
-    "title": "Initial Website Development",
-    "status": "Completed",
-    "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e261620245"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e2616207bd",
-    "title": "Data Curation",
-    "status": "Ongoing",
-    "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e261620245"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e2616207be",
-    "title": "Consultation-Data Management, Sharing",
-    "status": "Completed",
-    "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e261620245"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e2616207bf",
-    "title": "Creation of Data Pipelines",
-    "status": "Incomplete",
-    "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e261620245"
-    ]
+    "grant": "632de3818001b4e261620245",
+    "__v": 0
   },
   {
     "_id": "6331e4d68001b4e2616207c0",
+    "activity": "Active",
+    "indexProject": [],
     "title": "Biomarker Analysis Oral SCC",
+    "researchArea": "PGx",
     "status": "Ongoing",
-    "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e261620246"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e2616207c1",
-    "title": "Brad-Signature Engraft vs Non-Engrafters",
-    "status": "Inactive",
-    "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e261620246"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e2616207c2",
-    "title": "Prognostic Value in TCGA",
-    "status": "Inactive",
-    "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e261620246"
-    ]
+    "grant": "632de3818001b4e261620246",
+    "__v": 0
   },
   {
     "_id": "6331e4d68001b4e2616207c3",
+    "activity": "Active",
+    "indexProject": [],
     "title": "Radiosensitization: HPV SCC",
+    "researchArea": "PGx",
     "status": "Ongoing",
-    "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e261620247"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e2616207c4",
-    "title": "RadioGx",
-    "status": "Completed",
-    "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e261620247"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e2616207c5",
-    "title": "Squamous Specific Sig Analysis",
-    "status": "Completed",
-    "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e261620247"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e2616207c6",
-    "title": "Query CMAP",
-    "status": "Completed",
-    "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e261620247"
-    ]
+    "grant": "632de3818001b4e261620247",
+    "__v": 0
   },
   {
     "_id": "6331e4d68001b4e2616207c7",
+    "activity": "Active",
+    "indexProject": [],
     "title": "Lymphedema",
-    "status": "Ongoing",
     "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e261620248"
-    ]
+    "status": "Ongoing",
+    "grant": "632de3818001b4e261620248",
+    "__v": 0
   },
   {
     "_id": "6331e4d68001b4e2616207c8",
+    "activity": "Active",
+    "indexProject": [],
     "title": "Soft Tissue Sarcoma",
+    "researchArea": "PGx",
     "status": "Ongoing",
-    "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e261620249"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e2616207c9",
-    "title": "Data Collection",
-    "status": "Ongoing",
-    "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e261620249"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e2616207ca",
-    "title": "Develop Pipelines (CNVKit)",
-    "status": "Completed",
-    "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e261620249"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e2616207cb",
-    "title": "Sarcoma Paper",
-    "status": "Ongoing",
-    "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e261620249"
-    ]
+    "grant": "632de3818001b4e261620249",
+    "__v": 0
   },
   {
     "_id": "6331e4d68001b4e2616207cc",
+    "activity": "Active",
+    "indexProject": [],
     "title": "Immunotherapy",
-    "status": "Ongoing",
-    "researchArea": "PGx"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207cd",
-    "title": "Data Curation",
-    "status": "Completed",
-    "researchArea": "PGx"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207ce",
-    "title": "PredictIO Development",
-    "status": "Completed",
-    "researchArea": "PGx"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207cf",
-    "title": "iTNT",
-    "status": "Ongoing",
     "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e26162024a"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e2616207d0",
-    "title": "Roche imCORE/iCAAN",
     "status": "Ongoing",
-    "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e26162024d"
-    ]
+    "__v": 0
   },
   {
     "_id": "6331e4d68001b4e2616207d1",
+    "activity": "Active",
+    "indexProject": [],
     "title": "AML",
+    "researchArea": "PGx",
     "status": "Ongoing",
-    "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e26162024b"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e2616207d2",
-    "title": "BeatAML",
-    "status": "Completed",
-    "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e26162024b"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e2616207d3",
-    "title": "Drug Combination",
-    "status": "Inactive",
-    "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e26162024b"
-    ]
+    "grant": "632de3818001b4e26162024b",
+    "__v": 0
   },
   {
     "_id": "6331e4d68001b4e2616207d4",
+    "activity": "Active",
+    "indexProject": [],
     "title": "CMAP/L1000",
+    "researchArea": "PGx",
     "status": "Ongoing",
-    "researchArea": "PGx"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207d5",
-    "title": "CMapToolKit Package",
-    "status": "Ongoing",
-    "researchArea": "PGx"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207d6",
-    "title": "Metric Learning",
-    "status": "Ongoing",
-    "researchArea": "PGx"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207d7",
-    "title": "Generalization of Method",
-    "status": "Ongoing",
-    "researchArea": "PGx"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207d8",
-    "title": "Expansion to rTorch",
-    "status": "Ongoing",
-    "researchArea": "PGx"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207d9",
-    "title": "Characterization of Properties",
-    "status": "Ongoing",
-    "researchArea": "PGx"
+    "__v": 0
   },
   {
     "_id": "6331e4d68001b4e2616207da",
+    "activity": "Active",
+    "indexProject": [],
     "title": "Methylation",
+    "researchArea": "PGx",
     "status": "Ongoing",
-    "researchArea": "PGx"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207db",
-    "title": "Integration of RRBS Data",
-    "status": "Ongoing",
-    "researchArea": "PGx"
+    "__v": 0
   },
   {
     "_id": "6331e4d68001b4e2616207dc",
+    "activity": "Active",
+    "indexProject": [],
     "title": "Toxicogenomics",
+    "researchArea": "PGx",
     "status": "Ongoing",
-    "researchArea": "PGx"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207dd",
-    "title": "ToxicoDB/Gx",
-    "status": "Completed",
-    "researchArea": "PGx"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207de",
-    "title": "ToxicoMap",
-    "status": "Ongoing",
-    "researchArea": "PGx"
+    "__v": 0
   },
   {
     "_id": "6331e4d68001b4e2616207df",
+    "activity": "Active",
+    "indexProject": [],
     "title": "ATAC-Seq/Chromatin Accessibility",
-    "status": "Ongoing",
     "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e261620244"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e2616207e0",
-    "title": "ATAC-Based Biomarkers for Breast Cancer (Cell Lines)",
-    "status": "Not Started",
-    "researchArea": "PGx",
-    "grant": [
-      "632de3818001b4e261620244"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e2616207e1",
-    "title": "scRNA Drug Response Prediction",
     "status": "Ongoing",
-    "researchArea": "PGx"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207e2",
-    "title": "Data Collection",
-    "status": "Completed",
-    "researchArea": "PGx"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207e3",
-    "title": "scRNA Drug Response Prediction Analysis",
-    "status": "Ongoing",
-    "researchArea": "PGx"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207e4",
-    "title": "Cell Line vs Tumour",
-    "status": "Incomplete",
-    "researchArea": "PGx"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207e5",
-    "title": "Drug Combination Prioritization",
-    "status": "Incomplete",
-    "researchArea": "PGx"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207e6",
-    "title": "Drug Pertubation Prediction",
-    "status": "Ongoing",
-    "researchArea": "PGx"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207e7",
-    "title": "Hierarchical Clustering",
-    "status": "Ongoing",
-    "researchArea": "PGx"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207e8",
-    "title": "Predict Cell-Cell Communication",
-    "status": "Ongoing",
-    "researchArea": "PGx"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207e9",
-    "title": "Pancreatic Cancer",
-    "status": "Ongoing",
-    "researchArea": "PGx"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207ea",
-    "title": "Meta Analysis",
-    "status": "Completed",
-    "researchArea": "PGx"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207eb",
-    "title": "Protease Networks, PDAC",
-    "status": "Ongoing",
-    "researchArea": "PGx"
+    "grant": "632de3818001b4e261620244",
+    "__v": 0
   },
   {
     "_id": "6331e4d68001b4e2616207ec",
+    "activity": "Active",
+    "indexProject": [],
     "title": "Segmentation",
+    "researchArea": "Radiomics",
     "status": "Ongoing",
-    "researchArea": "Radiomics"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207ed",
-    "title": "Head and Neck (H&N)",
-    "status": "Ongoing",
-    "researchArea": "Radiomics"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207ee",
-    "title": "OAR",
-    "status": "Completed",
-    "researchArea": "Radiomics"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207ef",
-    "title": "H&N Levels",
-    "status": "Ongoing",
-    "researchArea": "Radiomics"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207f0",
-    "title": "Vector Challenge",
-    "status": "Ongoing",
-    "researchArea": "Radiomics"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207f1",
-    "title": "GTV Segmentation",
-    "status": "Ongoing",
-    "researchArea": "Radiomics"
+    "__v": 0
   },
   {
     "_id": "6331e4d68001b4e2616207f2",
-    "title": "Cervix",
+    "activity": "Active",
+    "indexProject": [],
+    "title": "OCTANE 2.0",
+    "researchArea": "Radiomics",
     "status": "Ongoing",
-    "researchArea": "Radiomics"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207f3",
-    "title": "OAR",
-    "status": "Ongoing",
-    "researchArea": "Radiomics"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207f4",
-    "title": "GTV  ",
-    "status": "Ongoing",
-    "researchArea": "Radiomics"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207f5",
-    "title": "Development of Radiomic Models",
-    "status": "Ongoing",
-    "researchArea": "Radiomics"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207f6",
-    "title": "Dosarex",
-    "status": "Not Started",
-    "researchArea": "Radiomics"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207f7",
-    "title": "ORN Prediction",
-    "status": "Not Started",
-    "researchArea": "Radiomics"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207f8",
-    "title": "Self-Supervised Learning (BYOL)",
-    "status": "Ongoing",
-    "researchArea": "Radiomics"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207f9",
-    "title": "Transfer Learning in DL Models",
-    "status": "Ongoing",
-    "researchArea": "Radiomics"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207fa",
-    "title": "ENE Prediction",
-    "status": "Ongoing",
-    "researchArea": "Radiomics"
+    "__v": 0
   },
   {
     "_id": "6331e4d68001b4e2616207fb",
+    "activity": "Inactive",
+    "indexProject": [],
     "title": "RADCURE Challenge",
+    "researchArea": "Radiomics",
     "status": "Completed",
-    "researchArea": "Radiomics"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207fc",
-    "title": "Deep-CR MTLR",
-    "status": "Completed",
-    "researchArea": "Radiomics"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207fd",
-    "title": "LMSARC",
-    "status": "Ongoing",
-    "researchArea": "Radiomics"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207fe",
-    "title": "Radiomic and Genomic Data Aggregation",
-    "status": "Ongoing",
-    "researchArea": "Radiomics"
-  },
-  {
-    "_id": "6331e4d68001b4e2616207ff",
-    "title": "OCTANE 2.0",
-    "status": "Not Started",
-    "researchArea": "Radiomics"
-  },
-  {
-    "_id": "6331e4d68001b4e261620800",
-    "title": "Image Processing",
-    "status": "Ongoing",
-    "researchArea": "Radiomics"
+    "__v": 0
   },
   {
     "_id": "6331e4d68001b4e261620801",
+    "activity": "Active",
+    "indexProject": [],
     "title": "Med-Image Tools",
-    "status": "Maintenance",
-    "researchArea": "Radiomics"
-  },
-  {
-    "_id": "6331e4d68001b4e261620802",
-    "title": "Med-Image Net",
+    "researchArea": "Radiomics",
     "status": "Ongoing",
-    "researchArea": "Radiomics"
-  },
-  {
-    "_id": "6331e4d68001b4e261620803",
-    "title": "Federated Learning",
-    "status": "Ongoing",
-    "researchArea": "Radiomics"
+    "__v": 0
   },
   {
     "_id": "6331e4d68001b4e261620804",
+    "activity": "Active",
+    "indexProject": [],
     "title": "ORCESTRA",
+    "researchArea": "Web Development",
     "status": "Ongoing",
-    "researchArea": "Web Development",
-    "grant": [
-      "632de3818001b4e261620242"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e261620805",
-    "title": "Web Application Overhaul",
-    "status": "Ongoing",
-    "researchArea": "Web Development",
-    "grant": [
-      "632de3818001b4e261620242"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e261620806",
-    "title": "Management of Pachyderm Layer",
-    "status": "Completed",
-    "researchArea": "Web Development",
-    "grant": [
-      "632de3818001b4e261620242"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e261620807",
-    "title": "Implement New Features and Data Processing Layer",
-    "status": "Ongoing",
-    "researchArea": "Web Development",
-    "grant": [
-      "632de3818001b4e261620242"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e261620808",
-    "title": "Development of Web-Application Layer",
-    "status": "Completed",
-    "researchArea": "Web Development",
-    "grant": [
-      "632de3818001b4e261620242"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e261620809",
-    "title": "Data Processing Layer in SnakeMake",
-    "status": "Ongoing",
-    "researchArea": "Web Development",
-    "grant": [
-      "632de3818001b4e261620242"
-    ]
+    "grant": "632de3818001b4e261620242",
+    "__v": 0
   },
   {
     "_id": "6331e4d68001b4e26162080a",
+    "activity": "Active",
+    "indexProject": [],
     "title": "PharmacoDB",
-    "status": "Ongoing",
     "researchArea": "Web Development",
-    "grant": [
-      "632de3818001b4e26162024c"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e26162080b",
-    "title": "cBioPortal API",
-    "status": "Completed",
-    "researchArea": "Web Development"
-  },
-  {
-    "_id": "6331e4d68001b4e26162080c",
-    "title": "Keycloack Integration",
     "status": "Ongoing",
-    "researchArea": "Web Development"
-  },
-  {
-    "_id": "6331e4d68001b4e26162080d",
-    "title": "Bug Fixes and Enhancements",
-    "status": "Not Started",
-    "researchArea": "Web Development"
+    "grant": "632de3818001b4e26162024c",
+    "__v": 0
   },
   {
     "_id": "6331e4d68001b4e26162080e",
+    "activity": "Active",
+    "indexProject": [],
     "title": "XevaDB",
-    "status": "Ongoing",
     "researchArea": "Web Development",
-    "grant": [
-      "632de3818001b4e26162024c"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e26162080f",
-    "title": "XevaDI",
     "status": "Ongoing",
-    "researchArea": "Web Development"
-  },
-  {
-    "_id": "6331e4d68001b4e261620810",
-    "title": "Keycloack Integration",
-    "status": "Ongoing",
-    "researchArea": "Web Development"
-  },
-  {
-    "_id": "6331e4d68001b4e261620811",
-    "title": "PredictIO  ",
-    "status": "Ongoing",
-    "researchArea": "Web Development"
-  },
-  {
-    "_id": "6331e4d68001b4e261620812",
-    "title": "Phase I of Web Development",
-    "status": "Completed",
-    "researchArea": "Web Development"
-  },
-  {
-    "_id": "6331e4d68001b4e261620813",
-    "title": "CCLid",
-    "status": "Inactive",
-    "researchArea": "Web Development"
-  },
-  {
-    "_id": "6331e4d68001b4e261620814",
-    "title": "DNF Explorer",
-    "status": "Inactive",
-    "researchArea": "Web Development"
-  },
-  {
-    "_id": "6331e4d68001b4e261620815",
-    "title": "QUANNOTATE",
-    "status": "Inactive",
-    "researchArea": "Web Development"
-  },
-  {
-    "_id": "6331e4d68001b4e261620816",
-    "title": "ToxicoDB/Gx",
-    "status": "Inactive",
-    "researchArea": "Web Development"
-  },
-  {
-    "_id": "6331e4d68001b4e261620817",
-    "title": "SYNERGxDB",
-    "status": "Inactive",
-    "researchArea": "Web Development"
-  },
-  {
-    "_id": "6331e4d68001b4e261620818",
-    "title": "KuLGaP",
-    "status": "Inactive",
-    "researchArea": "Web Development"
+    "grant": "632de3818001b4e26162024c",
+    "__v": 0
   },
   {
     "_id": "6331e4d68001b4e261620819",
+    "activity": "Active",
+    "indexProject": [],
     "title": "CoBE",
-    "status": "Ongoing",
     "researchArea": "Web Development",
-    "grant": [
-      "632de3818001b4e261620241"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e26162081a",
-    "title": "Web-App Development",
     "status": "Ongoing",
-    "researchArea": "Web Development",
-    "grant": [
-      "632de3818001b4e261620241"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e26162081b",
-    "title": "First Iteration of Web-App, Data Release",
-    "status": "Completed",
-    "researchArea": "Web Development",
-    "grant": [
-      "632de3818001b4e261620241"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e26162081c",
-    "title": "Implementation of New Features",
-    "status": "Ongoing",
-    "researchArea": "Web Development",
-    "grant": [
-      "632de3818001b4e261620241"
-    ]
-  },
-  {
-    "_id": "6331e4d68001b4e26162081d",
-    "title": "Website Maintenance",
-    "status": "Ongoing",
-    "researchArea": "Web Development"
-  },
-  {
-    "_id": "6331e4d68001b4e26162081e",
-    "title": "CBMP",
-    "status": "Ongoing",
-    "researchArea": "Web Development"
-  },
-  {
-    "_id": "6331e4d68001b4e26162081f",
-    "title": "Radiomics",
-    "status": "Ongoing",
-    "researchArea": "Web Development"
+    "grant": "632de3818001b4e261620241",
+    "__v": 0
   },
   {
     "_id": "6331e4d68001b4e261620820",
-    "title": "Lab Website",
+    "activity": "Active",
+    "indexProject": [],
+    "title": "Lab Website, CBMP, Radiomics",
+    "researchArea": "Web Development",
     "status": "Ongoing",
-    "researchArea": "Web Development"
-  },
-  {
-    "_id": "6331e4d68001b4e261620821",
-    "title": "DNF  ",
-    "status": "Inactive",
-    "researchArea": "Web Development"
+    "__v": 0
   },
   {
     "_id": "6331e4d68001b4e261620822",
+    "activity": "Active",
+    "indexProject": [],
     "title": "CoreGx",
+    "researchArea": "Software Development",
     "status": "Ongoing",
-    "researchArea": "Software Development"
+    "__v": 0
   },
   {
     "_id": "6331e4d68001b4e261620823",
+    "activity": "Active",
+    "indexProject": [],
     "title": "PharmacoGx",
+    "researchArea": "Software Development",
     "status": "Ongoing",
-    "researchArea": "Software Development"
-  },
-  {
-    "_id": "6331e4d68001b4e261620824",
-    "title": "ToxicoGx",
-    "status": "Maintenance",
-    "researchArea": "Software Development"
-  },
-  {
-    "_id": "6331e4d68001b4e261620825",
-    "title": "RadioGx",
-    "status": "Maintenance",
-    "researchArea": "Software Development"
-  },
-  {
-    "_id": "6331e4d68001b4e261620826",
-    "title": "CREAM",
-    "status": "Maintenance",
-    "researchArea": "Software Development"
-  },
-  {
-    "_id": "6331e4d68001b4e261620827",
-    "title": "mRMRe",
-    "status": "Maintenance",
-    "researchArea": "Software Development"
-  },
-  {
-    "_id": "6331e4d68001b4e261620828",
-    "title": "SIGN",
-    "status": "Ongoing",
-    "researchArea": "Software Development"
-  },
-  {
-    "_id": "6331e4d68001b4e261620829",
-    "title": "RLOBICO",
-    "status": "Maintenance",
-    "researchArea": "Software Development"
-  },
-  {
-    "_id": "6331e4d68001b4e26162082a",
-    "title": "Xeva",
-    "status": "Maintenance",
-    "researchArea": "Software Development"
-  },
-  {
-    "_id": "6331e4d68001b4e26162082b",
-    "title": "PDATK",
-    "status": "Maintenance",
-    "researchArea": "Software Development"
-  },
-  {
-    "_id": "6331e4d68001b4e26162082c",
-    "title": "genefu",
-    "status": "Maintenance",
-    "researchArea": "Software Development"
-  },
-  {
-    "_id": "6331e4d68001b4e26162082d",
-    "title": "survcomp",
-    "status": "Maintenance",
-    "researchArea": "Software Development"
-  },
-  {
-    "_id": "6331e4d68001b4e26162082e",
-    "title": "PymRMRe",
-    "status": "Maintenance",
-    "researchArea": "Software Development"
-  },
-  {
-    "_id": "6331e4d68001b4e26162082f",
-    "title": "PyKuLGaP",
-    "status": "Maintenance",
-    "researchArea": "Software Development"
+    "__v": 0
   },
   {
     "_id": "6331e4d68001b4e261620830",
+    "activity": "Active",
+    "indexProject": [],
     "title": "AnnotationGx",
+    "researchArea": "Software Development",
     "status": "Ongoing",
-    "researchArea": "Software Development"
-  },
-  {
-    "_id": "6331e4d68001b4e261620831",
-    "title": "MetaGxPancreas",
-    "status": "Maintenance",
-    "researchArea": "Software Development"
-  },
-  {
-    "_id": "6331e4d68001b4e261620832",
-    "title": "MetaGxBreast",
-    "status": "Maintenance",
-    "researchArea": "Software Development"
+    "__v": 0
   },
   {
     "_id": "6331e4d68001b4e261620833",
+    "activity": "Active",
+    "indexProject": [],
     "title": "PGXVision",
+    "researchArea": "Software Development",
     "status": "Ongoing",
-    "researchArea": "Software Development"
+    "__v": 0
   },
   {
     "_id": "6331e4d68001b4e261620834",
+    "activity": "Active",
+    "indexProject": [],
     "title": "gDR",
+    "researchArea": "Software Development",
     "status": "Ongoing",
-    "researchArea": "Software Development"
+    "__v": 0
+  },
+  {
+    "_id": "639689009a63281ed54642d4",
+    "activity": "Inactive",
+    "indexProject": [],
+    "title": "Proteomics",
+    "researchArea": "PGx",
+    "status": "Inactive",
+    "__v": 0
+  },
+  {
+    "_id": "639689009a63281ed54642d5",
+    "activity": "Active",
+    "indexProject": [],
+    "title": "Few-Shot Learning for Drug Response Prediction",
+    "researchArea": "PGx",
+    "status": "Ongoing",
+    "__v": 0
+  },
+  {
+    "_id": "639689009a63281ed54642d6",
+    "activity": "Inactive",
+    "indexProject": [],
+    "title": "Insight-Bladder Cancer",
+    "researchArea": "PGx",
+    "status": "Inactive",
+    "__v": 0
+  },
+  {
+    "_id": "639689009a63281ed54642d7",
+    "activity": "Active",
+    "indexProject": [],
+    "title": "Meta Web-App for Combined Analysis",
+    "researchArea": "Web Development",
+    "status": "Ongoing",
+    "__v": 0
   }
 ]

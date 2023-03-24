@@ -5,19 +5,19 @@
     "description": "",
     "teams": [
       {
-        "teamTitle": "Integration of preclinical/clinical data",
+        "teamTitle": "Integration of preclinical/ clinical data",
         "teamDesc": "",
         "teamImage": "",
         "_id": "64043904847f11c9d655b9af"
       },
       {
-        "teamTitle": "Drug classification/repurposing",
+        "teamTitle": "Drug classification/ repurposing",
         "teamDesc": "",
         "teamImage": "",
         "_id": "64043904847f11c9d655b9b0"
       }
     ],
-    "image": "",
+    "image": "/images/research/biomarker.png",
     "__v": 0
   },
   {
@@ -44,7 +44,7 @@
         "_id": "64043904847f11c9d655b9b4"
       }
     ],
-    "image": "./images/projects/segmentation_liver.png",
+    "image": "/images/research/segmentation_liver.png",
     "__v": 0
   },
   {
@@ -54,14 +54,14 @@
     "teams": [
       {
         "teamTitle": "Software",
-        "url": "/software",
+        "url": "../software",
         "teamDesc": "",
-        "teamImage": ".",
+        "teamImage": "",
         "_id": "64043904847f11c9d655b9b6"
       },
       {
         "teamTitle": "Packages",
-        "url": "/software",
+        "url": "../software",
         "teamDesc": "",
         "teamImage": "",
         "_id": "64043904847f11c9d655b9b7"
@@ -69,11 +69,11 @@
       {
         "teamTitle": "Eco-system",
         "teamDesc": "",
-        "teamImage": "./images/projects/segmentation_liver.png",
+        "teamImage": "",
         "_id": "64043904847f11c9d655b9b8"
       }
     ],
-    "image": "",
+    "image": "./images/research/software.png",
     "__v": 0
   }
 ]

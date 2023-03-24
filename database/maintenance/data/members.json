@@ -7,6 +7,8 @@
     "status": "current member",
     "startDate": "2016-01-01T00:00:00.000Z",
     "endDate": null,
+    "slug": "george-alexandru_adam",
+    "links": [],
     "image": "alex_adam.jpeg",
     "display": true,
     "contactInfo": [
@@ -16,9 +18,7 @@
         "_id": "63c1dc208eb0ac02c0a73b3a"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "george-alexandru_adam"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76d4",
@@ -26,12 +26,12 @@
     "position": "Postdoctoral Research Fellow",
     "bio": "Elham Salehi received her PhD in Computer Science from University of Windsor, Canada, her M.Sc in computer science from University of Tehran, Iran and her BSc. in computer engineering from Sharif University of Technology, Tehran, Iran. During her PhD, she developed an efficient Bayesian Network-based combinatorial optimization algorithm for high dimensional problems and applied it for predicting glycation sites in mammalian proteins. She also developed several multiple dependency detection algorithms and studied the effects of the characteristics of problems on the efficiency of those algorithms. She has worked at the National Research Council of Canada before joining the BHK lab where she will work on developing novel bioinformatic approaches for high-throughput discovery of drug combinations in cancer.",
     "status": "alumni",
+    "slug": "elham_salehi",
+    "links": [],
     "image": "elham_salehi.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "elham_salehi"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7709",
@@ -41,12 +41,12 @@
     "status": "alumni",
     "startDate": "2015-01-01T00:00:00.000Z",
     "endDate": "2016-01-01T00:00:00.000Z",
+    "slug": "keshav_dial",
+    "links": [],
     "image": "keshav_dial.jpeg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "keshav_dial"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac771b",
@@ -54,12 +54,12 @@
     "position": "Undergraduate Student",
     "bio": "Karina Merida is a biology major at the University of Toronto with minors in computer science and math. She is interested in machine learning and epigenetics. Currently, she is developing a pipeline that will predict drug response based on models trained on perturbation signatures. ",
     "status": "alumni",
+    "slug": "karina_merida",
+    "links": [],
     "image": "karina.jpeg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "karina_merida"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7734",
@@ -69,12 +69,12 @@
     "status": "alumni",
     "startDate": "2017-01-01T00:00:00.000Z",
     "endDate": "2021-12-12T00:00:00.000Z",
+    "slug": "chantal_ho",
+    "links": [],
     "image": "chantal_ho.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "chantal_ho"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7748",
@@ -83,11 +83,11 @@
     "status": "alumni",
     "startDate": "2021-01-01T00:00:00.000Z",
     "endDate": "2021-01-01T00:00:00.000Z",
-    "display": false,
+    "slug": "cartik_sharma",
     "links": [],
+    "display": false,
     "contactInfo": [],
-    "__v": 0,
-    "slug": "cartik_sharma"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76b7",
@@ -97,6 +97,8 @@
     "status": "current member",
     "startDate": "2020-01-01T00:00:00.000Z",
     "endDate": null,
+    "slug": "sejin_kim",
+    "links": [],
     "image": "sejin_kim.jpg",
     "display": true,
     "contactInfo": [
@@ -111,9 +113,7 @@
         "_id": "63c1dc208eb0ac02c0a73b74"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "sejin_kim"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76b8",
@@ -123,6 +123,8 @@
     "status": "current member",
     "startDate": "2020-01-01T00:00:00.000Z",
     "endDate": null,
+    "slug": "paul_brogee",
+    "links": [],
     "image": "paul_brogee.jpg",
     "display": true,
     "contactInfo": [
@@ -137,9 +139,7 @@
         "_id": "63c1dc208eb0ac02c0a73b77"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "paul_brogee"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76c9",
@@ -149,12 +149,12 @@
     "status": "alumni",
     "startDate": "2019-01-01T00:00:00.000Z",
     "endDate": "2022-01-01T00:00:00.000Z",
+    "slug": "brad_van_oosten",
+    "links": [],
     "image": "brad_van_oosten.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "brad_van_oosten"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76dc",
@@ -164,12 +164,12 @@
     "status": "alumni",
     "startDate": "2012-01-01T00:00:00.000Z",
     "endDate": "2016-01-01T00:00:00.000Z",
+    "slug": "nehme_el-hachem",
+    "links": [],
     "image": "nehme_elhachem.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "nehme_el-hachem"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76fa",
@@ -177,12 +177,12 @@
     "position": "Undergraduate Student",
     "bio": "Parsa is a second year undergraduate student in Memorial University, studying science. He is interested in studying dentistry and he hopes to gain lab work experience. On his spare time parsa likes to workout, travel and read.",
     "status": "alumni",
+    "slug": "parsa_sadeghi",
+    "links": [],
     "image": "parsa_sadeghi.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "parsa_sadeghi"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76fc",
@@ -190,12 +190,12 @@
     "position": "Undergraduate Student",
     "bio": "Melanie previously obtained a Bachelor of Science degree in Molecular Biology and Genetics from the University of Guelph.  Through her undergraduate coursework, she developed an interest in bioinformatics and genomics. She is now pursuing a postgraduate diploma in Bioinformatics from Seneca College.  Currently she is researching RNA-seq pipeline stability across cancer cell lines with a group of students from Seneca college.",
     "status": "alumni",
+    "slug": "melanie_dawe",
+    "links": [],
     "image": "melanie_dawe.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "melanie_dawe"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac770a",
@@ -203,12 +203,12 @@
     "position": "Undergraduate Student",
     "bio": "Christina Chung is an undergraduate at the University of Toronto. She studies Computer Science, Math and Statistics. She is interested in a variety of areas in Computer Science, and hopes to pursue research upon completing her undergrad.",
     "status": "alumni",
+    "slug": "christina_chung",
+    "links": [],
     "image": "christina-chung.jpeg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "christina_chung"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7712",
@@ -216,12 +216,12 @@
     "position": "Rotation Student",
     "bio": "Vishwesh graduated from Indian Institute of Technology, Madras, with a dual degree in Chemical Engineering and Data Sciences. During his undergrads, he became very much interested in computer vision and its applications in different domains, especially in medical imaging. He is currently pursuing a Ph.D  degree in Medical Biophysics with a keen interest in computer vision and machine learning applications in medical domain.",
     "status": "alumni",
+    "slug": "vishwesh_ramanathan",
+    "links": [],
     "image": "Vishwesh_ramanathan.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "vishwesh_ramanathan"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7728",
@@ -231,12 +231,12 @@
     "status": "alumni",
     "startDate": "2018-01-01T00:00:00.000Z",
     "endDate": "2019-01-01T00:00:00.000Z",
+    "slug": "jenny_wang",
+    "links": [],
     "image": "Jenny_Wang.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "jenny_wang"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7735",
@@ -246,12 +246,12 @@
     "status": "alumni",
     "startDate": "2018-01-01T00:00:00.000Z",
     "endDate": "2021-01-01T00:00:00.000Z",
+    "slug": "anthony_mammoliti",
+    "links": [],
     "image": "anthony_mammoliti.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "anthony_mammoliti"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76b1",
@@ -261,6 +261,7 @@
     "status": "alumni",
     "startDate": "2014-01-01T00:00:00.000Z",
     "endDate": null,
+    "slug": "petr_smirnov",
     "links": [
       {
         "type": "Google Scholar",
@@ -282,8 +283,7 @@
         "_id": "63c1dc208eb0ac02c0a73bb2"
       }
     ],
-    "__v": 0,
-    "slug": "petr_smirnov"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76e1",
@@ -293,12 +293,12 @@
     "status": "alumni",
     "startDate": "2019-01-01T00:00:00.000Z",
     "endDate": "2021-12-12T00:00:00.000Z",
+    "slug": "aria_rezaie",
+    "links": [],
     "image": "aria_rezaie.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "aria_rezaie"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76e2",
@@ -308,12 +308,12 @@
     "status": "alumni",
     "startDate": "2019-01-01T00:00:00.000Z",
     "endDate": "2021-01-01T00:00:00.000Z",
+    "slug": "denis_tkachuk",
+    "links": [],
     "image": "dennis_tk.png",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "denis_tkachuk"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76ff",
@@ -321,12 +321,12 @@
     "position": "Undergraduate Student",
     "bio": "Delvin completed his undergrad at Queen's University, where he obtained a Bachelor of Science degree focusing on Genetics and Molecular Biology. Nearing the end of his undergraduate studies, he developed an interest in Bioinformatics and is now completing a postgraduate program at Seneca College and afterwards, hopes to further his academic studies through a Master's degree. Currently, he is looking into the stability of various RNA-seq pipelines and potentially, the characteristics of such sequences that lend to their instability. ",
     "status": "alumni",
+    "slug": "delvin_so",
+    "links": [],
     "image": "delvin_so.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "delvin_so"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac771d",
@@ -334,12 +334,12 @@
     "position": "Undergraduate Student",
     "bio": "Vrishti Dutta is studying Computer Science in the University of Toronto. She is focused on learning and applying her knowledge in the field of Computer Vision and Machine Learning through the huge volumes of cancer research data. ",
     "status": "alumni",
+    "slug": "vrishti_dutta",
+    "links": [],
     "image": "vrishti.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "vrishti_dutta"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac771e",
@@ -347,12 +347,12 @@
     "position": "Undergraduate Student",
     "bio": "Jash Mehta is a second year student in the bioinformatics and computational biology program at UofT. Jash is interested in exploring the connection of biology and computer science from a genetic standpoint.",
     "status": "alumni",
+    "slug": "jash_mehta",
+    "links": [],
     "image": "Jash.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "jash_mehta"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7724",
@@ -360,12 +360,12 @@
     "position": "Intern",
     "bio": "Andy is an undergraduate Engineering Science student at the University of Toronto. He is passionate about applying machine learning to different fields and has first-hand experiences in computer vision research. Currently, he is working on an R script to predict drug response with synthetic lethality.",
     "status": "alumni",
+    "slug": "andy_liu",
+    "links": [],
     "image": "andy_liu.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "andy_liu"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7732",
@@ -375,6 +375,7 @@
     "status": "alumni",
     "startDate": "2016-01-01T00:00:00.000Z",
     "endDate": "2021-01-01T00:00:00.000Z",
+    "slug": "wail_ba-alawi",
     "links": [
       {
         "link": "https://scholar.google.ca/citations?user=A72upBQAAAAJ&hl=en",
@@ -384,8 +385,7 @@
     "image": "wail_baalawi.jpg",
     "display": true,
     "contactInfo": [],
-    "__v": 0,
-    "slug": "wail_ba-alawi"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac773a",
@@ -393,12 +393,12 @@
     "position": "Rotation Student",
     "bio": "Ben Grant is a first year Masters student in the Department of Medical Biophysics at UofT. He completed his undergraduate degree in Biochemistry at McMaster University in 2016 with a focus on physical sciences. His previous research experience includes two sessions as an MBP summer research student in the Ikura Lab at UofT, studying protein-protein interactions by NMR. He is working on leveraging proteomic profiling of cancer cell lines to investigate potential biomarker of drug response.",
     "status": "alumni",
+    "slug": "benjamin_grant",
+    "links": [],
     "image": "benjamin_grant.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "benjamin_grant"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7745",
@@ -406,11 +406,11 @@
     "position": "Bioinformatics analyst",
     "startDate": "2012-01-01T00:00:00.000Z",
     "endDate": "2014-01-01T00:00:00.000Z",
-    "display": false,
+    "slug": "alexis_blanchet-cohen",
     "links": [],
+    "display": false,
     "contactInfo": [],
-    "__v": 0,
-    "slug": "alexis_blanchet-cohen"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7746",
@@ -418,11 +418,11 @@
     "position": "Masters Student",
     "startDate": "2019-01-01T00:00:00.000Z",
     "endDate": "2021-12-12T00:00:00.000Z",
-    "display": false,
+    "slug": "sabrina_ge",
     "links": [],
+    "display": false,
     "contactInfo": [],
-    "__v": 0,
-    "slug": "sabrina_ge"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76c3",
@@ -432,6 +432,8 @@
     "status": "current member",
     "startDate": "2022-05-09T00:00:00.000Z",
     "endDate": "2022-08-26T00:00:00.000Z",
+    "slug": "julia_nguyen",
+    "links": [],
     "image": "Julia_Nguyen.jpg",
     "display": true,
     "contactInfo": [
@@ -451,9 +453,7 @@
         "_id": "63c1dc208eb0ac02c0a73bf4"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "julia_nguyen"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76d0",
@@ -463,12 +463,12 @@
     "status": "alumni",
     "startDate": "2017-01-01T00:00:00.000Z",
     "endDate": "2018-01-01T00:00:00.000Z",
+    "slug": "vandana_sandhu",
+    "links": [],
     "image": "vandana_sandhu.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "vandana_sandhu"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76d2",
@@ -478,6 +478,7 @@
     "status": "alumni",
     "startDate": "2014-01-01T00:00:00.000Z",
     "endDate": "2017-01-01T00:00:00.000Z",
+    "slug": "deena_gendoo",
     "links": [
       {
         "type": "Google Scholar",
@@ -488,8 +489,7 @@
     "image": "deena_gendoo.jpg",
     "display": true,
     "contactInfo": [],
-    "__v": 0,
-    "slug": "deena_gendoo"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76df",
@@ -499,6 +499,8 @@
     "status": "alumni",
     "startDate": "2019-01-01T00:00:00.000Z",
     "endDate": "2021-01-01T00:00:00.000Z",
+    "slug": "deirdre_kelly",
+    "links": [],
     "image": "deirdre_kelly.jpg",
     "display": true,
     "contactInfo": [
@@ -513,9 +515,7 @@
         "_id": "63c1dc208eb0ac02c0a73c04"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "deirdre_kelly"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76e3",
@@ -525,12 +525,12 @@
     "status": "alumni",
     "startDate": "2016-01-01T00:00:00.000Z",
     "endDate": "2017-01-01T00:00:00.000Z",
+    "slug": "megan_mccusker",
+    "links": [],
     "image": "megan_mccusker.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "megan_mccusker"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76f0",
@@ -540,12 +540,12 @@
     "status": "alumni",
     "startDate": "2015-01-01T00:00:00.000Z",
     "endDate": "2017-01-01T00:00:00.000Z",
+    "slug": "mark_freeman",
+    "links": [],
     "image": "mark_freeman.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "mark_freeman"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76fd",
@@ -553,12 +553,12 @@
     "position": "Undergraduate Student",
     "bio": "Sandeep earned her BSc in Biochemistry from the University of Waterloo.  She is currently pursuing a Graduate Certificate in Bioinformatics at Seneca College.  She is currently working on an ongoing project with a group of students from Seneca which involves looking at pipeline stability across cancer cell lines. ",
     "status": "alumni",
+    "slug": "sandeep_hunjan",
+    "links": [],
     "image": "sandeep_hunjan.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "sandeep_hunjan"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7715",
@@ -566,12 +566,12 @@
     "position": "Rotation Student",
     "bio": "Jessica Ray received her BSc from McGill University studying Anatomy and Cell Biology, and is currently completing MSc rotations in the Department of Medical Biophysics at the University of Toronto, with a research interest on biomarker development. She has previously conducted research into long-non coding RNAs in tumor radiation response, and molecular mechanisms of adverse pharmacological events.",
     "status": "alumni",
+    "slug": "jessica_ray",
+    "links": [],
     "image": "jessica_ray.jpeg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "jessica_ray"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7721",
@@ -579,12 +579,12 @@
     "position": "Intern",
     "bio": "Jonathan Zhao obtained his Master of Science in mathematics from Western University and is currently pursuing his MD at the University of Toronto. He is interested in applying topological and machine learning methods to pharmacogenomics data. He hopes that his work will eventually make its way into the clinic and he hopes to contribute to the goal of personalized medicine.",
     "status": "alumni",
+    "slug": "jonathan_zhao",
+    "links": [],
     "image": "jonathan_zhao.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "jonathan_zhao"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7736",
@@ -592,12 +592,12 @@
     "position": "Undergraduate Student",
     "bio": "Nicolas De Jay earned his BSc in Bioinformatics at the Université de Montréal. He has worked with Dr. Sebastien Lemieux at the Institut de recherche en immunologie et cancer on developing a metric for assessing the performance of various DNA microarray normalization algorithms and ordering statistics. He has then worked with Dr. Benjamin Haibe-Kains at the Institut de recherche cliniques de Montréal on developing the mRMRe package, a highly-parallellized ensemble variant of the minimum Redundancy, Maximum Relevance (mRMR) feature selection algorithm. Nicolas De Jay is currently pursuing his MSc in Human Genetics at McGill University under the supervision of Dr. Nada Jabado, in Montreal, Canada. His MSc research project is focused on integrating statistics and biology to the problem of fusion transcript discovery on next-generation sequencing data., more specifically RNA-Seq.",
     "status": "alumni",
+    "slug": "nicolas_de_jay",
+    "links": [],
     "image": "nicolas_de_jay.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "nicolas_de_jay"
+    "__v": 0
   },
   {
     "_id": "63c1dc208eb0ac02c0a73b34",
@@ -605,11 +605,11 @@
     "position": "Software Developer",
     "startDate": "2022-01-01T00:00:00.000Z",
     "endDate": null,
-    "display": true,
+    "slug": "jermiah_joseph",
     "links": [],
+    "display": true,
     "contactInfo": [],
-    "__v": 0,
-    "slug": "jermiah_joseph"
+    "__v": 0
   },
   {
     "_id": "63c1dc208eb0ac02c0a73b35",
@@ -617,11 +617,11 @@
     "position": "Research Volunteer",
     "startDate": "2022-01-01T00:00:00.000Z",
     "endDate": null,
-    "display": true,
+    "slug": "brian_huang",
     "links": [],
+    "display": true,
     "contactInfo": [],
-    "__v": 0,
-    "slug": "brian_huang"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76be",
@@ -631,6 +631,8 @@
     "status": "current member",
     "startDate": "2020-01-01T00:00:00.000Z",
     "endDate": null,
+    "slug": "nikta_feizi",
+    "links": [],
     "image": "nikta_feizi.jpg",
     "display": true,
     "contactInfo": [
@@ -645,9 +647,7 @@
         "_id": "63c1dc208eb0ac02c0a73b42"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "nikta_feizi"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76c7",
@@ -657,6 +657,8 @@
     "status": "alumni",
     "startDate": "2022-05-09T00:00:00.000Z",
     "endDate": null,
+    "slug": "yunni_qu",
+    "links": [],
     "image": "yunni_qu.jpeg",
     "display": true,
     "contactInfo": [
@@ -666,9 +668,7 @@
         "_id": "63c1dc208eb0ac02c0a73b44"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "yunni_qu"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76c8",
@@ -678,6 +678,8 @@
     "status": "alumni",
     "startDate": "2022-05-24T00:00:00.000Z",
     "endDate": null,
+    "slug": "jonas_wang",
+    "links": [],
     "image": "Jonas_Wang.png",
     "display": true,
     "contactInfo": [
@@ -697,9 +699,7 @@
         "_id": "63c1dc208eb0ac02c0a73b48"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "jonas_wang"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76cd",
@@ -709,6 +709,7 @@
     "status": "alumni",
     "startDate": "2020-01-01T00:00:00.000Z",
     "endDate": "2021-01-01T00:00:00.000Z",
+    "slug": "jun_won_kim",
     "links": [
       {
         "type": "Google Scholar",
@@ -719,8 +720,7 @@
     "image": "jun_won_kim.jpg",
     "display": true,
     "contactInfo": [],
-    "__v": 0,
-    "slug": "jun_won_kim"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7702",
@@ -730,6 +730,7 @@
     "status": "alumni",
     "startDate": "2012-01-01T00:00:00.000Z",
     "endDate": "2013-01-01T00:00:00.000Z",
+    "slug": "simon_papillon-cavanagh",
     "links": [
       {
         "type": "Google Scholar",
@@ -740,8 +741,7 @@
     "image": "simon_papillon_cavanagh.jpg",
     "display": true,
     "contactInfo": [],
-    "__v": 0,
-    "slug": "simon_papillon-cavanagh"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7707",
@@ -751,12 +751,12 @@
     "status": "alumni",
     "startDate": "2015-01-01T00:00:00.000Z",
     "endDate": "2015-01-01T00:00:00.000Z",
+    "slug": "gregory_chen",
+    "links": [],
     "image": "gregory_chen.jpeg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "gregory_chen"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac771c",
@@ -764,12 +764,12 @@
     "position": "Undergraduate Student",
     "bio": "Behyad is an undergraduate student studying Cell and Systems Biology, Immunology and Statistics. He is interested in algorithmically studying the relationship between transcriptomics and proteomics, and he is focused on applying my statistical and programming knowledge to analyzing big data sets.",
     "status": "alumni",
+    "slug": "behyad_rahmati",
+    "links": [],
     "image": "Behyad.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "behyad_rahmati"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7720",
@@ -777,12 +777,12 @@
     "position": "Volunteer",
     "bio": "I am a financial and data analytics professional embracing challenges in my career journey. My education background is economic science and project management, graduated from University of Rouen in 2004 (Master's degree, major in Industrial and Financial Dynamic Strategy) and International Space University in 2006 (Master's degree, major in Space Management). After 8 years working at Rogers [1] in various roles (e.g., credit operation, sales audit and financial analysis), I do believe numbers tell stories; “Data brings knowledge” [2]. Stats is not one silver bullet for all issues, but a science assisting us to mitigate risks or “turn risks into opportunities”. In order to polish and enhance my analytical skills, I completed Data Science Certification program designed by University of Toronto in 2018.\nBecoming one of the best business planners is my goal. Why am I here, in BHK lab? Because of amazing people here and because supporting cancer research is helping Canadiens and people all over the world to have a better life.\nI love to use “balance” to describe myself; it is one of things on which I am devoting my time to keep them happening. I love adventures; I am a fan of baseball, basketball, squash, chess, funny & strategy video games, horse riding, sailing and hot yoga; I enjoy meeting friends, playing volleyball, sketching, listening to music, reading, cooking, and of course coding for process automation.\nI use Nike’s motto as mine: “Just do it.” Wish to share my knowledge and make more good friends.\n[1] A leader in telecom and media industry in Canada.\n[2] Hastie T., Tibshirani R., Friedman J., The Elements of Statistical Learning, Data Mining, Inference, and Prediction, 2nd Edition, January 2017",
     "status": "alumni",
+    "slug": "claire_tang",
+    "links": [],
     "image": "claire_tang.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "claire_tang"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac773b",
@@ -790,12 +790,12 @@
     "position": "Rotation Student",
     "bio": "Danielle obtained her Hon. B.Sc. from the University of Toronto in Biophysics and Mathematics. She recently joined the Department of Medical Biophysics as a first-year M.Sc. student. She became interested in computational epigenomics while investigating the use of knockout controls in ChIP-seq transcription factor binding site prediction and motif elucidation in her fourth-year project. She is interested in exploring epigenetic regulation in the context of cancer.",
     "status": "alumni",
+    "slug": "danielle_denisko",
+    "links": [],
     "image": "danielle_denisko.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "danielle_denisko"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7742",
@@ -803,12 +803,12 @@
     "position": "Undergraduate Student",
     "bio": "Tamara Mahbubani is a first year Engineering Science student at the University of Toronto. She is a summer student at the BHK lab and will be creating a tool that produces an interactive heat map given a certain set of data. She is interested in pursuing biomedical engineering and is excited to be doing a project that relates to cancer research.",
     "status": "alumni",
+    "slug": "tamara_mahbubani",
+    "links": [],
     "image": "tamara_mahbubani.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "tamara_mahbubani"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7747",
@@ -817,11 +817,11 @@
     "status": "alumni",
     "startDate": "2021-01-01T00:00:00.000Z",
     "endDate": "2021-01-01T00:00:00.000Z",
-    "display": false,
+    "slug": "nora_samhadaneh",
     "links": [],
+    "display": false,
     "contactInfo": [],
-    "__v": 0,
-    "slug": "nora_samhadaneh"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac774b",
@@ -830,6 +830,8 @@
     "status": "alumni",
     "startDate": "2022-05-24T00:00:00.000Z",
     "endDate": null,
+    "slug": "erik_ensminger",
+    "links": [],
     "display": false,
     "contactInfo": [
       {
@@ -843,9 +845,7 @@
         "_id": "63c1dc208eb0ac02c0a73b6d"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "erik_ensminger"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76b6",
@@ -855,6 +855,8 @@
     "status": "current member",
     "startDate": "2020-01-01T00:00:00.000Z",
     "endDate": null,
+    "slug": "foram_vyas",
+    "links": [],
     "image": "foram_vyas.jpg",
     "display": true,
     "contactInfo": [
@@ -874,9 +876,7 @@
         "_id": "63c1dc208eb0ac02c0a73b71"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "foram_vyas"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76d1",
@@ -886,6 +886,7 @@
     "status": "alumni",
     "startDate": "2015-01-01T00:00:00.000Z",
     "endDate": "2018-01-01T00:00:00.000Z",
+    "slug": "venkata_manem",
     "links": [
       {
         "type": "Google Scholar",
@@ -896,8 +897,7 @@
     "image": "venkata_manem.jpeg",
     "display": true,
     "contactInfo": [],
-    "__v": 0,
-    "slug": "venkata_manem"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76e4",
@@ -907,12 +907,12 @@
     "status": "alumni",
     "startDate": "2019-01-01T00:00:00.000Z",
     "endDate": "2021-01-01T00:00:00.000Z",
+    "slug": "michal_kazmierski",
+    "links": [],
     "image": "michal.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "michal_kazmierski"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76e8",
@@ -922,12 +922,12 @@
     "status": "alumni",
     "startDate": "2015-01-01T00:00:00.000Z",
     "endDate": "2017-01-01T00:00:00.000Z",
+    "slug": "emily_heath",
+    "links": [],
     "image": "Emily_Heath.jpeg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "emily_heath"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76f4",
@@ -937,12 +937,12 @@
     "status": "alumni",
     "startDate": "2019-01-01T00:00:00.000Z",
     "endDate": "2020-01-01T00:00:00.000Z",
+    "slug": "amin_noorani",
+    "links": [],
     "image": "amin_noorani.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "amin_noorani"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76f6",
@@ -952,12 +952,12 @@
     "status": "alumni",
     "startDate": "2019-05-01T00:00:00.000Z",
     "endDate": "2019-08-01T00:00:00.000Z",
+    "slug": "amy_tang",
+    "links": [],
     "image": "amy_tang.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "amy_tang"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76fb",
@@ -965,12 +965,12 @@
     "position": "Undergraduate Student",
     "bio": "Mahamed Suleiman is currently working a postgraduate Bioinformatics program offered at Seneca. His interests lie in computational biology and next-gen sequencing. He is currently researching pipeline stability across cancer cell lines as part of a small group from Seneca college. ",
     "status": "alumni",
+    "slug": "mahamed_suleiman",
+    "links": [],
     "image": "mahamed_suleiman.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "mahamed_suleiman"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac770d",
@@ -978,12 +978,12 @@
     "position": "Undergraduate Student",
     "bio": "Rathusshan Kuganesan is an undergraduate student at the University of Toronto, studying Computer Science. His interests includes software engineering and human-computer interaction, as it pertains to help solve today's problems. Rathusshan aims to further his knowledge through interdisciplinary research. ",
     "status": "alumni",
+    "slug": "rathusshan_kuganesan",
+    "links": [],
     "image": "rathusshan-kuganesan.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "rathusshan_kuganesan"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac772a",
@@ -993,6 +993,8 @@
     "status": "current member",
     "startDate": "2020-01-01T00:00:00.000Z",
     "endDate": null,
+    "slug": "caryn_geady",
+    "links": [],
     "image": "caryn_geady.png",
     "display": true,
     "contactInfo": [
@@ -1017,9 +1019,7 @@
         "_id": "63c1dc208eb0ac02c0a73b9f"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "caryn_geady"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac772e",
@@ -1029,6 +1029,7 @@
     "status": "alumni",
     "startDate": "2016-01-01T00:00:00.000Z",
     "endDate": "2021-01-01T00:00:00.000Z",
+    "slug": "arvind_singh_mer",
     "links": [
       {
         "link": "https://scholar.google.ca/citations?hl=en&user=Xy6KKl8AAAAJ",
@@ -1038,8 +1039,7 @@
     "image": "Arvind_Mer.jpeg",
     "display": true,
     "contactInfo": [],
-    "__v": 0,
-    "slug": "arvind_singh_mer"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7743",
@@ -1047,12 +1047,12 @@
     "position": "Rotation Student",
     "bio": "Yuan (William) Gao received his Master of Science in Pharmacology and Toxicology from the University of Toronto in the field of pharmacogenomics and smoking addiction. William completed many bioinformatics projects to understand addiction and improve smoking cessation using transcriptional and genetic sequencing datasets. During his Masters, he grew fascinated with the field of machine learning and its applications to personalized medicine. He is now pursuing a Ph.D. degree in the Department of Medical Biophysics, interested in machine learning and its applications in high throughput pharmacogenomic datasets.",
     "status": "alumni",
+    "slug": "yuan_(william)_gao",
+    "links": [],
     "image": "Yuan_Gao.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "yuan_(william)_gao"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76b5",
@@ -1062,6 +1062,8 @@
     "status": "current member",
     "startDate": "2019-01-01T00:00:00.000Z",
     "endDate": null,
+    "slug": "joseph_marsilla",
+    "links": [],
     "image": "joseph.jpg",
     "display": true,
     "contactInfo": [
@@ -1076,9 +1078,7 @@
         "_id": "63c1dc208eb0ac02c0a73bae"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "joseph_marsilla"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76c4",
@@ -1088,6 +1088,8 @@
     "status": "alumni",
     "startDate": "2022-05-02T00:00:00.000Z",
     "endDate": null,
+    "slug": "prabhkirat_kaur",
+    "links": [],
     "image": "Prabhkirat_Kaur.jpg",
     "display": true,
     "contactInfo": [
@@ -1102,9 +1104,7 @@
         "_id": "63c1dc208eb0ac02c0a73bbb"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "prabhkirat_kaur"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7703",
@@ -1112,12 +1112,12 @@
     "position": "Undergraduate Student",
     "bio": "Pierre-Olivier Bachant-Winner recently earned his B.Sc in engineering physics in the field of biomedical physics at the Polytechnique of Montreal, Canada. Having realized many internships in applied engineering, some for the multinational Bombardier, Pierre-Olivier decided in 2013 to undertake an internship in academic research in the field of computational biology at the IRCM, under the supervision of Dr. Haibe-Kains. While working at the IRCM, Pierre-Olivier collaborated on a project in breast cancer immunology with Dr. Katrina Podsypanina. During his internship, he created a subtype specific meta-analysis pipeline based on clustering techniques that enables the identification of unique genomic features of breast cancer that can be used to predict patients' survival.",
     "status": "alumni",
+    "slug": "pierre-olivier_bachant-winner",
+    "links": [],
     "image": "po_bachant_winner.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "pierre-olivier_bachant-winner"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7716",
@@ -1125,12 +1125,12 @@
     "position": "Rotation Student",
     "bio": "James Pemberton is a first year Medical Biophysics student at the University of Toronto who has strong interests in researching the various protein to protein interactions that take-part in the progression of neoplastic cells.  As a new graduate student with background in molecular and cellular biology, James is looking to enhance his research in cancer biology with an approach in bioinformatics and computational genomics.",
     "status": "alumni",
+    "slug": "james_pemberton",
+    "links": [],
     "image": "james_pemberton.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "james_pemberton"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7723",
@@ -1140,12 +1140,12 @@
     "status": "alumni",
     "startDate": "2020-01-01T00:00:00.000Z",
     "endDate": "2021-01-01T00:00:00.000Z",
+    "slug": "kevin_shen",
+    "links": [],
     "image": "kevin_shen.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "kevin_shen"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7729",
@@ -1153,12 +1153,12 @@
     "position": "Intern",
     "bio": "Taral holds a Bachelor degree in Biomedical and Instrumentation Engineering form Ganpat University, India and Master's degree in Biomedical Engineering from Wayne State University, USA. After that, He joined CompuMed Inc. in Los Angeles as Telemedicine Lead Engineer where He worked with various healthcare IT projects. He also has Microsoft Certification in Data Science. He has worked on developing various Data Analysis tools for PACS, RIS and Health Records with CompuMed.&nbsp; He wants to pursue research which involves the use of Data Analysis techniques to better understand biological data and apply machine learning methods. He is also interested in pursuing PhD in Bioinformatics. ",
     "status": "alumni",
+    "slug": "taral_shah",
+    "links": [],
     "image": "Taral_Shah_BW.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "taral_shah"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac773c",
@@ -1166,24 +1166,24 @@
     "position": "Rotation Student",
     "bio": "Pamela is a first year Masters student in the Department of Medical Biophysics at the University of Toronto. She graduated with an Honours Bachelor of Science degree from the University of Toronto, majoring in Biochemistry and Physiology. In May of 2013, Pamela began research under the supervision of Dr. Rebecca Laposa in the Department of Pharmacology and Toxicology, working on a project that targeted the mitochondrial RNA polymerase in acute myeloid leukemia. Since May of 2014, Pamela has been working in the laboratory of Dr. Fei-Fei Liu at the Princess Margaret Cancer Centre. In this lab, she has completed two years of the Medical Biophysics Summer Student Program as well as an undergraduate thesis project focusing on the reversal of radiation fibrosis using adipose-derived stem cells. This project has a pharmacogenomic component that involves a collaboration between the Haibe-Kains and Liu labs. ",
     "status": "alumni",
+    "slug": "pamela_psarianos",
+    "links": [],
     "image": "pamela_psarianos.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "pamela_psarianos"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7741",
     "name": "Monica Chung",
     "position": "Undergraduate Student",
     "status": "alumni",
+    "slug": "monica_chung",
+    "links": [],
     "image": "monica_chung.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "monica_chung"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7744",
@@ -1191,11 +1191,11 @@
     "position": "Volunteer",
     "startDate": "2019-01-01T00:00:00.000Z",
     "endDate": "2020-01-01T00:00:00.000Z",
-    "display": false,
+    "slug": "mina_mahdian",
     "links": [],
+    "display": false,
     "contactInfo": [],
-    "__v": 0,
-    "slug": "mina_mahdian"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76bb",
@@ -1205,6 +1205,8 @@
     "status": "current member",
     "startDate": "2019-01-01T00:00:00.000Z",
     "endDate": null,
+    "slug": "minoru_nakano",
+    "links": [],
     "image": "minoru_nakano.jpg",
     "display": true,
     "contactInfo": [
@@ -1219,9 +1221,7 @@
         "_id": "63c1dc208eb0ac02c0a73bef"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "minoru_nakano"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76cb",
@@ -1231,12 +1231,12 @@
     "status": "alumni",
     "startDate": "2019-01-01T00:00:00.000Z",
     "endDate": "2021-01-01T00:00:00.000Z",
+    "slug": "reza_reiazi",
+    "links": [],
     "image": "reza_reiazi_2.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "reza_reiazi"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76d7",
@@ -1244,12 +1244,12 @@
     "position": "Postdoctoral Fellow",
     "bio": "Dr Janosch Ortmann holds a Horizon postdoctoral fellowship at Concordia University in Montréal. He earned his PhD in mathematics at the University of Warwick, (UK) and then completed a postdoctoral fellowship at the University of Toronto. He collaborates on a project to study the response to chemotherapy in patient-derived tumours implanted in mice. The first part of the project consists of the development of new statistical methods to quantify the response of a tumour to therapy. The second part develops applications of statistical tests and machine learning tools to linking the tumour's response to therapy with the patient's genomic profile.",
     "status": "alumni",
+    "slug": "janosch_ortmann",
+    "links": [],
     "image": "janosch_ortmann.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "janosch_ortmann"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76eb",
@@ -1257,12 +1257,12 @@
     "position": "Undergraduate Student",
     "bio": "Frank is an undergraduate student at McMaster University studying Health Sciences. His research interests include applications of ML to imaging diagnostics, and personalized cancer genomics treatment. At the lab he is working with differential gene expression and RNA-seq data analysis.",
     "status": "alumni",
+    "slug": "frank_chen",
+    "links": [],
     "image": "frank_chen.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "frank_chen"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76f9",
@@ -1270,12 +1270,12 @@
     "position": "Undergraduate Student",
     "bio": "Fynn Schmitt-Ulms is an undergraduate student at McGill University studying Computer Science and Statistics with a focus on Machine Learning. He is interested in using machine learning techniques to explore biological phenomena and improve cancer treatment. In his spare time, he enjoys going for bike rides and exercising.",
     "status": "alumni",
+    "slug": "fynn_schmitt-ulms",
+    "links": [],
     "image": "fynn_schmitt.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "fynn_schmitt-ulms"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7714",
@@ -1283,12 +1283,12 @@
     "position": "Rotation Student",
     "bio": "Meghan is part of the medical biophysics graduate program at U of T. She completed her undergrad at the University of Guelph in Toxicology, where she was introduced to many of the concepts related to carcinogenesis and cancer treatment. She is interested in supplementing her wet lab experience with computational biology, and is excited to have the opportunity to learn these skills during the rotation process.",
     "status": "alumni",
+    "slug": "meghan_lambie",
+    "links": [],
     "image": "meghan_lambie.jpeg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "meghan_lambie"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac772c",
@@ -1299,6 +1299,7 @@
     "status": "alumni",
     "startDate": "2016-01-01T00:00:00.000Z",
     "endDate": "2020-01-01T00:00:00.000Z",
+    "slug": "seyed_ali_madani_tonekaboni",
     "links": [
       {
         "link": " https://scholar.google.ca/citations?user=X-BUd5EAAAAJ&hl=en&oi=ao",
@@ -1308,8 +1309,7 @@
     "image": "ali_madani.jpg",
     "display": true,
     "contactInfo": [],
-    "__v": 0,
-    "slug": "seyed_ali_madani_tonekaboni"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7733",
@@ -1319,12 +1319,12 @@
     "status": "alumni",
     "startDate": "2018-01-01T00:00:00.000Z",
     "endDate": "2021-12-12T00:00:00.000Z",
+    "slug": "farnoosh_khodakarami",
+    "links": [],
     "image": "farnoosh_khodakarami.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "farnoosh_khodakarami"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac774c",
@@ -1332,6 +1332,8 @@
     "position": "Medical Oncology Fellow",
     "startDate": "2022-01-01T00:00:00.000Z",
     "endDate": null,
+    "slug": "kevin_wang",
+    "links": [],
     "display": false,
     "contactInfo": [
       {
@@ -1345,9 +1347,7 @@
         "_id": "63c1dc208eb0ac02c0a73c22"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "kevin_wang"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76af",
@@ -1357,6 +1357,8 @@
     "status": "current member",
     "startDate": "2020-01-01T00:00:00.000Z",
     "endDate": null,
+    "slug": "mattea_welch",
+    "links": [],
     "image": "mattea_welch.jpg",
     "display": true,
     "contactInfo": [
@@ -1371,9 +1373,7 @@
         "_id": "63c1dc208eb0ac02c0a73b38"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "mattea_welch"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76b4",
@@ -1383,6 +1383,8 @@
     "status": "current member",
     "startDate": "2021-01-01T00:00:00.000Z",
     "endDate": null,
+    "slug": "zeinab_navidi",
+    "links": [],
     "image": "zeinab_navidi.jpeg",
     "display": true,
     "contactInfo": [
@@ -1392,9 +1394,7 @@
         "_id": "63c1dc208eb0ac02c0a73b3c"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "zeinab_navidi"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76bd",
@@ -1404,6 +1404,8 @@
     "status": "current member",
     "startDate": "2018-01-01T00:00:00.000Z",
     "endDate": null,
+    "slug": "sisira_kadambat_nair",
+    "links": [],
     "image": "Sisira.jpg",
     "display": true,
     "contactInfo": [
@@ -1418,9 +1420,7 @@
         "_id": "63c1dc208eb0ac02c0a73b3f"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "sisira_kadambat_nair"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76cf",
@@ -1430,12 +1430,12 @@
     "status": "alumni",
     "startDate": "2014-01-01T00:00:00.000Z",
     "endDate": "2019-01-01T00:00:00.000Z",
+    "slug": "zhaleh_safikhani",
+    "links": [],
     "image": "zhaleh_safikhani.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "zhaleh_safikhani"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76d3",
@@ -1443,6 +1443,7 @@
     "position": "Postdoctoral Research Fellow",
     "bio": "Dr. Jeff Bruce received his PhD in Cell and Molecular Biology from the University of Toronto under the supervision of Dr. Fei-Fei Liu in the department of Medical Biophysics.&nbsp; During his PhD Jeff worked on identifying biological and clinical uses for micro-RNAs in the treatment and diagnosis of head and neck cancers.&nbsp; Currently, Jeff is focused on using a variety of computational approaches to translate multiple types of molecular data from patient tumour and healthy tissue samples into clinically actionable insight.",
     "status": "alumni",
+    "slug": "jeff_bruce",
     "links": [
       {
         "type": "Google Scholar",
@@ -1453,8 +1454,7 @@
     "image": "jeff_bruce.jpg",
     "display": true,
     "contactInfo": [],
-    "__v": 0,
-    "slug": "jeff_bruce"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76e0",
@@ -1464,12 +1464,12 @@
     "status": "alumni",
     "startDate": "2020-01-01T00:00:00.000Z",
     "endDate": "2021-01-01T00:00:00.000Z",
+    "slug": "shaun_shepherd",
+    "links": [],
     "image": "shaun_shepherd.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "shaun_shepherd"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76ed",
@@ -1479,12 +1479,12 @@
     "status": "alumni",
     "startDate": "2020-01-01T00:00:00.000Z",
     "endDate": "2021-01-01T00:00:00.000Z",
+    "slug": "evgeniya_gorobets",
+    "links": [],
     "image": "evgeniya_gorobets.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "evgeniya_gorobets"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7704",
@@ -1495,12 +1495,12 @@
     "status": "alumni",
     "startDate": "2014-01-01T00:00:00.000Z",
     "endDate": "2014-01-01T00:00:00.000Z",
+    "slug": "dong_yao_(donald)_wang",
+    "links": [],
     "image": "dong_wang.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "dong_yao_(donald)_wang"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7713",
@@ -1508,12 +1508,12 @@
     "position": "Rotation Student",
     "bio": "Nina is a graduate student with the Department of Medical Biophysics at the University of Toronto. She completed her Bachelor of Science at the University of Toronto with a focus on Human Biology and Cell & Systems Biology. Her current work focuses on combination drug response prediction using cell line and patient data.",
     "status": "alumni",
+    "slug": "tingting_(nina)_wang",
+    "links": [],
     "image": "nina_wang.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "tingting_(nina)_wang"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7740",
@@ -1521,12 +1521,12 @@
     "position": "PhD Student",
     "bio": "Lauren has pursued cancer research for over a decade, first with an Honours Bachelor of Science in Biochemistry from University of Toronto, followed by a Master of Science in Experimental Medicine from McGill University. After graduating, she worked as a research technician at the Hospital for Sick Children, assisting with projects relating to neurological cancers, before returning to the University of Toronto to obtain her doctorate in the Department of Medical Biophysics. As a PhD student, Lauren joins the Haibe-Kains lab to study the suppression of mutant oncogenes in the context of cancer, aiming to expand her bioinformatics knowledge and skillset in ways that inform her wet-lab work, which surrounds cancer cell signaling and is performed under the co-supervision of Dr. Vuk Stambolic.",
     "status": "alumni",
+    "slug": "lauren_podmore",
+    "links": [],
     "image": "lauren_podmore.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "lauren_podmore"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76c0",
@@ -1534,12 +1534,12 @@
     "position": "Intern",
     "bio": "Grace is a 3rd Year undergraduate student studying Computer Science and Bioinformatics at University of Toronto. She is interested in using computer science to explore the mechanism behind cancer and ageing. She is currently working on a course project at BHK's lab which involves using few-shot learning to predict drug response on clinical cancer cell lines.",
     "status": "current member",
+    "slug": "grace_yu",
+    "links": [],
     "image": "Grace_Yu.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "grace_yu"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76d8",
@@ -1549,6 +1549,7 @@
     "status": "alumni",
     "startDate": "2020-01-01T00:00:00.000Z",
     "endDate": "2021-01-01T00:00:00.000Z",
+    "slug": "hossein_sharifi-noghabi",
     "links": [
       {
         "type": "Github",
@@ -1559,8 +1560,7 @@
     "image": "hossein_sharifi_noghabi.jpeg",
     "display": true,
     "contactInfo": [],
-    "__v": 0,
-    "slug": "hossein_sharifi-noghabi"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76fe",
@@ -1568,12 +1568,12 @@
     "position": "Undergraduate Student",
     "bio": "Sarah earned her Honours Bachelor of Science from University of Toronto, where she majored in Human Biology and Cell & Molecular Biology. She is currently completing her Bioinformatics Graduate Certificate Program at Seneca College. Her current project focuses on investigating bioinformatics software pipeline stability for the analysis of gene expression across cancer cell lines.",
     "status": "alumni",
+    "slug": "sarah_ma",
+    "links": [],
     "image": "sarah_ma.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "sarah_ma"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7706",
@@ -1581,12 +1581,12 @@
     "position": "Undergraduate Student",
     "bio": "Natchar is currently an undergraduate student at the University of British Columbia, pursuing a combined honours degree in Biology and Computer Science. She has recently been involved in autophagy research in relation to human vascular smooth muscle cells. Natchar intends to apply her Computer Science knowledge to other fields of research, including bioinformatics and medicine.",
     "status": "alumni",
+    "slug": "natchar_ratanasirigulchal",
+    "links": [],
     "image": "natchar_ratanasirigulchal.jpeg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "natchar_ratanasirigulchal"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7717",
@@ -1594,12 +1594,12 @@
     "position": "Rotation Student",
     "bio": "Joe completed a Bachelor of Science Degree in Biochemistry with a specialization in Molecular Biology at McMaster University. He went on to complete graduate studies in Biotechnology and Physical Therapy and has spent time working in a diversity of fields including management consulting, pharmaceutical marketing and as a physical therapist. A love of science and a strong desire to pursue a research career research inspired Joe to return for doctoral studies in the Medical Biophysics department at the University of Toronto. Joe's current research interests include the application of next generation sequencing technologies and epigenetics to the study of cancer biology.",
     "status": "alumni",
+    "slug": "joe_walton",
+    "links": [],
     "image": "joe_walton.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "joe_walton"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7737",
@@ -1609,6 +1609,7 @@
     "status": "alumni",
     "startDate": "2017-01-01T00:00:00.000Z",
     "endDate": "2017-01-01T00:00:00.000Z",
+    "slug": "sakeena_panju",
     "links": [
       {
         "link": "https://scholar.google.ca/citations?user=pc2MBJ4AAAAJ&hl=en",
@@ -1618,8 +1619,7 @@
     "image": "sakeena_panju.jpg",
     "display": true,
     "contactInfo": [],
-    "__v": 0,
-    "slug": "sakeena_panju"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac773f",
@@ -1627,12 +1627,12 @@
     "position": "Undergraduate Student",
     "bio": "Kenan Deng is an undergraduate at the University of Toronto. He studies Computer Science. He is interested in artificial intelligence and computer vision. And he hopes to further his studies in various areas in Computer Science.",
     "status": "alumni",
+    "slug": "kenan_deng",
+    "links": [],
     "image": "kenan_deng.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "kenan_deng"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7749",
@@ -1640,11 +1640,11 @@
     "position": "Visiting BSc Student",
     "startDate": "2021-01-01T00:00:00.000Z",
     "endDate": "2021-01-01T00:00:00.000Z",
-    "display": false,
+    "slug": "ferran_lopez_guitart",
     "links": [],
+    "display": false,
     "contactInfo": [],
-    "__v": 0,
-    "slug": "ferran_lopez_guitart"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76b3",
@@ -1654,6 +1654,8 @@
     "status": "current member",
     "startDate": "2017-01-01T00:00:00.000Z",
     "endDate": null,
+    "slug": "ian_smith",
+    "links": [],
     "image": "ian_smith.jpg",
     "display": true,
     "contactInfo": [
@@ -1668,9 +1670,7 @@
         "_id": "63c1dc208eb0ac02c0a73bb5"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "ian_smith"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76b9",
@@ -1680,6 +1680,8 @@
     "status": "current member",
     "startDate": "2018-01-01T00:00:00.000Z",
     "endDate": null,
+    "slug": "gangesh_beri",
+    "links": [],
     "image": "gangesh.jpg",
     "display": true,
     "contactInfo": [
@@ -1694,9 +1696,7 @@
         "_id": "63c1dc208eb0ac02c0a73bb8"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "gangesh_beri"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76d5",
@@ -1704,12 +1704,12 @@
     "position": "Postdoctoral Fellow",
     "bio": "Dr. Nadia Penrod holds a PhD in Experimental and Molecular Medicine from the Geisel School of Medicine at Dartmouth College. During her dissertation research she studied how gene coexpression networks adapt to targeted drugs and applied novel methods to identify genes of influence within these networks as potential druggable targets. She maintains research interests in cancer biology, molecular pharmacology, and translational bioinformatics and is currently exploring the relationships within and between tumors, cell-lines, and drugs to improve drug repurposing for individual patients. ",
     "status": "alumni",
+    "slug": "nadia_penrod",
+    "links": [],
     "image": "nadia_penrod.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "nadia_penrod"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76db",
@@ -1717,6 +1717,7 @@
     "position": "PhD Student",
     "bio": "Heather Selby is a Ph.D student in bioinformatics at Boston University (USA). She recently joined Dr. John Quackenbush's computational biology laboratory at Dana-Farber Cancer Institute.  She is co-advised by Dr. Mark Kon and Dr. Benjamin Haibe-Kains.  She is creating cross-platform signatures to identify breast cancer subtypes.",
     "status": "alumni",
+    "slug": "heather_selby",
     "links": [
       {
         "type": "Google Scholar",
@@ -1727,8 +1728,7 @@
     "image": "heather_selby.jpg",
     "display": true,
     "contactInfo": [],
-    "__v": 0,
-    "slug": "heather_selby"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76de",
@@ -1738,12 +1738,12 @@
     "status": "alumni",
     "startDate": "2017-01-01T00:00:00.000Z",
     "endDate": "2017-01-01T00:00:00.000Z",
+    "slug": "michal_zulcinski",
+    "links": [],
     "image": "michal_zukcinski.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "michal_zulcinski"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76e5",
@@ -1753,12 +1753,12 @@
     "status": "alumni",
     "startDate": "2020-01-01T00:00:00.000Z",
     "endDate": "2021-01-01T00:00:00.000Z",
+    "slug": "vaibhav_kulshrestha",
+    "links": [],
     "image": "vaibhav_kulshrestha.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "vaibhav_kulshrestha"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76ea",
@@ -1768,12 +1768,12 @@
     "status": "alumni",
     "startDate": "2021-01-01T00:00:00.000Z",
     "endDate": "2022-01-01T00:00:00.000Z",
+    "slug": "shahzada_farooq",
+    "links": [],
     "image": "shahzada_farooq.jpeg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "shahzada_farooq"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac770e",
@@ -1781,12 +1781,12 @@
     "position": "Undergraduate Student",
     "bio": "John Chen is an undergraduate student at the University of Toronto, studying Bioinformatics and Computational Biology and Computer Science. He is interested in meaningful applications of computers towards research, especially with respect to the medical field. He hopes to pursue graduate studies in the future by completing a PhD and MD. ",
     "status": "alumni",
+    "slug": "john_chen",
+    "links": [],
     "image": "john-chen.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "john_chen"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac771f",
@@ -1794,12 +1794,12 @@
     "position": "Volunteer",
     "bio": "Narjes graduated from Master of Computer Science at Shahid Beheshti University. She accomplished several Bioinformatics research projects by proposing computational methods for biological issues.\nShe has presented two methods for drug-drug interaction prediction based on neural networks as well as matrix factorization. Her recent research project on cancer molecular subtypes has been applied a deep embedded clustering approach on the somatic mutations profile. She also worked on Covid-19 for recommending an RNA-i therapy using Bioinformatics analyses. She is currently working on drug response and drug synergy score prediction for cell lines.",
     "status": "alumni",
+    "slug": "narjes_rohani",
+    "links": [],
     "image": "narjes_rohani.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "narjes_rohani"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7725",
@@ -1809,6 +1809,8 @@
     "status": "alumni",
     "startDate": "2021-01-01T00:00:00.000Z",
     "endDate": null,
+    "slug": "shawn_han",
+    "links": [],
     "image": "shawn_han.jpg",
     "display": true,
     "contactInfo": [
@@ -1818,9 +1820,7 @@
         "_id": "63c1dc208eb0ac02c0a73bd7"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "shawn_han"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7726",
@@ -1830,12 +1830,12 @@
     "status": "alumni",
     "startDate": "2019-01-01T00:00:00.000Z",
     "endDate": "2020-01-01T00:00:00.000Z",
+    "slug": "colin_arrowsmith",
+    "links": [],
     "image": "colin_arrowsmith.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "colin_arrowsmith"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7731",
@@ -1845,6 +1845,8 @@
     "status": "current member",
     "startDate": "2021-01-01T00:00:00.000Z",
     "endDate": null,
+    "slug": "ruiyan_ni",
+    "links": [],
     "image": "Ruiyan_Ni.jpg",
     "display": true,
     "contactInfo": [
@@ -1859,9 +1861,7 @@
         "_id": "63c1dc208eb0ac02c0a73bdd"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "ruiyan_ni"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7739",
@@ -1871,12 +1871,12 @@
     "status": "alumni",
     "startDate": "2017-01-01T00:00:00.000Z",
     "endDate": "2018-01-01T00:00:00.000Z",
+    "slug": "victor_kofia",
+    "links": [],
     "image": "victor_kofia.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "victor_kofia"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac774a",
@@ -1884,6 +1884,8 @@
     "position": "Research Student",
     "startDate": "2022-05-09T00:00:00.000Z",
     "endDate": null,
+    "slug": "feifei_li",
+    "links": [],
     "display": false,
     "contactInfo": [
       {
@@ -1892,9 +1894,7 @@
         "_id": "63c1dc208eb0ac02c0a73be8"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "feifei_li"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76ba",
@@ -1904,6 +1904,8 @@
     "status": "alumni",
     "startDate": "2019-01-01T00:00:00.000Z",
     "endDate": null,
+    "slug": "christopher_eeles",
+    "links": [],
     "image": "christopher_eeles.jpg",
     "display": true,
     "contactInfo": [
@@ -1923,9 +1925,7 @@
         "_id": "63c1dc208eb0ac02c0a73bec"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "christopher_eeles"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76c1",
@@ -1933,12 +1933,12 @@
     "position": "Intern",
     "bio": "Arianne is a 4th year undergraduate student at the University of Toronto studying Bioinformatics and Computer Science. She is interested in the applications of computational methods to healthcare research, especially in personalised medicine. She is currently working on drug response prediction using genomics and proteomics signatures.",
     "status": "current member",
+    "slug": "arianne_beauregard",
+    "links": [],
     "image": "Arianne_Beauregard.jpeg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "arianne_beauregard"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76e9",
@@ -1946,12 +1946,12 @@
     "position": "Bioinformatics Analyst</a></p>",
     "bio": "Ying Li earned her BSc. Degree in Information Technology from Wuhan University in China, and studied computer vision as a Master in York University, Canada. Ying Li has been working on prediction of drug response in cancer cell lines in Dr. Haibe-Kains' lab. She also devoted herself on integration of genotype and phenotype on thousands of ADHD patients.",
     "status": "alumni",
+    "slug": "ying_li",
+    "links": [],
     "image": "ying_li.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "ying_li"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76f1",
@@ -1961,12 +1961,12 @@
     "status": "alumni",
     "startDate": "2019-01-01T00:00:00.000Z",
     "endDate": "2021-12-12T00:00:00.000Z",
+    "slug": "casey_hon",
+    "links": [],
     "image": "casey_hon.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "casey_hon"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7700",
@@ -1976,12 +1976,12 @@
     "status": "alumni",
     "startDate": "2016-01-01T00:00:00.000Z",
     "endDate": "2017-01-01T00:00:00.000Z",
+    "slug": "alexander_maru",
+    "links": [],
     "image": "alexander_maru.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "alexander_maru"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac770b",
@@ -1989,12 +1989,12 @@
     "position": "Undergraduate Student",
     "bio": "Erin Birkwood is an undergraduate student at McGill University, pursuing a degree in Computer Science and Biology. She is interested in computational modelling of biological systems, as it relates to the medical field. After completing her bachelor's degree, she hopes to further her studies in Bioinformatics. ",
     "status": "alumni",
+    "slug": "erin_birkwood",
+    "links": [],
     "image": "erin-birkwood.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "erin_birkwood"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac770f",
@@ -2002,12 +2002,12 @@
     "position": "Undergraduate Student",
     "bio": "Chloe Duan is studying Computer Science and Biochemistry in the University of Toronto. She hopes to apply what she's learned in both fields on the immense amount of medical data to contribute to a better understanding of certain medical problems.",
     "status": "alumni",
+    "slug": "chloe_duan",
+    "links": [],
     "image": "chloe-duan.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "chloe_duan"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7718",
@@ -2015,12 +2015,12 @@
     "position": "Rotation Student",
     "bio": "James earned his Bachelor of Mathematics in Mathematical Physics at the University of Waterloo, and is now a Master's student in Medical Biophysics at the University of Toronto. His research interest in bioinformatics grew out of his co-op placement in the Boutros Lab, and the University of Waterloo's iGEM Team. He is now interested in developing mathematical models to study the underlying patterns and complexity of similarly structured biological networks.",
     "status": "alumni",
+    "slug": "james_hawley",
+    "links": [],
     "image": "james_hawley.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "james_hawley"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7727",
@@ -2028,23 +2028,23 @@
     "position": "Intern",
     "bio": "Pairwaiz graduated with a BSc. (Hons.) in Pharmacology and Nutritional Sciences at the University of Toronto. Currently, Pairwaiz is an MSc candidate at the department of Medical Biophysics here at UofT. His research expertise is wet lab focused within cancer biology, studying cell signalling, identification of new biomarkers and chemoresistance in different cancers. In addition to his wet lab experience, he've gained interest in computational approaches to help draw inferences from big data to help guide research questions, in the realm of pharmaco and toxicogenomics. His current project involves working in toxicogenomics to develop a Toxicoset derived from in-vitro data.",
     "status": "alumni",
+    "slug": "parwaiz_nijrabi",
+    "links": [],
     "image": "parwaiz_nijrabi.jpeg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "parwaiz_nijrabi"
+    "__v": 0
   },
   {
     "_id": "634d9a413ceb7672062abb02",
     "name": "Benjamin Haibe-Kains",
     "position": "Principal Investigator",
-    "display": false,
+    "slug": "benjamin_haibe-kains",
     "links": [],
-    "contactInfo": [],
-    "__v": 0,
     "image": "bhk.jpg",
-    "slug": "benjamin_haibe-kains"
+    "display": false,
+    "contactInfo": [],
+    "__v": 0
   },
   {
     "_id": "63c1dc208eb0ac02c0a73b33",
@@ -2052,6 +2052,8 @@
     "position": "Technical Analyst",
     "startDate": "2022-01-01T00:00:00.000Z",
     "endDate": null,
+    "slug": "katy_scott",
+    "links": [],
     "display": true,
     "contactInfo": [
       {
@@ -2060,9 +2062,7 @@
         "_id": "63c1dc208eb0ac02c0a73c28"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "katy_scott"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76ca",
@@ -2072,12 +2072,12 @@
     "status": "alumni",
     "startDate": "2021-01-01T00:00:00.000Z",
     "endDate": "2021-01-01T00:00:00.000Z",
+    "slug": "neha_rohatgi",
+    "links": [],
     "image": "nega_rohatgi.jpeg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "neha_rohatgi"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76d9",
@@ -2087,12 +2087,12 @@
     "status": "alumni",
     "startDate": "2015-01-01T00:00:00.000Z",
     "endDate": "2021-01-01T00:00:00.000Z",
+    "slug": "rene_quevedo",
+    "links": [],
     "image": "rene_quevedo.jpeg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "rene_quevedo"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76ef",
@@ -2102,12 +2102,12 @@
     "status": "alumni",
     "startDate": "2020-01-01T00:00:00.000Z",
     "endDate": "2021-01-01T00:00:00.000Z",
+    "slug": "grace_wu",
+    "links": [],
     "image": "grace_wu.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "grace_wu"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76f5",
@@ -2117,12 +2117,12 @@
     "status": "alumni",
     "startDate": "2019-01-01T00:00:00.000Z",
     "endDate": "2019-01-01T00:00:00.000Z",
+    "slug": "frank_wang",
+    "links": [],
     "image": "frank_wang.png",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "frank_wang"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac772b",
@@ -2132,12 +2132,12 @@
     "status": "alumni",
     "startDate": "2015-01-01T00:00:00.000Z",
     "endDate": "2016-01-01T00:00:00.000Z",
+    "slug": "laleh_soltan_ghoraie",
+    "links": [],
     "image": "laleh_soltan_ghoraie.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "laleh_soltan_ghoraie"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7730",
@@ -2147,6 +2147,8 @@
     "status": "current member",
     "startDate": "2021-01-01T00:00:00.000Z",
     "endDate": null,
+    "slug": "emily_so",
+    "links": [],
     "image": "Emily_So.jpeg",
     "display": true,
     "contactInfo": [
@@ -2161,9 +2163,7 @@
         "_id": "63c1dc208eb0ac02c0a73b61"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "emily_so"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7738",
@@ -2173,12 +2173,12 @@
     "status": "alumni",
     "startDate": "2018-01-01T00:00:00.000Z",
     "endDate": "2020-01-01T00:00:00.000Z",
+    "slug": "heewon_seo",
+    "links": [],
     "image": "heewon_seo.jpeg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "heewon_seo"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac773d",
@@ -2186,12 +2186,12 @@
     "position": "Visiting Student",
     "bio": "Oliver obtained his BSc in Biology at McGill University in Montreal, with minors in Computer Science and Mathematics. During his studies at McGill, he conducted research in behavioural biology to examine the patterns of courtship calls in female songbirds and their underlying neural mechanisms. He currently studies Medicine at UCD in Dublin, Ireland, and is a volunteer at Systems Biology Ireland, where he is investigating specific protein-protein interactions involved in several childhood cancers. In the BHK Lab, he is working as a summer student to uncover non-coding RNA biomarkers to predict in vitro drug response. ",
     "status": "alumni",
+    "slug": "oliver_clark",
+    "links": [],
     "image": "oliver_clark.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "oliver_clark"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac773e",
@@ -2199,12 +2199,12 @@
     "position": "Intern",
     "bio": "Michael Zon received his BSc from the University of Guelph where he studied Nanoscience, and is currently pursuing a medical degree and PhD in Biomedical Engineering at McMaster University. He has previously conducted research simulating twitching motility in bacteria using molecular dynamics, and locating rodent skull sutures via ultrasound imaging. Within the Computational Genomics Laboratory at Princess Margaret Michael develops software to test the prognostic value of gene signatures and assess drug repurposing methods. Michael's primary interests are in the application of the physical sciences to medicine. As such, he aspires to become a physician scientist in order to apply his research interests to the medical field and integrate his results into patient care.",
     "status": "alumni",
+    "slug": "michael_zon",
+    "links": [],
     "image": "michael_zon.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "michael_zon"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76bc",
@@ -2215,6 +2215,8 @@
     "status": "current member",
     "startDate": "2020-01-01T00:00:00.000Z",
     "endDate": null,
+    "slug": "parinaz_nasr_esfahani",
+    "links": [],
     "image": "parinaz_nasr_esfahani.jpg",
     "display": true,
     "contactInfo": [
@@ -2229,9 +2231,7 @@
         "_id": "63c1dc208eb0ac02c0a73b7a"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "parinaz_nasr_esfahani"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76bf",
@@ -2241,6 +2241,8 @@
     "status": "current member",
     "startDate": "2020-01-01T00:00:00.000Z",
     "endDate": null,
+    "slug": "nicholas_li",
+    "links": [],
     "image": "nicholas_li.jpg",
     "display": true,
     "contactInfo": [
@@ -2250,9 +2252,7 @@
         "_id": "63c1dc208eb0ac02c0a73b7c"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "nicholas_li"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76c2",
@@ -2262,6 +2262,8 @@
     "status": "current member",
     "startDate": "2022-05-02T00:00:00.000Z",
     "endDate": null,
+    "slug": "kevin_tabatabaei",
+    "links": [],
     "image": "Kevin_Tabatabaei.jpg",
     "display": true,
     "contactInfo": [
@@ -2271,9 +2273,7 @@
         "_id": "63c1dc208eb0ac02c0a73b7f"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "kevin_tabatabaei"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76da",
@@ -2283,6 +2283,7 @@
     "status": "alumni",
     "startDate": "2019-01-01T00:00:00.000Z",
     "endDate": "2019-01-01T00:00:00.000Z",
+    "slug": "fatemeh_almodaresi",
     "links": [
       {
         "type": "Google Scholar",
@@ -2293,8 +2294,7 @@
     "image": "fatemeh.JPG",
     "display": true,
     "contactInfo": [],
-    "__v": 0,
-    "slug": "fatemeh_almodaresi"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76dd",
@@ -2304,6 +2304,7 @@
     "status": "alumni",
     "startDate": "2013-01-01T00:00:00.000Z",
     "endDate": "2018-01-01T00:00:00.000Z",
+    "slug": "patrick_grossmann",
     "links": [
       {
         "type": "Google Scholar",
@@ -2314,8 +2315,7 @@
     "image": "patrick_grossman.jpg",
     "display": true,
     "contactInfo": [],
-    "__v": 0,
-    "slug": "patrick_grossmann"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76ec",
@@ -2323,12 +2323,12 @@
     "position": "Undergraduate Student",
     "bio": "Katherine is an Engineering Science student at the University of Toronto, specializing in Biomedical Systems Engineering. She is interested in further exploring the intersection between machine learning and bioinformatics and is currently working on applying ML models in predicting patient outcomes.",
     "status": "alumni",
+    "slug": "katherine_zhu",
+    "links": [],
     "image": "katherine_zhu.jpeg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "katherine_zhu"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7708",
@@ -2338,12 +2338,12 @@
     "status": "alumni",
     "startDate": "2015-01-01T00:00:00.000Z",
     "endDate": "2015-01-01T00:00:00.000Z",
+    "slug": "adrian_she",
+    "links": [],
     "image": "adrian_she.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "adrian_she"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7722",
@@ -2351,12 +2351,12 @@
     "position": "Intern",
     "bio": "Diana Yan studied Data Science and Pharmacology and obtained her HBSc from the University of Toronto. She is going to pursue her MSc in applied computing also at UofT. Her research interest is in applying statistical methods in solving medical problems. As a summer student in the lab, she is currently working on models that predict drug responses with pharmacogenomic datasets.",
     "status": "alumni",
+    "slug": "diana_yan",
+    "links": [],
     "image": "diana_yan.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "diana_yan"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac772f",
@@ -2366,12 +2366,12 @@
     "status": "alumni",
     "startDate": "2018-01-01T00:00:00.000Z",
     "endDate": "2018-01-01T00:00:00.000Z",
+    "slug": "joan_marce_i_igual",
+    "links": [],
     "image": "joan.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "joan_marce_i_igual"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76b0",
@@ -2382,6 +2382,8 @@
     "status": "current member",
     "startDate": "2019-01-01T00:00:00.000Z",
     "endDate": null,
+    "slug": "farnoosh_abbas_aghababazadeh",
+    "links": [],
     "image": "farnoosh_babazadeh.jpg",
     "display": true,
     "contactInfo": [
@@ -2396,9 +2398,7 @@
         "_id": "63c1dc208eb0ac02c0a73bab"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "farnoosh_abbas_aghababazadeh"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76ce",
@@ -2409,12 +2409,12 @@
     "status": "alumni",
     "startDate": "2018-01-01T00:00:00.000Z",
     "endDate": "2021-12-12T00:00:00.000Z",
+    "slug": "hassan_mahmoud_mohamed",
+    "links": [],
     "image": "Hassan.png",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "hassan_mahmoud_mohamed"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76e6",
@@ -2424,12 +2424,12 @@
     "status": "alumni",
     "startDate": "2019-01-01T00:00:00.000Z",
     "endDate": "2021-01-01T00:00:00.000Z",
+    "slug": "denis_keimakh",
+    "links": [],
     "image": "denis.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "denis_keimakh"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76e7",
@@ -2437,12 +2437,12 @@
     "position": "MSc Student",
     "bio": "Nicolas obtained a M.D. at McGill University, Montreal. He then followed courses in bio-informatics at University Laval, Quebec. He is currently enrolled in a M.Sc. in Molecular Biology at University of Montreal co-supervised by Dr Frederic Charron, IRCM (Montreal) and Dr Haibe-Kains. Nicolas's project focuses on analyzing high-throughput sequencing data of cancer samples from animal models and human specimens.",
     "status": "alumni",
+    "slug": "nicolas_bouchard",
+    "links": [],
     "image": "nicolas_bouchard.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "nicolas_bouchard"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76ee",
@@ -2452,12 +2452,12 @@
     "status": "alumni",
     "startDate": "2021-01-01T00:00:00.000Z",
     "endDate": "2021-01-01T00:00:00.000Z",
+    "slug": "david_anglada",
+    "links": [],
     "image": "david_anglada.jpeg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "david_anglada"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76f2",
@@ -2467,12 +2467,12 @@
     "status": "alumni",
     "startDate": "2018-01-01T00:00:00.000Z",
     "endDate": "2021-12-12T00:00:00.000Z",
+    "slug": "bo_li",
+    "links": [],
     "image": "Bo_Li.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "bo_li"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76f3",
@@ -2482,12 +2482,12 @@
     "status": "alumni",
     "startDate": "2019-01-01T00:00:00.000Z",
     "endDate": "2021-12-12T00:00:00.000Z",
+    "slug": "dean_zhu",
+    "links": [],
     "image": "dean_zhu.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "dean_zhu"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7711",
@@ -2497,12 +2497,12 @@
     "status": "alumni",
     "startDate": "2021-01-01T00:00:00.000Z",
     "endDate": "2022-01-01T00:00:00.000Z",
+    "slug": "emily_kaczmarek",
+    "links": [],
     "image": "emily_kaczmarek.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "emily_kaczmarek"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7719",
@@ -2512,12 +2512,12 @@
     "status": "alumni",
     "startDate": "2019-01-01T00:00:00.000Z",
     "endDate": "2019-01-01T00:00:00.000Z",
+    "slug": "aleix_lascorz",
+    "links": [],
     "image": "aleix.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "aleix_lascorz"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac771a",
@@ -2525,12 +2525,12 @@
     "position": "Rotation Student",
     "bio": "Geoff holds an MSc. with distinction from King's College London in Artificial Intelligence. He recently joined the Department of Medical Biophysics as a first-year PhD student. His previous research involves deep learning, computer vision, robotics and signal processing. Currently, his research interest is in developing machine learning models for quantitative biology.",
     "status": "alumni",
+    "slug": "geoff_chen",
+    "links": [],
     "image": "Geoff.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "geoff_chen"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac772d",
@@ -2540,12 +2540,12 @@
     "status": "alumni",
     "startDate": "2015-01-01T00:00:00.000Z",
     "endDate": "2017-01-01T00:00:00.000Z",
+    "slug": "jun_ma",
+    "links": [],
     "image": "jun_ma.jpeg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "jun_ma"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76c5",
@@ -2555,6 +2555,8 @@
     "status": "alumni",
     "startDate": "2022-05-02T00:00:00.000Z",
     "endDate": null,
+    "slug": "arthur_soenarto",
+    "links": [],
     "image": "Arthur_Soenarto.jpg",
     "display": true,
     "contactInfo": [
@@ -2564,9 +2566,7 @@
         "_id": "63c1dc208eb0ac02c0a73bf6"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "arthur_soenarto"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76c6",
@@ -2576,6 +2576,8 @@
     "status": "current member",
     "startDate": "2022-05-09T00:00:00.000Z",
     "endDate": null,
+    "slug": "kevin_qu",
+    "links": [],
     "image": "Kevin_Qu.png",
     "display": true,
     "contactInfo": [
@@ -2590,9 +2592,7 @@
         "_id": "63c1dc208eb0ac02c0a73bf9"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "kevin_qu"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76cc",
@@ -2603,12 +2603,12 @@
     "status": "alumni",
     "startDate": "2019-01-01T00:00:00.000Z",
     "endDate": "2021-01-01T00:00:00.000Z",
+    "slug": "soheil_jahangiri_tazehkand",
+    "links": [],
     "image": "soheil.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "soheil_jahangiri_tazehkand"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76d6",
@@ -2616,6 +2616,7 @@
     "position": "Postdoctoral Research Fellow",
     "bio": "Dr. Catharina Olsen received her PhD in Computer Science from the Université Libre de Bruxelles, Belgium. During her PhD, she worked with Dr. Haibe-Kains in John Quackenbush's laboratory at the Dana-Farber Cancer Institute, Boston, MA, USA. Her research focused on developing machine learning techniques for Bioinformatics. She mainly worked on the inference of directed networks from genomic cancer data and known interactions. Prior to her PhD, she obtained a Master in Mathematics from the University of Technology in Dresden, Germany. Currently, she is working on employing network models for different prediction tasks in cancer such as subtype classification and the response to drug administration.",
     "status": "alumni",
+    "slug": "catharina_olsen",
     "links": [
       {
         "type": "Google Scholar",
@@ -2626,8 +2627,7 @@
     "image": "catharina_olsen.jpg",
     "display": true,
     "contactInfo": [],
-    "__v": 0,
-    "slug": "catharina_olsen"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76f7",
@@ -2637,12 +2637,12 @@
     "status": "alumni",
     "startDate": "2019-01-01T00:00:00.000Z",
     "endDate": "2019-01-01T00:00:00.000Z",
+    "slug": "esther_yoo",
+    "links": [],
     "image": "esther_yoo.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "esther_yoo"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac76f8",
@@ -2652,6 +2652,7 @@
     "status": "alumni",
     "startDate": "2019-01-01T00:00:00.000Z",
     "endDate": "2019-01-01T00:00:00.000Z",
+    "slug": "jacob_kelly",
     "links": [
       {
         "type": "Github",
@@ -2662,8 +2663,7 @@
     "image": "jacob_kelly.jpg",
     "display": true,
     "contactInfo": [],
-    "__v": 0,
-    "slug": "jacob_kelly"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7701",
@@ -2673,12 +2673,12 @@
     "status": "alumni",
     "startDate": "2012-01-01T00:00:00.000Z",
     "endDate": "2012-01-01T00:00:00.000Z",
+    "slug": "nicolas_de_jay",
+    "links": [],
     "image": "nicolas_de_jay.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "nicolas_de_jay"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7705",
@@ -2686,12 +2686,12 @@
     "position": "Undergraduate Student",
     "bio": "Alain Bateman earned an undergraduate in bio-informatics at the Université de Montréal. He is currently leveraging statistical learning frameworks to probe the intersection of cellular differentiation and cancer. Prior to this he developed Network Security Operation Centers in Canadian financial institutions and managed infrastructure deployment in 50,000+ user environments. His alternate spheres of interest include probabilistic modeling, cognition, philosophy, English literature and classical music.",
     "status": "alumni",
+    "slug": "alain_bateman",
+    "links": [],
     "image": "alain_bateman.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "alain_bateman"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac770c",
@@ -2699,12 +2699,12 @@
     "position": "Undergraduate Student",
     "bio": " Tiantian Fang is an undergraduate student at University of Toronto, studying Computer Science and Statistics. Her research interest is in areas related to machine learning and data analysis.",
     "status": "alumni",
+    "slug": "tiantian_fang",
+    "links": [],
     "image": "tiantian-fang.jpg",
     "display": true,
-    "links": [],
     "contactInfo": [],
-    "__v": 0,
-    "slug": "tiantian_fang"
+    "__v": 0
   },
   {
     "_id": "6349b56d2a91a29c37ac7710",
@@ -2714,6 +2714,7 @@
     "status": "alumni",
     "startDate": "2014-01-01T00:00:00.000Z",
     "endDate": "2016-01-01T00:00:00.000Z",
+    "slug": "fupan_yao",
     "links": [
       {
         "type": "Google Scholar",
@@ -2724,8 +2725,7 @@
     "image": "Fupan_Yao.jpeg",
     "display": true,
     "contactInfo": [],
-    "__v": 0,
-    "slug": "fupan_yao"
+    "__v": 0
   },
   {
     "_id": "63c1dc208eb0ac02c0a73b32",
@@ -2733,6 +2733,8 @@
     "position": "Visiting Grad student",
     "startDate": "2022-01-01T00:00:00.000Z",
     "endDate": null,
+    "slug": "laia_pomar_pallares",
+    "links": [],
     "display": true,
     "contactInfo": [
       {
@@ -2746,8 +2748,6 @@
         "_id": "63c1dc208eb0ac02c0a73c26"
       }
     ],
-    "links": [],
-    "__v": 0,
-    "slug": "laia_pomar_pallares"
+    "__v": 0
   }
 ]
