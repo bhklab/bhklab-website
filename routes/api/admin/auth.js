@@ -1,4 +1,4 @@
-// const jwt  = require('jsonwebtoken');
+const jwt  = require('jsonwebtoken');
 
 const decodeToken = (token) => {
     let decoded = null;
@@ -15,7 +15,7 @@ const decodeToken = (token) => {
  * A middleware function used to check token validity
  */
 const verifyToken = (req, res, next) => {
-    let decoded = decodeToken(req.cookies.cobetoken);
+    let decoded = decodeToken(req.cookies.admintoken);
     if(decoded){
         req.decoded = decoded;
         next();
@@ -24,19 +24,6 @@ const verifyToken = (req, res, next) => {
     }
 }
 
-/**
- * A middleware function used to check if a user is an admin
- */
-const isAdmin = (req, res, next) => {
-    if(req.decoded && req.decoded.admin){
-        next();
-    }else{
-        res.send(null);
-    }
-}
-
 module.exports = {
-    decodeToken,
-    verifyToken,
-    isAdmin
+    verifyToken
 }

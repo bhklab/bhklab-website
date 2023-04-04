@@ -5,6 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { DateTime } from "luxon";
+import colors from "../../../styles/colors";
 
 function PresentationCard(props) {
     const { DateTime } = require("luxon");
@@ -64,7 +65,7 @@ function PresentationCard(props) {
 function PaperCard(props) {
     const {image, title, url, authors, members, releaseDate} = props.publication;
     return (
-        <Card sx={{ display: 'flex', marginBottom: '10px' , fontFamily: 'Sans serif'}}>
+        <Card sx={{ display: 'flex', marginBottom: '10px'}}>
             <div style={{width: '110px'}}>
                 {
                     url ?
@@ -102,15 +103,15 @@ function PaperCard(props) {
                     }
                     {
                         authors &&
-                        <Typography color="text.secondary" component="div">
+                        <div>
                             {members.map((item, index)=> <a key={index} href = {item.slug}>{item.name}</a>)}
-                        </Typography>
+                        </div>
                     }
                     {
                         members &&
-                        <Typography variant="h7" color="text.secondary" component="div">
+                        <div style={{color: `${colors.gray_footer}`,fontSize:'12px'}}>
                             {authors}
-                        </Typography>
+                        </div>
                     }
                 </CardContent>
             </Box>

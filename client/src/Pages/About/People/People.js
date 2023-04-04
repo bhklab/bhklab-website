@@ -1,5 +1,5 @@
 import Layout from '../../../Components/Utils/Layout';
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import axios from "axios";
 import styled from "styled-components";
@@ -7,6 +7,7 @@ import colors from "../../../styles/colors";
 import Container from '@mui/material/Container';
 import {StyledHeading} from "../../../styles/StyledHeading";
 import MemberCard from "./MemberComponents/MemberCard";
+import {AuthContext} from "../../../hooks/Contexts";
 
 const StyledCard = styled.div`
   width: 245px;
@@ -120,6 +121,7 @@ const sortMembers = (people) => {
 }
 
 const People= () => {
+    const { admin, checkSession } = useContext(AuthContext);
     const [ready, setReady] = useState(false);
     const [people, setPeople] = useState({});
     const history = useNavigate();
@@ -150,6 +152,7 @@ const People= () => {
     return(
         <Layout>
             <Container fixed>
+                {admin && <div>Hellooo</div>}
                 {
                     ready &&
                         <>

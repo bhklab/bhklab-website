@@ -1,73 +1,70 @@
-import React from 'react';
-import {useState} from "react";
 import styled from 'styled-components';
-import colors from "../../styles/colors";
+import colors from '../../styles/colors';
 
-
-const StyledLogin = styled.div`
-  label, input {
-    display: block;
-  }
-
-  input {
-    padding: 10px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    width: 100%;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-
-  form button {
-    background: #1aac83;
-    border: 0;
-    width: 80px;
-    color: ${colors.white};
-    padding: 10px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  form.login {
+const FormContainer = styled.div`
+    height: 100%;
+    margin-top: 16vh;
     display: flex;
     flex-direction: column;
-    max-width: 400px;
-    margin: 40px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 4px;
-  }
+    align-items: center;
+    justify-content: center;
+    font-family: 'Open Sans', sans-serif;
 `;
 
-const Login = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const handleSubmit = async(e)=> {
-        e.preventDefault(); //prevent refresh
-        console.log(email,password)
+const Form = styled.div`
+    background: ${colors['--table-bg-color']};
+    height: 375px;
+    width: 525px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    a {
+        color: ${colors['--link-color']}
     }
+`;
 
-    return (
-        <StyledLogin>
-            <form className="login" onSubmit={handleSubmit}>
-                <h3>Log in</h3>
-                <label>User name:</label>
-                <input
-                    type="email"
-                    onChange={(e)=> setEmail(e.target.value)}
-                    value={email}
-                />
-                <label>Password:</label>
-                <input
-                    type="password"
-                    onChange={(e)=> setPassword(e.target.value)}
-                    value={password}
-                />
-                <button>Log in</button>
-            </form>
-        </StyledLogin>
-    )
-}
+const FormHeading = styled.div`
+    color: ${colors['--bg-color']};
+    font-size: 1.85em;
+    font-weight: 700;
+`;
 
-export default Login;
+const SubmitStyle = styled.div`
+    margin-top: 20px;
+    button {
+        background: ${colors['--bg-color']};
+        &:hover {
+            background: ${colors['--table-bg-color']};
+            color: ${colors['--bg-color']};
+        }
+    }
+`;
+
+const LogoStyle = styled.img`
+    width: calc(5em + 1vw);
+    height: 50px;
+    margin-left: calc(100vw - (3vw + 5em));
+`;
+
+const LogoBack = styled.div`
+    height: 60px;
+    background: ${colors['--bg-color']};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // when screen size is greater than 2000px
+    @media only screen and (min-width: 2000px) {
+        height: 70px;
+    }
+`;
+
+export {
+    Form,
+    SubmitStyle,
+    LogoStyle,
+    FormContainer,
+    LogoBack,
+    FormHeading,
+};

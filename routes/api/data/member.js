@@ -15,18 +15,20 @@ const getAll = async (req, res) => {
     try{
         // Get lab members in the database
         let res=  await Member.find().lean();
-        res.forEach(item => result.members.push({
-            id: item._id,
-            name: item.preferredName? item.preferredName : item.name,
-            slug: item.slug,
-            display: item.display,
-            position : item.position,
-            image: item.image,
-            status: item.status,
-            bio: item.bio,
-            startDate: item.startDate,
-            endDate: item.endDate
-        }))
+        res.forEach(item => {
+            result.members.push({
+                _id: item._id,
+                name: item.preferredName? item.preferredName : item.name,
+                slug: item.slug,
+                display: item.display,
+                position : item.position,
+                image: item.image,
+                status: item.status,
+                bio: item.bio,
+                startDate: item.startDate,
+                endDate: item.endDate
+            })
+        })
     }catch(error){
         console.log(error);
     }finally{
@@ -45,7 +47,9 @@ const getOne = async (req, res) => {
         let member = res.filter(item => item.slug === token)[0];
         if ( member ){
             result.member = {
+                id: member._id,
                 name: member.name,
+                display: member.display,
                 slug: member.slug,
                 position : member.position,
                 image: member.image,
@@ -76,24 +80,6 @@ const addOne = async (req, res) => {
     }
 }
 
-const deleteOne = async (req, res) => {
-    // const admin = req.decoded;
-    const admin = true;
-    let result = {};
-    try{
-        if(admin){
-            // delete the member document
-            await Member.deleteOne({_id: req.body.id});
-            result.message = 'The member has been permanently deleted.';
-        }
-    }catch(err){
-        console.log(err);
-        result.message = 'An error occurred when deleting the member, please try again.';
-        res.status(500);
-    }finally{
-        res.send(result);
-    }
-}
 
 const edit = async (req, res) => {
     // const admin = req.decoded;
@@ -108,6 +94,25 @@ const edit = async (req, res) => {
         res.status(500);
     }finally{
         res.send();
+    }
+}
+/**
+ * Since grants are using members information and are shared,
+ * Caboodle will handle permanently removing the members from database
+ * and on the lab website we only change the member's display status
+ * */
+const deleteOne = async (req, res) => {
+    let result = {};
+    // For a given Id change member display to false
+    try{
+        await Member.updateOne({_id: mongoose.Types.ObjectId(req.body.id)}, {display:false});
+        result.message = 'The member has been removed from display.';
+    }catch(err){
+        console.log(err);
+        result.message = 'An error occurred when removing the member, please try again.';
+        res.status(500);
+    }finally{
+        res.send(result);
     }
 }
 

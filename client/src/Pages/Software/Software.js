@@ -34,12 +34,6 @@ function TabPanel(props) {
     );
 }
 
-function a11yProps(index) {
-    return {
-        id: `full-width-tab-${index}`,
-        'aria-controls': `full-width-tabpanel-${index}`,
-    };
-}
 
 const StyledSoftware = styled.div`
   :root {
@@ -73,6 +67,14 @@ const StyledSoftware = styled.div`
     font-size:calc(0.6vw + 0.8em);
   }
 
+  .slide-desc {
+    display:flex;
+    align-items: center;
+    position:fixed;
+    color: ${colors.blue_background};
+    font-size:15px;
+  }
+  
   /* NAV */
   #nav {
     position:static;
@@ -226,7 +228,7 @@ const StyledSoftware = styled.div`
     transition:linear 0.2s;
   }
 
-  .hovered {color:${colors.gray_light};}
+  .hovered {color:${colors.text_light_gray};}
   .pkg-title .hovered { display: none; transition:linear 0.2s;}
   .pkg-title:hover .hovered { display: block; transition:linear 0.2s;}
   .pkg-title:hover .initial { display: none; transition:linear 0.2s;}
@@ -281,20 +283,6 @@ const StyledSoftware = styled.div`
 
   .slick-slide:focus {
     outline:none;
-  }
-
-  .slide-desc {
-    top:49%;
-    position:fixed;
-    color:var(--main-color);
-    font-size:14px;
-  }
-
-  .left {
-    left:35px;
-  }
-  .right {
-    right:35px;
   }
 
   /* FOOTER */
@@ -676,26 +664,9 @@ const Software= () => {
     };
     return(
         <Layout>
-            <Container fixed>
-                <Box sx={{ width: '100%' }}>
-                    <AppBar position="static" style={{ background: '#2E3B55'}}>
-                        <Tabs
-                            value={value}
-                            onChange={handleChange}
-                            variant="fullWidth"
-                            sx={{
-                                "& button": {color: 'white'},
-                                "& button:hover": {backgroundColor: `${colors.navbarHoverBG}`},
-                                "& button:active": {color: `${colors.navbarLink}`}
-                                }}
-                        >
-                            <Tab label="Web Apps" {...a11yProps(0)} />
-                            <Tab label="Packages" {...a11yProps(1)} />
-                            <a target="_blank" href="http://github.com/bhklab" className="link">
-                                <GitHubIcon fontSize='large' style={{ color: 'white', margin: '7px 100px 0px 0px'}}/>
-                            </a>
-                        </Tabs>
-                    </AppBar>
+            <Box sx={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
+                <button className="slide-desc" onClick={e=>handleChange(e,0)}>Web Apps</button>
+                <Container>
                     <SwipeableViews
                         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
                         index={value}
@@ -708,8 +679,17 @@ const Software= () => {
                             <BHKLabPackages/>
                         </TabPanel>
                     </SwipeableViews>
-                </Box>
-            </Container>
+                    <a target="_blank"
+                       href="http://github.com/bhklab"
+                       className="link"
+                       style={{color: 'black', display: 'flex', justifyContent: 'center'}}
+                    >
+                        <GitHubIcon fontSize='large'/>
+                        <span>Checkout BHKLab Github</span>
+                    </a>
+                </Container>
+                <button onClick={e=>handleChange(e,1)}>Packages</button>
+            </Box>
         </Layout>
     );
 }

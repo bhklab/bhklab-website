@@ -3,8 +3,6 @@ import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton } from '@mui/material';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
 
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -14,6 +12,9 @@ import FirstPageIcon from '@mui/icons-material/FirstPage';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
+import DeleteButton from "../../../Components/Utils/DeleteButton";
+import EditButton from "../../../Components/Utils/EditButton";
+import AddButton from "../../../Components/Utils/AddButton";
 
 
 function TablePaginationActions(props) {
@@ -91,13 +92,17 @@ const AdminPage = () => {
                 const response = await fetch(`/api/data/${selectedCollection.toLowerCase()}`);
                 const data = await response.json();
                 setEntities(data[`${selectedCollection.toLowerCase()}`]);
-                console.log(response);
             } catch {
                 console.log("Error")
             }
         };
         fetchData();
     }, [selectedCollection]);
+
+    const handleAddClick = () => {
+        // Handle edit button click for entity with given id
+        console.log(`Edit clicked for entity`);
+    };
 
     const handleEditClick = (id) => {
         // Handle edit button click for entity with given id
@@ -118,8 +123,8 @@ const AdminPage = () => {
         <div style={{marginTop: '30px'}}>
             <Autocomplete
                 disablePortal
-                //options={['Research', 'Publications', 'Presentations', 'Datasets', 'Members', 'Positions']}
-                options={['Datasets', 'Publications']}
+                options={['Publications', 'Presentations', 'Datasets', 'Members', 'Positions']}
+                // options={['Datasets', 'Publications']}
                 value={selectedCollection}
                 onChange={handleCollectionChange}
                 renderInput={(params) => (
@@ -135,12 +140,13 @@ const AdminPage = () => {
                 <div>
                     <h1>{selectedCollection}</h1>
                     <TableContainer component={Paper}>
+                        <IconButton onClick={() => handleAddClick()}>
+                            <AddButton/>
+                        </IconButton>
                         <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
                             <TableHead>
                                 <TableRow>
                                     <TableCell>ID</TableCell>
-                                    <TableCell>Name</TableCell>
-                                    <TableCell>Description</TableCell>
                                     <TableCell>Options</TableCell>
                                 </TableRow>
                             </TableHead>
@@ -148,20 +154,20 @@ const AdminPage = () => {
                                 {(rowsPerPage > 0
                                         ? entities.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                         : entities
-                                ).map((row) => (
-                                    <TableRow key={selectedCollection.name}>
+                                ).map((row, index) => (
+                                    <TableRow key={index}>
                                         <TableCell component="th" scope="row">
-                                            {row._id}
+                                            {row.title || row.name}
                                         </TableCell>
                                         <TableCell style={{ width: 160 }} align="right">
 
                                         </TableCell>
                                         <TableCell style={{ width: 160 }} align="right">
                                             <IconButton onClick={() => handleEditClick(row._id)}>
-                                                <EditIcon />
+                                                <EditButton item={row}/>
                                             </IconButton>
                                             <IconButton onClick={() => handleDeleteClick(row._id)}>
-                                                <DeleteIcon />
+                                                <DeleteButton id={row._id} collection={selectedCollection.toLowerCase()}/>
                                             </IconButton>
                                         </TableCell>
                                     </TableRow>

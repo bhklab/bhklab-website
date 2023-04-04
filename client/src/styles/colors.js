@@ -1,7 +1,7 @@
 const colors = {
     blue_background: '#292d3e',
     // white_background: '#f8f8f8',
-    white_background: '#f6f9fa',
+    white_background: '#FFFFFF',
 
     header_blue_green : '#00BFA5',
     header_deep_blue: '#0D47A1',
@@ -49,7 +49,11 @@ const colors = {
 
     //Card
     card_bg: '#FFFFFF',
-    card_text: '#000000'
+    card_text: '#000000',
+
+    //Login form
+    lfBtm_text: '#FFFFFF',
+    lfBtm_color: '#1aac83'
 
 }
 

@@ -13,7 +13,8 @@ const adminSchema = new Schema({
         required: true,
         unique: true
     }
-})
+},
+    {timestamps: true})
 
 // static signup method
 adminSchema.statics.signup = async function(username, password) {
