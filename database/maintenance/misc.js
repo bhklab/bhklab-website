@@ -23,6 +23,7 @@ const Publication = require("../models/publication");
 const Research = require("../models/research");
 const Social = require("../models/social");
 const Supervision = require("../models/supervision");
+const bcrypt = require("bcrypt");
 
 // const restore = async (file, Model) => {
 //     await Model.deleteMany();
@@ -70,31 +71,45 @@ const Supervision = require("../models/supervision");
 //     }
 // })();
 
+// (async () => {
+//     try {
+//         await mongoose.connect(process.env.DEV, {
+//             useNewUrlParser: true,
+//             useUnifiedTopology: true,
+//         });
+//         console.log("connection open");
+//
+//         //
+//         let member= await Member.find().lean();
+//
+//         let result = []
+//         member.map(item => {
+//             result.push({
+//                 ...item,
+//                 "slug": item.name.toLowerCase().split(" ").join("_")
+//             })
+//         })
+//
+//         fs.writeFileSync("./data/misc.json", JSON.stringify(result, null, 2));
+//
+//     } catch (err) {
+//         console.log(err);
+//     } finally {
+//         await mongoose.connection.close();
+//         console.log("connection closed");
+//     }
+// })();
+
+
 (async () => {
+    //manually encrypting password for
+    const saltRounds = 10; // set 10 based on documentation
+    const stringToEncrypt = "";
     try {
-        await mongoose.connect(process.env.DEV, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
-        console.log("connection open");
-
-        //
-        let member= await Member.find().lean();
-
-        let result = []
-        member.map(item => {
-            result.push({
-                ...item,
-                "slug": item.name.toLowerCase().split(" ").join("_")
-            })
-        })
-
-        fs.writeFileSync("./data/misc.json", JSON.stringify(result, null, 2));
-
+        const hashed = await bcrypt.hash(stringToEncrypt, saltRounds);
+        console.log(hashed)
     } catch (err) {
         console.log(err);
     } finally {
-        await mongoose.connection.close();
-        console.log("connection closed");
     }
 })();
