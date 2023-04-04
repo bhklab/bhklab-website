@@ -1,13 +1,22 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Layout from '../../Components/Utils/Layout';
 import Container from "@mui/material/Container";
 import AdminPage from "./AdminComponents/AdminForm";
 import {StyledLogin} from '../../styles/StyledLoginForm';
+import useAuth from "../../hooks/useAuth";
+import axios from "axios";
+import {AuthContext} from "../../hooks/Contexts";
 
 
 const Admin = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const { submitAdmin} = useAuth();
+    const [admin, setAdmin] = useState({
+        username: '',
+        password: '',
+    });
+
     const [values, setValues] = React.useState({
         username: '',
         password: '',
@@ -19,12 +28,11 @@ const Admin = () => {
         showDiv: false,
     });
 
-
     const handleSubmit = async(e)=> {
         e.preventDefault(); //prevent refresh
-        setValues({...values, "username": username, "password": password})
-        e.preventDefault();
-        // submitAdmin(admin, location);
+        // setValues({...values, "username": username, "password": password})
+        console.log("in Handle Submit")
+        submitAdmin({username: username, password: password}, window.location);
     }
 
     const handleKeyPress = (e) => {
@@ -38,7 +46,7 @@ const Admin = () => {
 
     useEffect(() => {
         handleKeyPress();
-        }, [values.password]);
+    }, [values.password]);
 
     return(
         <Layout>
@@ -63,7 +71,7 @@ const Admin = () => {
                                 <button>Login</button>
                             </form>
                         </StyledLogin>
-                    :
+                        :
                         <AdminPage/>
                     }
                 </div>
@@ -73,3 +81,4 @@ const Admin = () => {
 }
 
 export default Admin;
+
