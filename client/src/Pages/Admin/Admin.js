@@ -9,50 +9,21 @@ import {AuthContext} from "../../hooks/Contexts";
 
 
 const Admin = () => {
+    const { admin } = useContext(AuthContext);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const { submitAdmin} = useAuth();
-    const [admin, setAdmin] = useState({
-        username: '',
-        password: '',
-    });
-
-    const [values, setValues] = React.useState({
-        username: '',
-        password: '',
-        // correctUsername: 'weTheBHKLabAdmins',
-        correctUsername: 'admin',
-        correctPass: '1234',
-        incorrectPassword: false,
-        showPassword: false,
-        showDiv: false,
-    });
 
     const handleSubmit = async(e)=> {
         e.preventDefault(); //prevent refresh
-        // setValues({...values, "username": username, "password": password})
-        console.log("in Handle Submit")
         submitAdmin({username: username, password: password}, window.location);
     }
-
-    const handleKeyPress = (e) => {
-        if (values.password === values.correctPass && values.username === values.correctUsername) {
-            setValues({
-                ...values, showDiv: true, incorrectPassword: false,
-            });
-
-        }
-    };
-
-    useEffect(() => {
-        handleKeyPress();
-    }, [values.password]);
 
     return(
         <Layout>
             <Container >
                 <div>
-                    {!values.showDiv ?
+                    {!admin ?
                         <StyledLogin>
                             <form className="login" onSubmit={handleSubmit}>
                                 <h3>Login</h3>

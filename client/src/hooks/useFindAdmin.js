@@ -36,7 +36,7 @@ const useFindAdmin = () => {
         if(res.data){
             loadView();
         }else{
-            history.push('/admin');
+            history('/admin');
         }
     }
 

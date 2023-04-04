@@ -121,7 +121,7 @@ const sortMembers = (people) => {
 }
 
 const People= () => {
-    const { admin, checkSession } = useContext(AuthContext);
+    const { admin } = useContext(AuthContext);
     const [ready, setReady] = useState(false);
     const [people, setPeople] = useState({});
     const history = useNavigate();

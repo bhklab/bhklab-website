@@ -5,10 +5,19 @@
 import BurgerMenu from "./BurgerMenu";
 import {Link} from 'react-router-dom' ;
 import {LogoContainer, NavLinks, StyledNavigation} from "../../../styles/StyledNavigation";
-import React from 'react';
+import React, {useContext} from 'react';
+import useAuth from "../../../hooks/useAuth";
+import {AuthContext} from "../../../hooks/Contexts";
 
 
 const NavBar= () => {
+    const { logoutAdmin } = useAuth();
+    const { admin } = useContext(AuthContext);
+
+    const logout = async (e) => {
+        e.preventDefault();
+        await logoutAdmin();
+    }
     return (
         <StyledNavigation>
             <LogoContainer>
@@ -41,6 +50,16 @@ const NavBar= () => {
                         <Link to="/contact">Contact</Link>
                     </div>
                 </div>
+                {
+                    // admin ?
+                    //     <button onClick={logout}>Sign Out</button>
+                    //     :
+                    //     <Link exact to='/admin'>
+                    //         Login
+                    //     </Link>
+                    admin &&
+                    <button onClick={logout}>Sign Out</button>
+                }
             </NavLinks>
         </StyledNavigation>
     )

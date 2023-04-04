@@ -18,7 +18,6 @@ const submit = async (req, res) => {
     let data = null;
     try{
         const found = await Admin.findOne({'username': username.toLowerCase()});
-        console.log("$$$", password, found.password)
         const match = bcrypt.compareSync(password, found.password);
         if(match){
             data = {

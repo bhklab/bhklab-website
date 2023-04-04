@@ -21,9 +21,9 @@ const useAuth = () => {
         setAdmin(res.data);
         if(res.data){
             if (location.state && location.state.from){
-                history.push(location.state.from);
+                history(location.state.from);
             }else{
-                history.push('/');
+                history('/');
             }
         }else{
             console.log('authentication failed');
@@ -36,14 +36,12 @@ const useAuth = () => {
      * @param {*} location
      */
     const submitAdmin = async (admin, location) => {
-        console.log("In submitADmin", admin)
         try{
             const res = await axios.post('/api/admin/login', admin);
             await setAdminContext(location);
-            setAdmin(res.data);
-            console.log("!!!!!!!@$@$$")
-            if(res.data){
-                history.push('/');
+            setAdmin(res);
+            if(res){
+                history('/admin');
             }else{
                 console.log('authentication failed');
                 setError(true);
@@ -57,7 +55,7 @@ const useAuth = () => {
         try{
             await axios.get(`/api/admin/logout`); // call API to reset cookie token
             setAdmin(null); // reset user in UserContext to null
-            history.push('/admin'); // push to signin page
+            history('/admin'); // push to signin page
         }catch(err){
             console.log(err);
         }
