@@ -9,6 +9,9 @@ const colors = {
     text_light_gray: '#BDBDBD',
     main: '#FFFFFF',
 
+    light_gray: '#BDBDBD',
+    dark_gray: '#767575',
+    darker_gray: "#31343e",
     // text_black: '#000000',
     // main_dark_blue: '#263238',
     // light_blue: '#90CAF9',

@@ -130,9 +130,7 @@ const Research = () => {
                                         <ResearchCard
                                             key={indx}
                                             path = {`research/${team.url || slugGeneratorHelper(team.teamTitle)}`}
-                                            title = {team.teamTitle}
-                                            description= {team.teamDesc}
-                                            image={team.teamImage}
+                                            item={team}
                                         />
                                     )
                                 })

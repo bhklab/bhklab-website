@@ -52,13 +52,13 @@ const NavBar= () => {
                 </div>
                 {
                     // admin ?
-                    //     <button onClick={logout}>Sign Out</button>
+                    //     <button onClick={logout}>Logout</button>
                     //     :
                     //     <Link exact to='/admin'>
                     //         Login
                     //     </Link>
                     admin &&
-                    <button onClick={logout}>Sign Out</button>
+                    <button onClick={logout}>Logout</button>
                 }
             </NavLinks>
         </StyledNavigation>

@@ -1,6 +1,8 @@
 import styled from "styled-components";
-import React from "react";
+import React, {useContext} from "react";
 import colors from "../../styles/colors";
+import {AdminTool} from "./AdminTools";
+import {AuthContext} from "../../hooks/Contexts";
 
 /**
  * Style components
@@ -38,18 +40,23 @@ const StyledDescription = styled.div`
 /**
  * A custom React component that returns customized cards
  *
- * @param {Object} path, title, description, image
+ * @param {Object} path, item that is an object including: _id, teamTitle, description, image
  * @returns {JSX.Element} A customized card including image, title, description, and a link to individual research page
  *
  * @example
  * <ResearchCard path = "linkToResearchPage" title = "Title" description= "description" image="src"/>
  */
-export const ResearchCard = ({ title,path, description, image}) => {
+export const ResearchCard = (props) => {
+    const { admin } = useContext(AuthContext);
+    const { path, item} = props;
+    const {_id, teamTitle, description, image} = item;
+
     return (
         <StyledCard>
+            {admin && <AdminTool id={_id} collection={"researches"} item={item}/>}
             <a href={path}>
-                <StyledImage src={image || "/images/research/research.png"} alt={title} />
-                <StyledTitle>{title}</StyledTitle>
+                <StyledImage src={image || "/images/research/research.png"} alt={teamTitle} />
+                <StyledTitle>{teamTitle}</StyledTitle>
             </a>
             <StyledDescription>{description}</StyledDescription>
         </StyledCard>

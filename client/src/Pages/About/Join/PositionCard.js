@@ -1,9 +1,12 @@
 import styled from "styled-components";
-import { useState} from "react";
+import React, {useContext, useState} from "react";
 import { Markup } from 'interweave';
 import colors from "../../../styles/colors";
 import IconButton from "@mui/material/IconButton";
 import {ExpandLess, ExpandMore} from "@mui/icons-material";
+import DeleteButton from "../../../Components/Utils/DeleteButton";
+import {AuthContext} from "../../../hooks/Contexts";
+import {AdminTool} from "../../../Components/Utils/AdminTools";
 
 const StyledCard = styled.div`
   width: 60%;
@@ -64,7 +67,9 @@ const StyledContent = ({ title, content }) => (
  * A Component for showing information of each available position in the lab ( ex. PhD position, Undergrad student, ect.)
  * */
 const StyledPosition = ({ position }) => {
+    const { admin } = useContext(AuthContext);
     const {
+        _id,
         title,
         description,
         responsibilities,
@@ -75,6 +80,7 @@ const StyledPosition = ({ position }) => {
     const [display, setDisplay] = useState(false);
     return (
         <StyledCard>
+            {admin && <AdminTool id={_id} collection={"positions"} item={position}/>}
             <div className="title">{title}</div>
             <Markup content={description} />
             {display && (

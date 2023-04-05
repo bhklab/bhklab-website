@@ -3,14 +3,11 @@ import * as React from 'react';
 import styled from "styled-components";
 import colors from "../../styles/colors";
 import "animate.css/animate.min.css";
-
 import SwipeableViews from 'react-swipeable-views';
 import { useTheme } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Typography from '@mui/material/Typography';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
+import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 
@@ -27,13 +24,23 @@ function TabPanel(props) {
         >
             {value === index && (
                 <Box sx={{ p: 1}}>
-                    <Typography>{children}</Typography>
+                    {children}
                 </Box>
             )}
         </div>
     );
 }
 
+const StyledButton = styled.div`
+  height : 60px;
+  z-index: 999 !important;
+  top: 48vh;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center;
+`
 
 const StyledSoftware = styled.div`
   :root {
@@ -75,35 +82,6 @@ const StyledSoftware = styled.div`
     font-size:15px;
   }
   
-  /* NAV */
-  #nav {
-    position:static;
-    height:40px;
-    background:rgb(255,255,255,0.6);
-    padding: 10px 30px;
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .lab-logo {
-    width:120px;
-  }
-
-  .links {
-    width:600px;
-    float:right;
-    padding-top:2px;
-    display: flex;
-    flex-direction:row;
-    justify-content: space-between;
-  }
-
-  .links a {
-    color: var(--main-color);
-    font-weight:bold;
-
-  }
   
   /* BODY */
   #intro {
@@ -111,7 +89,6 @@ const StyledSoftware = styled.div`
     margin-top:11vh;
     margin-bottom:50px;
     text-align: center;
-    padding:0px 18vw;
     line-height:50px;
   }
 
@@ -156,7 +133,6 @@ const StyledSoftware = styled.div`
   }
 
   /*  WEB APPS */
-
   .logo {
     width: calc(3vw + 8em);
     opacity:1;
@@ -168,7 +144,6 @@ const StyledSoftware = styled.div`
     padding: 10px 0px;
     background:var(--main-color);
     color:white;
-    opacity:1;
     text-align:center;
     font-size:calc(1vw + 0.8em);
     position:absolute;
@@ -176,11 +151,6 @@ const StyledSoftware = styled.div`
     opacity:0;
     border-radius:15px;
     transition:linear 0.2s;
-  }
-
-  .soon {
-    font-size:calc(0.7vw + 0.8em);
-    padding: 5px 10px;
   }
 
   .bottom-row {
@@ -243,74 +213,6 @@ const StyledSoftware = styled.div`
     margin-left:10px;
   }
 
-  .hidden {
-    margin:0px !important;
-  }
-
-
-  /* SLIDER */
-
-  .slick-next::before {
-    content: '>' !important;
-  }
-
-  .slick-prev::before {
-    content: '<' !important;
-  }
-
-  .slick-next::before, .slick-prev::before {
-    font-size:calc(2vw + 50px) !important;
-    color:var(--main-color) !important;
-    font-family: 'Dosis', sans-serif !important;
-  }
-
-  .slick-next, .slick-prev {
-
-    position:fixed !important;
-  }
-
-  .slick-prev {
-    left:40px !important;
-    z-index: 999 !important;
-  }
-  .slick-next {
-    right:60px !important;
-  }
-
-  .slick-slide {
-    display:flex !important;
-  }
-
-  .slick-slide:focus {
-    outline:none;
-  }
-
-  /* FOOTER */
-
-  #footer {
-    width:100%;
-    height:50px;
-    padding:5px 0px;
-    bottom:0px;
-    white-space:nowrap;
-    text-align:center;
-    background:rgb(255,255,255,0.6);
-  }
-
-  .imgs {
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-wrap:wrap;
-    margin:auto;
-  }
-
-  #footer img {
-    width:100px;
-    text-align:center;
-    margin: 0px 40px;
-  }
-
   /* MOBILE RESPONSIVENESS */
   @media only screen and (max-width: 1311px) {
     body {
@@ -344,30 +246,9 @@ const StyledSoftware = styled.div`
       margin: 15px 0px 70px 0px;
     }
 
-    .slick-prev, .left {
-      left:10px !important;
-      z-index: 999 !important;
-    }
-    .slick-next, .right {
-      right:10px !important;
-    }
-
-    .slick-next::before, .slick-prev::before {
-      font-size:calc(2vw + 40px) !important;
-      color:var(--main-color) !important;
-      font-family: 'Dosis', sans-serif !important;
-    }
-
     .slide-desc {
       font-size:10px;
     }
-
-    #footer img {
-      width:80px;
-      text-align:center;
-      margin: 5px 3vw;
-    }
-
   }
 `
 
@@ -477,7 +358,7 @@ const BHKLabWebapps = () => {
                 <div id="app">
                     <div id="app-container">
                         <a target="_blank" href="http://github.com/bhklab">
-                            <GitHubIcon sx={{color: 'black'}} fontSize='large'/>
+                            <GitHubIcon sx={{color: 'black',  fontSize:'60px'}}/>
                         </a>
                     </div>
                     <div className="desc">
@@ -663,7 +544,7 @@ const BHKLabPackages = () => {
                 <div id="app" className="pkg">
                     <div id="pkg-container">
                         <a target="_blank" href="http://github.com/bhklab">
-                            <GitHubIcon sx={{color: 'black'}} fontSize='large'/>
+                            <GitHubIcon sx={{color: 'black',  fontSize:'60px'}}/>
                         </a>
                     </div>
                     <div className="desc">
@@ -688,8 +569,17 @@ const Software= () => {
     };
     return(
         <Layout>
-            <Box sx={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
-                <button className="slide-desc" onClick={e=>handleChange(e,0)}>Web Apps</button>
+            <div style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
+                <StyledButton
+                    style={{left: '10px', color:`${value ? colors.dark_gray : colors.light_gray}`}}
+                    onClick={e=>handleChange(e,0)}
+                >
+                    Web Apps <br/>
+                    <ArrowBackIosRoundedIcon
+                        fontSize={'large'}
+                        sx={{":hover" : {color: `${value && colors.darker_gray }`}, marginTop: '10px'}}
+                    />
+                </StyledButton>
                 <Container>
                     <SwipeableViews
                         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
@@ -704,8 +594,17 @@ const Software= () => {
                         </TabPanel>
                     </SwipeableViews>
                 </Container>
-                <button onClick={e=>handleChange(e,1)}>Packages</button>
-            </Box>
+                <StyledButton
+                    style={{right: '10px', color:`${!value ? colors.dark_gray : colors.light_gray}`}}
+                    onClick={e=>handleChange(e,1)}
+                >
+                    Packages<br/>
+                    <ArrowForwardIosRoundedIcon
+                        fontSize={'large'}
+                        sx={{":hover" : {color: `${!value && colors.darker_gray }`}, marginTop: '10px'}}
+                    />
+                </StyledButton>
+            </div>
         </Layout>
     );
 }

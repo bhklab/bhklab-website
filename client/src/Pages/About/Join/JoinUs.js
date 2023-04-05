@@ -12,6 +12,7 @@ const JoinUs = () => {
         const fetchPositions = async () => {
             const { data } = await axios.get("/api/data/positions");
             setPositions(data.positions);
+            console.log(data.positions)
             setReady(true);
         };
         fetchPositions();
