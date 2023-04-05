@@ -473,6 +473,18 @@ const BHKLabWebapps = () => {
                     </div>
                 </div>
             </div>
+            <div id="container" className="web-apps">
+                <div id="app">
+                    <div id="app-container">
+                        <a target="_blank" href="http://github.com/bhklab">
+                            <GitHubIcon sx={{color: 'black'}} fontSize='large'/>
+                        </a>
+                    </div>
+                    <div className="desc">
+                        Checkout BHKLab Github
+                    </div>
+                </div>
+            </div>
         </StyledSoftware>
     )
 };
@@ -647,6 +659,18 @@ const BHKLabPackages = () => {
                 <div id="app" className="pkg">
                 </div>
             </div>
+            <div id="container" className="packages">
+                <div id="app" className="pkg">
+                    <div id="pkg-container">
+                        <a target="_blank" href="http://github.com/bhklab">
+                            <GitHubIcon sx={{color: 'black'}} fontSize='large'/>
+                        </a>
+                    </div>
+                    <div className="desc">
+                        Checkout BHKLab Github
+                    </div>
+                </div>
+            </div>
         </StyledSoftware>
     )
 };
@@ -679,14 +703,6 @@ const Software= () => {
                             <BHKLabPackages/>
                         </TabPanel>
                     </SwipeableViews>
-                    <a target="_blank"
-                       href="http://github.com/bhklab"
-                       className="link"
-                       style={{color: 'black', display: 'flex', justifyContent: 'center'}}
-                    >
-                        <GitHubIcon fontSize='large'/>
-                        <span>Checkout BHKLab Github</span>
-                    </a>
                 </Container>
                 <button onClick={e=>handleChange(e,1)}>Packages</button>
             </Box>
