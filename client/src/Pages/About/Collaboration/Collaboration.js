@@ -3,13 +3,13 @@ import React from 'react';
 import CollaborationMap from "./CollaborationComponents/CollaborationMap";
 import Container from "@mui/material/Container";
 import colors from "../../../styles/colors";
-import AppBar from "@mui/material/AppBar";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
 import SwipeableViews from "react-swipeable-views";
 import Box from "@mui/material/Box";
 import {useTheme} from "@mui/material/styles";
 import CollaborationPlot from "./CollaborationComponents/CollaborationPlot/CollaborationPlot";
+import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
+import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
+import {SlideButton} from "../../../styles/StyledButton";
 
 
 function TabPanel(props) {
@@ -31,13 +31,6 @@ function TabPanel(props) {
     );
 }
 
-function a11yProps(index) {
-    return {
-        id: `full-width-tab-${index}`,
-        'aria-controls': `full-width-tabpanel-${index}`,
-    };
-}
-
 
 const Collaboration = () => {
     const theme = useTheme();
@@ -53,23 +46,18 @@ const Collaboration = () => {
 
     return(
         <Layout>
-            <Container>
-                <Box sx={{ width: '100%' }}>
-                    <AppBar position="static" style={{ background: '#2E3B55', color: 'white'}}>
-                        <Tabs
-                            value={value}
-                            onChange={handleChange}
-                            // indicatorColor="primary"
-                            variant="fullWidth"
-                            sx={{
-                                "& button": {color: 'white'},
-                                "& button:hover" : {backgroundColor: `${colors.navbarBackground}`}
-                            }}
-                        >
-                            <Tab label="Collaboration Map" {...a11yProps(0)} />
-                            <Tab label="Collaboration Plot" {...a11yProps(1)} />
-                        </Tabs>
-                    </AppBar>
+            <div style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
+                <SlideButton
+                    style={{left: '10px', color:`${value ? colors.dark_gray : colors.light_gray}`}}
+                    onClick={e=>handleChange(e,0)}
+                >
+                    World Map <br/>
+                    <ArrowBackIosRoundedIcon
+                        fontSize={'large'}
+                        sx={{":hover" : {color: `${value && colors.darker_gray }`}, marginTop: '10px'}}
+                    />
+                </SlideButton>
+                <Container>
                     <SwipeableViews
                         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
                         index={value}
@@ -82,9 +70,18 @@ const Collaboration = () => {
                             <CollaborationPlot/>
                         </TabPanel>
                     </SwipeableViews>
-                </Box>
-
-            </Container>
+                </Container>
+                <SlideButton
+                    style={{right: '10px', color:`${!value ? colors.dark_gray : colors.light_gray}`}}
+                    onClick={e=>handleChange(e,1)}
+                >
+                    PubMed Plot<br/>
+                    <ArrowForwardIosRoundedIcon
+                        fontSize={'large'}
+                        sx={{":hover" : {color: `${!value && colors.darker_gray }`}, marginTop: '10px'}}
+                    />
+                </SlideButton>
+            </div>
         </Layout>
     );
 }

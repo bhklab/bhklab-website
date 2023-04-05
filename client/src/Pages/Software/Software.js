@@ -10,6 +10,7 @@ import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
+import {SlideButton} from "../../styles/StyledButton";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -30,17 +31,6 @@ function TabPanel(props) {
         </div>
     );
 }
-
-const StyledButton = styled.div`
-  height : 60px;
-  z-index: 999 !important;
-  top: 48vh;
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  justify-content: center;
-`
 
 const StyledSoftware = styled.div`
   :root {
@@ -570,7 +560,7 @@ const Software= () => {
     return(
         <Layout>
             <div style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
-                <StyledButton
+                <SlideButton
                     style={{left: '10px', color:`${value ? colors.dark_gray : colors.light_gray}`}}
                     onClick={e=>handleChange(e,0)}
                 >
@@ -579,7 +569,7 @@ const Software= () => {
                         fontSize={'large'}
                         sx={{":hover" : {color: `${value && colors.darker_gray }`}, marginTop: '10px'}}
                     />
-                </StyledButton>
+                </SlideButton>
                 <Container>
                     <SwipeableViews
                         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
@@ -594,7 +584,7 @@ const Software= () => {
                         </TabPanel>
                     </SwipeableViews>
                 </Container>
-                <StyledButton
+                <SlideButton
                     style={{right: '10px', color:`${!value ? colors.dark_gray : colors.light_gray}`}}
                     onClick={e=>handleChange(e,1)}
                 >
@@ -603,7 +593,7 @@ const Software= () => {
                         fontSize={'large'}
                         sx={{":hover" : {color: `${!value && colors.darker_gray }`}, marginTop: '10px'}}
                     />
-                </StyledButton>
+                </SlideButton>
             </div>
         </Layout>
     );
