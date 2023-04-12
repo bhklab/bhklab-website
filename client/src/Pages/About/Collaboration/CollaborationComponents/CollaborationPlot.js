@@ -4,7 +4,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import SwipeableViews from "react-swipeable-views";
 import Box from "@mui/material/Box";
-import colors from "../../../../../styles/colors";
+import colors from "../../../../styles/colors";
 import {useTheme} from "@emotion/react";
 
 function TabPanel(props) {

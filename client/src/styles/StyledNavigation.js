@@ -26,17 +26,13 @@ const StyledNavigation = styled.div`
   .dropbtn {
     color: ${colors.navbarText};
   }
-  
-  
 
   .navbar a:hover, .dropdown:hover , .dropbtn:hover{
     color: ${colors.navbarLink};
-    background-color: #23262e;
-    transition: background-color 0.5s ease-out;
+    transition: color 0.2s ease-out;
   }
 
   /* Dropdown content (hidden by default) */
-
   .dropdown-content {
     margin-top: 18px;
     display: none;
@@ -67,7 +63,7 @@ const StyledNavigation = styled.div`
 
   .dropdown-content a:hover {
     background-color: ${colors.white_background};
-    border-radius: 1px;ƒ
+    border-radius: 1px;
     color: ${colors.navbarLink};
   }
 

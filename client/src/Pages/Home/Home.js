@@ -4,6 +4,7 @@ import Layout from '../../Components/Utils/Layout';
 import {TwitterTimelineEmbed} from "react-twitter-embed";
 import {ResearchTopics} from "./ResearchTeams";
 import { motion } from 'framer-motion';
+import {StyledSection} from "../../styles/StyledPage";
 
 const Container = styled.div`
   width: 100%;
@@ -25,7 +26,6 @@ const Container = styled.div`
 
 `;
 
-
 const Home = () => {
     return(
         <Layout page="home">
@@ -36,20 +36,19 @@ const Home = () => {
                 transition={{ duration: 0.5 }}
             >
             <Container>
-                {/*<header className="App-header">*/}
                 <div className="header">
                     <div>Bioinformatics and Computational Genomics Laboratory</div>
                     <img src={'/images/Logo/bhklab-logo.png'} alt="logo" />
-                    {/*<img src={logo} className="App-logo" alt="logo" />*/}
-
-                    {/*<TwitterTimelineEmbed*/}
-                    {/*    sourceType="profile"*/}
-                    {/*    screenName="bhklab"*/}
-                    {/*    options={{ width: 1000, height: 1000}}*/}
-                    {/*    tweetLimit={5}*/}
-                    {/*/>*/}
                 </div>
                 <ResearchTopics/>
+                <StyledSection>
+                    <TwitterTimelineEmbed
+                        sourceType="profile"
+                        screenName="bhklab"
+                        options={{ width: 800, height: 300}}
+                        tweetLimit={5}
+                    />
+                </StyledSection>
             </Container>
             </motion.nav>
         </Layout>

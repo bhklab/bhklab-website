@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import styled from "styled-components";
 import "animate.css/animate.min.css";
 import colors from "../../styles/colors";
-import {ResearchCard} from "../../Components/Utils/CustomCard";
+import {TeamCard} from "../../Components/Utils/CustomCard";
 import slugGeneratorHelper from "../../Components/Utils/slugGeneratorHelper";
 import axios from "axios";
 
@@ -127,7 +127,7 @@ const Research = () => {
                                 research.teams.map((team,indx) =>
                                 {
                                     return (
-                                        <ResearchCard
+                                        <TeamCard
                                             key={indx}
                                             path = {`research/${team.url || slugGeneratorHelper(team.teamTitle)}`}
                                             item={team}

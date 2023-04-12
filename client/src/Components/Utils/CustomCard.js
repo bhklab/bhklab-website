@@ -47,6 +47,21 @@ const StyledDescription = styled.div`
  * <ResearchCard path = "linkToResearchPage" title = "Title" description= "description" image="src"/>
  */
 export const ResearchCard = (props) => {
+    const { title, description, image, path} = props;
+
+    return (
+        <StyledCard>
+            <a href={path}>
+                <StyledImage src={image || "/images/research/research.png"} alt={title} />
+                <StyledTitle>{title}</StyledTitle>
+            </a>
+            <StyledDescription>{description}</StyledDescription>
+        </StyledCard>
+    );
+};
+
+
+export const TeamCard = (props) => {
     const { admin } = useContext(AuthContext);
     const { path, item} = props;
     const {_id, teamTitle, description, image} = item;

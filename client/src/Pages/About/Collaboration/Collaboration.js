@@ -6,7 +6,7 @@ import colors from "../../../styles/colors";
 import SwipeableViews from "react-swipeable-views";
 import Box from "@mui/material/Box";
 import {useTheme} from "@mui/material/styles";
-import CollaborationPlot from "./CollaborationComponents/CollaborationPlot/CollaborationPlot";
+import CollaborationPlot from "./CollaborationComponents/CollaborationPlot";
 import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 import {SlideButton} from "../../../styles/StyledButton";

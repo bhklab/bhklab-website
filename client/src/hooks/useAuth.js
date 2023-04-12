@@ -13,7 +13,7 @@ const useAuth = () => {
     const { setAdmin } = useContext(AuthContext);
 
     /**
-     * Gets a user and sets it in UserContext, then pushes to another page based on location value
+     * Gets an admin, then pushes to another page based on location value
      * @param {*} location
      */
     const setAdminContext = async (location) => {
@@ -31,8 +31,8 @@ const useAuth = () => {
     }
 
     /**
-     * Submits user data to be logged in or registered.
-     * @param {*} user user data to be submitted (set in Authentication.js)
+     * Submits admin data to be logged in or registered.
+     * @param {*} admin admin data to be submitted (set in Authentication.js)
      * @param {*} location
      */
     const submitAdmin = async (admin, location) => {
