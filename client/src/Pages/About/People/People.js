@@ -152,7 +152,6 @@ const People= () => {
     return(
         <Layout>
             <Container fixed>
-                {admin && <div>Hellooo</div>}
                 {
                     ready &&
                         <>

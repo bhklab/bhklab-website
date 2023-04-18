@@ -23,7 +23,7 @@ const submit = async (req, res) => {
             data = {
                 username: found.username,
             };
-            const token = jwt.sign(data, process.env.TOKEN, {expiresIn: '20h'});
+            const token = jwt.sign(data, process.env.TOKEN, {expiresIn: '1h'});
             res.cookie('admintoken', token, {httpOnly: true});
         }
     }catch(err){
