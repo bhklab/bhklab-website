@@ -18,7 +18,7 @@ const StyledDialog = styled.div`
   }
   .section {
     max-height: 25vh;
-    overflow: scroll;
+    overflow-y: auto;
   }
 `
 
