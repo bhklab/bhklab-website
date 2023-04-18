@@ -28,6 +28,9 @@ const colors = {
     blue_footer: '#2E3B55',
     gray_footer: '#31343e',
 
+    //Collaboration Plot
+    tab_bg: '#2c2c2c',
+
     //Collaboration Map
     // map_land : '#d95e00',
     // map_land_hover : '#194211',
