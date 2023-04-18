@@ -29,8 +29,14 @@ const colors = {
     gray_footer: '#31343e',
 
     //Collaboration Map
-    map_lands: '#1B5E20',
-    map_dots: '#cdcb8e',
+    // map_land : '#d95e00',
+    // map_land_hover : '#194211',
+    // map_border : '#939393',
+    // map_background : '#f6fcfc',
+    map_land : '#024aaf',
+    map_land_hover : '#bf7e17',
+    map_border : '#fffcfc',
+    map_background : '#ffffff',
 
     //Pagination
     pagination: '#4796F5',
@@ -54,7 +60,7 @@ const colors = {
 
     //Login form
     lfBtm_text: '#FFFFFF',
-    lfBtm_color: '#1aac83'
+    lfBtm_color: '#1aac83',
 
 }
 

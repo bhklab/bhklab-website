@@ -4,6 +4,9 @@ import '../styles/App.css';
 import colors from "./colors";
 
 const GlobalStyles = createGlobalStyle`
+    *:focus{
+      outline: none !important;
+    }
     html, body {
         width: 100%;
         height: 100%;

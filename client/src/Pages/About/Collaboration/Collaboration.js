@@ -11,7 +11,6 @@ import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 import {SlideButton} from "../../../styles/StyledButton";
 
-
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
     return (
