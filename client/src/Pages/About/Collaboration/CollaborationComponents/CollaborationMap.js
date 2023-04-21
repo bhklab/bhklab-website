@@ -36,9 +36,12 @@ const CollaborationMap = () => {
     const [countryData, setCountryData] = useState(null);
     const [selectedFeature, setSelectedFeature] = useState(null);
     const [maxCollaboration, setMaxCollaboration] = useState(1);
+    const list = Object.keys(collaborationData).concat(null); // concat null to show the overall stats at the end
+    const [time, setTime] = useState(Date.now());
+    const [index, setIndex] = useState(0);
 
-    const handleYearChange = (event) => {
-        setSelectedYear(event.target.value);
+    const handleYearChange = (year) => {
+        setSelectedYear(year);
     };
 
     useEffect(() => {
@@ -75,6 +78,15 @@ const CollaborationMap = () => {
         setMaxCollaboration(Math.max(...Object.values(countryCounts).map(item=> item.count)));
         setCountryData(countryCounts);
     }, [selectedYear]);
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setIndex(prevIndex => (prevIndex + 1) % list.length);
+            handleYearChange(list[index]);
+        }, 5000);
+
+        return () => clearInterval(intervalId);
+    }, [list]);
 
 
     const handleClick = (event) => {
@@ -113,11 +125,15 @@ const CollaborationMap = () => {
 
     return (
         <div>
-            <h1 style={{ textAlign: "center" }}>BHK Lab Collaborations</h1>
-            <div style={{ display: "flex", justifyContent: "center" }}>
+            <h1 style={{ textAlign: "center" }}>BHKLAB Collaborations{", "}{selectedYear || "Overall"}</h1>
+            <div style={{ display: "flex", justifyContent: "right" }}>
                 <label>
-                    Filter by year:
-                    <select id="year-select" onChange={handleYearChange}>
+                    Filter by year:{" "}
+                    <select
+                        id="year-select"
+                        onChange={(event)=> handleYearChange(event.target.value)}
+                        style={{marginBottom: '5px'}}
+                    >
                         <option value="">All years</option>
                         {Object.keys(collaborationData)
                             .sort((a, b) => b - a)
