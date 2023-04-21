@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { MapContainer, GeoJSON } from "react-leaflet";
+import { MapContainer, GeoJSON} from "react-leaflet";
 import mapData from "./../data/countries.json";
 import collaborationData from "./../data/collaborations.json";
 import styled from 'styled-components';
@@ -22,12 +22,8 @@ const StyledDialog = styled.div`
   }
 `
 
-// const scaleOpacity =(value, maxValue) =>{
-//     const opacity = 0.2 + (value / maxValue) * 0.8;
-//     return opacity;
-// }
 const scaleOpacity =(value, maxValue) =>{
-    const opacity = 0.2 + (Math.log10(value + 1) / Math.log10(maxValue + 1)) * 0.8;
+    const opacity = 0.00 + (Math.log10(value + 1) / Math.log10(maxValue + 1)) * 0.8;
     return opacity;
 }
 
@@ -37,10 +33,11 @@ const CollaborationMap = () => {
     const [selectedFeature, setSelectedFeature] = useState(null);
     const [maxCollaboration, setMaxCollaboration] = useState(1);
     const list = Object.keys(collaborationData).concat(null); // concat null to show the overall stats at the end
-    const [time, setTime] = useState(Date.now());
+    const [autoOption, setAutoOption] = useState(true);
     const [index, setIndex] = useState(0);
 
     const handleYearChange = (year) => {
+        setAutoOption(false);
         setSelectedYear(year);
     };
 
@@ -80,12 +77,14 @@ const CollaborationMap = () => {
     }, [selectedYear]);
 
     useEffect(() => {
-        const intervalId = setInterval(() => {
-            setIndex(prevIndex => (prevIndex + 1) % list.length);
-            handleYearChange(list[index]);
-        }, 5000);
+        if(autoOption) {
+            const intervalId = setInterval(() => {
+                setIndex(prevIndex => (prevIndex + 1) % list.length);
+                setSelectedYear(list[index]);
+            }, 2500);
 
-        return () => clearInterval(intervalId);
+            return () => clearInterval(intervalId);
+        }
     }, [list]);
 
 
@@ -98,6 +97,9 @@ const CollaborationMap = () => {
         const countryName = country.properties.ADMIN;
         // layer.bindPopup(countryName + ":" + (selectedYear ? selectedYear : "Overall") + " - "
         //     + (countryData[countryName] ? countryData[countryName].count : 0));
+        if (countryData[countryName].count > 0) {
+            layer.bindTooltip(countryName, {directoin:'center', permanent: false}).openTooltip();
+        }
 
         layer.on({
             click: (event) => handleClick(event, country),
@@ -125,7 +127,8 @@ const CollaborationMap = () => {
 
     return (
         <div>
-            <h1 style={{ textAlign: "center" }}>BHKLAB Collaborations{", "}{selectedYear || "Overall"}</h1>
+            <h1 style={{ textAlign: "center" }}>BHKLAB Collaborations{", 2004 - "}{list[list.length-2]}</h1>
+            <h2 style={{ textAlign: "center" }}>{selectedYear || "Overall"}</h2>
             <div style={{ display: "flex", justifyContent: "right" }}>
                 <label>
                     Filter by year:{" "}
@@ -152,7 +155,7 @@ const CollaborationMap = () => {
                     style={(feature) => ({
                         fillColor: colors.map_land,
                         color: colors.map_border,
-                        weight: 2,
+                        weight: 1,
                         fillOpacity: scaleOpacity(countryData[feature.properties.ADMIN].count, maxCollaboration)
                     })}
                     onEachFeature={onEachCountry}

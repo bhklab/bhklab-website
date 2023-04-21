@@ -12,12 +12,6 @@ const colors = {
     light_gray: '#BDBDBD',
     dark_gray: '#767575',
     darker_gray: "#31343e",
-    // text_black: '#000000',
-    // main_dark_blue: '#263238',
-    // light_blue: '#90CAF9',
-    // deep_green: '#1B5E20',
-    // soft_green: '#A5D6A7',
-    // deep_orange: '#FF5722',
 
     // Navigation
     navbarLink: '#4796F5',
@@ -32,14 +26,13 @@ const colors = {
     tab_bg: '#2c2c2c',
 
     //Collaboration Map
-    // map_land : '#d95e00',
-    // map_land_hover : '#194211',
-    // map_border : '#939393',
-    // map_background : '#f6fcfc',
     map_land : '#024aaf',
     map_land_hover : '#bf7e17',
-    map_border : '#fffcfc',
+    map_border : 'rgba(157,171,199,0.62)',
     map_background : '#ffffff',
+    map_marker: 'rgba(0,152,208,0.65)',
+    map_location: '#fc870c',
+    map_gray_land: '#acacac',
 
     //Pagination
     pagination: '#4796F5',

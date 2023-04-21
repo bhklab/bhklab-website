@@ -10,6 +10,7 @@ import CollaborationPlot from "./CollaborationComponents/CollaborationPlot";
 import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
 import ArrowForwardIosRoundedIcon from "@mui/icons-material/ArrowForwardIosRounded";
 import {SlideButton} from "../../../styles/StyledButton";
+import CollectionMapBubble from "./CollaborationComponents/CollectionMapBubble";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -63,6 +64,7 @@ const Collaboration = () => {
                         onChangeIndex={handleChangeIndex}
                     >
                         <TabPanel value={value} index={0} dir={theme.direction}>
+                            <CollectionMapBubble/>
                             <CollaborationMap/>
                         </TabPanel>
                         <TabPanel value={value} index={1} dir={theme.direction}>
