@@ -5,6 +5,7 @@ import {TwitterTimelineEmbed} from "react-twitter-embed";
 import {ResearchTopics} from "./ResearchTeams";
 import { motion } from 'framer-motion';
 import {StyledSection} from "../../styles/StyledPage";
+import CollaborationMapBubble from "../About/Collaboration/CollaborationComponents/CollectionMapBubble";
 
 const Container = styled.div`
   width: 100%;
@@ -41,6 +42,7 @@ const Home = () => {
                     <img src={'/images/Logo/bhklab-logo.png'} alt="logo" />
                 </div>
                 <ResearchTopics/>
+                <CollaborationMapBubble/>
                 <StyledSection>
                     <TwitterTimelineEmbed
                         sourceType="profile"
