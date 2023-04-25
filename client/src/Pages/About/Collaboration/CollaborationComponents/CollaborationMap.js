@@ -4,7 +4,7 @@ import mapData from "./../data/countries.json";
 import collaborationData from "./../data/collaborations.json";
 import styled from 'styled-components';
 import "leaflet/dist/leaflet.css";
-import { Dialog, DialogTitle, DialogContent, DialogContentText} from '@material-ui/core';
+import { Dialog, DialogTitle, DialogContent, DialogContentText} from '@mui/material';
 import colors from "../../../../styles/colors";
 import CloseIcon from '@mui/icons-material/Close';
 import {IconButton} from "@mui/material";
