@@ -16,19 +16,19 @@ import Admin from '../Pages/Admin/Admin';
 
 
 export {
-    Home,
-    Dataset,
-    Presentation,
-    Research,
-    IndivResearch,
-    Papers,
-    Equipments,
-    Software,
-    Contact,
-    People,
-    Member,
-    Collaboration,
-    JoinUs,
-    Social,
-    Admin
-}
+	Home,
+	Dataset,
+	Presentation,
+	Research,
+	IndivResearch,
+	Papers,
+	Equipments,
+	Software,
+	Contact,
+	People,
+	Member,
+	Collaboration,
+	JoinUs,
+	Social,
+	Admin
+};

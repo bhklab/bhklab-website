@@ -50,36 +50,36 @@ const StyledDropdown = styled(Dropdown)`
 `;
 
 const CustomDropdown = (props) => {
-    const {
-        className,
-        value,
-        options,
-        onChange,
-        placeholder,
-        filter,
-        disabled,
-        editable,
-        optionLabel,
-        valueTemplate,
-        tooltip
-    } = props;
+	const {
+		className,
+		value,
+		options,
+		onChange,
+		placeholder,
+		filter,
+		disabled,
+		editable,
+		optionLabel,
+		valueTemplate,
+		tooltip
+	} = props;
 
-    return(
-        <StyledDropdown
-            className={className}
-            value={value}
-            options={options}
-            onChange={onChange}
-            placeholder={placeholder}
-            filter={filter}
-            disabled={disabled}
-            editable={editable}
-            optionLabel={optionLabel}
-            valueTemplate={valueTemplate}
-            tooltip={tooltip}
-            resetFilterOnHide={true}
-        />
-    );
-}
+	return(
+		<StyledDropdown
+			className={className}
+			value={value}
+			options={options}
+			onChange={onChange}
+			placeholder={placeholder}
+			filter={filter}
+			disabled={disabled}
+			editable={editable}
+			optionLabel={optionLabel}
+			valueTemplate={valueTemplate}
+			tooltip={tooltip}
+			resetFilterOnHide={true}
+		/>
+	);
+};
 
 export default CustomDropdown;
