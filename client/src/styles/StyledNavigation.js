@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import colors from "./colors";
+import styled from 'styled-components';
+import colors from './colors';
 
 const StyledNavigation = styled.div`
   /* The dropdown container */
@@ -236,41 +236,41 @@ const BurgerNav = styled.div`
 `;
 
 const styles = {
-    bmBurgerButton: {
-        position: 'fixed',
-        width: '27px',
-        height: '20px',
-        right: '10vw',
-        top: '15px',
-    },
-    bmBurgerBars: {
-        background: `${colors.bmBurgerBars}`,
-        borderRadius: '3px',
-        opacity: 0.8,
-        height: '3px',
-    },
-    bmCrossButton: {
-        height: '24px',
-        width: '24px',
-    },
-    bmCross: {
-        backgroundColor: `${colors.closeIcon}`,
-    },
-    bmMenuWrap: {
-        position: 'fixed',
-    },
-    bmMenu: {
-        backgroundColor: `${colors.burgerMenuBG}`,
-        padding: '0.5em 1.5em 0',
-        fontSize: '16px',
-    },
-    bmItem: {
-        color: `${colors.burgerMenuItems}`,
-        display: 'inline-block',
-    },
-    bmOverlay: {
-        background: 'rgba(0, 0, 0, 0.3)',
-    },
+	bmBurgerButton: {
+		position: 'fixed',
+		width: '27px',
+		height: '20px',
+		right: '10vw',
+		top: '15px',
+	},
+	bmBurgerBars: {
+		background: `${colors.bmBurgerBars}`,
+		borderRadius: '3px',
+		opacity: 0.8,
+		height: '3px',
+	},
+	bmCrossButton: {
+		height: '24px',
+		width: '24px',
+	},
+	bmCross: {
+		backgroundColor: `${colors.closeIcon}`,
+	},
+	bmMenuWrap: {
+		position: 'fixed',
+	},
+	bmMenu: {
+		backgroundColor: `${colors.burgerMenuBG}`,
+		padding: '0.5em 1.5em 0',
+		fontSize: '16px',
+	},
+	bmItem: {
+		color: `${colors.burgerMenuItems}`,
+		display: 'inline-block',
+	},
+	bmOverlay: {
+		background: 'rgba(0, 0, 0, 0.3)',
+	},
 };
 
 const LogoContainer = styled.div`
@@ -286,9 +286,9 @@ const LogoContainer = styled.div`
 `;
 
 export {
-    BurgerNav,
-    styles,
-    StyledNavigation,
-    NavLinks,
-    LogoContainer
+	BurgerNav,
+	styles,
+	StyledNavigation,
+	NavLinks,
+	LogoContainer
 };

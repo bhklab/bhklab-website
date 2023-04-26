@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
-import "./fonts/br-cobane/Brink-BRCobaneRegular.otf";
+import './fonts/br-cobane/Brink-BRCobaneRegular.otf';
 import '../styles/App.css';
-import colors from "./colors";
+import colors from './colors';
 
 const GlobalStyles = createGlobalStyle`
     *:focus{

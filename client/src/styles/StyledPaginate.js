@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import colors from "./colors";
+import styled from 'styled-components';
+import colors from './colors';
 
 export const StyledPaginate = styled.div`
 
@@ -37,4 +37,4 @@ export const StyledPaginate = styled.div`
   visibility: hidden;
   background-color: white;
 }
-`
+`;

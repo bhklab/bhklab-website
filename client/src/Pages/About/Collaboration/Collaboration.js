@@ -51,7 +51,7 @@ const Collaboration = () => {
 					style={{left: '10px', color:`${value ? colors.dark_gray : colors.light_gray}`}}
 					onClick={e=>handleChange(e,0)}
 				>
-                    World Map <br/>
+					World Map <br/>
 					<ArrowBackIosRoundedIcon
 						fontSize={'large'}
 						sx={{':hover' : {color: `${value && colors.darker_gray }`}, marginTop: '10px'}}
@@ -76,7 +76,7 @@ const Collaboration = () => {
 					style={{right: '10px', color:`${!value ? colors.dark_gray : colors.light_gray}`}}
 					onClick={e=>handleChange(e,1)}
 				>
-                    PubMed Plot<br/>
+					PubMed Plot<br/>
 					<ArrowForwardIosRoundedIcon
 						fontSize={'large'}
 						sx={{':hover' : {color: `${!value && colors.darker_gray }`}, marginTop: '10px'}}

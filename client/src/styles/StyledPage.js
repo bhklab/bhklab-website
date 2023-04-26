@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import colors from "./colors";
+import colors from './colors';
 
 export const Container = styled.div`
   width: 100%;
@@ -70,7 +70,7 @@ export const StyledCard = styled.div`
     padding-right: 0;
 
   }
-`
+`;
 
 export const StyledPage = styled.div`
   width: 100%;
@@ -105,7 +105,7 @@ export const StyledPage = styled.div`
     margin-bottom: 30px;
     padding-top: 10px;
   }
-`
+`;
 
 
 export const StyledSection = styled.div`
