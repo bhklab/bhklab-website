@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import Layout from '../../Components/Utils/Layout';
-import {TwitterTimelineEmbed} from 'react-twitter-embed';
-import {ResearchTopics} from './ResearchTeams';
+import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import { motion } from 'framer-motion';
-import {StyledSection} from '../../styles/StyledPage';
+import Layout from '../../Components/Utils/Layout';
+import { ResearchTopics } from './ResearchTeams';
+import { StyledSection } from '../../styles/StyledPage';
 import CollaborationMapBubble from '../About/Collaboration/CollaborationComponents/CollectionMapBubble';
 
 const Container = styled.div`
@@ -27,8 +27,8 @@ const Container = styled.div`
 
 `;
 
-const Home = () => {
-	return(
+function Home() {
+	return (
 		<Layout page="home">
 			<motion.nav
 				className="navbar"
@@ -39,15 +39,15 @@ const Home = () => {
 				<Container>
 					<div className="header">
 						<div>Bioinformatics and Computational Genomics Laboratory</div>
-						<img src={'/images/Logo/bhklab-logo.png'} alt="logo" />
+						<img src="/images/Logo/bhklab-logo.png" alt="logo" />
 					</div>
-					<ResearchTopics/>
-					<CollaborationMapBubble/>
+					<ResearchTopics />
+					<CollaborationMapBubble />
 					<StyledSection>
 						<TwitterTimelineEmbed
 							sourceType="profile"
 							screenName="bhklab"
-							options={{ width: 800, height: 300}}
+							options={{ width: 800, height: 300 }}
 							tweetLimit={5}
 						/>
 					</StyledSection>
@@ -55,6 +55,6 @@ const Home = () => {
 			</motion.nav>
 		</Layout>
 	);
-};
+}
 
 export default Home;
