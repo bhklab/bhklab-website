@@ -15,18 +15,18 @@ import styled from 'styled-components';
 import Container from '@mui/material/Container';
 
 const Banner = styled.div`
-  width: 100%;
-  height: 150px;
-  background-color: white;
-  padding: 50px 150px;
-  display: flex;
-  flex-direction: column;
+	width: 100%;
+	height: 150px;
+	background-color: white;
+	padding: 50px 150px;
+	display: flex;
+	flex-direction: column;
 
-  .text {
+	.text {
 	display: flex;
 	justify-content: center;
 	color: black;
-  }
+	}
 `;
 
 
@@ -58,8 +58,8 @@ const Dataset= () => {
 	}, []);
 
 	useEffect(() => {
-		return(() => {
-			if(history.action === 'POP' && history.location.pathname === '/') {
+		return (() => {
+			if (history.action === 'POP' && history.location.pathname === '/') {
 				console.log('history');
 				history.replace({
 					pathname: '/',
@@ -70,7 +70,7 @@ const Dataset= () => {
 		});
 	}, [history]);
 
-	return(
+	return (
 		<Layout>
 			<Banner>
 				<Container>

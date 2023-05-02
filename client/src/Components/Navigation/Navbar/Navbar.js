@@ -9,8 +9,7 @@ import React, {useContext} from 'react';
 import useAuth from '../../../hooks/useAuth';
 import {AuthContext} from '../../../hooks/Contexts';
 
-
-const NavBar= () => {
+const NavBar = () => {
 	const { logoutAdmin } = useAuth();
 	const { admin } = useContext(AuthContext);
 

@@ -32,6 +32,12 @@ module.exports = {
 		'semi': [
 			'error',
 			'always'
-		]
+		],
+		'keyword-spacing': [
+			'error', 
+			{ 'before': true }, 
+			{'after': true}
+		],
+		'object-curly-spacing': ['error', 'never']
 	}
 };
