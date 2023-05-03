@@ -18,7 +18,7 @@ import {
 	JoinUs,
 	Social,
 	Admin,
-} from '../Components/index';
+} from '../Pages/index';
 import useFindAdmin from '../hooks/useFindAdmin';
 
 function PublicRoutes() {
@@ -47,12 +47,10 @@ function PublicRoutes() {
 					<Route path="/social" element={<Social />} />
 					<Route path="/software" element={<Software />} />
 					<Route path="/admin" element={<Admin />} />
-					<>
-						{
-							true
+					{
+						true
                         && <Route path="/administration" element={<Admin />} />
-						}
-					</>
+					}
 					<Route path="/administration" element={<Admin />} />
 				</Routes>
 			</AuthContext.Provider>
