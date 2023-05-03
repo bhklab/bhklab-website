@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import colors from './colors';
 
-export const StyledPaginate = styled.div`
+const StyledPaginate = styled.div`
 
   .paginationBttns {
     width: 80%;
@@ -38,3 +38,5 @@ export const StyledPaginate = styled.div`
   background-color: white;
 }
 `;
+
+export default StyledPaginate;

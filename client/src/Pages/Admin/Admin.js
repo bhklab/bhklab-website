@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import Container from '@mui/material/Container';
 import Layout from '../../Components/Utils/Layout';
 import AdminPage from './AdminComponents/AdminForm';
-import { StyledLogin } from '../../styles/StyledLoginForm';
+import StyledLogin from '../../styles/StyledLoginForm';
 import useAuth from '../../hooks/useAuth';
 import AuthContext from '../../hooks/Contexts';
 

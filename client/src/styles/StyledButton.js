@@ -11,6 +11,4 @@ const SlideButton = styled.div`
   justify-content: center;
 `;
 
-export {
-	SlideButton
-};
+export default SlideButton;

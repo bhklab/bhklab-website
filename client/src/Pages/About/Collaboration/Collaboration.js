@@ -1,19 +1,21 @@
-import Layout from '../../../Components/Utils/Layout';
 import React from 'react';
-import CollaborationMap from './CollaborationComponents/CollaborationMap';
 import Container from '@mui/material/Container';
-import colors from '../../../styles/colors';
 import SwipeableViews from 'react-swipeable-views';
 import Box from '@mui/material/Box';
-import {useTheme} from '@mui/material/styles';
-import CollaborationPlot from './CollaborationComponents/CollaborationPlot';
+import { useTheme } from '@mui/material/styles';
 import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
-import {SlideButton} from '../../../styles/StyledButton';
+import CollaborationPlot from './CollaborationComponents/CollaborationPlot';
+import colors from '../../../styles/colors';
+import CollaborationMap from './CollaborationComponents/CollaborationMap';
+import Layout from '../../../Components/Utils/Layout';
+import SlideButton from '../../../styles/StyledButton';
 import CollectionMapBubble from './CollaborationComponents/CollectionMapBubble';
 
 function TabPanel(props) {
-	const { children, value, index, ...other } = props;
+	const {
+		children, value, index, ...other
+	} = props;
 	return (
 		<div
 			role="tabpanel"
@@ -23,7 +25,7 @@ function TabPanel(props) {
 			{...other}
 		>
 			{value === index && (
-				<Box sx={{ p: 1}}>
+				<Box sx={{ p: 1 }}>
 					{children}
 				</Box>
 			)}
@@ -31,8 +33,7 @@ function TabPanel(props) {
 	);
 }
 
-
-const Collaboration = () => {
+function Collaboration() {
 	const theme = useTheme();
 	const [value, setValue] = React.useState(0);
 
@@ -44,17 +45,19 @@ const Collaboration = () => {
 		setValue(index);
 	};
 
-	return(
+	return (
 		<Layout>
 			<div style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
 				<SlideButton
-					style={{left: '10px', color:`${value ? colors.dark_gray : colors.light_gray}`}}
-					onClick={e=>handleChange(e,0)}
+					style={{ left: '10px', color: `${value ? colors.dark_gray : colors.light_gray}` }}
+					onClick={(e) => handleChange(e, 0)}
 				>
-					World Map <br/>
+					World Map
+					{' '}
+					<br />
 					<ArrowBackIosRoundedIcon
-						fontSize={'large'}
-						sx={{':hover' : {color: `${value && colors.darker_gray }`}, marginTop: '10px'}}
+						fontSize="large"
+						sx={{ ':hover': { color: `${value && colors.darker_gray}` }, marginTop: '10px' }}
 					/>
 				</SlideButton>
 				<Container>
@@ -64,27 +67,28 @@ const Collaboration = () => {
 						onChangeIndex={handleChangeIndex}
 					>
 						<TabPanel value={value} index={0} dir={theme.direction}>
-							<CollectionMapBubble/>
-							<CollaborationMap/>
+							<CollectionMapBubble />
+							<CollaborationMap />
 						</TabPanel>
 						<TabPanel value={value} index={1} dir={theme.direction}>
-							<CollaborationPlot/>
+							<CollaborationPlot />
 						</TabPanel>
 					</SwipeableViews>
 				</Container>
 				<SlideButton
-					style={{right: '10px', color:`${!value ? colors.dark_gray : colors.light_gray}`}}
-					onClick={e=>handleChange(e,1)}
+					style={{ right: '10px', color: `${!value ? colors.dark_gray : colors.light_gray}` }}
+					onClick={(e) => handleChange(e, 1)}
 				>
-					PubMed Plot<br/>
+					PubMed Plot
+					<br />
 					<ArrowForwardIosRoundedIcon
-						fontSize={'large'}
-						sx={{':hover' : {color: `${!value && colors.darker_gray }`}, marginTop: '10px'}}
+						fontSize="large"
+						sx={{ ':hover': { color: `${!value && colors.darker_gray}` }, marginTop: '10px' }}
 					/>
 				</SlideButton>
 			</div>
 		</Layout>
 	);
-};
+}
 
 export default Collaboration;

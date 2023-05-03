@@ -1,16 +1,15 @@
-import Layout from '../../Components/Utils/Layout';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import 'animate.css/animate.min.css';
 import axios from 'axios';
-import {useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Container from '@mui/material/Container';
-import {StyledHeading} from '../../styles/StyledHeading';
+import StyledHeading from '../../styles/StyledHeading';
+import Layout from '../../Components/Utils/Layout';
 
-
-const IndivResearch= (props) => {
+function IndivResearch(props) {
 	const [ready, setReady] = useState(false);
 	const [research, setResearch] = useState({});
-	const {token} = useParams();
+	const { token } = useParams();
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
@@ -19,21 +18,23 @@ const IndivResearch= (props) => {
 			setResearch(res.data.team);
 			setReady(true);
 		};
-		getDataset().then(()=> {setReady(true);});
+		getDataset().then(() => { setReady(true); });
 	}, [token]);
 
-	return(
+	return (
 		<Layout>
 			<Container>
 				{
-					ready &&
-						<StyledHeading>
-							{research.title}
-						</StyledHeading>
+					ready
+						&& (
+							<StyledHeading>
+								{research.title}
+							</StyledHeading>
+						)
 				}
 			</Container>
 		</Layout>
 	);
-};
+}
 
 export default IndivResearch;

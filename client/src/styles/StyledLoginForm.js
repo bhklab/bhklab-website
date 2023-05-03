@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import colors from './colors';
 
-export const StyledLogin = styled.div`
+const StyledLogin = styled.div`
   label, input {
     display: block;
   }
@@ -38,3 +38,5 @@ export const StyledLogin = styled.div`
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   }
 `;
+
+export default StyledLogin;

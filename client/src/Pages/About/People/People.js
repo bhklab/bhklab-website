@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Container from '@mui/material/Container';
 import colors from '../../../styles/colors';
 import Layout from '../../../Components/Utils/Layout';
-import { StyledHeading } from '../../../styles/StyledHeading';
+import StyledHeading from '../../../styles/StyledHeading';
 import MemberCard from './MemberComponents/MemberCard';
 import AuthContext from '../../../hooks/Contexts';
 

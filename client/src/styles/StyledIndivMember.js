@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import colors from './colors';
 
-export const StyledMember = styled.div`
+const StyledMember = styled.div`
   display: flex;
   flex-direction: row;
   background-color: ${colors.white};
@@ -38,3 +38,5 @@ export const StyledMember = styled.div`
     margin-bottom: 20px;
   }
 `;
+
+export default StyledMember;
