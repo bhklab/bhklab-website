@@ -1,7 +1,7 @@
-import {useContext, useState} from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { AuthContext } from './Contexts';
+import AuthContext from './Contexts';
 
 /**
  * Custom hook to handle authentication.
@@ -19,13 +19,13 @@ const useAuth = () => {
 	const setAdminContext = async (location) => {
 		const res = await axios.get('/api/admin/session');
 		setAdmin(res.data);
-		if(res.data){
-			if (location.state && location.state.from){
+		if (res.data) {
+			if (location.state && location.state.from) {
 				history(location.state.from);
-			}else{
+			} else {
 				history('/');
 			}
-		}else{
+		} else {
 			console.log('authentication failed');
 		}
 	};
@@ -36,27 +36,27 @@ const useAuth = () => {
      * @param {*} location
      */
 	const submitAdmin = async (admin, location) => {
-		try{
+		try {
 			const res = await axios.post('/api/admin/login', admin);
 			await setAdminContext(location);
 			setAdmin(res);
-			if(res){
+			if (res) {
 				history('/admin');
-			}else{
+			} else {
 				console.log('authentication failed');
 				setError(true);
 			}
-		}catch(err){
+		} catch (err) {
 			console.log(err);
 		}
 	};
 
 	const logoutAdmin = async () => {
-		try{
+		try {
 			await axios.get('/api/admin/logout'); // call API to reset cookie token
 			setAdmin(null); // reset user in UserContext to null
 			history('/admin'); // push to signin page
-		}catch(err){
+		} catch (err) {
 			console.log(err);
 		}
 	};
@@ -64,7 +64,7 @@ const useAuth = () => {
 	return {
 		submitAdmin,
 		logoutAdmin,
-		error
+		error,
 	};
 };
 

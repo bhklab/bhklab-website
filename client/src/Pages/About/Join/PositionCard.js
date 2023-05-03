@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import React, {useContext, useState} from 'react';
+import React, { useContext, useState } from 'react';
 import { Markup } from 'interweave';
-import colors from '../../../styles/colors';
 import IconButton from '@mui/material/IconButton';
-import {ExpandLess, ExpandMore} from '@mui/icons-material';
-import DeleteButton from '../../../Components/Utils/DeleteButton';
-import {AuthContext} from '../../../hooks/Contexts';
-import {AdminTool} from '../../../Components/Utils/AdminTools';
+import { ExpandLess, ExpandMore } from '@mui/icons-material';
+import colors from '../../../styles/colors';
+// import DeleteButton from '../../../Components/Utils/DeleteButton';
+import AuthContext from '../../../hooks/Contexts';
+import { AdminTool } from '../../../Components/Utils/AdminTools';
 
 const StyledCard = styled.div`
   width: 60%;
@@ -56,17 +56,22 @@ const StyledCard = styled.div`
   }
 `;
 
-const StyledContent = ({ title, content }) => (
-	<>
-		<div className="subtitle">{title}:</div>
-		<Markup content={content} />
-	</>
-);
+function StyledContent({ title, content }) {
+	return (
+		<>
+			<div className="subtitle">
+				{title}
+				:
+			</div>
+			<Markup content={content} />
+		</>
+	);
+}
 
 /**
  * A Component for showing information of each available position in the lab ( ex. PhD position, Undergrad student, ect.)
  * */
-const StyledPosition = ({ position }) => {
+function StyledPosition({ position }) {
 	const { admin } = useContext(AuthContext);
 	const {
 		_id,
@@ -80,7 +85,7 @@ const StyledPosition = ({ position }) => {
 	const [display, setDisplay] = useState(false);
 	return (
 		<StyledCard>
-			{admin && <AdminTool id={_id} collection={'positions'} item={position}/>}
+			{admin && <AdminTool id={_id} collection="positions" item={position} />}
 			<div className="title">{title}</div>
 			<Markup content={description} />
 			{display && (
@@ -89,18 +94,20 @@ const StyledPosition = ({ position }) => {
 					{req_qualifications && (<StyledContent title="Required qualifications" content={req_qualifications} />)}
 					{pref_qualifications && (<StyledContent title="Preferred qualifications" content={pref_qualifications} />)}
 					{apply && (<StyledContent title="How to apply" content={apply} />)}
-				</>)
-			}
+				</>
+			)}
 			{
-				( responsibilities || req_qualifications || pref_qualifications || apply) &&
-				<div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-					<IconButton onClick={() => setDisplay(!display)} aria-label="show more">
-						{display? <ExpandLess/> : <ExpandMore/>}
-					</IconButton>
-				</div>
+				(responsibilities || req_qualifications || pref_qualifications || apply)
+				&& (
+					<div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+						<IconButton onClick={() => setDisplay(!display)} aria-label="show more">
+							{display ? <ExpandLess /> : <ExpandMore />}
+						</IconButton>
+					</div>
+				)
 			}
 		</StyledCard>
 	);
-};
+}
 
 export default StyledPosition;

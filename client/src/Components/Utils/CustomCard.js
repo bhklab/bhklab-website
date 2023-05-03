@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import colors from '../../styles/colors';
-import {AdminTool} from './AdminTools';
-import {AuthContext} from '../../hooks/Contexts';
+import { AdminTool } from './AdminTools';
+import AuthContext from '../../hooks/Contexts';
 
 /**
  * Style components
@@ -46,8 +46,10 @@ const StyledDescription = styled.div`
  * @example
  * <ResearchCard path = "linkToResearchPage" title = "Title" description= "description" image="src"/>
  */
-export const ResearchCard = (props) => {
-	const { title, description, image, path} = props;
+export function ResearchCard(props) {
+	const {
+		title, description, image, path,
+	} = props;
 
 	return (
 		<StyledCard>
@@ -58,17 +60,18 @@ export const ResearchCard = (props) => {
 			<StyledDescription>{description}</StyledDescription>
 		</StyledCard>
 	);
-};
+}
 
-
-export const TeamCard = (props) => {
+export function TeamCard(props) {
 	const { admin } = useContext(AuthContext);
-	const { path, item} = props;
-	const {_id, teamTitle, description, image} = item;
+	const { path, item } = props;
+	const {
+		_id, teamTitle, description, image,
+	} = item;
 
 	return (
 		<StyledCard>
-			{admin && <AdminTool id={_id} collection={'researches'} item={item}/>}
+			{admin && <AdminTool id={_id} collection="researches" item={item} />}
 			<a href={path}>
 				<StyledImage src={image || '/images/research/research.png'} alt={teamTitle} />
 				<StyledTitle>{teamTitle}</StyledTitle>
@@ -76,4 +79,4 @@ export const TeamCard = (props) => {
 			<StyledDescription>{description}</StyledDescription>
 		</StyledCard>
 	);
-};
+}

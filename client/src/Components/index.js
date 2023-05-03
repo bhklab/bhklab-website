@@ -14,7 +14,6 @@ import JoinUs from '../Pages/About/Join/JoinUs';
 import Social from '../Pages/About/Social/Social';
 import Admin from '../Pages/Admin/Admin';
 
-
 export {
 	Home,
 	Dataset,
@@ -30,5 +29,5 @@ export {
 	Collaboration,
 	JoinUs,
 	Social,
-	Admin
+	Admin,
 };

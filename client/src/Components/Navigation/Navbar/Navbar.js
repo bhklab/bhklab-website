@@ -2,14 +2,14 @@
  A custom react component that returns a navbar
  based on the size of browser navbar includes links to individual pages or a burger menu
  */
+import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
 import BurgerMenu from './BurgerMenu';
-import {Link} from 'react-router-dom' ;
-import {LogoContainer, NavLinks, StyledNavigation} from '../../../styles/StyledNavigation';
-import React, {useContext} from 'react';
+import { LogoContainer, NavLinks, StyledNavigation } from '../../../styles/StyledNavigation';
 import useAuth from '../../../hooks/useAuth';
-import {AuthContext} from '../../../hooks/Contexts';
+import AuthContext from '../../../hooks/Contexts';
 
-const NavBar = () => {
+function NavBar() {
 	const { logoutAdmin } = useAuth();
 	const { admin } = useContext(AuthContext);
 
@@ -20,11 +20,11 @@ const NavBar = () => {
 	return (
 		<StyledNavigation>
 			<LogoContainer>
-				<Link to="/"><img alt="logo" src={'/images/Logo/bhklogo.png'} /></Link>
+				<Link to="/"><img alt="logo" src="/images/Logo/bhklogo.png" /></Link>
 			</LogoContainer>
-			<BurgerMenu/>
+			<BurgerMenu />
 			<NavLinks className="header-links">
-				<div className="dropdown" style={{ verticalAlign: 'middle'}}><a  href="/research">Research</a></div>
+				<div className="dropdown" style={{ verticalAlign: 'middle' }}><a href="/research">Research</a></div>
 				<div className="dropdown">
 					<a className="dropbtn">Publications</a>
 					<div className="dropdown-content">
@@ -39,7 +39,7 @@ const NavBar = () => {
 						<Link to="/equipments">Equipments</Link>
 					</div>
 				</div>
-				<div className="dropdown" style={{ verticalAlign: 'middle'}}><a  href="/software">Software</a></div>
+				<div className="dropdown" style={{ verticalAlign: 'middle' }}><a href="/software">Software</a></div>
 				<div className="dropdown">
 					<Link className="dropbtn">About</Link>
 					<div className="dropdown-content">
@@ -56,12 +56,12 @@ const NavBar = () => {
 					//     <Link exact to='/admin'>
 					//         Login
 					//     </Link>
-					admin &&
-                    <button onClick={logout}>Logout</button>
+					admin
+                    && <button onClick={logout}>Logout</button>
 				}
 			</NavLinks>
 		</StyledNavigation>
 	);
-};
+}
 
 export default NavBar;

@@ -1,54 +1,52 @@
-import React, {useContext, useState} from 'react';
-import Layout from '../../Components/Utils/Layout';
+import React, { useContext, useState } from 'react';
 import Container from '@mui/material/Container';
+import Layout from '../../Components/Utils/Layout';
 import AdminPage from './AdminComponents/AdminForm';
-import {StyledLogin} from '../../styles/StyledLoginForm';
+import { StyledLogin } from '../../styles/StyledLoginForm';
 import useAuth from '../../hooks/useAuth';
-import {AuthContext} from '../../hooks/Contexts';
+import AuthContext from '../../hooks/Contexts';
 
-
-const Admin = () => {
+function Admin() {
 	const { admin } = useContext(AuthContext);
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
-	const { submitAdmin} = useAuth();
+	const { submitAdmin } = useAuth();
 
-	const handleSubmit = async(e)=> {
-		e.preventDefault(); //prevent refresh
-		submitAdmin({username: username, password: password}, window.location);
+	const handleSubmit = async (e) => {
+		e.preventDefault(); // prevent refresh
+		submitAdmin({ username, password }, window.location);
 	};
 
-	return(
+	return (
 		<Layout>
-			<Container >
+			<Container>
 				<div>
-					{!admin ?
-						<StyledLogin>
-							<form className="login" onSubmit={handleSubmit}>
-								<h3>Login</h3>
-								<label>User name:</label>
-								<input
-									type="username"
-									onChange={(e)=> setUsername(e.target.value)}
-									value={username}
-								/>
-								<label>Password:</label>
-								<input
-									type="password"
-									onChange={(e)=> setPassword(e.target.value)}
-									value={password}
-								/>
-								<button>Login</button>
-							</form>
-						</StyledLogin>
-						:
-						<AdminPage/>
-					}
+					{!admin
+						? (
+							<StyledLogin>
+								<form className="login" onSubmit={handleSubmit}>
+									<h3>Login</h3>
+									<label>User name:</label>
+									<input
+										type="username"
+										onChange={(e) => setUsername(e.target.value)}
+										value={username}
+									/>
+									<label>Password:</label>
+									<input
+										type="password"
+										onChange={(e) => setPassword(e.target.value)}
+										value={password}
+									/>
+									<button>Login</button>
+								</form>
+							</StyledLogin>
+						)
+						:						<AdminPage />}
 				</div>
 			</Container>
 		</Layout>
 	);
-};
+}
 
 export default Admin;
-

@@ -1,8 +1,7 @@
 import { slide as Menu } from 'react-burger-menu';
 import React from 'react';
-import {NavLink} from 'react-router-dom';
-import {BurgerNav, styles} from '../../../styles/StyledNavigation';
-
+import { NavLink } from 'react-router-dom';
+import { BurgerNav, styles } from '../../../styles/StyledNavigation';
 
 const dropdownItems = (data) => data.map((x) => (
 	<NavLink key={x.url} to={x.url}>{x.name}</NavLink>
@@ -12,20 +11,19 @@ const dropdownItems = (data) => data.map((x) => (
  A custom React component that returns a side burger menu
  This component is used in Navbar component (./Navbar)
  */
-const BurgerMenu = () => {
-
+function BurgerMenu() {
 	const researchLinks = [
-		{ url: '/research', name: 'Research'}
+		{ url: '/research', name: 'Research' },
 	];
 
 	const publicationsLinks = [
-		{ url: '/publications', name: 'Publications'},
-		{ url: '/presentations', name: 'Presentations' }
+		{ url: '/publications', name: 'Publications' },
+		{ url: '/presentations', name: 'Presentations' },
 	];
 
 	const resourceLinks = [
 		{ url: '/datasets', name: 'Datasets' },
-		{ url: '/equipments', name: 'Equipments' }
+		{ url: '/equipments', name: 'Equipments' },
 	];
 
 	const aboutLinks = [
@@ -45,11 +43,11 @@ const BurgerMenu = () => {
 				{dropdownItems(publicationsLinks)}
 				{dropdownItems(resourceLinks)}
 				{dropdownItems(softwareLinks)}
-				<a href="https://github.com/bhklab" target='_blank' rel="noreferrer">GitHub</a>
+				<a href="https://github.com/bhklab" target="_blank" rel="noreferrer">GitHub</a>
 				{dropdownItems(aboutLinks)}
 			</Menu>
 		</BurgerNav>
 	);
-};
+}
 
 export default BurgerMenu;
