@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import colors from './colors';
 
-
 export const StyledMember = styled.div`
   display: flex;
   flex-direction: row;
@@ -38,4 +37,4 @@ export const StyledMember = styled.div`
     color: #999;
     margin-bottom: 20px;
   }
-` ;
+`;

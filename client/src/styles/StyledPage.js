@@ -107,7 +107,6 @@ export const StyledPage = styled.div`
   }
 `;
 
-
 export const StyledSection = styled.div`
   border-top-color: #e0e0e0;
   border-top-style: solid;

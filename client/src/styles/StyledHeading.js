@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledHeading= styled.div`
+export const StyledHeading = styled.div`
   width: 100%;
   display: flex;
   color: black;

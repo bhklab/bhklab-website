@@ -91,7 +91,6 @@ const StyledNavigation = styled.div`
   }
 `;
 
-
 const NavLinks = styled.div`
   float:right;
   display: flex;
@@ -290,5 +289,5 @@ export {
 	styles,
 	StyledNavigation,
 	NavLinks,
-	LogoContainer
+	LogoContainer,
 };

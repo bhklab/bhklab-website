@@ -3,7 +3,7 @@ const colors = {
 	// white_background: '#f8f8f8',
 	white_background: '#FFFFFF',
 
-	header_blue_green : '#00BFA5',
+	header_blue_green: '#00BFA5',
 	header_deep_blue: '#0D47A1',
 	text_soft_yellow: '#FB8C00',
 	text_light_gray: '#BDBDBD',
@@ -22,24 +22,24 @@ const colors = {
 	blue_footer: '#2E3B55',
 	gray_footer: '#31343e',
 
-	//Collaboration Plot
+	// Collaboration Plot
 	tab_bg: '#2c2c2c',
 
-	//Collaboration Map
-	map_land : '#024aaf',
-	map_land_hover : '#bf7e17',
-	map_border : 'rgba(157,171,199,0.62)',
-	map_background : '#ffffff',
+	// Collaboration Map
+	map_land: '#024aaf',
+	map_land_hover: '#bf7e17',
+	map_border: 'rgba(157,171,199,0.62)',
+	map_background: '#ffffff',
 	map_marker: 'rgba(0,152,208,0.65)',
 	map_location: '#fc870c',
 	map_gray_land: '#acacac',
 
-	//Pagination
+	// Pagination
 	pagination: '#4796F5',
 	paginationHover: '#4796F5',
 	paginationHoverBG: '#FFFFFF',
 
-	//BurgerMenu
+	// BurgerMenu
 	burgerMenuBG: '#31343e',
 	burgerMenuIcon: '',
 	closeIcon: '#FFFFFF',
@@ -47,14 +47,14 @@ const colors = {
 	// bmBurgerBars: '#2E3B55',
 	bmBurgerBars: '#69819e',
 
-	//Buttons
+	// Buttons
 	expandButton: '#4796F5',
 
-	//Card
+	// Card
 	card_bg: '#FFFFFF',
 	card_text: '#000000',
 
-	//Login form
+	// Login form
 	lfBtm_text: '#FFFFFF',
 	lfBtm_color: '#1aac83',
 
