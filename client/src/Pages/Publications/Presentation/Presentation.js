@@ -4,7 +4,7 @@ import 'primeicons/primeicons.css';
 import Container from '@mui/material/Container';
 import { motion } from 'framer-motion';
 import { PresentationCard } from '../PublicationComponents/PublicationCard';
-import { PaginatedPublications } from '../PublicationComponents/PaginatedPublications';
+import PaginatedPublications from '../PublicationComponents/PaginatedPublications';
 import Layout from '../../../Components/Utils/Layout';
 
 const customizedContent = (item, index) => (<PresentationCard key={index} publication={item} />);

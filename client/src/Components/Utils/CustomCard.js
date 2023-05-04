@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import React, { useContext } from 'react';
 import colors from '../../styles/colors';
-import { AdminTool } from './AdminTools';
+import AdminTool from './AdminTools';
 import AuthContext from '../../hooks/Contexts';
 
 /**

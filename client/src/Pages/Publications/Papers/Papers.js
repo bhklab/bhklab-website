@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Container from '@mui/material/Container';
 import { motion } from 'framer-motion';
-import { PaginatedPublications } from '../PublicationComponents/PaginatedPublications';
+import PaginatedPublications from '../PublicationComponents/PaginatedPublications';
 import { PaperCard } from '../PublicationComponents/PublicationCard';
 import Layout from '../../../Components/Utils/Layout';
 

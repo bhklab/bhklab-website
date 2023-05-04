@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import { motion } from 'framer-motion';
 import Layout from '../../Components/Utils/Layout';
-import { ResearchTopics } from './ResearchTeams';
+import ResearchTopics from './ResearchTeams';
 import { StyledSection } from '../../styles/StyledPage';
 import CollaborationMapBubble from '../About/Collaboration/CollaborationComponents/CollectionMapBubble';
 
