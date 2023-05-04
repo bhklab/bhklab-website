@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Navbar from '../Navigation/Navbar/Navbar';
 import Footer from '../Navigation/Footer/Footer';
-import styled from 'styled-components';
 import colors from '../../styles/colors';
 
 const Main = styled.main`
@@ -17,17 +17,17 @@ const Main = styled.main`
 /**
  * wrapper for every page
  */
-const Layout = (props) => {
-	const {children, page} = props;
+function Layout(props) {
+	const { children, page } = props;
 
-	return(
-		<React.Fragment>
-			{ page === 'home' ?<Navbar page="home" /> : <Navbar />}
+	return (
+		<>
+			{ page === 'home' ? <Navbar page="home" /> : <Navbar />}
 			<Main>{children}</Main>
 			<Footer />
-		</React.Fragment>
+		</>
 	);
-};
+}
 
 Layout.propTypes = {
 	/**

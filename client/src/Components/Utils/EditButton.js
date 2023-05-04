@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-import DialogContent from '@mui/material/DialogContent';
-import DialogActions from '@mui/material/DialogActions';
-import TextField from '@mui/material/TextField';
-import axios from 'axios';
+// import React, { useState } from 'react';
+// import Button from '@mui/material/Button';
+// import Dialog from '@mui/material/Dialog';
+// import DialogTitle from '@mui/material/DialogTitle';
+// import DialogContent from '@mui/material/DialogContent';
+// import DialogActions from '@mui/material/DialogActions';
+// import TextField from '@mui/material/TextField';
+// import axios from 'axios';
 import EditIcon from '@mui/icons-material/Edit';
 
-const EditButton = ({ item }) => {
+function EditButton({ item }) {
 	// const [open, setOpen] = useState(false);
 	// const [title, setTitle] = useState(item.title||'');
 	// const [description, setDescription] = useState(item.description || '' );
@@ -54,8 +54,8 @@ const EditButton = ({ item }) => {
 	//     </>
 	// );
 	return (
-		<EditIcon/>
+		<EditIcon />
 	);
-};
+}
 
 export default EditButton;

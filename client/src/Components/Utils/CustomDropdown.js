@@ -12,7 +12,11 @@
 //
 //     return (
 //         <div className="flex gap-2">
-//             <InputText value={filterValue} ref={filterInputRef} onChange={(e) => myFilterFunction(e, filterOptions)} />
+//             <InputText
+//					value={filterValue}
+// 					ref={filterInputRef}
+//					onChange={(e) => myFilterFunction(e, filterOptions)}
+// 				/>
 //             <Button label="Reset" onClick={() => myResetFunction(filterOptions)} />
 //         </div>
 //     )
@@ -29,7 +33,6 @@
 //     setFilterValue(_filterValue);
 //     options.filter(event);
 // }
-
 
 import React from 'react';
 import { Dropdown } from 'primereact/dropdown';
@@ -49,7 +52,7 @@ const StyledDropdown = styled(Dropdown)`
     }
 `;
 
-const CustomDropdown = (props) => {
+function CustomDropdown(props) {
 	const {
 		className,
 		value,
@@ -61,10 +64,10 @@ const CustomDropdown = (props) => {
 		editable,
 		optionLabel,
 		valueTemplate,
-		tooltip
+		tooltip,
 	} = props;
 
-	return(
+	return (
 		<StyledDropdown
 			className={className}
 			value={value}
@@ -77,9 +80,9 @@ const CustomDropdown = (props) => {
 			optionLabel={optionLabel}
 			valueTemplate={valueTemplate}
 			tooltip={tooltip}
-			resetFilterOnHide={true}
+			resetFilterOnHide
 		/>
 	);
-};
+}
 
 export default CustomDropdown;

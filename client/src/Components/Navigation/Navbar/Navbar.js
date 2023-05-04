@@ -24,7 +24,9 @@ function NavBar() {
 			</LogoContainer>
 			<BurgerMenu />
 			<NavLinks className="header-links">
-				<div className="dropdown" style={{ verticalAlign: 'middle' }}><a href="/research">Research</a></div>
+				<div className="dropdown" style={{ verticalAlign: 'middle' }}>
+					<a href="/research">Research</a>
+				</div>
 				<div className="dropdown">
 					<a className="dropbtn">Publications</a>
 					<div className="dropdown-content">

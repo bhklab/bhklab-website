@@ -8,7 +8,7 @@ import TextField from '@mui/material/TextField';
 import AddIcon from '@mui/icons-material/Add';
 import axios from 'axios';
 
-const AddButton = (collection) => {
+function AddButton(collection) {
 	const [open, setOpen] = useState(false);
 	const [title, setTitle] = useState('');
 	const [description, setDescription] = useState('');
@@ -27,7 +27,7 @@ const AddButton = (collection) => {
 	const handleSubmit = async () => {
 		const item = {};
 		try {
-			await axios.post(`/api/data/${collection}/addOne`,  {newItem: item});
+			await axios.post(`/api/data/${collection}/addOne`, { newItem: item });
 			handleClose();
 		} catch (error) {
 			console.error(error);
@@ -37,7 +37,7 @@ const AddButton = (collection) => {
 	return (
 		<>
 			<Button variant="outlined" onClick={handleOpen}>
-				<AddIcon/>
+				<AddIcon />
 			</Button>
 			<Dialog open={open} onClose={handleClose}>
 				<DialogTitle>{`Add a new ${collection}`}</DialogTitle>
@@ -64,6 +64,6 @@ const AddButton = (collection) => {
 			</Dialog>
 		</>
 	);
-};
+}
 
 export default AddButton;

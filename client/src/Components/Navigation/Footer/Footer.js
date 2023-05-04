@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import React from 'react';
-import colors from '../../../styles/colors';
 import Container from '@mui/material/Container';
+import colors from '../../../styles/colors';
 
 const StyledFooter = styled.div`
   background-color: ${colors.white};
@@ -75,7 +75,7 @@ function Footer() {
 				</div>
 
 				<div className="footer-info">
-					<p style={{fontWeight: 'lighter'}}>BHKLab © 2023</p>
+					<p style={{ fontWeight: 'lighter' }}>BHKLab © 2023</p>
 				</div>
 			</StyledFooter>
 		</Container>

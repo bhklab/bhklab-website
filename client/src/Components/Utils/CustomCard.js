@@ -41,10 +41,15 @@ const StyledDescription = styled.div`
  * A custom React component that returns customized cards
  *
  * @param {Object} path, item that is an object including: _id, teamTitle, description, image
- * @returns {JSX.Element} A customized card including image, title, description, and a link to individual research page
+ * @returns {JSX.Element} A customized card including image, title, description,
+ * and a link to individual research page
  *
  * @example
- * <ResearchCard path = "linkToResearchPage" title = "Title" description= "description" image="src"/>
+ * <ResearchCard
+ * 	path = "linkToResearchPage"
+ * 	title = "Title"
+ * 	description= "description" image="src"
+ * />
  */
 export function ResearchCard(props) {
 	const {
