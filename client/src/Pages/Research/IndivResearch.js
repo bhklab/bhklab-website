@@ -6,7 +6,7 @@ import Container from '@mui/material/Container';
 import StyledHeading from '../../styles/StyledHeading';
 import Layout from '../../Components/Utils/Layout';
 
-function IndivResearch(props) {
+function IndivResearch() {
 	const [ready, setReady] = useState(false);
 	const [research, setResearch] = useState({});
 	const { token } = useParams();

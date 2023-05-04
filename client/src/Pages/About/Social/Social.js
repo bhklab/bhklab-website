@@ -1,10 +1,10 @@
-import Layout from '../../../Components/Utils/Layout';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
+import Layout from '../../../Components/Utils/Layout';
 
-const StyledSocial= styled.div`
+const StyledSocial = styled.div`
 	width: 80%;
 	.subject {
 		color: red;
@@ -36,7 +36,6 @@ const StyledSocial= styled.div`
 	}
 `;
 
-
 const Container = styled.div`
   width: 80%;
   margin: 0px 20px;
@@ -54,12 +53,12 @@ const Container = styled.div`
 // }
 
 const images = (socials) => {
-	const imageList =[];
+	const imageList = [];
 	// socials.forEach(item => item.)
 	return imageList;
 };
 
-const Social = () => {
+function Social() {
 	const [ready, setReady] = useState(false);
 	const [socials, setSocial] = useState({});
 	const history = useNavigate();
@@ -73,27 +72,25 @@ const Social = () => {
 		getSocial();
 	}, []);
 
-	useEffect(() => {
-		return(() => {
-			if(history.action === 'POP' && history.location.pathname === '/') {
-				console.log('history');
-				history.replace({
-					pathname: '/',
-					state: {
-					}
-				});
-			}
-		});
-	}, [history]);
+	useEffect(() => (() => {
+		if (history.action === 'POP' && history.location.pathname === '/') {
+			console.log('history');
+			history.replace({
+				pathname: '/',
+				state: {
+				},
+			});
+		}
+	}), [history]);
 
-	return(
+	return (
 		<Layout>
 			<Container>
 				<StyledSocial className="individual">
 					{
-						socials.length?
+						socials.length
 						// <ImageGallery items={images} />
-							''
+							? ''
 						// <>
 						//     {socials.sort((a,b)=> b.date - a.date).map((item,i) =>
 						//             (customizedSocial(item, i, (i !==socials.length-1))))}
@@ -104,6 +101,6 @@ const Social = () => {
 			</Container>
 		</Layout>
 	);
-};
+}
 
 export default Social;

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import React from 'react';
 import colors from '../../../../styles/colors';
+
 export const StyledMember = styled.div`
 	display: flex;
 	flex-direction: row;
@@ -34,19 +35,19 @@ export const StyledMember = styled.div`
 		color: #999;
 		margin-bottom: 20px;
 	}
-` ;
+`;
 
-const MemberCard = (props) => {
+function MemberCard(props) {
 	return (
 		<StyledMember>
-			<img className='pi-photo' src={props.photo}/>
+			<img className="pi-photo" src={props.photo} />
 			<div className="LabMember-info">
-				<div className='LabMember-name'>{props.name}</div>
-				<div className='LabMember-title'>{props.title}</div>
-				<div className='LabMember-info'>{props.bio}</div>
+				<div className="LabMember-name">{props.name}</div>
+				<div className="LabMember-title">{props.title}</div>
+				<div className="LabMember-info">{props.bio}</div>
 			</div>
 		</StyledMember>
 	);
-};
+}
 
 export default MemberCard;

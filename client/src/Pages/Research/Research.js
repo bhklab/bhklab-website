@@ -1,12 +1,11 @@
-import Layout from '../../Components/Utils/Layout';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
+import Layout from '../../Components/Utils/Layout';
 import 'animate.css/animate.min.css';
 import colors from '../../styles/colors';
-import {TeamCard} from '../../Components/Utils/CustomCard';
+import { TeamCard } from '../../Components/Utils/CustomCard';
 import slugGeneratorHelper from '../../Components/Utils/slugGeneratorHelper';
-import axios from 'axios';
-
 
 const StyledSection = styled.div`
   padding-top: 60px;
@@ -101,8 +100,7 @@ const StyledSection = styled.div`
   }
 `;
 
-
-const Research = () => {
+function Research() {
 	const [ready, setReady] = useState(false);
 	const [researches, setResearches] = useState({});
 	useEffect(() => {
@@ -111,29 +109,26 @@ const Research = () => {
 			const res = await axios.get('/api/data/researches');
 			setResearches(res.data.research);
 		};
-		getDataset().then(()=> {setReady(true);});
+		getDataset().then(() => { setReady(true); });
 	}, []);
 
 	return (
 		<Layout>
 			<StyledSection>
 				{
-					ready &&
-				researches.map((research, index) => (
+					ready
+				&& researches.map((research, index) => (
 					<div key={index}>
 						<h1>{research.title}</h1>
 						<div className="container">
 							{
-								research.teams.map((team,indx) =>
-								{
-									return (
-										<TeamCard
-											key={indx}
-											path = {`research/${team.url || slugGeneratorHelper(team.teamTitle)}`}
-											item={team}
-										/>
-									);
-								})
+								research.teams.map((team, indx) => (
+									<TeamCard
+										key={indx}
+										path={`research/${team.url || slugGeneratorHelper(team.teamTitle)}`}
+										item={team}
+									/>
+								))
 							}
 						</div>
 					</div>
@@ -142,6 +137,6 @@ const Research = () => {
 			</StyledSection>
 		</Layout>
 	);
-};
+}
 
 export default Research;

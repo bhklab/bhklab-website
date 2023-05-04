@@ -10,12 +10,12 @@ const useFindAdmin = () => {
 
 	useEffect(() => {
 		const getSession = async () => {
-			try{
+			try {
 				const res = await axios.get('/api/admin/session');
 				setAdmin(res.data);
-			}catch(err){
+			} catch (err) {
 				console.log('not logged in');
-			}finally{
+			} finally {
 				setLoading(false);
 			}
 		};
@@ -26,16 +26,17 @@ const useFindAdmin = () => {
      * Used before loading a restricted page.
      * Check if session is valid. If valid, loads the page.
      * If not valid, redirect to admin.
-     * Prevents app from loading a restricted page if session is expired but local cookie is still set.
+     * Prevents app from loading a restricted page
+	 * if session is expired but local cookie is still set.
      * @param {*} history react-router's history object. Used to redirect to admin page.
      * @param {*} loadView a function to initialize the restricted view. Empty function by default
      */
-	const checkSession = async (history, loadView=() => {}) => {
+	const checkSession = async (history, loadView = () => {}) => {
 		const res = await axios.get('/api/admin/session');
 		setAdmin(res.data);
-		if(res.data){
+		if (res.data) {
 			loadView();
-		}else{
+		} else {
 			history('/admin');
 		}
 	};
@@ -45,7 +46,7 @@ const useFindAdmin = () => {
 		setAdmin,
 		loading,
 		setLoading,
-		checkSession
+		checkSession,
 	};
 };
 

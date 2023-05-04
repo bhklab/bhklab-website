@@ -6,7 +6,7 @@ import { ExpandLess, ExpandMore } from '@mui/icons-material';
 import colors from '../../../styles/colors';
 // import DeleteButton from '../../../Components/Utils/DeleteButton';
 import AuthContext from '../../../hooks/Contexts';
-import { AdminTool } from '../../../Components/Utils/AdminTools';
+import AdminTool from '../../../Components/Utils/AdminTools';
 
 const StyledCard = styled.div`
   width: 60%;

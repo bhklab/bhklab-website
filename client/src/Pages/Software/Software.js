@@ -1,4 +1,3 @@
-import Layout from '../../Components/Utils/Layout';
 import * as React from 'react';
 import styled from 'styled-components';
 import 'animate.css/animate.min.css';
@@ -11,6 +10,7 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import colors from '../../styles/colors';
 import SlideButton from '../../styles/StyledButton';
+import Layout from '../../Components/Utils/Layout';
 
 function TabPanel(props) {
 	const {

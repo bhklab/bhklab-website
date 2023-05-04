@@ -23,8 +23,11 @@ function PaginatedPublications({ customizedContent, publications, itemsPerPage }
 
 	useEffect(() => {
 		const endOffset = itemOffset + itemsPerPage;
-		setCurrentItems(publications.sort((a, b) => new Date(b.date) - new Date(a.date)).map((item, index) => (
-			customizedContent(item, index))).slice(itemOffset, endOffset));
+		setCurrentItems(
+			publications
+				.sort((a, b) => new Date(b.date) - new Date(a.date))
+				.map((item, index) => (customizedContent(item, index))).slice(itemOffset, endOffset),
+		);
 		setPageCount(Math.ceil(publications.length / itemsPerPage));
 	}, [itemOffset, itemsPerPage, publications]);
 
@@ -54,6 +57,4 @@ function PaginatedPublications({ customizedContent, publications, itemsPerPage }
 	);
 }
 
-export {
-	PaginatedPublications,
-};
+export default PaginatedPublications;

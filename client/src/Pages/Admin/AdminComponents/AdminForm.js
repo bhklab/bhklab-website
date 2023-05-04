@@ -1,8 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton } from '@mui/material';
+import {
+	Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton,
+} from '@mui/material';
 
 import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -16,16 +18,17 @@ import DeleteButton from '../../../Components/Utils/DeleteButton';
 import EditButton from '../../../Components/Utils/EditButton';
 import AddButton from '../../../Components/Utils/AddButton';
 
-
 function TablePaginationActions(props) {
 	const theme = useTheme();
-	const { count, page, rowsPerPage, onPageChange } = props;
+	const {
+		count, page, rowsPerPage, onPageChange,
+	} = props;
 
-	const handleFirstPageButtonClick = (e) => {onPageChange(e, 0);};
+	const handleFirstPageButtonClick = (e) => { onPageChange(e, 0); };
 
-	const handleBackButtonClick = (e) => {onPageChange(e, page - 1);};
+	const handleBackButtonClick = (e) => { onPageChange(e, page - 1); };
 
-	const handleNextButtonClick = (e) => {onPageChange(e, page + 1);};
+	const handleNextButtonClick = (e) => { onPageChange(e, page + 1); };
 
 	const handleLastPageButtonClick = (e) => {
 		onPageChange(e, Math.max(0, Math.ceil(count / rowsPerPage) - 1));
@@ -65,18 +68,16 @@ function TablePaginationActions(props) {
 	);
 }
 
-
-const AdminPage = () => {
+function AdminPage() {
 	const [entities, setEntities] = useState([]);
 	const [selectedCollection, setSelectedCollection] = useState('');
 	const [page, setPage] = React.useState(0);
 	const [rowsPerPage, setRowsPerPage] = React.useState(25);
 
 	// Avoid a layout jump when reaching the last page with empty rows.
-	const emptyRows =
-        page > 0 ? Math.max(0, (1 + page) * rowsPerPage - entities.length) : 0;
+	const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - entities.length) : 0;
 
-	const handleChangePage = ( e  , newPage) => {
+	const handleChangePage = (e, newPage) => {
 		setPage(newPage);
 	};
 
@@ -88,7 +89,7 @@ const AdminPage = () => {
 	useEffect(() => {
 		// Fetch entities from MongoDB collection and set them to state
 		const fetchData = async () => {
-			try{
+			try {
 				const response = await fetch(`/api/data/${selectedCollection.toLowerCase()}`);
 				const data = await response.json();
 				setEntities(data[`${selectedCollection.toLowerCase()}`]);
@@ -115,12 +116,11 @@ const AdminPage = () => {
 	};
 
 	const handleCollectionChange = (event, value) => {
-
 		setSelectedCollection(value);
 	};
 
 	return (
-		<div style={{marginTop: '30px'}}>
+		<div style={{ marginTop: '30px' }}>
 			<Autocomplete
 				disablePortal
 				options={['Publications', 'Presentations', 'Datasets', 'Members', 'Positions']}
@@ -141,7 +141,7 @@ const AdminPage = () => {
 					<h1>{selectedCollection}</h1>
 					<TableContainer component={Paper}>
 						<IconButton onClick={() => handleAddClick()}>
-							<AddButton/>
+							<AddButton />
 						</IconButton>
 						<Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
 							<TableHead>
@@ -159,15 +159,13 @@ const AdminPage = () => {
 										<TableCell component="th" scope="row">
 											{row.title || row.name}
 										</TableCell>
-										<TableCell style={{ width: 160 }} align="right">
-
-										</TableCell>
+										<TableCell style={{ width: 160 }} align="right" />
 										<TableCell style={{ width: 160 }} align="right">
 											<IconButton onClick={() => handleEditClick(row._id)}>
-												<EditButton item={row}/>
+												<EditButton item={row} />
 											</IconButton>
 											<IconButton onClick={() => handleDeleteClick(row._id)}>
-												<DeleteButton id={row._id} collection={selectedCollection.toLowerCase()}/>
+												<DeleteButton id={row._id} collection={selectedCollection.toLowerCase()} />
 											</IconButton>
 										</TableCell>
 									</TableRow>
@@ -204,6 +202,6 @@ const AdminPage = () => {
 			)}
 		</div>
 	);
-};
+}
 
 export default AdminPage;

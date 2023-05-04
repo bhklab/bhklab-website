@@ -4,9 +4,9 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import SwipeableViews from 'react-swipeable-views';
 import Box from '@mui/material/Box';
-import colors from '../../../../styles/colors';
-import {useTheme} from '@emotion/react';
+import { useTheme } from '@emotion/react';
 import styled from 'styled-components';
+import colors from '../../../../styles/colors';
 
 const StyledPlot = styled.div`
   body {
@@ -268,9 +268,10 @@ const StyledPlot = styled.div`
   }
 `;
 
-
 function TabPanel(props) {
-	const { children, value, index, ...other } = props;
+	const {
+		children, value, index, ...other
+	} = props;
 
 	return (
 		<div
@@ -281,7 +282,7 @@ function TabPanel(props) {
 			{...other}
 		>
 			{value === index && (
-				<Box sx={{ p: 1}}>
+				<Box sx={{ p: 1 }}>
 					{children}
 				</Box>
 			)}
@@ -296,80 +297,101 @@ function a11yProps(index) {
 	};
 }
 
-const EnterByForm = () => {
-	return(
+function EnterByForm() {
+	return (
 		<div id="body-container">
 			<div className="form-container">
 				<form acceptCharset="utf-8">
 					<div className="number-group">
 						<label htmlFor="quantity">Number of PIs (between 1 and 10):</label>
-						<input type="number" className="quantity" name="quantity" min="1" max="10"/>
-						<input type="button" className="number-submit" value="Submit"/>
+						<input type="number" className="quantity" name="quantity" min="1" max="10" />
+						<input type="button" className="number-submit" value="Submit" />
 						<span className="na">Not available.</span>
 					</div>
 					<div className="form-group">
 						<label>Last Name</label>
-						<small className="text-muted"><i>Example: </i>Haibe-Kains</small>
+						<small className="text-muted">
+							<i>Example: </i>
+							Haibe-Kains
+						</small>
 						<label>Pubmed Queries</label>
-						<small className="text-muted">Get pubmed query from the url. eg)
-							https://pubmed.ncbi.nlm.nih.gov/?term=Haibe-Kains+Benjamin[AU]</small>
-						<small className="text-muted"><i>Example: </i>Haibe-Kains+Benjamin[AU]</small>
+						<small className="text-muted">
+							Get pubmed query from the url. eg)
+							https://pubmed.ncbi.nlm.nih.gov/?term=Haibe-Kains+Benjamin[AU]
+						</small>
+						<small className="text-muted">
+							<i>Example: </i>
+							Haibe-Kains+Benjamin[AU]
+						</small>
 					</div>
-					<div className="divider"></div>
-					<div className="fill-container">
-
-					</div>
+					<div className="divider" />
+					<div className="fill-container" />
 					<div className="button-group">
-						<input type="button" className="form-button example" value="Enter example"/>
-						<input type="button" className="form-button clear" value="Clear"/>
-						<input type="button" className="form-button submit" value="Submit data" disabled='true'/>
+						<input type="button" className="form-button example" value="Enter example" />
+						<input type="button" className="form-button clear" value="Clear" />
+						<input type="button" className="form-button submit" value="Submit data" disabled="true" />
 					</div>
 				</form>
 			</div>
 
 			<div className="pubs-container formview">
 				<div className="select-container formview">
-					<label className="radio-container formview">Graph Network
-						<input className="formview input-network" type="radio" checked="checked"
-							name="plotview-formview" value="network"/>
-						<span className="formview checkmark"></span>
+					<label className="radio-container formview">
+						Graph Network
+						<input
+							className="formview input-network"
+							type="radio"
+							checked="checked"
+							name="plotview-formview"
+							value="network"
+						/>
+						<span className="formview checkmark" />
 					</label>
-					<label className="formview radio-container">Upset Plot
-						<input type="radio" name="plotview-formview" value="upset"/>
-						<span className="formview checkmark"></span>
+					<label className="formview radio-container">
+						Upset Plot
+						<input type="radio" name="plotview-formview" value="upset" />
+						<span className="formview checkmark" />
 					</label>
-					<label className="formview radio-container">Circos Plot
-						<input type="radio" name="plotview-formview" value="circos"/>
-						<span className="formview checkmark"></span>
+					<label className="formview radio-container">
+						Circos Plot
+						<input type="radio" name="plotview-formview" value="circos" />
+						<span className="formview checkmark" />
 					</label>
 				</div>
 				<div className="formview select-container circos-select">
-					<label className="formview radio-container">Chord Width View
-						<input className="formview input-network" type="radio" checked="checked"
-							name="circosview-formview" value="original"/>
-						<span className="formview checkmark"/>
+					<label className="formview radio-container">
+						Chord Width View
+						<input
+							className="formview input-network"
+							type="radio"
+							checked="checked"
+							name="circosview-formview"
+							value="original"
+						/>
+						<span className="formview checkmark" />
 					</label>
-					<label className="formview radio-container">Opacity View
-						<input type="radio" name="circosview-formview" value="gradation"/>
-						<span className="formview checkmark"/>
+					<label className="formview radio-container">
+						Opacity View
+						<input type="radio" name="circosview-formview" value="gradation" />
+						<span className="formview checkmark" />
 					</label>
 				</div>
 				<div className="formview loading">Loading...</div>
 				<div className="formview plot-container">
-					<div className="formview" id="networkPlot"></div>
-					<div className="formview" id="upsetPlot"></div>
+					<div className="formview" id="networkPlot" />
+					<div className="formview" id="upsetPlot" />
 					<div className="formview" id="circosPlot">
-						<div className="formview" id="originalView"></div>
-						<div className="formview" id="gradationView"></div>
+						<div className="formview" id="originalView" />
+						<div className="formview" id="gradationView" />
 					</div>
 				</div>
 			</div>
 		</div>
 	);
-};
+}
 
-const EnterbyCSV = () => {
-	return(
+function EnterbyCSV() {
+	return (
 		<div id="tabs-2">
 			<div id="body-container">
 				<div className="form-container">
@@ -378,112 +400,165 @@ const EnterbyCSV = () => {
 							<label>Please enter your CSV data below.</label>
 							<small className="text-muted">Do not enter more than 20 rows.</small>
 							<small className="text-muted">Remove the first row if your CSV has headers.</small>
-							<small className="text-muted">Use first and last names - the script will remove the
-								first names.</small>
-							<small className="text-muted">Put the entire url - the script parses out the search
-								term.</small>
+							<small className="text-muted">
+								Use first and last names - the script will remove the
+								first names.
+							</small>
+							<small className="text-muted">
+								Put the entire url - the script parses out the search
+								term.
+							</small>
 						</div>
-						<div className="divider"></div>
-						<textarea className="csv-area" type="csv" placeholder="CSV data goes here"></textarea>
+						<div className="divider" />
+						<textarea className="csv-area" type="csv" placeholder="CSV data goes here" />
 						<div className="button-group">
-							<input type="button" className="form-button example-csv" value="Enter example"/>
-							<input type="button" className="form-button submit-csv" value="Submit data"
-								disabled='true'/>
+							<input type="button" className="form-button example-csv" value="Enter example" />
+							<input
+								type="button"
+								className="form-button submit-csv"
+								value="Submit data"
+								disabled="true"
+							/>
 						</div>
 					</form>
 				</div>
 
 				<div className="pubs-container csv">
 					<div className="select-container csv">
-						<label className="radio-container csv">Graph Network
-							<input className="input-network csv" type="radio" checked="checked"
-								name="plotview-csv" value="network"/>
-							<span className="checkmark csv"/>
+						<label className="radio-container csv">
+							Graph Network
+							<input
+								className="input-network csv"
+								type="radio"
+								checked="checked"
+								name="plotview-csv"
+								value="network"
+							/>
+							<span className="checkmark csv" />
 						</label>
-						<label className="radio-container csv">Upset Plot
-							<input type="radio" name="plotview-csv" value="upset"/>
-							<span className="checkmark csv"/>
+						<label className="radio-container csv">
+							Upset Plot
+							<input type="radio" name="plotview-csv" value="upset" />
+							<span className="checkmark csv" />
 						</label>
-						<label className="radio-container csv">Circos Plot
-							<input type="radio" name="plotview-csv" value="circos"/>
-							<span className="checkmark csv"/>
+						<label className="radio-container csv">
+							Circos Plot
+							<input type="radio" name="plotview-csv" value="circos" />
+							<span className="checkmark csv" />
 						</label>
 					</div>
 					<div className="csv select-container circos-select">
-						<label className="csv radio-container">Chord Width View
-							<input className="csv input-network" type="radio" checked="checked"
-								name="circosview-csv" value="original"/>
-							<span className="csv checkmark"/>
+						<label className="csv radio-container">
+							Chord Width View
+							<input
+								className="csv input-network"
+								type="radio"
+								checked="checked"
+								name="circosview-csv"
+								value="original"
+							/>
+							<span className="csv checkmark" />
 						</label>
-						<label className="csv radio-container">Opacity View
-							<input type="radio" name="circosview-csv" value="gradation"/>
-							<span className="csv checkmark"/>
+						<label className="csv radio-container">
+							Opacity View
+							<input type="radio" name="circosview-csv" value="gradation" />
+							<span className="csv checkmark" />
 						</label>
 					</div>
 					<div className="csv loading">Loading...</div>
 					<div className="csv plot-container">
-						<div className="csv" id="networkPlot"></div>
-						<div className="csv" id="upsetPlot"></div>
+						<div className="csv" id="networkPlot" />
+						<div className="csv" id="upsetPlot" />
 						<div className="csv" id="circosPlot">
-							<div className="csv" id="originalView"></div>
-							<div className="csv" id="gradationView"></div>
+							<div className="csv" id="originalView" />
+							<div className="csv" id="gradationView" />
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	);
-};
+}
 
-const EnterbyLab = () => {
-	return(
+function EnterbyLab() {
+	return (
 		<div id="tabs-3">
 			<div id="body-container">
 				<div className="form-container">
 					<form className="upload-form" acceptCharset="utf-8">
 						<div className="form-group">
-							<label>Please enter your CSV data below - PI in the first input and collaborators in
-								the second input.</label>
+							<label>
+								Please enter your CSV data below - PI in the first input and collaborators in
+								the second input.
+							</label>
 							<small className="text-muted">Remove the first row if your CSV has headers.</small>
-							<small className="text-muted">Use first and last names - the script will remove the
-								first names.</small>
-							<small className="text-muted">Put the entire url - the script parses out the search
-								term.</small>
+							<small className="text-muted">
+								Use first and last names - the script will remove the
+								first names.
+							</small>
+							<small className="text-muted">
+								Put the entire url - the script parses out the search
+								term.
+							</small>
 						</div>
-						<div className="divider"></div>
-						<textarea className="labcsv-area pi" type="labcsv"
-							placeholder="CSV data for your PI goes here"></textarea>
-						<textarea className="labcsv-area collaborators" type="labcsv"
-							placeholder="CSV data for the collaborators go here"></textarea>
+						<div className="divider" />
+						<textarea
+							className="labcsv-area pi"
+							type="labcsv"
+							placeholder="CSV data for your PI goes here"
+						/>
+						<textarea
+							className="labcsv-area collaborators"
+							type="labcsv"
+							placeholder="CSV data for the collaborators go here"
+						/>
 						<div className="button-group">
-							<input type="button" className="form-button example-labcsv" value="Enter example"/>
-							<input type="button" className="form-button submit-labcsv" value="Submit data"
-								disabled='true'/>
+							<input type="button" className="form-button example-labcsv" value="Enter example" />
+							<input
+								type="button"
+								className="form-button submit-labcsv"
+								value="Submit data"
+								disabled="true"
+							/>
 						</div>
 					</form>
 				</div>
 
 				<div className="pubs-container labcsv">
 					<div className="select-container labcsv">
-						<label className="radio-container labcsv">Graph Network
-							<input className="input-network labcsv" type="radio" checked="checked"
-								name="plotview-labcsv" value="network"/>
-							<span className="checkmark labcsv"/>
+						<label className="radio-container labcsv">
+							Graph Network
+							<input
+								className="input-network labcsv"
+								type="radio"
+								checked="checked"
+								name="plotview-labcsv"
+								value="network"
+							/>
+							<span className="checkmark labcsv" />
 						</label>
-						<label className="radio-container labcsv">Circos Plot
-							<input type="radio" name="plotview-labcsv" value="circos"/>
-							<span className="checkmark labcsv"/>
+						<label className="radio-container labcsv">
+							Circos Plot
+							<input type="radio" name="plotview-labcsv" value="circos" />
+							<span className="checkmark labcsv" />
 						</label>
 					</div>
 					<div className="labcsv select-container circos-select">
-						<label className="labcsv radio-container">Chord Width View
-							<input className="labcsv input-network" type="radio" checked="checked"
-								name="circosview-labcsv" value="original"/>
-							<span className="labcsv checkmark"/>
+						<label className="labcsv radio-container">
+							Chord Width View
+							<input
+								className="labcsv input-network"
+								type="radio"
+								checked="checked"
+								name="circosview-labcsv"
+								value="original"
+							/>
+							<span className="labcsv checkmark" />
 						</label>
-						<label className="labcsv radio-container">Opacity View
-							<input type="radio" name="circosview-labcsv" value="gradation"/>
-							<span className="labcsv checkmark"/>
+						<label className="labcsv radio-container">
+							Opacity View
+							<input type="radio" name="circosview-labcsv" value="gradation" />
+							<span className="labcsv checkmark" />
 						</label>
 						<button>
 							<a id="downloadOriginal" href="#">Download Chord View</a>
@@ -494,19 +569,19 @@ const EnterbyLab = () => {
 					</div>
 					<div className="labcsv loading">Loading...</div>
 					<div className="labcsv plot-container">
-						<div className="labcsv" id="networkPlot"></div>
+						<div className="labcsv" id="networkPlot" />
 						<div className="labcsv" id="circosPlot">
-							<div className="labcsv" id="originalView"></div>
-							<div className="labcsv" id="gradationView"></div>
+							<div className="labcsv" id="originalView" />
+							<div className="labcsv" id="gradationView" />
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	);
-};
+}
 
-const CollaborationPlot = () => {
+function CollaborationPlot() {
 	const theme = useTheme();
 	const [value, setValue] = React.useState(0);
 
@@ -522,12 +597,12 @@ const CollaborationPlot = () => {
 		<StyledPlot>
 			<AppBar
 				position="static"
-				sx={{color: `${colors.tab_bg}`, background: `${colors.white_background}`}}
+				sx={{ color: `${colors.tab_bg}`, background: `${colors.white_background}` }}
 			>
 				<Tabs
 					value={value}
 					onChange={handleChange}
-					indicatorColor={'primary'}
+					indicatorColor="primary"
 					textColor="inherit"
 				>
 					<Tab label="Enter by form" {...a11yProps(0)} />
@@ -541,17 +616,17 @@ const CollaborationPlot = () => {
 				onChangeIndex={handleChangeIndex}
 			>
 				<TabPanel value={value} index={0} dir={theme.direction}>
-					<EnterByForm/>
+					<EnterByForm />
 				</TabPanel>
 				<TabPanel value={value} index={1} dir={theme.direction}>
-					<EnterbyCSV/>
+					<EnterbyCSV />
 				</TabPanel>
 				<TabPanel value={value} index={2} dir={theme.direction}>
-					<EnterbyLab/>
+					<EnterbyLab />
 				</TabPanel>
 			</SwipeableViews>
 		</StyledPlot>
 	);
-};
+}
 
 export default CollaborationPlot;
