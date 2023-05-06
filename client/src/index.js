@@ -1,5 +1,4 @@
 import React from 'react';
-import './index.css';
 import { createRoot } from 'react-dom/client';
 import axios from 'axios';
 import App from './App';
@@ -10,6 +9,7 @@ axios.interceptors.request.use(
 	(config) => {
 		const token = window?.accessToken || 'hello';
 		if (token) {
+			// eslint-disable-next-line no-param-reassign
 			config.headers.Authorization = `Bearer ${token}`;
 		}
 
