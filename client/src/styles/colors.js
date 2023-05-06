@@ -2,6 +2,7 @@ const colors = {
 	blue_background: '#292d3e',
 	// white_background: '#f8f8f8',
 	white_background: '#FFFFFF',
+	border_line: '#E0E0E0',
 
 	header_blue_green: '#00BFA5',
 	header_deep_blue: '#0D47A1',
