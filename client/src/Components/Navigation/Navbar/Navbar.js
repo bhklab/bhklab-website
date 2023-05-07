@@ -20,36 +20,43 @@ function NavBar() {
 	return (
 		<StyledNavigation>
 			<LogoContainer>
-				<Link to="/"><img alt="logo" src="/images/Logo/bhklogo.png" /></Link>
+				<Link to="/">
+					<img alt="logo" src="/images/Logo/bhklogo.png" />
+				</Link>
 			</LogoContainer>
 			<BurgerMenu />
-			<NavLinks className="header-links">
-				<div className="dropdown" style={{ verticalAlign: 'middle' }}>
-					<a href="/research">Research</a>
+			<NavLinks className="header-links-container">
+				<div className="header-link-research header-link">
+					<Link to="/">Home</Link>
 				</div>
-				<div className="dropdown">
-					<a className="dropbtn">Publications</a>
+				<div className="header-link-research header-link">
+					<Link to="/research">Research</Link>
+				</div>
+				<div className="header-link-publications header-link">
+					<div className="dropbtn">Publications</div>
 					<div className="dropdown-content">
 						<Link to="/publications">Papers</Link>
 						<Link to="/presentations">Presentations</Link>
 					</div>
 				</div>
-				<div className="dropdown">
-					<a className="dropbtn">Resources</a>
+				<div className="header-link-resources header-link">
+					<div className="dropbtn">Resources</div>
 					<div className="dropdown-content">
 						<Link to="/datasets">Datasets</Link>
 						<Link to="/equipments">Equipments</Link>
 					</div>
 				</div>
-				<div className="dropdown" style={{ verticalAlign: 'middle' }}><a href="/software">Software</a></div>
-				<div className="dropdown">
-					<Link className="dropbtn">About</Link>
+				<div className="header-link-about header-link">
+					<div className="dropbtn">About</div>
 					<div className="dropdown-content">
 						<Link to="/people">People</Link>
 						<Link to="/collaboration">Collaboration</Link>
 						<Link to="/positions">Join Us</Link>
 						<Link to="/contact">Contact</Link>
 					</div>
+				</div>
+				<div className="header-link-software header-link">
+					<Link to="/software">Software</Link>
 				</div>
 				{
 					// admin ?
@@ -59,7 +66,7 @@ function NavBar() {
 					//         Login
 					//     </Link>
 					admin
-                    && <button onClick={logout}>Logout</button>
+                     && <button type="button" onClick={logout}>Logout</button>
 				}
 			</NavLinks>
 		</StyledNavigation>

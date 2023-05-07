@@ -2,111 +2,84 @@ import styled from 'styled-components';
 import colors from './colors';
 
 const StyledNavigation = styled.div`
-  /* The dropdown container */
+  border-bottom: 1px solid ${colors.border_line};
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
 
-  .dropdown {
-    float: right;
-    overflow: hidden;
-    padding: 22px 0px;
+const LogoContainer = styled.div`
+  margin-left: 5vw;
+  padding: 5px;
+  width: 20vw;
+  & img {
+    height: 50px;
+  }
+`;
+
+const NavLinks = styled.div`
+  width: 70vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: 1rem;
+
+  a:hover {
+    color: ${colors.navbarLink};
   }
 
-  /* Dropdown button */
-
-  .dropdown .dropbtn .header-link {
-    font-size: calc(0.6vw);
-    border: none;
-    outline: none;
-    background-color: inherit;
-    font-family: inherit; /* Important for vertical align on mobile phones */
-    margin: 10px; /* Important for vertical align on mobile phones */
-    display: block;
-    text-align: left;
+  .header-link {
+    position: relative;
   }
 
   .dropbtn {
-    color: ${colors.navbarText};
+    color: ${colors.header_deep_blue};
   }
 
-  .navbar a:hover, .dropdown:hover , .dropbtn:hover{
-    color: ${colors.navbarLink};
-    transition: color 0.2s ease-out;
-  }
-
-  /* Dropdown content (hidden by default) */
   .dropdown-content {
-    margin-top: 18px;
     display: none;
     position: absolute;
-    background-color: ${colors.white_background};
-    width: 180px;
+    /* margin-top: 5px; */
     border-radius: 1px;
     box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
     z-index: 999;
-  }
-
-  /* Links inside the dropdown */
+  }  
 
   .dropdown-content a {
-    float: none;
-    color: black;
-    padding: 12px 16px;
-    margin: 0px;
-    text-decoration: none;
     display: block;
+    color: ${colors.header_deep_blue};
+    padding: 12px 16px;
+    text-decoration: none;
+    background-color: ${colors.white_background};
     -webkit-transition: color 0.2s ease-out;
     -moz-transition: color 0.2s ease-out;
     -o-transition: color 0.2s ease-out;
     transition: color 0.2s ease-out;
   }
 
-  /* Add a grey background color to dropdown links on hover */
-
   .dropdown-content a:hover {
-    background-color: ${colors.white_background};
-    border-radius: 1px;
     color: ${colors.navbarLink};
   }
 
-  .dropdown-content a:active {
-    background-color: ${colors.navbarLink};
-  }
-
-  /* Show the dropdown menu on hover */
-
-  .dropdown:hover .dropdown-content {
+  .header-link:hover, .dropbtn:hover {
+   .dropdown-content {
     display: block;
+   }
   }
 
-  position: fixed;
-  width: 100%;
-  height: 65px;
-  background: ${colors.navbarBackground};
-  z-index: 999;
-
-  a {
-    color: ${colors.navbarText};
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif
-    font-family: 'Roboto', sans-serif;
-    font-weight: normal;
-  }
-`;
-
-const NavLinks = styled.div`
-  float:right;
-  display: flex;
-  flex-direction: row;
-  margin-right: 10vw;
-  & a {
-    color: ${colors.navbarText}
-    text-decoration: none;
-    font-size: calc(0.3vw + 0.6em);
-    margin: 0px 20px;
-    letter-spacing: 1px;
-    border-bottom: 2px solid transparent;
+  @media only screen and (min-width: 1200px) {
+    width: 55vw;
   }
 
-  & a:hover {
-    color: ${colors.navbarLink}
+  @media only screen and (min-width: 1600px) {
+    width: 50vw;
+  }
+
+  @media only screen and (min-width: 1950px) {
+    width: 35vw;
+    font-size: 1.05rem;
   }
 
   @media only screen and (max-width: 1000px) {
@@ -271,18 +244,6 @@ const styles = {
 		background: 'rgba(0, 0, 0, 0.3)',
 	},
 };
-
-const LogoContainer = styled.div`
-  margin-left: 5vw;
-  float:left;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 10px;
-  & img {
-    height: 50px;
-  }
-`;
 
 export {
 	BurgerNav,
