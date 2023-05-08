@@ -24,10 +24,14 @@ const NavLinks = styled.div`
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  
+  a {
+    color: ${colors.navbarText};
+  }
 
   a:hover {
-    color: ${colors.navbarLink};
+    color: ${colors.header_deep_blue};
   }
 
   .header-link {
@@ -35,7 +39,7 @@ const NavLinks = styled.div`
   }
 
   .dropbtn {
-    color: ${colors.header_deep_blue};
+    color: ${colors.navbarText};
   }
 
   .dropdown-content {
@@ -49,7 +53,7 @@ const NavLinks = styled.div`
 
   .dropdown-content a {
     display: block;
-    color: ${colors.header_deep_blue};
+    color: ${colors.navbarText};
     padding: 12px 16px;
     text-decoration: none;
     background-color: ${colors.white_background};
@@ -60,7 +64,7 @@ const NavLinks = styled.div`
   }
 
   .dropdown-content a:hover {
-    color: ${colors.navbarLink};
+    color: ${colors.header_deep_blue};
   }
 
   .header-link:hover, .dropbtn:hover {
@@ -79,7 +83,7 @@ const NavLinks = styled.div`
 
   @media only screen and (min-width: 1950px) {
     width: 35vw;
-    font-size: 1.05rem;
+    font-size: 1rem;
   }
 
   @media only screen and (max-width: 1000px) {
