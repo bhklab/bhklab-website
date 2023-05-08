@@ -6,12 +6,10 @@ import Footer from '../Navigation/Footer/Footer';
 import colors from '../../styles/colors';
 
 const Main = styled.main`
-  display: flex;
-  background-color: ${colors.white_background};
-  min-height: 100vh;
-  padding-top: 60px;
-  flex-direction: column;
-  align-items: center;
+	background-color: ${colors.white_background};
+	display: flex;
+	flex-direction: column;
+	row-gap: ${(props) => (props.page.match(/home/ig) ? '' : '50px')};
 `;
 
 /**
@@ -21,11 +19,11 @@ function Layout(props) {
 	const { children, page } = props;
 
 	return (
-		<>
-			{ page === 'home' ? <Navbar page="home" /> : <Navbar />}
-			<Main>{children}</Main>
+		<Main page={page}>
+			<Navbar />
+			{ children }
 			<Footer />
-		</>
+		</Main>
 	);
 }
 
@@ -37,6 +35,7 @@ Layout.propTypes = {
 		PropTypes.arrayOf(PropTypes.node),
 		PropTypes.node,
 	]),
+	page: PropTypes.string,
 };
 
 Layout.defaultProps = {
