@@ -152,7 +152,7 @@ function People() {
 					ready
 						&& (
 							<>
-								<StyledHeading>Principal Investigator</StyledHeading>
+								{/* <StyledHeading>Principal Investigator</StyledHeading> */}
 								<MemberCard
 									name="Benjamin Haibe-Kains"
 									title="Principal Investigator"

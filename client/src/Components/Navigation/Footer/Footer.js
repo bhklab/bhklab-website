@@ -4,41 +4,43 @@ import Container from '@mui/material/Container';
 import colors from '../../../styles/colors';
 
 const StyledFooter = styled.div`
-  background-color: ${colors.white};
-  padding: 40px 20px;
-  margin: 0px 50px;
-  font-size: 14px;
-  .links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 40px;
-  }
+	border-top: 1px solid ${colors.border_line};
+	background-color: ${colors.white};
+	padding: 40px 20px;
+	margin: 0px 50px;
+	font-size: 14px;
 
-  .link-container {
-    display: flex;
-    flex-direction: column;
-  }
+	.links {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin-bottom: 40px;
+	}
 
-  .link-container a {
-    color: ${colors.blue_footer};
-    margin-bottom: 10px;
-    text-decoration: none;
-    transition: color 0.2s ease-in-out;
-  }
+	.link-container {
+		display: flex;
+		flex-direction: column;
+	}
 
-  .link-container a:hover {
-    color: ${colors.navbarLink};
-  }
+	.link-container a {
+		color: ${colors.blue_footer};
+		margin-bottom: 10px;
+		text-decoration: none;
+		transition: color 0.2s ease-in-out;
+	}
 
-  .footer-info {
-    text-align: center;
-  }
+	.link-container a:hover {
+		color: ${colors.navbarLink};
+	}
 
-  .footer-info p {
-    color: ${colors.blue_footer};
-    margin-bottom: 10px;
-  }
+	.footer-info {
+		text-align: center;
+	}
+
+	.footer-info p {
+		color: ${colors.blue_footer};
+		margin-bottom: 10px;
+	}
 `;
 
 function Footer() {
