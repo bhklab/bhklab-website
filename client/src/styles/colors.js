@@ -1,4 +1,8 @@
 const colors = {
+	main_text_color: '#2E3B55',
+	link_color: '#1d9bf0',
+	secondary_text_color: '#0f1419',
+
 	blue_background: '#292d3e',
 	// white_background: '#f8f8f8',
 	white_background: '#FFFFFF',

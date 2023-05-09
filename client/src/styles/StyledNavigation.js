@@ -27,11 +27,11 @@ const NavLinks = styled.div`
   font-size: 0.9rem;
   
   a {
-    color: ${colors.navbarText};
+    color: ${colors.main_text_color};
   }
 
   a:hover {
-    color: ${colors.navbarLink};
+    color: ${colors.link_color};
   }
 
   .header-link {
@@ -39,7 +39,7 @@ const NavLinks = styled.div`
   }
 
   .dropbtn {
-    color: ${colors.navbarText};
+    color: ${colors.main_text_color};
   }
 
   .dropdown-content {
@@ -53,7 +53,7 @@ const NavLinks = styled.div`
 
   .dropdown-content a {
     display: block;
-    color: ${colors.navbarText};
+    color: ${colors.main_text_color};
     padding: 12px 16px;
     text-decoration: none;
     background-color: ${colors.white_background};
@@ -64,7 +64,7 @@ const NavLinks = styled.div`
   }
 
   .dropdown-content a:hover {
-    color: ${colors.navbarLink};
+    color: ${colors.link_color};
   }
 
   .header-link:hover, .dropbtn:hover {
