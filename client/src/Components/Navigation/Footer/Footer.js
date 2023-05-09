@@ -4,7 +4,7 @@ import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import colors from '../../../styles/colors';
 
 const StyledFooter = styled.div`
-	border-top: 1px solid ${colors.border_line};
+	border-top: 1px solid ${colors.border_line_color};
 	padding: 20px;
 	font-size: 0.9rem;
 

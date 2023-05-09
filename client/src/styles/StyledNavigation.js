@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import colors from './colors';
 
 const StyledNavigation = styled.div`
-  border-bottom: 1px solid ${colors.border_line};
+  border-bottom: 1px solid ${colors.border_line_color};
   height: 70px;
   display: flex;
   justify-content: space-between;
@@ -72,6 +72,10 @@ const NavLinks = styled.div`
     display: block;
    }
   }
+  
+  @media only screen and (max-width: 1000px) {
+    display: none;
+  }
 
   @media only screen and (min-width: 1200px) {
     width: 55vw;
@@ -86,9 +90,7 @@ const NavLinks = styled.div`
     font-size: 1rem;
   }
 
-  @media only screen and (max-width: 1000px) {
-    display: none;
-  }
+  
 `;
 
 const BurgerNav = styled.div`

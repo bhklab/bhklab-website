@@ -2,11 +2,11 @@ const colors = {
 	main_text_color: '#2E3B55',
 	link_color: '#1d9bf0',
 	secondary_text_color: '#0f1419',
+	border_line_color: '#E0E0E0',
+	white_background: '#FFFFFF',
 
 	blue_background: '#292d3e',
 	// white_background: '#f8f8f8',
-	white_background: '#FFFFFF',
-	border_line: '#E0E0E0',
 
 	header_blue_green: '#00BFA5',
 	header_deep_blue: '#0D47A1',
