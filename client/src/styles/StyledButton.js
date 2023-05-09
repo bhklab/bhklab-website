@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const SlideButton = styled.div`
   height : 60px;
@@ -9,8 +9,6 @@ const SlideButton = styled.div`
   flex-direction: column;
   align-self: center;
   justify-content: center;
-`
+`;
 
-export {
-    SlideButton
-};
+export default SlideButton;

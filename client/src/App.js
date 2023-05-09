@@ -1,16 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Routes from './Routes/Routes';
-import './styles/App.css';
-import GlobalStyles from './styles/GlobalStyles.js';
+import GlobalStyles from './styles/GlobalStyles';
 
 function App() {
-  return (
-    <React.Fragment>
-      <GlobalStyles />
-      <Routes />
-    </React.Fragment>
-  )
+	return (
+		<>
+			<GlobalStyles />
+			<Routes />
+		</>
+	);
 }
 
 export default App;
-

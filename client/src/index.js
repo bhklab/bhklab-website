@@ -1,38 +1,34 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
 import { createRoot } from 'react-dom/client';
-import reportWebVitals from './reportWebVitals';
 import axios from 'axios';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-//Add a request interceptor
+// Add a request interceptor
 axios.interceptors.request.use(
-    config => {
-        const token = window?.accessToken || 'hello';
-        if (token) {
-            config.headers['Authorization'] = 'Bearer ' + token;
-        }
+	(config) => {
+		const token = window?.accessToken || 'hello';
+		if (token) {
+			// eslint-disable-next-line no-param-reassign
+			config.headers.Authorization = `Bearer ${token}`;
+		}
 
-        return config;
-    },
-    error => {
-        Promise.reject(error)
-    }
+		return config;
+	},
+	(error) => {
+		Promise.reject(error);
+	},
 );
 
 // Add a response interceptor
 axios.interceptors.response.use(
-    response => {
-        return response;
-    },
-    error => {
-        Promise.reject(error)
-    }
+	(response) => response,
+	(error) => {
+		Promise.reject(error);
+	},
 );
 
 const root = createRoot(document.getElementById('root'));
 root.render(<App />);
-
 
 reportWebVitals();

@@ -1,85 +1,112 @@
 import styled from 'styled-components';
-import React from "react";
-import colors from "../../../styles/colors";
-import Container from "@mui/material/Container";
+import React from 'react';
+import { TwitterTimelineEmbed } from 'react-twitter-embed';
+import colors from '../../../styles/colors';
 
 const StyledFooter = styled.div`
-  background-color: ${colors.white};
-  padding: 40px 20px;
-  margin: 0px 50px;
-  font-size: 14px;
-  .links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 40px;
-  }
+	border-top: 1px solid ${colors.border_line};
+	padding: 20px;
+	font-size: 0.9rem;
 
-  .link-container {
-    display: flex;
-    flex-direction: column;
-  }
+	.links-feed-container {
+		display: flex;
+	}
 
-  .link-container a {
-    color: ${colors.blue_footer};
-    margin-bottom: 10px;
-    text-decoration: none;
-    transition: color 0.2s ease-in-out;
-  }
+	.links-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		width: 60%;
+	}
 
-  .link-container a:hover {
-    color: ${colors.navbarLink};
-  }
+	.twitter-timeline-container {
+		width: 40%;
+		display: flex;
+		justify-content: center;
+	}
 
-  .footer-info {
-    text-align: center;
-  }
+	.twitter-timeline-container > div {
+		width: 400px;
+		height: 250px;
+		display: flex;
+		justify-content: center;
+	}
 
-  .footer-info p {
-    color: ${colors.blue_footer};
-    margin-bottom: 10px;
-  }
-`
+	.single-link-container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.single-link-container a {
+		color: ${colors.blue_footer};
+		margin-bottom: 10px;
+		text-decoration: none;
+		transition: color 0.2s ease-in-out;
+	}
+
+	.single-link-container a:hover {
+		color: ${colors.navbarLink};
+	}
+
+	.footer-info {
+		text-align: center;
+		margin-top: 30px;
+		margin-bottom: 10px;
+	}
+
+	.footer-info p {
+		color: ${colors.blue_footer};
+	}
+
+	@media only screen and (min-width: 2000px) {
+		padding: 40px;
+
+		.twitter-timeline-container > div {
+			width: 500px;
+		}
+	}
+`;
 
 function Footer() {
-    return (
-        <Container>
-            <StyledFooter>
-                <div className="links">
-                    <div className="link-container">
-                        <a href="/research">Research</a>
-                        <a href="/people">People</a>
-                        <a href="/collaboration">Collaboration</a>
-
-                    </div>
-
-                    <div className="link-container">
-                        <a href="/publications">Publications</a>
-                        <a href="/presentations">Presentations</a>
-                        <a href="/software">Software</a>
-                    </div>
-
-                    <div className="link-container">
-                        <a href="/resources">Resources</a>
-                        <a href="/datasets">Datasets</a>
-                        <a href="https://www.pmgenomics.ca/bhklab/">Github</a>
-                        <a href="https://cbioportal.ca">cBioPortal</a>
-
-                    </div>
-
-                    <div className="link-container">
-                        <a href="/contact">Contact Us</a>
-                        <a href="/positions">Join Us</a>
-
-                    </div>
-                </div>
-
-                <div className="footer-info">
-                    <p style={{fontWeight: 'lighter'}}>BHKLab © 2023</p>
-                </div>
-            </StyledFooter>
-        </Container>
-    );
+	return (
+		<StyledFooter>
+			<div className="links-feed-container">
+				<div className="links-container">
+					<div className="single-link-container">
+						<a href="/research">Research</a>
+						<a href="/people">People</a>
+						<a href="/collaboration">Collaboration</a>
+					</div>
+					<div className="single-link-container">
+						<a href="/publications">Publications</a>
+						<a href="/presentations">Presentations</a>
+						<a href="/software">Software</a>
+					</div>
+					<div className="single-link-container">
+						<a href="/resources">Resources</a>
+						<a href="/datasets">Datasets</a>
+						<a href="https://www.pmgenomics.ca/bhklab/">Github</a>
+						<a href="https://cbioportal.ca">cBioPortal</a>
+					</div>
+					<div className="single-link-container">
+						<a href="/contact">Contact Us</a>
+						<a href="/positions">Join Us</a>
+					</div>
+				</div>
+				<div className="twitter-timeline-container">
+					<TwitterTimelineEmbed
+						sourceType="profile"
+						screenName="bhklab"
+						options={{ width: 500, height: 250 }}
+						// tweetLimit={5}
+					/>
+				</div>
+			</div>
+			<div className="footer-info">
+				<p style={{ fontWeight: 'lighter' }}>BHKLab © 2023</p>
+			</div>
+		</StyledFooter>
+	);
 }
 
 export default Footer;

@@ -1,16 +1,16 @@
-import styled from "styled-components";
-import colors from "./colors";
+import styled from 'styled-components';
+import colors from './colors';
 
-export const StyledPaginate = styled.div`
+const StyledPaginate = styled.div`
 
-  .paginationBttns {
-    width: 80%;
-    height: 20px;
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    font-size: 12px;
-  }
+	.paginationBttns {
+	width: 80%;
+	height: 20px;
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	font-size: 12px;
+	}
 
   .paginationBttns a {
     padding: 5px;
@@ -37,4 +37,6 @@ export const StyledPaginate = styled.div`
   visibility: hidden;
   background-color: white;
 }
-`
+`;
+
+export default StyledPaginate;

@@ -1,12 +1,12 @@
-import styled from "styled-components";
-import React, {useContext, useState} from "react";
+import styled from 'styled-components';
+import React, { useContext, useState } from 'react';
 import { Markup } from 'interweave';
-import colors from "../../../styles/colors";
-import IconButton from "@mui/material/IconButton";
-import {ExpandLess, ExpandMore} from "@mui/icons-material";
-import DeleteButton from "../../../Components/Utils/DeleteButton";
-import {AuthContext} from "../../../hooks/Contexts";
-import {AdminTool} from "../../../Components/Utils/AdminTools";
+import IconButton from '@mui/material/IconButton';
+import { ExpandLess, ExpandMore } from '@mui/icons-material';
+import colors from '../../../styles/colors';
+// import DeleteButton from '../../../Components/Utils/DeleteButton';
+import AuthContext from '../../../hooks/Contexts';
+import AdminTool from '../../../Components/Utils/AdminTools';
 
 const StyledCard = styled.div`
   width: 60%;
@@ -26,81 +26,88 @@ const StyledCard = styled.div`
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.3);
 
   .title {
-    color: ${colors.card_text};
-    font-size: 14px;
-    font-weight: bold;
+	color: ${colors.card_text};
+	font-size: 14px;
+	font-weight: bold;
   }
 
   .subtitle {
-    margin: 15px 0px 10px 0px;
-    color: ${colors.card_text};
-    font-size: 12px;
-    font-weight: bold;
+	margin: 15px 0px 10px 0px;
+	color: ${colors.card_text};
+	font-size: 12px;
+	font-weight: bold;
   }
 
   a {
-    color: ${colors.header_deep_blue};
+	color: ${colors.header_deep_blue};
   }
 
   .icon {
-    font-size : 14px;
-    display: flex;
+	font-size : 14px;
+	display: flex;
   }
 
   .divider {
-    padding-top: 1px;
+	padding-top: 1px;
   }
 
   :hover {
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 1px 1px rgba(0, 0, 0, 0.3);
   }
 `;
 
-const StyledContent = ({ title, content }) => (
-    <>
-        <div className="subtitle">{title}:</div>
-        <Markup content={content} />
-    </>
-);
+function StyledContent({ title, content }) {
+	return (
+		<>
+			<div className="subtitle">
+				{title}
+				:
+			</div>
+			<Markup content={content} />
+		</>
+	);
+}
 
 /**
  * A Component for showing information of each available position in the lab ( ex. PhD position, Undergrad student, ect.)
  * */
-const StyledPosition = ({ position }) => {
-    const { admin } = useContext(AuthContext);
-    const {
-        _id,
-        title,
-        description,
-        responsibilities,
-        req_qualifications,
-        pref_qualifications,
-        apply,
-    } = position;
-    const [display, setDisplay] = useState(false);
-    return (
-        <StyledCard>
-            {admin && <AdminTool id={_id} collection={"positions"} item={position}/>}
-            <div className="title">{title}</div>
-            <Markup content={description} />
-            {display && (
-                <>
-                    {responsibilities && <StyledContent title="Responsibilities" content={responsibilities} />}
-                    {req_qualifications && (<StyledContent title="Required qualifications" content={req_qualifications} />)}
-                    {pref_qualifications && (<StyledContent title="Preferred qualifications" content={pref_qualifications} />)}
-                    {apply && (<StyledContent title="How to apply" content={apply} />)}
-                </>)
-            }
-            {
-                ( responsibilities || req_qualifications || pref_qualifications || apply) &&
-                <div style={{ display: "flex", justifyContent: "flex-end" }}>
-                    <IconButton onClick={() => setDisplay(!display)} aria-label="show more">
-                        {display? <ExpandLess/> : <ExpandMore/>}
-                    </IconButton>
-                </div>
-            }
-        </StyledCard>
-    )
+function StyledPosition({ position }) {
+	const { admin } = useContext(AuthContext);
+	const {
+		_id,
+		title,
+		description,
+		responsibilities,
+		req_qualifications,
+		pref_qualifications,
+		apply,
+	} = position;
+	const [display, setDisplay] = useState(false);
+	return (
+		<StyledCard>
+			{admin && <AdminTool id={_id} collection="positions" item={position} />}
+			<div className="title">{title}</div>
+			<Markup content={description} />
+			{display && (
+				<>
+					{responsibilities && <StyledContent title="Responsibilities" content={responsibilities} />}
+					{req_qualifications && (<StyledContent title="Required qualifications" content={req_qualifications} />)}
+					{pref_qualifications && (<StyledContent title="Preferred qualifications" content={pref_qualifications} />)}
+					{apply && (<StyledContent title="How to apply" content={apply} />)}
+				</>
+			)}
+			{
+				(responsibilities || req_qualifications || pref_qualifications || apply)
+				&& (
+					<div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+						<IconButton onClick={() => setDisplay(!display)} aria-label="show more">
+							{display ? <ExpandLess /> : <ExpandMore />}
+						</IconButton>
+					</div>
+				)
+			}
+		</StyledCard>
+	);
 }
 
 export default StyledPosition;

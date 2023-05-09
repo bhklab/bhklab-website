@@ -1,40 +1,42 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
-import Box from "@mui/material/Box";
-import styled from "styled-components";
+import Box from '@mui/material/Box';
+import styled from 'styled-components';
 import Button from '@mui/material/Button';
 
 /**
  * A function to format text input fields and add a red start for mandatory inputs
  */
-const StyledLabel = (props) => {
-    const {title}= props;
-    return(
-        <div>
-            <label>{title}<span style={{color: 'red'}}>*</span></label>
-        </div>
-    )
-};
-
+function StyledLabel(props) {
+	const { title } = props;
+	return (
+		<div>
+			<label>
+				{title}
+				<span style={{ color: 'red' }}>*</span>
+			</label>
+		</div>
+	);
+}
 
 /**
  * A function to create margin between input fields
  */
 function MarginBar() {
-    return (
-        <Box
-            sx={{
-                height: 20,
-                backgroundColor: 'rgba(255,255,255,0)'
-            }}
-        />
-    );
+	return (
+		<Box
+			sx={{
+				height: 20,
+				backgroundColor: 'rgba(255,255,255,0)',
+			}}
+		/>
+	);
 }
 
 /**
  * Styles for PI information at the top of form
  */
-const StyledPIInfo= styled.div`
+const StyledPIInfo = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -46,7 +48,7 @@ const StyledPIInfo= styled.div`
   font-size: 16px;
   font-weight: normal;
   text-align: left;
-`
+`;
 
 /**
  * A custom React component that returns a contact form to receive emails by a registered
@@ -54,154 +56,158 @@ const StyledPIInfo= styled.div`
  * @example
  * <ContactFrom/>
  */
-export const ContactForm = () => {
-    // States for contact form fields
-    const [fullName, setFullName] = useState("");
-    const [email, setEmail] = useState("");
-    const [subject, setSubject] = useState("");
-    const [message, setMessage] = useState("");
+function ContactForm() {
+	// States for contact form fields
+	const [fullName, setFullName] = useState('');
+	const [email, setEmail] = useState('');
+	const [subject, setSubject] = useState('');
+	const [message, setMessage] = useState('');
 
-    //   Form validation state
-    const [errors, setErrors] = useState({});
+	//   Form validation state
+	const [errors, setErrors] = useState({});
 
-    // Setting success or failure messages states
-    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-    const [showFailureMessage, setShowFailureMessage] = useState(false);
+	// Setting success or failure messages states
+	const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+	const [showFailureMessage, setShowFailureMessage] = useState(false);
 
-    // Validation check method
-    const handleValidation = () => {
-        let tempErrors = {};
-        let isValid = true;
+	// Validation check method
+	const handleValidation = () => {
+		const tempErrors = {};
+		let isValid = true;
 
-        if (fullName.length <= 0) {
-            tempErrors["fullName"] = true;
-            isValid = false;
-        }
-        if (email.length <= 0) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            tempErrors["email"] = emailRegex.test(email);
-            isValid = emailRegex.test(email);
-        }
-        if (subject.length <= 0) {
-            tempErrors["subject"] = true;
-            isValid = false;
-        }
-        if (message.length <= 0) {
-            tempErrors["message"] = true;
-            isValid = false;
-        }
+		if (fullName.length <= 0) {
+			tempErrors.fullName = true;
+			isValid = false;
+		}
+		if (email.length <= 0) {
+			const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			tempErrors.email = emailRegex.test(email);
+			isValid = emailRegex.test(email);
+		}
+		if (subject.length <= 0) {
+			tempErrors.subject = true;
+			isValid = false;
+		}
+		if (message.length <= 0) {
+			tempErrors.message = true;
+			isValid = false;
+		}
 
-        setErrors({ ...tempErrors });
-        return isValid;
-    };
+		setErrors({ ...tempErrors });
+		return isValid;
+	};
 
-    //   Handling form submit
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+	//   Handling form submit
+	const handleSubmit = async (e) => {
+		e.preventDefault();
 
-        let isValidForm = handleValidation();
+		const isValidForm = handleValidation();
 
-        if (isValidForm) {
+		if (isValidForm) {
+			const res = await fetch('api/mail/send', {
+				body: JSON.stringify({
+					email,
+					fullName,
+					subject,
+					message,
+				}),
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				method: 'POST',
+			});
 
-            const res = await fetch("api/mail/send", {
-                body: JSON.stringify({
-                    email: email,
-                    fullName: fullName,
-                    subject: subject,
-                    message: message,
-                }),
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                method: "POST",
-            });
+			const { error } = await res.json();
+			if (error) {
+				setShowSuccessMessage(false);
+				setShowFailureMessage(true);
+				return;
+			}
+			// TODO: implement success and failure message
+			setShowSuccessMessage(true);
+			setShowFailureMessage(false);
 
-            const { error } = await res.json();
-            if (error) {
-                setShowSuccessMessage(false);
-                setShowFailureMessage(true);
-                return;
-            }
-            // TODO: implement success and failure message
-            setShowSuccessMessage(true);
-            setShowFailureMessage(false);
-
-            setEmail("");
-            setFullName("");
-            setSubject("");
-            setMessage("");
-        }
-    };
-    return (
-        <main>
-            <StyledPIInfo>
-                <b>Benjamin Haibe-Kains, Ph.D.</b>
-                Scientist, Princess Margaret Cancer Centre, University Health Network
-                Assistant Professor, Department of Medical Biophysics, University of Toronto
-            </StyledPIInfo>
-            <Box
-                sx={{  display: 'flex',
-                    justifyContent: 'left'}}
-                autoComplete="off"
-            >
-                <form onSubmit={handleSubmit} >
-                    <TextField
-                        id="outlined-basic"
-                        label={<StyledLabel title="Your Name"/>}
-                        variant="outlined"
-                        value={fullName}
-                        onChange={(e) => {
-                            setFullName(e.target.value);
-                        }}
-                    />
-                    <MarginBar/>
-                    <TextField
-                        id="outlined-basic"
-                        label={<StyledLabel title="Email"/>}
-                        variant="outlined"
-                        value={email}
-                        onChange={(e) => {
-                            setEmail(e.target.value);
-                        }}
-                    />
-                    <MarginBar/>
-                    <TextField
-                        id="outlined-basic"
-                        label={<StyledLabel title="Subject"/>}
-                        variant="outlined"
-                        value={subject}
-                        onChange={(e) => {
-                            setSubject(e.target.value);
-                        }}
-                    />
-                    <MarginBar/>
-                    <TextField
-                        sx={{ marginLeft: '5px', width: "200%" }}
-                        id="outlined-multiline-static"
-                        label={<StyledLabel title="Message"/>}
-                        multiline
-                        variant="outlined"
-                        rows={4}
-                        fullWidth
-                        value={message}
-                        onChange={(e) => {
-                            setMessage(e.target.value);
-                        }}
-                    />
-                    <MarginBar/>
-                    <Button
-                        sx={{
-                            display: 'flex',
-                            justifyContent: 'left',
-                            marginLeft: '5px'}}
-                        variant="contained"
-                        type="submit"
-                        disabled={!(fullName.length && email.length && subject.length && message.length)}
-                    >
-                        Send
-                    </Button>
-                </form>
-            </Box>
-        </main>
-    );
+			setEmail('');
+			setFullName('');
+			setSubject('');
+			setMessage('');
+		}
+	};
+	return (
+		<main>
+			<StyledPIInfo>
+				<b>Benjamin Haibe-Kains, Ph.D.</b>
+				Scientist, Princess Margaret Cancer Centre, University Health Network
+				Assistant Professor, Department of Medical Biophysics, University of Toronto
+			</StyledPIInfo>
+			<Box
+				sx={{
+					display: 'flex',
+					justifyContent: 'left',
+				}}
+				autoComplete="off"
+			>
+				<form onSubmit={handleSubmit}>
+					<TextField
+						id="outlined-basic"
+						label={<StyledLabel title="Your Name" />}
+						variant="outlined"
+						value={fullName}
+						onChange={(e) => {
+							setFullName(e.target.value);
+						}}
+					/>
+					<MarginBar />
+					<TextField
+						id="outlined-basic"
+						label={<StyledLabel title="Email" />}
+						variant="outlined"
+						value={email}
+						onChange={(e) => {
+							setEmail(e.target.value);
+						}}
+					/>
+					<MarginBar />
+					<TextField
+						id="outlined-basic"
+						label={<StyledLabel title="Subject" />}
+						variant="outlined"
+						value={subject}
+						onChange={(e) => {
+							setSubject(e.target.value);
+						}}
+					/>
+					<MarginBar />
+					<TextField
+						sx={{ marginLeft: '5px', width: '200%' }}
+						id="outlined-multiline-static"
+						label={<StyledLabel title="Message" />}
+						multiline
+						variant="outlined"
+						rows={4}
+						fullWidth
+						value={message}
+						onChange={(e) => {
+							setMessage(e.target.value);
+						}}
+					/>
+					<MarginBar />
+					<Button
+						sx={{
+							display: 'flex',
+							justifyContent: 'left',
+							marginLeft: '5px',
+						}}
+						variant="contained"
+						type="submit"
+						disabled={!(fullName.length && email.length && subject.length && message.length)}
+					>
+						Send
+					</Button>
+				</form>
+			</Box>
+		</main>
+	);
 }
+
+export default ContactForm;

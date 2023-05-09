@@ -12,7 +12,11 @@
 //
 //     return (
 //         <div className="flex gap-2">
-//             <InputText value={filterValue} ref={filterInputRef} onChange={(e) => myFilterFunction(e, filterOptions)} />
+//             <InputText
+//					value={filterValue}
+// 					ref={filterInputRef}
+//					onChange={(e) => myFilterFunction(e, filterOptions)}
+// 				/>
 //             <Button label="Reset" onClick={() => myResetFunction(filterOptions)} />
 //         </div>
 //     )
@@ -29,7 +33,6 @@
 //     setFilterValue(_filterValue);
 //     options.filter(event);
 // }
-
 
 import React from 'react';
 import { Dropdown } from 'primereact/dropdown';
@@ -49,37 +52,37 @@ const StyledDropdown = styled(Dropdown)`
     }
 `;
 
-const CustomDropdown = (props) => {
-    const {
-        className,
-        value,
-        options,
-        onChange,
-        placeholder,
-        filter,
-        disabled,
-        editable,
-        optionLabel,
-        valueTemplate,
-        tooltip
-    } = props;
+function CustomDropdown(props) {
+	const {
+		className,
+		value,
+		options,
+		onChange,
+		placeholder,
+		filter,
+		disabled,
+		editable,
+		optionLabel,
+		valueTemplate,
+		tooltip,
+	} = props;
 
-    return(
-        <StyledDropdown
-            className={className}
-            value={value}
-            options={options}
-            onChange={onChange}
-            placeholder={placeholder}
-            filter={filter}
-            disabled={disabled}
-            editable={editable}
-            optionLabel={optionLabel}
-            valueTemplate={valueTemplate}
-            tooltip={tooltip}
-            resetFilterOnHide={true}
-        />
-    );
+	return (
+		<StyledDropdown
+			className={className}
+			value={value}
+			options={options}
+			onChange={onChange}
+			placeholder={placeholder}
+			filter={filter}
+			disabled={disabled}
+			editable={editable}
+			optionLabel={optionLabel}
+			valueTemplate={valueTemplate}
+			tooltip={tooltip}
+			resetFilterOnHide
+		/>
+	);
 }
 
 export default CustomDropdown;

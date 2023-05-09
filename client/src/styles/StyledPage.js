@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import colors from "./colors";
+import colors from './colors';
 
 export const Container = styled.div`
   width: 100%;
@@ -70,11 +70,11 @@ export const StyledCard = styled.div`
     padding-right: 0;
 
   }
-`
+`;
 
 export const StyledPage = styled.div`
   width: 100%;
-  nth-child(2) {
+  :nth-child(2) {
     background-color: white;
   }
   .subject {
@@ -105,13 +105,9 @@ export const StyledPage = styled.div`
     margin-bottom: 30px;
     padding-top: 10px;
   }
-`
-
+`;
 
 export const StyledSection = styled.div`
-  border-top-color: #e0e0e0;
-  border-top-style: solid;
-  border-top-width: 1px;
   min-height: 280px;
   padding: 30px;
   

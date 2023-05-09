@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const StyledHeading= styled.div`
+const StyledHeading = styled.div`
   width: 100%;
   display: flex;
   color: black;
@@ -10,4 +10,6 @@ export const StyledHeading= styled.div`
   font-size: 18px;
   font-weight: bold;
   text-align: center;
-`
+`;
+
+export default StyledHeading;

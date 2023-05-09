@@ -1,47 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Navbar from '../Navigation/Navbar/Navbar';
 import Footer from '../Navigation/Footer/Footer';
-import styled from 'styled-components';
-import colors from "../../styles/colors";
+import colors from '../../styles/colors';
 
-const Main = styled.main`
-  display: flex;
-  background-color: ${colors.white_background};
-  min-height: 100vh;
-  padding-top: 60px;
-  flex-direction: column;
-  align-items: center;
+const Main = styled.div`
+	background-color: ${colors.white_background};
+	display: flex;
+	flex-direction: column;
+	row-gap: ${(props) => (props.page.match(/home/ig) ? '' : '50px')};
 `;
 
 /**
  * wrapper for every page
  */
-const Layout = (props) => {
-    const {children, page} = props;
+function Layout(props) {
+	const { children, page } = props;
 
-    return(
-        <React.Fragment>
-            { page === 'home' ?<Navbar page="home" /> : <Navbar />}
-            <Main>{children}</Main>
-            <Footer />
-        </React.Fragment>
-    );
-};
+	return (
+		<Main page={page}>
+			<Navbar />
+			{ children }
+			<Footer />
+		</Main>
+	);
+}
 
 Layout.propTypes = {
-    /**
+	/**
      * Layout's children (components on the page)
      */
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node,
-    ]),
+	children: PropTypes.oneOfType([
+		PropTypes.arrayOf(PropTypes.node),
+		PropTypes.node,
+	]),
+	page: PropTypes.string,
 };
 
 Layout.defaultProps = {
-    page: '',
-    children: null,
+	page: '',
+	children: null,
 };
 
 export default Layout;
