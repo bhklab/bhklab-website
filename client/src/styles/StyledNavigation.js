@@ -31,7 +31,7 @@ const NavLinks = styled.div`
   }
 
   a:hover {
-    color: ${colors.header_deep_blue};
+    color: ${colors.navbarLink};
   }
 
   .header-link {
@@ -64,7 +64,7 @@ const NavLinks = styled.div`
   }
 
   .dropdown-content a:hover {
-    color: ${colors.header_deep_blue};
+    color: ${colors.navbarLink};
   }
 
   .header-link:hover, .dropbtn:hover {
