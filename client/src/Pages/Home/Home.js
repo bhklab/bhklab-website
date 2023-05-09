@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import React from 'react';
 import styled from 'styled-components';
-import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import { motion } from 'framer-motion';
 import Layout from '../../Components/Utils/Layout';
 import ResearchTopics from './ResearchTeams';
@@ -47,14 +46,6 @@ function Home() {
 						<ResearchTopics />
 					</div>
 					{/* <CollaborationMapBubble /> */}
-					<div className="twitter-timeline-container">
-						<TwitterTimelineEmbed
-							sourceType="profile"
-							screenName="bhklab"
-							options={{ width: 800, height: 300 }}
-							tweetLimit={5}
-						/>
-					</div>
 				</Container>
 			</motion.nav>
 		</Layout>
