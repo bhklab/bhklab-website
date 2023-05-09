@@ -1,30 +1,30 @@
+/* eslint-disable jsx-a11y/media-has-caption */
 import React from 'react';
 import styled from 'styled-components';
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import { motion } from 'framer-motion';
 import Layout from '../../Components/Utils/Layout';
 import ResearchTopics from './ResearchTeams';
-import { StyledSection } from '../../styles/StyledPage';
-import CollaborationMapBubble from '../About/Collaboration/CollaborationComponents/CollectionMapBubble';
+// import CollaborationMapBubble
+// from '../About/Collaboration/CollaborationComponents/CollectionMapBubble';
 
 const Container = styled.div`
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-		//background-image: url('./images/pmcrt1.jpg');
-	.header{
-		padding: 50px 5%;
-		color: black;
-		height: 60vh;
-		font-size: 24px;
-		text-align: center;
-		img {
-			margin-top: 50px;
-			width: 300px;
-		}
+	video {
+		width: 100%;
+		height: auto;
+  		/* height: calc(100vh - 70px);	 */
+		/* object-fit: cover; */
 	}
 
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 50px;
+
+	/* set twitter timeline container in center */
+	.twitter-timeline-container {
+		align-self: flex-end;
+		margin-right: 100px;
+	}
 `;
 
 function Home() {
@@ -37,20 +37,24 @@ function Home() {
 				transition={{ duration: 0.5 }}
 			>
 				<Container>
-					<div className="header">
-						<div>Bioinformatics and Computational Genomics Laboratory</div>
-						<img src="/images/Logo/bhklab-logo.png" alt="logo" />
+					<div className="microsoft-bhklab-video">
+						<video autoPlay loop muted>
+							{/* <track kind="caption" /> */}
+							<source src="/videos/microsoft_bhklab.mp4" type="video/mp4" />
+						</video>
 					</div>
-					<ResearchTopics />
-					<CollaborationMapBubble />
-					<StyledSection>
+					<div className="research-topics">
+						<ResearchTopics />
+					</div>
+					{/* <CollaborationMapBubble /> */}
+					<div className="twitter-timeline-container">
 						<TwitterTimelineEmbed
 							sourceType="profile"
 							screenName="bhklab"
 							options={{ width: 800, height: 300 }}
 							tweetLimit={5}
 						/>
-					</StyledSection>
+					</div>
 				</Container>
 			</motion.nav>
 		</Layout>

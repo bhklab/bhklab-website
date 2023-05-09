@@ -5,7 +5,7 @@ import Navbar from '../Navigation/Navbar/Navbar';
 import Footer from '../Navigation/Footer/Footer';
 import colors from '../../styles/colors';
 
-const Main = styled.main`
+const Main = styled.div`
 	background-color: ${colors.white_background};
 	display: flex;
 	flex-direction: column;
