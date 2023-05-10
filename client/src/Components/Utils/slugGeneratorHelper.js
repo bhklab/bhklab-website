@@ -1,5 +1,3 @@
-import React from 'react';
-
 /**
  * A custom React component that returns
  *

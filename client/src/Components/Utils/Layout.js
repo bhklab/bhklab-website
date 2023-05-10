@@ -21,7 +21,7 @@ function Layout(props) {
 	return (
 		<Main page={page}>
 			<Navbar />
-			{ children }
+			{children}
 			<Footer />
 		</Main>
 	);

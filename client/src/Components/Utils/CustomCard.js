@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import styled from 'styled-components';
 import React, { useContext } from 'react';
 import colors from '../../styles/colors';
@@ -8,13 +9,14 @@ import AuthContext from '../../hooks/Contexts';
  * Style components
  */
 const StyledCard = styled.div`
-  width: 210px;
-  height: 280px;
+  width: 250px;
+  height: 300px;
   border-radius: 5px;
-  margin: 5px;
+  margin: 10px;
+  padding: 15px;
   background-color: white;
   overflow: hidden;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 10px ${colors.card_shadow_color};
 `;
 
 const StyledImage = styled.img`
@@ -23,18 +25,16 @@ const StyledImage = styled.img`
   object-fit: contain;
 `;
 
-const StyledTitle = styled.h2`
-  font-size: 12px;
-  font-weight: bold;
-  margin: 10px 20px;
-  color: ${colors.navbarLink};
+const StyledTitle = styled.div`
+  font-size: 0.9rem;
+  margin: 10px 0;
+  color: ${colors.primary_text_color};
   text-align: center;
 `;
 
 const StyledDescription = styled.div`
-  font-size: 14px;
-  margin: 10px 20px;
-  text-align: center;
+  font-size: 0.9rem;
+  margin: 20px 25px;
 `;
 
 /**

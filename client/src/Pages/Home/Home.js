@@ -17,7 +17,6 @@ const Container = styled.div`
 
 	display: flex;
 	flex-direction: column;
-	margin-bottom: 50px;
 
 	/* set twitter timeline container in center */
 	.twitter-timeline-container {
