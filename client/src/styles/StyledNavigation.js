@@ -27,7 +27,7 @@ const NavLinks = styled.div`
   font-size: 0.9rem;
   
   a {
-    color: ${colors.main_text_color};
+    color: ${colors.primary_text_color};
   }
 
   a:hover {
@@ -39,7 +39,7 @@ const NavLinks = styled.div`
   }
 
   .dropbtn {
-    color: ${colors.main_text_color};
+    color: ${colors.primary_text_color};
   }
 
   .dropdown-content {
@@ -53,7 +53,7 @@ const NavLinks = styled.div`
 
   .dropdown-content a {
     display: block;
-    color: ${colors.main_text_color};
+    color: ${colors.primary_text_color};
     padding: 12px 16px;
     text-decoration: none;
     background-color: ${colors.white_background};
