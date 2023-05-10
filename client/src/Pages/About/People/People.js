@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
@@ -7,7 +7,7 @@ import colors from '../../../styles/colors';
 import Layout from '../../../Components/Utils/Layout';
 import StyledHeading from '../../../styles/StyledHeading';
 import MemberCard from './MemberComponents/MemberCard';
-import AuthContext from '../../../hooks/Contexts';
+// import AuthContext from '../../../hooks/Contexts';
 
 const StyledCard = styled.div`
   width: 245px;
@@ -54,6 +54,7 @@ const StyledPeople = styled.div`
   }
 `;
 
+// eslint-disable-next-line react/prop-types
 function MemberHeadShot({ title, description, imageUrl }) {
 	return (
 		<StyledCard>
@@ -119,7 +120,7 @@ const sortMembers = (people) => {
 };
 
 function People() {
-	const { admin } = useContext(AuthContext);
+	// const { admin } = useContext(AuthContext);
 	const [ready, setReady] = useState(false);
 	const [people, setPeople] = useState({});
 	const history = useNavigate();

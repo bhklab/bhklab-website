@@ -108,20 +108,18 @@ export const StyledPage = styled.div`
 `;
 
 export const StyledSection = styled.div`
-  min-height: 280px;
-  padding: 30px;
+  padding-top: 50px;
+  padding-bottom: 100px;
   
   h1 {
-    font-size: 16px;
-    font-weight: bold;
-    //margin-bottom: 30px;
-    color: #000000;
+    font-size: 1.5rem;
+    color: ${colors.primary_text_color};
     text-align: center;
   }
 
   .container {
     width: 100%;
-    margin: 30px;
+    margin: 15px 0;
     display: flex;
     flex-direction: row;
     justify-content: center;

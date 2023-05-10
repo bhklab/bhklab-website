@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import colors from './colors';
 
 const StyledNavigation = styled.div`
-  border-bottom: 1px solid ${colors.border_line};
+  border-bottom: 1px solid ${colors.border_line_color};
   height: 70px;
   display: flex;
   justify-content: space-between;
@@ -27,11 +27,11 @@ const NavLinks = styled.div`
   font-size: 0.9rem;
   
   a {
-    color: ${colors.navbarText};
+    color: ${colors.primary_text_color};
   }
 
   a:hover {
-    color: ${colors.navbarLink};
+    color: ${colors.link_color};
   }
 
   .header-link {
@@ -39,7 +39,7 @@ const NavLinks = styled.div`
   }
 
   .dropbtn {
-    color: ${colors.navbarText};
+    color: ${colors.primary_text_color};
   }
 
   .dropdown-content {
@@ -53,7 +53,7 @@ const NavLinks = styled.div`
 
   .dropdown-content a {
     display: block;
-    color: ${colors.navbarText};
+    color: ${colors.primary_text_color};
     padding: 12px 16px;
     text-decoration: none;
     background-color: ${colors.white_background};
@@ -64,13 +64,17 @@ const NavLinks = styled.div`
   }
 
   .dropdown-content a:hover {
-    color: ${colors.navbarLink};
+    color: ${colors.link_color};
   }
 
   .header-link:hover, .dropbtn:hover {
    .dropdown-content {
     display: block;
    }
+  }
+  
+  @media only screen and (max-width: 1000px) {
+    display: none;
   }
 
   @media only screen and (min-width: 1200px) {
@@ -86,9 +90,7 @@ const NavLinks = styled.div`
     font-size: 1rem;
   }
 
-  @media only screen and (max-width: 1000px) {
-    display: none;
-  }
+  
 `;
 
 const BurgerNav = styled.div`

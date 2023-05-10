@@ -20,12 +20,12 @@ const GlobalStyles = createGlobalStyle`
         }
 
         .p-dialog {
-            .p-dialog-header{
+            .p-dialog-header {
                 padding: 10px;
-                .p-dialog-title{
+                .p-dialog-title {
                     font-size: 14px;
                 }
-                .p-dialog-header-icons .pi{
+                .p-dialog-header-icons .pi {
                     font-size: 14px;
                 }
             }
@@ -35,15 +35,9 @@ const GlobalStyles = createGlobalStyle`
         }
     }
 
-    h2, h3, h4, h5, h6 {
-        padding: 0;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
     a {
       text-decoration: none;
-      color: ${colors.header_deep_blue};
+      color: ${colors.link_color};
     }
 `;
 

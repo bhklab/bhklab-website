@@ -4,7 +4,7 @@ import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import colors from '../../../styles/colors';
 
 const StyledFooter = styled.div`
-	border-top: 1px solid ${colors.border_line};
+	border-top: 1px solid ${colors.border_line_color};
 	padding: 20px;
 	font-size: 0.9rem;
 
@@ -35,6 +35,7 @@ const StyledFooter = styled.div`
 	.single-link-container {
 		display: flex;
 		flex-direction: column;
+		gap: 5px;
 	}
 
 	.single-link-container a {
@@ -59,10 +60,18 @@ const StyledFooter = styled.div`
 	}
 
 	@media only screen and (min-width: 2000px) {
-		padding: 40px;
+		padding: 40px 20px;
 
 		.twitter-timeline-container > div {
 			width: 500px;
+		}
+
+		.links-container {
+			justify-content: space-evenly;
+		}
+		
+		.single-link-container {
+			gap: 7.5px;
 		}
 	}
 `;
