@@ -9,7 +9,7 @@ const Main = styled.div`
 	background-color: ${colors.white_background};
 	display: flex;
 	flex-direction: column;
-	row-gap: ${(props) => (props.page.match(/home/ig) ? '' : '50px')};
+	row-gap: ${(props) => (props.page.match(/home/ig) ? '' : '60px')};
 `;
 
 /**
@@ -19,7 +19,7 @@ function Layout(props) {
 	const { children, page } = props;
 
 	return (
-		<Main page={page}>
+		<Main page={page} className="layout-container">
 			<Navbar />
 			{children}
 			<Footer />
