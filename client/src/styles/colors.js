@@ -1,12 +1,12 @@
 const colors = {
-	main_text_color: '#2E3B55',
+	primary_text_color: '#2E3B55',
 	link_color: '#1d9bf0',
 	secondary_text_color: '#0f1419',
 	border_line_color: '#E0E0E0',
 	white_background: '#FFFFFF',
+	card_shadow_color: 'rgba(0, 0, 0, 0.2)',
 
 	blue_background: '#292d3e',
-	// white_background: '#f8f8f8',
 
 	header_blue_green: '#00BFA5',
 	header_deep_blue: '#0D47A1',
