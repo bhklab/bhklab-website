@@ -2,18 +2,23 @@ import styled from 'styled-components';
 import colors from './colors';
 
 const StyledPaginate = styled.div`
+  margin-bottom: 100px;
+
+  .pagination-container {
+    margin-top: 20px;
+  }
+
   .paginationBttns {
-    width: 80%;
     height: 20px;
     list-style: none;
     display: flex;
     justify-content: center;
-    font-size: 12px;
+    font-size: 0.9rem;
   }
 
   .paginationBttns a {
     padding: 5px;
-    margin: 5px;
+    margin: 7.5px;
     border-radius: 5px;
     color: ${colors.pagination};
     cursor: pointer;
