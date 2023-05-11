@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { PresentationCard } from '../PublicationComponents/PublicationCard';
 import PaginatedPublications from '../PublicationComponents/PaginatedPublications';
 import Layout from '../../../Components/Utils/Layout';
+import StyledHeading from '../../../styles/StyledHeading';
 
 const customizedContent = (item, index) => (<PresentationCard key={index} publication={item} />);
 
@@ -34,6 +35,7 @@ function Presentation() {
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.5 }}
 					>
+						<StyledHeading> Presentations </StyledHeading>
 						<PaginatedPublications
 							customizedContent={customizedContent}
 							publications={presentations}

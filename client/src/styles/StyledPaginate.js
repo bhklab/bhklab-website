@@ -2,19 +2,23 @@ import styled from 'styled-components';
 import colors from './colors';
 
 const StyledPaginate = styled.div`
+  margin-bottom: 100px;
 
-	.paginationBttns {
-	width: 80%;
-	height: 20px;
-	list-style: none;
-	display: flex;
-	justify-content: center;
-	font-size: 12px;
-	}
+  .pagination-container {
+    margin-top: 20px;
+  }
+
+  .paginationBttns {
+    height: 20px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    font-size: 0.9rem;
+  }
 
   .paginationBttns a {
     padding: 5px;
-    margin: 5px;
+    margin: 7.5px;
     border-radius: 5px;
     color: ${colors.pagination};
     cursor: pointer;
@@ -30,13 +34,11 @@ const StyledPaginate = styled.div`
     border: 2px solid ${colors.pagination};
     color: ${colors.pagination};
   }
-;
-}
 
-.paginationDisabled a {
-  visibility: hidden;
-  background-color: white;
-}
+  .paginationDisabled a {
+    visibility: hidden;
+    background-color: white;
+  }
 `;
 
 export default StyledPaginate;

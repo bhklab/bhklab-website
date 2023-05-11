@@ -1,9 +1,11 @@
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/prop-types */
+/* eslint-disable jsx-a11y/alt-text */
 import * as React from 'react';
 import styled from 'styled-components';
 import 'animate.css/animate.min.css';
 import SwipeableViews from 'react-swipeable-views';
 import { useTheme } from '@mui/material/styles';
-import GitHubIcon from '@mui/icons-material/GitHub';
 import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 import Box from '@mui/material/Box';
@@ -35,53 +37,40 @@ function TabPanel(props) {
 }
 
 const StyledSoftware = styled.div`
-  :root {
-    --main-color: #02577b;
-    --pkg-color:#1d90b3;
-  }
-
-  body {
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    min-height: 100%;
-    /* overflow: hidden; */
-    font-family: 'Raleway', sans-serif;
-    margin:0px;
-    color:var(--main-color);
-    min-height:100%;
-  }
-
-  a {
-    text-decoration:none;
-    color:white
+ a {
+    text-decoration: none;
+    color: white
   }
 
   a:focus {
     outline: none;
   }
-  h1 {
-    font-weight:700;
-    font-size:calc(0.6vw + 0.8em);
-  }
 
   .slide-desc {
-    display:flex;
+    display: flex;
     align-items: center;
-    position:fixed;
+    position: fixed;
     color: ${colors.blue_background};
-    font-size:15px;
+    font-size: 1rem;
   }
-  
   
   /* BODY */
   #intro {
-    position:static;
-    margin-top:11vh;
-    margin-bottom:50px;
     text-align: center;
-    line-height:50px;
+    line-height: 50px;
+	margin-top: 30px;
+	margin-bottom: 70px;
+  }
+
+  h1 {
+	color: ${colors.primary_text_color};
+	font-weight: 500;
+    font-size: calc(0.6vw + 0.6em);
+  }
+
+  .highlight {
+   /* text-decoration: underline; */
+   color: ${colors.link_color};
   }
 
   .web-apps, .packages {
@@ -92,71 +81,67 @@ const StyledSoftware = styled.div`
     margin: 0 0px 20px 0px;
   }
 
-  .highlight {
-    color: #d19004;
-  }
-
   #app {
     flex-grow: 1;
     flex: 1 1 30%;
-    text-align:center;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    position:relative;
-    margin-bottom:20px;
-    min-width:350px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin-bottom: 20px;
+    min-width: 350px;
     /* max-width: 26.6vw; */
   }
 
   #app-container, #pkg-container {
-    display:flex;
-    align-items:center;
-    flex-direction:column;
-    position:relative;
-    transition:linear 0.2s;
-    a:hover{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    transition: linear 0.2s;
+    a:hover {
       color: ${colors.blue_background};
     }
   }
 
   #pkg-container {
-    flex-direction:row !important;
+    flex-direction: row !important;
   }
 
   /*  WEB APPS */
   .logo {
     width: calc(3vw + 8em);
-    opacity:1;
-    transition:linear 0.2s;
+    opacity: 1;
+    transition: linear 0.2s;
   }
 
   .link {
-    width:calc(2vw + 3em);
+    width: calc(2vw + 3em);
     padding: 10px 0px;
-    background:var(--main-color);
-    color:white;
-    text-align:center;
-    font-size:calc(1vw + 0.8em);
-    position:absolute;
-    top:25%;
-    opacity:0;
-    border-radius:15px;
-    transition:linear 0.2s;
+    background: ${colors.primary_text_color};
+    color: white;
+    text-align: center;
+    font-size: calc(1vw + 0.8em);
+    position: absolute;
+    top: 25%;
+    opacity: 0;
+    border-radius: 15px;
+    transition: linear 0.2s;
   }
 
   .bottom-row {
-    top:12%;
+    top: 12%;
   }
 
   #app-container:hover .link {
-    opacity:1;
-    transition:linear 0.2s;
+    opacity: 1;
+    transition: linear 0.2s;
   }
 
   #app-container:hover .logo {
-    opacity:0;
-    transition:linear 0.2s;
+    opacity: 0;
+    transition: linear 0.2s;
   }
 
   .desc {
@@ -168,41 +153,41 @@ const StyledSoftware = styled.div`
 
   /* PACKAGES */
   .packages {
-    margin-top:3vw;
+    margin-top: 3vw;
   }
 
   .pkg-title {
-    background:var(--pkg-color);
-    border-radius:15px;
-    color:white;
+    background: var(--pkg-color);
+    border-radius: 15px;
+    color: white;
     background-color: ${colors.blue_background};
-    width:210px;
-    padding:10px 0px;
-    font-weight:700;
-    font-size:calc(0.6vw + 0.8em);
+    width: 210px;
+    padding: 10px 0px;
+    font-weight: 700;
+    font-size: calc(0.6vw + 0.8em);
     border: 1px solid var(--pkg-color);
-    transition:linear 0.2s;
+    transition: linear 0.2s;
   }
 
   .pkg-title:hover {
-    background:transparent;
-    color:${colors.blue_background};
-    transition:linear 0.2s;
+    background: transparent;
+    color: ${colors.blue_background};
+    transition: linear 0.2s;
   }
 
-  .hovered {color:${colors.text_light_gray};}
-  .pkg-title .hovered { display: none; transition:linear 0.2s;}
-  .pkg-title:hover .hovered { display: block; transition:linear 0.2s;}
-  .pkg-title:hover .initial { display: none; transition:linear 0.2s;}
+  .hovered {color: ${colors.text_light_gray};}
+  .pkg-title .hovered { display: none; transition: linear 0.2s;}
+  .pkg-title:hover .hovered { display: block; transition: linear 0.2s;}
+  .pkg-title:hover .initial { display: none; transition: linear 0.2s;}
 
-  .pkg>.desc {
+  .pkg > .desc {
     margin-bottom:50px;
   }
 
   .lang {
-    width:25px;
-    float:right;
-    margin-left:10px;
+    width: 25px;
+    float: right;
+    margin-left: 10px;
   }
 
   /* MOBILE RESPONSIVENESS */
@@ -224,7 +209,7 @@ const StyledSoftware = styled.div`
         background-image:url("./images/bg-mobile.png")
     } */
     .pkg-title {
-      width:140px;
+      width: 140px;
     }
 
     #app {
@@ -232,14 +217,14 @@ const StyledSoftware = styled.div`
     }
 
     .desc {
-      text-align:center;
-      width:250px;
-      font-size:0.9em;
+      text-align: center;
+      width: 250px;
+      font-size: 0.9em;
       margin: 15px 0px 70px 0px;
     }
 
     .slide-desc {
-      font-size:10px;
+      font-size: 10px;
     }
   }
 `;
@@ -250,10 +235,13 @@ function BHKLabWebapps() {
 			<div id="intro">
 				<h1>
 					We&rsquo;re developing
+					{' '}
 					<span className="highlight">
-						&nbsp; databases and web applications &nbsp;
+						databases and web applications
 					</span>
-					to empower the scientific community in their pharmacogenomic analysis of cancer model systems.
+					{' '}
+					to empower the scientific community in
+					their pharmacogenomic analysis of cancer model systems.
 				</h1>
 			</div>
 			<div id="container" className="web-apps">
@@ -350,18 +338,6 @@ function BHKLabWebapps() {
 					</div>
 				</div>
 			</div>
-			<div id="container" className="web-apps">
-				<div id="app">
-					<div id="app-container">
-						<a target="_blank" href="http://github.com/bhklab" rel="noreferrer">
-							<GitHubIcon sx={{ color: 'black', fontSize: '60px' }} />
-						</a>
-					</div>
-					<div className="desc">
-						Checkout BHKLab Github
-					</div>
-				</div>
-			</div>
 		</StyledSoftware>
 	);
 }
@@ -372,10 +348,14 @@ function BHKLabPackages() {
 			<div id="intro">
 				<h1>
 					We&rsquo;re developing
-					<span className="highlight">software packages</span>
+					{' '}
+					<span className="highlight">
+						software packages
+					</span>
 					{' '}
 					to
-					empower the scientific community in their pharmacogenomic analysis of cancer model systems.
+					empower the scientific community in their
+					pharmacogenomic analysis of cancer model systems.
 				</h1>
 			</div>
 			<div id="container" className="packages">
@@ -389,7 +369,7 @@ function BHKLabPackages() {
 						>
 							CoreGx
 						</a>
-						<img className="lang" src="./images/software/R-logo.png" title="R package" />
+						<img className="lang" src="./images/software/R-logo.png" title="R package" alt="R packages" />
 					</div>
 					<div className="desc">
 						Core infrastructure which serve as the foundation for other Gx packages
@@ -405,7 +385,7 @@ function BHKLabPackages() {
 						>
 							PharmacoGx
 						</a>
-						<img className="lang" src="./images/software/R-logo.png" title="R package" />
+						<img className="lang" src="./images/software/R-logo.png" title="R package" alt="R packages" />
 					</div>
 					<div className="desc">
 						Analysis of large-scale pharmacogenomic datasets
@@ -421,7 +401,7 @@ function BHKLabPackages() {
 						>
 							RadioGx
 						</a>
-						<img className="lang" src="./images/software/R-logo.png" title="R package" />
+						<img className="lang" src="./images/software/R-logo.png" title="R package" alt="R packages" />
 					</div>
 					<div className="desc">
 						Biomarker discovery for Radiation Treatment using in vitro models
@@ -437,7 +417,7 @@ function BHKLabPackages() {
 						>
 							ToxicoGx
 						</a>
-						<img className="lang" src="./images/software/R-logo.png" title="R package" />
+						<img className="lang" src="./images/software/R-logo.png" title="R package" alt="R packages" />
 					</div>
 					<div className="desc">
 						Analysis of large-scale toxicogenomic datasets
@@ -453,7 +433,7 @@ function BHKLabPackages() {
 						>
 							CREAM
 						</a>
-						<img className="lang" src="./images/software/R-logo.png" title="R package" />
+						<img className="lang" src="./images/software/R-logo.png" title="R package" alt="R packages" />
 					</div>
 					<div className="desc">
 						<b>C</b>
@@ -478,7 +458,7 @@ function BHKLabPackages() {
 						>
 							mRMRe
 						</a>
-						<img className="lang" src="./images/software/R-logo.png" title="R package" />
+						<img className="lang" src="./images/software/R-logo.png" title="R package" alt="R packages" />
 					</div>
 					<div className="desc">
 						Parallelized
@@ -506,7 +486,7 @@ function BHKLabPackages() {
 						>
 							SIGN
 						</a>
-						<img className="lang" src="./images/software/R-logo.png" title="R package" />
+						<img className="lang" src="./images/software/R-logo.png" title="R package" alt="R packages" />
 					</div>
 					<div className="desc">
 						<b>S</b>
@@ -529,7 +509,7 @@ function BHKLabPackages() {
 						>
 							RLOBICO
 						</a>
-						<img className="lang" src="./images/software/R-logo.png" title="R package" />
+						<img className="lang" src="./images/software/R-logo.png" title="R package" alt="R packages" />
 					</div>
 					<div className="desc">
 						R implementation of
@@ -559,7 +539,7 @@ function BHKLabPackages() {
 						>
 							Xeva
 						</a>
-						<img className="lang" src="./images/software/R-logo.png" title="R package" />
+						<img className="lang" src="./images/software/R-logo.png" title="R package" alt="R packages" />
 					</div>
 					<div className="desc">
 						<b>XE</b>
@@ -580,7 +560,7 @@ function BHKLabPackages() {
 						>
 							PDATK
 						</a>
-						<img className="lang" src="./images/software/R-logo.png" title="R package" />
+						<img className="lang" src="./images/software/R-logo.png" title="R package" alt="R packages" />
 					</div>
 					<div className="desc">
 						<b>P</b>
@@ -605,7 +585,7 @@ function BHKLabPackages() {
 						>
 							genefu
 						</a>
-						<img className="lang" src="./images/software/R-logo.png" title="R package" />
+						<img className="lang" src="./images/software/R-logo.png" title="R package" alt="R packages" />
 					</div>
 					<div className="desc">
 						Computation of Gene Expression-Based Signatures in Breast Cancer
@@ -621,7 +601,7 @@ function BHKLabPackages() {
 						>
 							survcomp
 						</a>
-						<img className="lang" src="./images/software/R-logo.png" title="R package" />
+						<img className="lang" src="./images/software/R-logo.png" title="R package" alt="R packages" />
 					</div>
 					<div className="desc">
 						Assessment and Comparison for Performance of Risk Prediction (Survival) Models
@@ -638,7 +618,7 @@ function BHKLabPackages() {
 						>
 							PymRMRe
 						</a>
-						<img className="lang" src="./images/software/python-logo.png" title="Python package" />
+						<img className="lang" src="./images/software/python-logo.png" title="Python package" alt="R packages" />
 					</div>
 					<div className="desc">
 						Parallelized
@@ -666,7 +646,7 @@ function BHKLabPackages() {
 						>
 							pyKuLGaP
 						</a>
-						<img className="lang" src="./images/software/python-logo.png" title="Python package" />
+						<img className="lang" src="./images/software/python-logo.png" title="Python package" alt="R packages" />
 					</div>
 					<div className="desc">
 						Modelling tumor growth curves using
@@ -683,18 +663,6 @@ function BHKLabPackages() {
 					</div>
 				</div>
 				<div id="app" className="pkg" />
-			</div>
-			<div id="container" className="packages">
-				<div id="app" className="pkg">
-					<div id="pkg-container">
-						<a target="_blank" href="http://github.com/bhklab" rel="noreferrer">
-							<GitHubIcon sx={{ color: 'black', fontSize: '60px' }} />
-						</a>
-					</div>
-					<div className="desc">
-						Checkout BHKLab Github
-					</div>
-				</div>
 			</div>
 		</StyledSoftware>
 	);
@@ -713,7 +681,7 @@ function Software() {
 	};
 	return (
 		<Layout>
-			<div style={{ display: 'flex', flexDirection: 'row', width: '100%' }}>
+			<div>
 				<SlideButton
 					style={{ left: '10px', color: `${value ? colors.dark_gray : colors.light_gray}` }}
 					onClick={(e) => handleChange(e, 0)}

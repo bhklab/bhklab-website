@@ -10,7 +10,6 @@ export const Container = styled.div`
 `;
 
 export const StyledCard = styled.div`
-
   display: flex;
   text-align: justify;
   flex-direction: row;
@@ -74,19 +73,23 @@ export const StyledCard = styled.div`
 
 export const StyledPage = styled.div`
   width: 100%;
+  color: ${colors.primary_text_color};
+
   :nth-child(2) {
     background-color: white;
   }
+
   .subject {
-    color: black;
     display: flex;
     align-items: center;
     height: 60px;
     font-size: 20px;
     font-weight: normal;
     margin-top: 30px;
+    color: ${colors.primary_text_color};
   }
-  .date{
+
+  .date {
     color: ${colors.light_gray};
     display: flex;
     align-items: center;
@@ -94,13 +97,15 @@ export const StyledPage = styled.div`
     font-size: 12px;
     font-weight: normal;
   }
+
   .content {
     font-size: 15px;
     line-height: 25px;
     font-weight: normal;
     width: 75%;
-    color: ${colors.gray_text};
+    color: ${colors.primary_text_color};
   }
+
   .divider {
     margin-bottom: 30px;
     padding-top: 10px;

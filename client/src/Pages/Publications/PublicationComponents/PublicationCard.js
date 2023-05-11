@@ -1,3 +1,5 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/prop-types */
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -7,8 +9,9 @@ import Typography from '@mui/material/Typography';
 // import { DateTime } from 'luxon';
 import colors from '../../../styles/colors';
 
+const { DateTime } = require('luxon');
+
 function PresentationCard(props) {
-	const { DateTime } = require('luxon');
 	const {
 		image, title, event, url, members, date,
 	} = props.publication;
@@ -45,7 +48,7 @@ function PresentationCard(props) {
 										{title || `Event: ${event || ''}`}
 									</a>
 								)
-								: <>{title || `Event: ${event || ''}`}</>
+								: (title || `Event: ${event || ''}`)
 						}
 					</Typography>
 					{ date
@@ -58,9 +61,9 @@ function PresentationCard(props) {
 						members
 							&& (
 								<Typography variant="h7" color="text.secondary" component="div">
-									{members.map((item, index) => (
+									{members.map((item) => (
 										<a
-											key={index}
+											key={item}
 											href={item.name === 'Benjamin Haibe-Kains'
 												? '/people' : `people/${item.slug}`}
 										>
@@ -113,7 +116,7 @@ function PaperCard(props) {
 									<a className="link" href={url} target="_blank" rel="noreferrer">
 										{title}
 									</a>
-								) : <>{title}</>
+								) : { title }
 						}
 
 					</Typography>
@@ -127,7 +130,7 @@ function PaperCard(props) {
 						authors
 						&& (
 							<div>
-								{members.map((item, index) => <a key={index} href={item.slug}>{item.name}</a>)}
+								{members.map((item) => <a key={item} href={item.slug}>{item.name}</a>)}
 							</div>
 						)
 					}
