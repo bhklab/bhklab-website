@@ -2,15 +2,14 @@ import styled from 'styled-components';
 import colors from './colors';
 
 const StyledPaginate = styled.div`
-
-	.paginationBttns {
-	width: 80%;
-	height: 20px;
-	list-style: none;
-	display: flex;
-	justify-content: center;
-	font-size: 12px;
-	}
+  .paginationBttns {
+    width: 80%;
+    height: 20px;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+  }
 
   .paginationBttns a {
     padding: 5px;
@@ -30,13 +29,11 @@ const StyledPaginate = styled.div`
     border: 2px solid ${colors.pagination};
     color: ${colors.pagination};
   }
-;
-}
 
-.paginationDisabled a {
-  visibility: hidden;
-  background-color: white;
-}
+  .paginationDisabled a {
+    visibility: hidden;
+    background-color: white;
+  }
 `;
 
 export default StyledPaginate;

@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import PaginatedPublications from '../PublicationComponents/PaginatedPublications';
 import { PaperCard } from '../PublicationComponents/PublicationCard';
 import Layout from '../../../Components/Utils/Layout';
+import StyledHeading from '../../../styles/StyledHeading';
 
 const customizedContent = (item, index) => (<PaperCard index={index} publication={item} />);
 
@@ -35,6 +36,7 @@ function Papers() {
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.5 }}
 						>
+							<StyledHeading> Publications </StyledHeading>
 							<PaginatedPublications
 								customizedContent={customizedContent}
 								publications={publications}
