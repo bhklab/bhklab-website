@@ -10,6 +10,8 @@ const Main = styled.div`
 	display: flex;
 	flex-direction: column;
 	row-gap: ${(props) => (props.page.match(/home/ig) ? '' : '60px')};
+	/* justify-content: space-between;
+	height: 100vh; */
 `;
 
 /**
