@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import styled from 'styled-components';
 import React from 'react';
 import colors from '../../../../styles/colors';
@@ -35,16 +36,26 @@ export const StyledMember = styled.div`
 		color: #999;
 		margin-bottom: 20px;
 	}
+
+	@media screen and (max-width: 500px) {
+		flex-direction: column;
+
+		.LabMember-info {
+			width: 100%;
+		}
+	}
 `;
 
-function MemberCard(props) {
+function MemberCard({
+	photo, name, title, bio,
+}) {
 	return (
 		<StyledMember>
-			<img className="pi-photo" src={props.photo} />
+			<img className="pi-photo" src={photo} alt="" />
 			<div className="LabMember-info">
-				<div className="LabMember-name">{props.name}</div>
-				<div className="LabMember-title">{props.title}</div>
-				<div className="LabMember-info">{props.bio}</div>
+				<div className="LabMember-name">{name}</div>
+				<div className="LabMember-title">{title}</div>
+				<div className="LabMember-info">{bio}</div>
 			</div>
 		</StyledMember>
 	);
