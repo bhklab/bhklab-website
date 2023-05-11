@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
@@ -6,13 +7,11 @@ import StyledPaginate from '../../../styles/StyledPaginate';
 
 function Items({ currentItems }) {
 	return (
-		<>
-			{currentItems && currentItems.map((item, index) => (
-				<div key={index}>
-					{item}
-				</div>
-			))}
-		</>
+		currentItems && currentItems.map((item) => (
+			<div key={item}>
+				{item}
+			</div>
+		))
 	);
 }
 
