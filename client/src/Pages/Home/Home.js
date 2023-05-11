@@ -13,6 +13,7 @@ const Container = styled.div`
 		height: auto;
   		/* height: calc(100vh - 70px);	 */
 		/* object-fit: cover; */
+		filter: brightness(0.6);
 	}
 
 	display: flex;
