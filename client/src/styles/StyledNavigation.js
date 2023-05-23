@@ -2,11 +2,15 @@ import styled from 'styled-components';
 import colors from './colors';
 
 const StyledNavigation = styled.nav`
-  border-bottom: 1px solid ${colors.border_line_color};
+  /* border-bottom: 1px solid ${colors.border_line_color}; */
   height: 70px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  z-index: 1000;
+  background-color: white;
 `;
 
 const LogoContainer = styled.div`

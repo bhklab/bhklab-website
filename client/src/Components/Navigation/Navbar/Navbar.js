@@ -33,7 +33,7 @@ function NavBar() {
 					<a href="#vision"> Vision </a>
 				</div>
 				<div className="header-link-research header-link">
-					<Link to="/research">Research</Link>
+					<a href="#research-topics">Research</a>
 				</div>
 				<div className="header-link-publications header-link">
 					<div className="dropbtn">Publications</div>

@@ -3,10 +3,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import Layout from '../../Components/Utils/Layout';
-// import ResearchTopics from './ResearchTeams';
+import ResearchTopics from './ResearchTeams';
 import Vision from '../Vision/Vision';
-// import CollaborationMapBubble
-// from '../About/Collaboration/CollaborationComponents/CollectionMapBubble';
+
+const pmcrtImage = '/images/pmcrt1.jpg';
 
 const Container = styled.div`
 	video {
@@ -43,13 +43,13 @@ function Home() {
 							<source src="/videos/microsoft_bhklab.mp4" type="video/mp4" />
 						</video>
 					</div>
-					{/* <div className="research-topics">
-						<ResearchTopics />
-					</div> */}
 					<div id="vision">
 						<Vision />
 					</div>
-					{/* <CollaborationMapBubble /> */}
+					<img src={pmcrtImage} alt="pmcrt" />
+					<div id="research-topics">
+						<ResearchTopics />
+					</div>
 				</Container>
 			</motion.nav>
 		</Layout>
