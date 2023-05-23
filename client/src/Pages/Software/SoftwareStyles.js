@@ -39,9 +39,9 @@ const StyledSoftware = styled.div`
   }
 
   .web-apps, .packages {
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     flex-wrap: wrap;
     margin: 0 0px 20px 0px;
   }
@@ -110,10 +110,12 @@ const StyledSoftware = styled.div`
   }
 
   .desc {
-    text-align:center;
-    width:350px;
-    font-size:1em;
+    text-align: center;
+    width: 350px;
+    font-size: 0.9em;
     margin: 15px 0px 35px 0px;
+    color: ${colors.primary_text_color};
+    font-weight: 100;
   }
 
   /* PACKAGES */
@@ -146,7 +148,7 @@ const StyledSoftware = styled.div`
   .pkg-title:hover .initial { display: none; transition: linear 0.2s;}
 
   .pkg > .desc {
-    margin-bottom:50px;
+    margin-bottom: 50px;
   }
 
   .lang {
