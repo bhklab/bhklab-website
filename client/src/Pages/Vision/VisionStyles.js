@@ -18,10 +18,6 @@ const StyledSection = styled.section`
     h2 {
         font-weight: 400;
     }
-
-    h1 {
-        font-size: 2.2rem;
-    }
 `;
 
 const StyledVision = styled.div`

@@ -41,7 +41,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     h1 {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
         color: ${colors.primary_text_color};
     }
 
