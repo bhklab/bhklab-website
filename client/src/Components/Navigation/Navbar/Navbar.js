@@ -30,10 +30,10 @@ function NavBar() {
 					<Link to="/">Home</Link>
 				</div>
 				<div>
-					<a href="#vision"> Vision </a>
+					<a href="#vision-section-container"> Vision </a>
 				</div>
 				<div className="header-link-research header-link">
-					<a href="#research-topics">Research</a>
+					<a href="#research-topics-container">Research</a>
 				</div>
 				<div className="header-link-publications header-link">
 					<div className="dropbtn">Publications</div>
