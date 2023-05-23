@@ -39,6 +39,11 @@ const GlobalStyles = createGlobalStyle`
       text-decoration: none;
       color: ${colors.link_color};
     }
+
+    h1 {
+        font-size: 1.8rem;
+        color: ${colors.primary_text_color};
+    }
 `;
 
 export default GlobalStyles;

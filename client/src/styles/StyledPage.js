@@ -117,8 +117,6 @@ export const StyledSection = styled.div`
   padding-bottom: 100px;
   
   h1 {
-    font-size: 1.5rem;
-    color: ${colors.primary_text_color};
     text-align: center;
   }
 
