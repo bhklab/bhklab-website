@@ -1,5 +1,6 @@
 const colors = {
-	primary_text_color: '#2E3B55',
+	primary_text_color: '#29354c',
+	primary_text_light: '#abb0bb',
 	link_color: '#1d9bf0',
 	secondary_text_color: '#0f1419',
 	border_line_color: '#E0E0E0',

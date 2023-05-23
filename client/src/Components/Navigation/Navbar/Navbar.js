@@ -29,6 +29,9 @@ function NavBar() {
 				<div className="header-link-research header-link">
 					<Link to="/">Home</Link>
 				</div>
+				<div>
+					<a href="#vision"> Vision </a>
+				</div>
 				<div className="header-link-research header-link">
 					<Link to="/research">Research</Link>
 				</div>
