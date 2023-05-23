@@ -79,7 +79,7 @@ const StyledFooter = styled.div`
 function Footer() {
 	return (
 		<StyledFooter>
-			<div className="links-feed-container">
+			<footer className="links-feed-container">
 				<div className="links-container">
 					<div className="single-link-container">
 						<a href="/research">Research</a>
@@ -110,7 +110,7 @@ function Footer() {
 						// tweetLimit={5}
 					/>
 				</div>
-			</div>
+			</footer>
 			<div className="footer-info">
 				<p style={{ fontWeight: 'lighter' }}>BHKLab © 2023</p>
 			</div>
