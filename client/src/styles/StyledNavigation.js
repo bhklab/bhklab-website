@@ -91,7 +91,7 @@ const NavLinks = styled.div`
 
   @media only screen and (min-width: 1950px) {
     width: 35vw;
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
 
   

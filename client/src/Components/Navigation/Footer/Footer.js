@@ -7,45 +7,46 @@ const StyledFooter = styled.div`
 	border-top: 1px solid ${colors.border_line_color};
 	padding: 20px;
 	font-size: 0.9rem;
+	margin-top: 100px;
 
-	.links-feed-container {
+	.footer-links-and-twitter-container {
 		display: flex;
 	}
 
-	.links-container {
+	.all-links-container {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-around;
 		width: 60%;
 	}
 
-	.twitter-timeline-container {
+	.twitter-feed-container {
 		width: 40%;
 		display: flex;
 		justify-content: center;
 	}
 
-	.twitter-timeline-container > div {
+	.twitter-feed-container > div {
 		width: 400px;
 		height: 250px;
 		display: flex;
 		justify-content: center;
 	}
 
-	.single-link-container {
+	.grouped-links-container {
 		display: flex;
 		flex-direction: column;
 		gap: 5px;
 	}
 
-	.single-link-container a {
+	.grouped-links-container a {
 		color: ${colors.blue_footer};
 		margin-bottom: 10px;
 		text-decoration: none;
 		transition: color 0.2s ease-in-out;
 	}
 
-	.single-link-container a:hover {
+	.grouped-links-container a:hover {
 		color: ${colors.navbarLink};
 	}
 
@@ -62,15 +63,15 @@ const StyledFooter = styled.div`
 	@media only screen and (min-width: 2000px) {
 		padding: 40px 20px;
 
-		.twitter-timeline-container > div {
+		.twitter-feed-container > div {
 			width: 500px;
 		}
 
-		.links-container {
+		.all-links-container {
 			justify-content: space-evenly;
 		}
 		
-		.single-link-container {
+		.grouped-links-container {
 			gap: 7.5px;
 		}
 	}
@@ -78,30 +79,30 @@ const StyledFooter = styled.div`
 
 function Footer() {
 	return (
-		<StyledFooter>
-			<footer className="links-feed-container">
-				<div className="links-container">
-					<div className="single-link-container">
-						<a href="/research">Research</a>
-						<a href="/people">People</a>
-						<a href="/collaboration">Collaboration</a>
+		<StyledFooter className="footer-container">
+			<footer className="footer-links-and-twitter-container">
+				<div className="all-links-container">
+					<div className="grouped-links-container">
+						<a href="/research"> Research </a>
+						<a href="/people"> People </a>
+						<a href="/collaboration"> Collaboration </a>
 					</div>
-					<div className="single-link-container">
-						<a href="/publications">Publications</a>
-						<a href="/presentations">Presentations</a>
-						<a href="/software">Software</a>
+					<div className="grouped-links-container">
+						<a href="/publications"> Publications </a>
+						<a href="/presentations"> Presentations </a>
+						<a href="/software"> Software </a>
 					</div>
-					<div className="single-link-container">
-						<a href="/resources">Resources</a>
-						<a href="/datasets">Datasets</a>
-						<a href="https://www.pmgenomics.ca/bhklab/">Github</a>
+					<div className="grouped-links-container">
+						<a href="/resources"> Resources </a>
+						<a href="/datasets"> Datasets </a>
+						<a href="https://www.pmgenomics.ca/bhklab/"> Github </a>
 					</div>
-					<div className="single-link-container">
-						<a href="/contact">Contact Us</a>
-						<a href="/positions">Join Us</a>
+					<div className="grouped-links-container">
+						<a href="/contact"> Contact Us </a>
+						<a href="/positions"> Join Us </a>
 					</div>
 				</div>
-				<div className="twitter-timeline-container">
+				<div className="twitter-feed-container">
 					<TwitterTimelineEmbed
 						sourceType="profile"
 						screenName="bhklab"
@@ -111,7 +112,9 @@ function Footer() {
 				</div>
 			</footer>
 			<div className="footer-info">
-				<p style={{ fontWeight: 'lighter' }}>BHKLab © 2023</p>
+				<p style={{ fontWeight: 'lighter' }}>
+					BHKLab © 2023
+				</p>
 			</div>
 		</StyledFooter>
 	);
