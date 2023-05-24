@@ -30,8 +30,13 @@ const PMCRTImage = styled(StyledImage)`
     background-image: url('images/pmcrt1.jpg');
 `;
 
+const PMCRTTowerImage = styled(StyledImage)`
+    background-image: url('images/pmcrt1.png');
+`;
+
 export {
 	Container,
 	StyledImage,
 	PMCRTImage,
+	PMCRTTowerImage,
 };

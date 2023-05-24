@@ -1,7 +1,3 @@
-/**
- A custom react component that returns a navbar
- based on the size of browser navbar includes links to individual pages or a burger menu
- */
 import { Link } from 'react-router-dom';
 import React, { useContext } from 'react';
 import BurgerMenu from './BurgerMenu';
@@ -30,19 +26,41 @@ function NavBar() {
 					<Link to="/">Home</Link>
 				</div>
 				<div>
-					<a href="#vision-section-container"> Vision </a>
+					<a href="#vision">
+						Vision
+					</a>
 				</div>
 				<div className="header-link-research header-link">
-					<a href="#research-topics-container">Research</a>
+					<a href="#research">
+						Research
+					</a>
 				</div>
 				<div className="header-link-publications header-link">
-					<div className="dropbtn">Publications</div>
-					<div className="dropdown-content">
-						<Link to="/publications">Papers</Link>
-						<Link to="/presentations">Presentations</Link>
-					</div>
+					<a href="#publications">
+						Publications
+					</a>
 				</div>
-				<div className="header-link-resources header-link">
+				<div className="header-link-software header-link">
+					<a href="#presentations">
+						Presentations
+					</a>
+				</div>
+				<div className="header-link-software header-link">
+					<a href="#software">
+						Software
+					</a>
+				</div>
+				<div className="header-link-software header-link">
+					<a href="#team">
+						Team
+					</a>
+				</div>
+				<div className="header-link-software header-link">
+					<a href="#contact">
+						Contact
+					</a>
+				</div>
+				{/* <div className="header-link-resources header-link">
 					<div className="dropbtn">Resources</div>
 					<div className="dropdown-content">
 						<Link to="/datasets">Datasets</Link>
@@ -57,10 +75,7 @@ function NavBar() {
 						<Link to="/positions">Join Us</Link>
 						<Link to="/contact">Contact</Link>
 					</div>
-				</div>
-				<div className="header-link-software header-link">
-					<Link to="/software">Software</Link>
-				</div>
+				</div> */}
 				{
 					// admin ?
 					//     <button onClick={logout}>Logout</button>

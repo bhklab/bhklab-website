@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Container, PMCRTImage } from './HomeStyles';
+import { Container, PMCRTImage, PMCRTTowerImage } from './HomeStyles';
 import Layout from '../../Components/Utils/Layout';
 import ResearchTopics from './ResearchTeams';
 import Vision from '../Vision/Vision';
@@ -22,14 +22,17 @@ function Home() {
 							<source src="/videos/microsoft_bhklab.mp4" type="video/mp4" />
 						</video>
 					</div>
-					<div id="vision-section-container">
+					<div id="vision">
 						<Vision />
 					</div>
 					<div id="pmcrt-image-container">
 						<PMCRTImage />
 					</div>
-					<div id="research-topics-container">
+					<div id="research">
 						<ResearchTopics />
+					</div>
+					<div>
+						<PMCRTTowerImage />
 					</div>
 				</Container>
 			</motion.nav>
