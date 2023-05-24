@@ -46,7 +46,7 @@ function Home() {
 					<div id="presentations">
 						<Presentation />
 					</div>
-					<div id="softwares">
+					<div id="software">
 						<Software />
 					</div>
 					<div id="team-image-container">
