@@ -21,7 +21,7 @@ function Home() {
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.5 }}
 			>
-				<Container>
+				<Container className="home-container-component">
 					<div id="home" className="microsoft-bhklab-video">
 						<video autoPlay loop muted>
 							{/* <track kind="caption" /> */}

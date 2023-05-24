@@ -14,7 +14,7 @@ function NavBar() {
 		await logoutAdmin();
 	};
 	return (
-		<StyledNavigation>
+		<StyledNavigation className="navigation-bar">
 			<LogoContainer>
 				<Link to="/">
 					<img alt="logo" src="/images/Logo/bhklogo.png" />
@@ -27,7 +27,7 @@ function NavBar() {
 						Home
 					</a>
 				</div>
-				<div>
+				<div className="header-link-research header-link">
 					<a href="#vision">
 						Vision
 					</a>
