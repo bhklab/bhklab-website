@@ -7,6 +7,8 @@ import MemberCard from './MemberComponents/MemberCard';
 import Layout from '../../../Components/Utils/Layout';
 
 const StyledMember = styled.div`
+	margin-top: 200px;
+
 	// 80px corresponds to header height and 120px row-gap from layout
 	min-height: calc(100vh - 80px - 120px); 
 
