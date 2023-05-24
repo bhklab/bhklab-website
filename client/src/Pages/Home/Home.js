@@ -22,7 +22,7 @@ function Home() {
 				transition={{ duration: 0.5 }}
 			>
 				<Container>
-					<div className="microsoft-bhklab-video">
+					<div id="home" className="microsoft-bhklab-video">
 						<video autoPlay loop muted>
 							{/* <track kind="caption" /> */}
 							<source src="/videos/microsoft_bhklab.mp4" type="video/mp4" />

@@ -23,7 +23,9 @@ function NavBar() {
 			<BurgerMenu />
 			<NavLinks className="header-links-container">
 				<div className="header-link-research header-link">
-					<Link to="/">Home</Link>
+					<a href="#home">
+						Home
+					</a>
 				</div>
 				<div>
 					<a href="#vision">
