@@ -34,9 +34,14 @@ const PMCRTTowerImage = styled(StyledImage)`
     background-image: url('images/pmcrt1.png');
 `;
 
+const TeamImage = styled(StyledImage)`
+    background-image: url('images/social/team_pic.jpg');
+`;
+
 export {
 	Container,
 	StyledImage,
 	PMCRTImage,
 	PMCRTTowerImage,
+	TeamImage,
 };

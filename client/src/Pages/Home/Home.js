@@ -1,10 +1,16 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Container, PMCRTImage, PMCRTTowerImage } from './HomeStyles';
+import {
+	Container, PMCRTImage, PMCRTTowerImage, TeamImage,
+} from './HomeStyles';
 import Layout from '../../Components/Utils/Layout';
 import ResearchTopics from './ResearchTeams';
 import Vision from '../Vision/Vision';
+import Papers from '../Publications/Papers/Papers';
+import Presentation from '../Publications/Presentation/Presentation';
+import Software from '../Software/Software';
+import People from '../About/People/People';
 
 function Home() {
 	return (
@@ -31,8 +37,23 @@ function Home() {
 					<div id="research">
 						<ResearchTopics />
 					</div>
-					<div>
+					<div id="pmcrt-tower-image-container">
 						<PMCRTTowerImage />
+					</div>
+					<div id="publications">
+						<Papers />
+					</div>
+					<div id="presentations">
+						<Presentation />
+					</div>
+					<div id="softwares">
+						<Software />
+					</div>
+					<div id="team-image-container">
+						<TeamImage />
+					</div>
+					<div id="team">
+						<People />
 					</div>
 				</Container>
 			</motion.nav>

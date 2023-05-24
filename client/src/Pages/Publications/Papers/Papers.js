@@ -4,7 +4,6 @@ import Container from '@mui/material/Container';
 import { motion } from 'framer-motion';
 import PaginatedPublications from '../PublicationComponents/PaginatedPublications';
 import { PaperCard } from '../PublicationComponents/PublicationCard';
-import Layout from '../../../Components/Utils/Layout';
 import StyledHeading from '../../../styles/StyledHeading';
 
 const customizedContent = (item, index) => (<PaperCard index={index} publication={item} />);
@@ -26,9 +25,8 @@ function Papers() {
 	}, []);
 
 	return (
-		<Layout>
-			<Container fixed>
-				{ ready
+		<Container fixed>
+			{ ready
 					&& (
 						<motion.nav
 							className="navbar"
@@ -44,8 +42,7 @@ function Papers() {
 							/>
 						</motion.nav>
 					)}
-			</Container>
-		</Layout>
+		</Container>
 	);
 }
 

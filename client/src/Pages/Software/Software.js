@@ -10,7 +10,6 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import colors from '../../styles/colors';
 import SlideButton from '../../styles/StyledButton';
-import Layout from '../../Components/Utils/Layout';
 import Packages from './Packages';
 import WebApplications from './WebApplications';
 
@@ -48,47 +47,45 @@ function Software() {
 		setValue(index);
 	};
 	return (
-		<Layout>
-			<div>
-				<SlideButton
-					style={{ left: '10px', color: `${value ? colors.dark_gray : colors.light_gray}` }}
-					onClick={(e) => handleChange(e, 0)}
+		<div>
+			<SlideButton
+				style={{ left: '10px', color: `${value ? colors.dark_gray : colors.light_gray}` }}
+				onClick={(e) => handleChange(e, 0)}
+			>
+				Web Apps
+				{' '}
+				<br />
+				<ArrowBackIosRoundedIcon
+					fontSize="large"
+					sx={{ ':hover': { color: `${value && colors.darker_gray}` }, marginTop: '10px' }}
+				/>
+			</SlideButton>
+			<Container>
+				<SwipeableViews
+					axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+					index={value}
+					onChangeIndex={handleChangeIndex}
 				>
-					Web Apps
-					{' '}
-					<br />
-					<ArrowBackIosRoundedIcon
-						fontSize="large"
-						sx={{ ':hover': { color: `${value && colors.darker_gray}` }, marginTop: '10px' }}
-					/>
-				</SlideButton>
-				<Container>
-					<SwipeableViews
-						axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-						index={value}
-						onChangeIndex={handleChangeIndex}
-					>
-						<TabPanel value={value} index={0} dir={theme.direction}>
-							<WebApplications />
-						</TabPanel>
-						<TabPanel value={value} index={1} dir={theme.direction}>
-							<Packages />
-						</TabPanel>
-					</SwipeableViews>
-				</Container>
-				<SlideButton
-					style={{ right: '10px', color: `${!value ? colors.dark_gray : colors.light_gray}` }}
-					onClick={(e) => handleChange(e, 1)}
-				>
-					Packages
-					<br />
-					<ArrowForwardIosRoundedIcon
-						fontSize="large"
-						sx={{ ':hover': { color: `${!value && colors.darker_gray}` }, marginTop: '10px' }}
-					/>
-				</SlideButton>
-			</div>
-		</Layout>
+					<TabPanel value={value} index={0} dir={theme.direction}>
+						<WebApplications />
+					</TabPanel>
+					<TabPanel value={value} index={1} dir={theme.direction}>
+						<Packages />
+					</TabPanel>
+				</SwipeableViews>
+			</Container>
+			<SlideButton
+				style={{ right: '10px', color: `${!value ? colors.dark_gray : colors.light_gray}` }}
+				onClick={(e) => handleChange(e, 1)}
+			>
+				Packages
+				<br />
+				<ArrowForwardIosRoundedIcon
+					fontSize="large"
+					sx={{ ':hover': { color: `${!value && colors.darker_gray}` }, marginTop: '10px' }}
+				/>
+			</SlideButton>
+		</div>
 	);
 }
 

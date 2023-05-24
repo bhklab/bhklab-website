@@ -5,7 +5,6 @@ import Container from '@mui/material/Container';
 import { motion } from 'framer-motion';
 import { PresentationCard } from '../PublicationComponents/PublicationCard';
 import PaginatedPublications from '../PublicationComponents/PaginatedPublications';
-import Layout from '../../../Components/Utils/Layout';
 import StyledHeading from '../../../styles/StyledHeading';
 
 const customizedContent = (item, index) => (<PresentationCard key={index} publication={item} />);
@@ -25,9 +24,8 @@ function Presentation() {
 	}, []);
 
 	return (
-		<Layout>
-			<Container fixed>
-				{ ready
+		<Container fixed>
+			{ ready
 				&& (
 					<motion.nav
 						className="navbar"
@@ -43,8 +41,7 @@ function Presentation() {
 						/>
 					</motion.nav>
 				)}
-			</Container>
-		</Layout>
+		</Container>
 	);
 }
 

@@ -4,7 +4,6 @@ import axios from 'axios';
 import styled from 'styled-components';
 import Container from '@mui/material/Container';
 import colors from '../../../styles/colors';
-import Layout from '../../../Components/Utils/Layout';
 import StyledHeading from '../../../styles/StyledHeading';
 import MemberCard from './MemberComponents/MemberCard';
 // import AuthContext from '../../../hooks/Contexts';
@@ -147,10 +146,9 @@ function People() {
 	}), [history]);
 
 	return (
-		<Layout>
-			<Container fixed>
-				{
-					ready
+		<Container fixed>
+			{
+				ready
 						&& (
 							<>
 								{/* <StyledHeading>Principal Investigator</StyledHeading> */}
@@ -187,9 +185,8 @@ function People() {
 								</StyledPeople>
 							</>
 						)
-				}
-			</Container>
-		</Layout>
+			}
+		</Container>
 	);
 }
 
