@@ -95,7 +95,6 @@ function Footer() {
 						<a href="/resources">Resources</a>
 						<a href="/datasets">Datasets</a>
 						<a href="https://www.pmgenomics.ca/bhklab/">Github</a>
-						<a href="https://cbioportal.ca">cBioPortal</a>
 					</div>
 					<div className="single-link-container">
 						<a href="/contact">Contact Us</a>
