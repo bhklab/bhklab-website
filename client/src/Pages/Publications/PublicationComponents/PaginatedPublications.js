@@ -54,7 +54,6 @@ function PaginatedPublications({ customizedContent, publications, itemsPerPage }
 					renderOnZeroPageCount={null}
 				/>
 			</div>
-
 		</StyledPaginate>
 	);
 }

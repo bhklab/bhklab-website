@@ -112,10 +112,7 @@ export const StyledPage = styled.div`
   }
 `;
 
-export const StyledSection = styled.div`
-  padding-top: 50px;
-  padding-bottom: 100px;
-  
+export const StyledSection = styled.div`  
   h1 {
     text-align: center;
   }

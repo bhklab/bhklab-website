@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import colors from './colors';
 
 const StyledNavigation = styled.nav`
-  /* border-bottom: 1px solid ${colors.border_line_color}; */
+  border-bottom: 1px solid ${colors.border_line_color};
   height: 70px;
   width: 100%;
   display: flex;
