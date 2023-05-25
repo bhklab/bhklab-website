@@ -6,6 +6,7 @@ const StyledSection = styled.section`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    row-gap: 30px;
 
     p {
         margin: 20px;
@@ -24,22 +25,21 @@ const StyledVision = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 50px;
 `;
 
 const StyledStrategicPriorities = styled.div`
-    margin: 30px;
+    /* margin: 30px; */
 `;
 
 const StyledCulture = styled.div`
-    margin: 30px;
+    /* margin: 30px; */
     display: flex;
     flex-direction: column;
     align-items: center;
 `;
 
 const StyledOrganizationPillar = styled.div`
-    margin: 30px;
+    /* margin: 30px; */
 `;
 
 export {
