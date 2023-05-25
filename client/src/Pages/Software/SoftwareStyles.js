@@ -22,15 +22,14 @@ const StyledSoftware = styled.div`
   /* BODY */
   #intro {
     text-align: center;
-    line-height: 50px;
-	margin-top: 30px;
-	margin-bottom: 70px;
+    line-height: 40px;
+    margin-bottom: 50px;
   }
 
   h1 {
-	color: ${colors.primary_text_color};
-	font-weight: 500;
-    font-size: calc(0.6vw + 0.6em);
+	  color: ${colors.primary_text_color};
+	  font-weight: 700;
+    font-size: calc(1vw + 0.6em);
   }
 
   .highlight {

@@ -17,6 +17,10 @@ const StyledHome = styled.div`
 	.home-component-sub-section {
 		padding-top: 80px;
 	}
+
+	.home-component-sub-section > hr {
+		margin: auto;
+	}
 `;
 
 function Home() {
@@ -50,6 +54,9 @@ function Home() {
 						</div>
 						<div id="publications" className="home-component-sub-section">
 							<Papers />
+						</div>
+						<div className="home-component-sub-section">
+							<hr />
 						</div>
 						<div id="presentations" className="home-component-sub-section">
 							<Presentation />
