@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import {
-	Container, PMCRTImage, PMCRTTowerImage, TeamImage,
+	Container, PMCRTImage, PMCRTTowerImage, TeamImage, BHKLabImage,
 } from './HomeStyles';
 import Layout from '../../Components/Utils/Layout';
 import ResearchTopics from './ResearchTeams';
@@ -53,6 +53,9 @@ function Home() {
 						</div>
 						<div id="presentations" className="home-component-sub-section">
 							<Presentation />
+						</div>
+						<div id="bhklab-logo-image-container" className="home-component-sub-section">
+							<BHKLabImage />
 						</div>
 						<div id="software" className="home-component-sub-section">
 							<Software />

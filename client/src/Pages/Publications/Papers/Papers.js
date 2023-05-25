@@ -38,7 +38,7 @@ function Papers() {
 							<PaginatedPublications
 								customizedContent={customizedContent}
 								publications={publications}
-								itemsPerPage={10}
+								itemsPerPage={5}
 							/>
 						</motion.nav>
 					)}

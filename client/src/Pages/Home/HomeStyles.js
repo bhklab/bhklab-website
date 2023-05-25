@@ -38,10 +38,16 @@ const TeamImage = styled(StyledImage)`
     background-image: url('images/social/team_pic.jpg');
 `;
 
+const BHKLabImage = styled(StyledImage)`
+	background-color: #8d99ae;
+	background-image: url('images/software/bhklogo.png');
+`;
+
 export {
 	Container,
 	StyledImage,
 	PMCRTImage,
 	PMCRTTowerImage,
 	TeamImage,
+	BHKLabImage,
 };
