@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import React from 'react';
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
@@ -98,8 +99,8 @@ function Footer() {
 						<a href="https://www.pmgenomics.ca/bhklab/"> Github </a>
 					</div>
 					<div className="grouped-links-container">
-						<a href="/contact"> Contact Us </a>
-						<a href="/positions"> Join Us </a>
+						<Link to="/contact"> Contact Us </Link>
+						<Link to="/positions"> Join Us </Link>
 					</div>
 				</div>
 				<div className="twitter-feed-container">

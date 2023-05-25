@@ -58,9 +58,9 @@ function NavBar() {
 					</a>
 				</div>
 				<div className="header-link-software header-link">
-					<a href="#contact">
+					<Link to="/contact">
 						Contact
-					</a>
+					</Link>
 				</div>
 				{/* <div className="header-link-resources header-link">
 					<div className="dropbtn">Resources</div>
