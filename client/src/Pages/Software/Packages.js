@@ -91,7 +91,7 @@ function Packages() {
 
 	return (
 		<StyledSoftware>
-			<div id="intro">
+			<div className="component-heading">
 				<h1>
 					We&rsquo;re developing
 					{' '}
@@ -101,17 +101,17 @@ function Packages() {
 					pharmacogenomic analysis of cancer model systems.
 				</h1>
 			</div>
-			<div id="container" className="packages">
+			<div className="packages-container">
 				{
 					packageData.map((pkg) => (
-						<div id="app" className="pkg" key={pkg.title}>
-							<div id="pkg-container">
-								<a target="_blank" href={pkg.link} className="pkg-title" rel="noreferrer">
+						<div className="single-package-container" key={pkg.title}>
+							<div className="package-section">
+								<a target="_blank" href={pkg.link} className="package-title" rel="noreferrer">
 									{pkg.title}
 								</a>
 								<img className="lang" src={pkg.image} title="Package Logo" alt="Package Logo" />
 							</div>
-							<div className="desc">{pkg.description}</div>
+							<div className="description-section">{pkg.description}</div>
 						</div>
 					))
 				}

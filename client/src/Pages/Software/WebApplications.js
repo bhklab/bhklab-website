@@ -79,7 +79,7 @@ const applicationsObject = [
 function WebApplications() {
 	return (
 		<StyledSoftware>
-			<div id="intro">
+			<div className="component-heading">
 				<h1>
 					We&rsquo;re developing
 					{' '}
@@ -91,11 +91,11 @@ function WebApplications() {
 					their pharmacogenomic analysis of cancer model systems.
 				</h1>
 			</div>
-			<div id="container" className="web-apps">
+			<div className="web-apps-container">
 				{
 					applicationsObject.map((application) => (
-						<div id="app">
-							<div id="app-container">
+						<div className="single-app-container">
+							<div className="app-section">
 								<img
 									className="logo"
 									src={application.imgSrc}
@@ -110,7 +110,7 @@ function WebApplications() {
 									Go!
 								</a>
 							</div>
-							<div className="desc">
+							<div className="description-section">
 								{application.appDescription}
 							</div>
 						</div>

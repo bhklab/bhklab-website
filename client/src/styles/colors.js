@@ -6,6 +6,8 @@ const colors = {
 	border_line_color: '#E0E0E0',
 	white_background: '#FFFFFF',
 	card_shadow_color: 'rgba(0, 0, 0, 0.2)',
+	light_gray: '#BDBDBD',
+	dark_gray: '#767575',
 
 	blue_background: '#292d3e',
 
@@ -15,8 +17,6 @@ const colors = {
 	text_light_gray: '#BDBDBD',
 	main: '#FFFFFF',
 
-	light_gray: '#BDBDBD',
-	dark_gray: '#767575',
 	darker_gray: '#31343e',
 
 	// Navigation

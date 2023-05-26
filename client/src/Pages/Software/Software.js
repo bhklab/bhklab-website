@@ -8,10 +8,15 @@ import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
+import styled from 'styled-components';
 import colors from '../../styles/colors';
 import SlideButton from '../../styles/StyledButton';
 import Packages from './Packages';
 import WebApplications from './WebApplications';
+
+const StyledContainer = styled.div`
+	display: flex;
+`;
 
 function TabPanel(props) {
 	const {
@@ -26,11 +31,13 @@ function TabPanel(props) {
 			aria-labelledby={`full-width-tab-${index}`}
 			{...other}
 		>
-			{value === index && (
-				<Box sx={{ p: 1 }}>
-					{children}
-				</Box>
-			)}
+			{
+				value === index && (
+					<Box sx={{ p: 1 }}>
+						{children}
+					</Box>
+				)
+			}
 		</div>
 	);
 }
@@ -47,13 +54,12 @@ function Software() {
 		setValue(index);
 	};
 	return (
-		<div>
+		<StyledContainer>
 			<SlideButton
-				style={{ left: '10px', color: `${value ? colors.dark_gray : colors.light_gray}` }}
+				isActive={Boolean(value)}
 				onClick={(e) => handleChange(e, 0)}
 			>
 				Web Apps
-				{' '}
 				<br />
 				<ArrowBackIosRoundedIcon
 					fontSize="large"
@@ -75,7 +81,7 @@ function Software() {
 				</SwipeableViews>
 			</Container>
 			<SlideButton
-				style={{ right: '10px', color: `${!value ? colors.dark_gray : colors.light_gray}` }}
+				isActive={Boolean(!value)}
 				onClick={(e) => handleChange(e, 1)}
 			>
 				Packages
@@ -85,7 +91,7 @@ function Software() {
 					sx={{ ':hover': { color: `${!value && colors.darker_gray}` }, marginTop: '10px' }}
 				/>
 			</SlideButton>
-		</div>
+		</StyledContainer>
 	);
 }
 

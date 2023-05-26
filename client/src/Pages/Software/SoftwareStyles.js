@@ -2,74 +2,50 @@ import styled from 'styled-components';
 import colors from '../../styles/colors';
 
 const StyledSoftware = styled.div`
- a {
-    text-decoration: none;
-    color: white
-  }
+  border: 1px solid black;
+  max-width: 100%;
 
-  a:focus {
-    outline: none;
-  }
-
-  .slide-desc {
-    display: flex;
-    align-items: center;
-    position: fixed;
-    color: ${colors.blue_background};
-    font-size: 1rem;
-  }
-  
-  /* BODY */
-  #intro {
+  .component-heading {
     text-align: center;
     line-height: 40px;
     margin-bottom: 50px;
   }
 
-  h1 {
-	  color: ${colors.primary_text_color};
-	  font-weight: 700;
-    font-size: calc(1vw + 0.6em);
-  }
-
   .highlight {
-   /* text-decoration: underline; */
-   color: ${colors.link_color};
+    color: ${colors.link_color};
   }
 
-  .web-apps, .packages {
+  .web-apps-container, .packages-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     flex-wrap: wrap;
-    margin: 0 0px 20px 0px;
+    gap: 20px;
+    justify-content: space-between;
+    
   }
 
-  #app {
-    flex-grow: 1;
-    flex: 1 1 30%;
+  .single-app-container, .single-package-container {
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    flex-grow: 1;
+    flex-basis: 30%;
+    /* flex: 1 1 30%; */
     position: relative;
     margin-bottom: 20px;
     min-width: 350px;
-    /* max-width: 26.6vw; */
   }
 
-  #app-container, #pkg-container {
+  .app-section, .package-section {
     display: flex;
     align-items: center;
     flex-direction: column;
     position: relative;
     transition: linear 0.2s;
-    a:hover {
-      color: ${colors.blue_background};
-    }
   }
 
-  #pkg-container {
+  .package-section {
     flex-direction: row !important;
   }
 
@@ -81,12 +57,12 @@ const StyledSoftware = styled.div`
   }
 
   .link {
-    width: calc(2vw + 3em);
+    width: calc(2vw + 3rem);
     padding: 10px 0px;
     background: ${colors.primary_text_color};
-    color: white;
+    color: ${colors.white_background};
     text-align: center;
-    font-size: calc(1vw + 0.8em);
+    font-size: calc(1vw + 0.8rem);
     position: absolute;
     top: 25%;
     opacity: 0;
@@ -94,21 +70,22 @@ const StyledSoftware = styled.div`
     transition: linear 0.2s;
   }
 
-  .bottom-row {
-    top: 12%;
-  }
+  /* .link:hover {
+    color: ${colors.white_background};
+    background: ${colors.primary_text_color};
+  } */
 
-  #app-container:hover .link {
+  .app-section:hover .link {
     opacity: 1;
     transition: linear 0.2s;
   }
 
-  #app-container:hover .logo {
+  .app-section:hover .logo {
     opacity: 0;
     transition: linear 0.2s;
   }
 
-  .desc {
+  .description-section {
     text-align: center;
     width: 350px;
     font-size: 0.9em;
@@ -118,11 +95,11 @@ const StyledSoftware = styled.div`
   }
 
   /* PACKAGES */
-  .packages {
+  .packages-container {
     margin-top: 3vw;
   }
 
-  .pkg-title {
+  .package-title {
     background: var(--pkg-color);
     border-radius: 15px;
     color: white;
@@ -135,18 +112,18 @@ const StyledSoftware = styled.div`
     transition: linear 0.2s;
   }
 
-  .pkg-title:hover {
+  .package-title:hover {
     background: transparent;
     color: ${colors.blue_background};
     transition: linear 0.2s;
   }
 
   .hovered {color: ${colors.text_light_gray};}
-  .pkg-title .hovered { display: none; transition: linear 0.2s;}
-  .pkg-title:hover .hovered { display: block; transition: linear 0.2s;}
-  .pkg-title:hover .initial { display: none; transition: linear 0.2s;}
+  .package-title .hovered { display: none; transition: linear 0.2s;}
+  .package-title:hover .hovered { display: block; transition: linear 0.2s;}
+  .package-title:hover .initial { display: none; transition: linear 0.2s;}
 
-  .pkg > .desc {
+  .single-package-container > .description-section {
     margin-bottom: 50px;
   }
 
@@ -171,26 +148,19 @@ const StyledSoftware = styled.div`
 
   /* mobile */
   @media only screen and (max-width: 550px) {
-    /* body {
-        background-image:url("./images/bg-mobile.png")
-    } */
-    .pkg-title {
+    .package-title {
       width: 140px;
     }
 
-    #app {
+    .single-app-container {
       min-width: 250px;
     }
 
-    .desc {
+    .description-section {
       text-align: center;
       width: 250px;
       font-size: 0.9em;
       margin: 15px 0px 70px 0px;
-    }
-
-    .slide-desc {
-      font-size: 10px;
     }
   }
 `;

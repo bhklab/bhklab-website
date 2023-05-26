@@ -22,7 +22,7 @@ function ResearchTopics() {
 
 	return (
 		<StyledSection>
-			<h1> Research Teams </h1>
+			<h1> Research Axis </h1>
 			<div className="container">
 				{
 					!isLoading
