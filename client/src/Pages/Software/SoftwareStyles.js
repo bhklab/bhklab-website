@@ -22,9 +22,7 @@ const StyledSoftware = styled.div`
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
-    
+    gap: 10px;
   }
 
   .single-app-container, .single-package-container {

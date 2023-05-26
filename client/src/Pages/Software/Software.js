@@ -16,6 +16,15 @@ import WebApplications from './WebApplications';
 
 const StyledContainer = styled.div`
 	display: flex;
+	margin: 0 50px;
+
+	@media screen and (min-width: 1900px) {
+		margin: 0 150px;
+	}
+
+	@media screen and (min-width: 2200px) {
+		margin: 0 200px;
+	}
 `;
 
 function TabPanel(props) {
