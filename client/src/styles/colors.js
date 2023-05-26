@@ -8,7 +8,6 @@ const colors = {
 	card_shadow_color: 'rgba(0, 0, 0, 0.2)',
 	light_gray: '#BDBDBD',
 	dark_gray: '#767575',
-
 	blue_background: '#292d3e',
 
 	header_blue_green: '#00BFA5',

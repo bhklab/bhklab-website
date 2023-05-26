@@ -2,8 +2,11 @@ import styled from 'styled-components';
 import colors from '../../styles/colors';
 
 const StyledSoftware = styled.div`
-  border: 1px solid black;
   max-width: 100%;
+
+  h1 {
+    font-size: 1.5rem;
+  }
 
   .component-heading {
     text-align: center;
@@ -70,11 +73,6 @@ const StyledSoftware = styled.div`
     transition: linear 0.2s;
   }
 
-  /* .link:hover {
-    color: ${colors.white_background};
-    background: ${colors.primary_text_color};
-  } */
-
   .app-section:hover .link {
     opacity: 1;
     transition: linear 0.2s;
@@ -100,21 +98,20 @@ const StyledSoftware = styled.div`
   }
 
   .package-title {
-    background: var(--pkg-color);
     border-radius: 15px;
-    color: white;
-    background-color: ${colors.blue_background};
+    color: ${colors.white_background};
+    background: ${colors.primary_text_color};
     width: 210px;
     padding: 10px 0px;
     font-weight: 700;
     font-size: calc(0.6vw + 0.8em);
-    border: 1px solid var(--pkg-color);
     transition: linear 0.2s;
   }
 
   .package-title:hover {
     background: transparent;
-    color: ${colors.blue_background};
+    color: ${colors.primary_text_color};
+    border: 1px solid ${colors.primary_text_color};
     transition: linear 0.2s;
   }
 
