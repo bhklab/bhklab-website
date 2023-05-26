@@ -63,7 +63,7 @@ function Software() {
 				<br />
 				<ArrowBackIosRoundedIcon
 					fontSize="large"
-					sx={{ ':hover': { color: `${value && colors.darker_gray}` }, marginTop: '10px' }}
+					sx={{ ':hover': { color: `${value && colors.primary_text_color}` }, marginTop: '10px' }}
 				/>
 			</SlideButton>
 			<Container>
@@ -88,7 +88,7 @@ function Software() {
 				<br />
 				<ArrowForwardIosRoundedIcon
 					fontSize="large"
-					sx={{ ':hover': { color: `${!value && colors.darker_gray}` }, marginTop: '10px' }}
+					sx={{ ':hover': { color: `${!value && colors.primary_text_color}` }, marginTop: '10px' }}
 				/>
 			</SlideButton>
 		</StyledContainer>
