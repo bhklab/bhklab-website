@@ -18,24 +18,24 @@ const StyledPaginate = styled.div`
     padding: 5px;
     margin: 7.5px;
     border-radius: 5px;
-    color: ${colors.pagination};
+    color: ${colors.link_color};
     cursor: pointer;
   }
 
   .paginationBttns a:hover {
-    color: white;
-    background-color: ${colors.pagination};
+    color: ${colors.white_color};
+    background-color: ${colors.link_color};
   }
 
   .paginationActive a {
     border-radius: 7px;
-    border: 2px solid ${colors.pagination};
-    color: ${colors.pagination};
+    border: 2px solid ${colors.link_color};
+    color: ${colors.link_color};
   }
 
   .paginationDisabled a {
     visibility: hidden;
-    background-color: white;
+    background-color: ${colors.white_color};
   }
 `;
 
