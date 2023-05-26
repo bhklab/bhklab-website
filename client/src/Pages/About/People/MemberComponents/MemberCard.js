@@ -4,6 +4,7 @@ import React from 'react';
 import colors from '../../../../styles/colors';
 
 export const StyledMember = styled.div`
+	color: ${colors.primary_text_color};
 	display: flex;
 	flex-direction: row;
 	background-color: ${colors.white_color};
@@ -17,12 +18,11 @@ export const StyledMember = styled.div`
 		border-radius: 10px;
 		overflow: hidden;
 		background-color: ${colors.white_color};
-		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+		box-shadow: 0px 0px 10px ${colors.card_shadow_color};
 	}
 	.LabMember-info {
 		display: flex;
 		flex-direction: column;
-		color: black;
 		line-height: 25px;
 		padding: 0 10px;
 		width: 90%;
