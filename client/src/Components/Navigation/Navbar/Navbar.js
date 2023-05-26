@@ -48,7 +48,7 @@ function NavBar() {
 					</a>
 				</div>
 				<div className="header-link-software header-link">
-					<a href="#software">
+					<a href="#softwares">
 						Software
 					</a>
 				</div>

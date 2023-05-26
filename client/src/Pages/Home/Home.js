@@ -64,7 +64,7 @@ function Home() {
 						<div id="bhklab-logo-image-container" className="home-component-sub-section">
 							<BHKLabImage />
 						</div>
-						<div id="software" className="home-component-sub-section">
+						<div id="softwares" className="home-component-sub-section">
 							<Software />
 						</div>
 						<div id="team-image-container" className="home-component-sub-section">
