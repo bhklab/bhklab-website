@@ -6,16 +6,17 @@ import colors from '../../../../styles/colors';
 export const StyledMember = styled.div`
 	display: flex;
 	flex-direction: row;
-	background-color: ${colors.white};
+	background-color: ${colors.white_color};
 	border-radius: 10px;
 	margin-top: 20px;
+
 	img {
 		width: 320px;
 		height: 420px;
 		object-fit: cover;
 		border-radius: 10px;
 		overflow: hidden;
-		background-color: ${colors.white};
+		background-color: ${colors.white_color};
 		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 	}
 	.LabMember-info {
@@ -33,7 +34,7 @@ export const StyledMember = styled.div`
 	}
 	.LabMember-title {
 		font-style: italic;
-		color: #999;
+		color: ${colors.primary_text_light};
 		margin-bottom: 20px;
 	}
 

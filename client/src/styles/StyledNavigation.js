@@ -60,7 +60,7 @@ const NavLinks = styled.div`
     color: ${colors.primary_text_color};
     padding: 12px 16px;
     text-decoration: none;
-    background-color: ${colors.white_background};
+    background-color: ${colors.white_color};
     -webkit-transition: color 0.2s ease-out;
     -moz-transition: color 0.2s ease-out;
     -o-transition: color 0.2s ease-out;

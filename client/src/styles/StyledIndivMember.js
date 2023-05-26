@@ -4,7 +4,7 @@ import colors from './colors';
 const StyledMember = styled.div`
   display: flex;
   flex-direction: row;
-  background-color: ${colors.white};
+  background-color: ${colors.white_color};
   border-radius: 10px;
   img {
     width: 300px;
@@ -12,7 +12,7 @@ const StyledMember = styled.div`
     object-fit: cover;
     border-radius: 10px;
     overflow: hidden;
-    background-color: ${colors.white};
+    background-color: ${colors.white_color};
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
   }
 

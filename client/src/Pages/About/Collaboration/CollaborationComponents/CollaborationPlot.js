@@ -597,7 +597,7 @@ function CollaborationPlot() {
 		<StyledPlot>
 			<AppBar
 				position="static"
-				sx={{ color: `${colors.tab_bg}`, background: `${colors.white_background}` }}
+				sx={{ color: `${colors.tab_bg}`, background: `${colors.white_color}` }}
 			>
 				<Tabs
 					value={value}

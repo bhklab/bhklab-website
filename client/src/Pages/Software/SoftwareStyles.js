@@ -63,7 +63,7 @@ const StyledSoftware = styled.div`
     width: calc(2vw + 3rem);
     padding: 10px 0px;
     background: ${colors.primary_text_color};
-    color: ${colors.white_background};
+    color: ${colors.white_color};
     text-align: center;
     font-size: calc(1vw + 0.8rem);
     position: absolute;
@@ -99,7 +99,7 @@ const StyledSoftware = styled.div`
 
   .package-title {
     border-radius: 15px;
-    color: ${colors.white_background};
+    color: ${colors.white_color};
     background: ${colors.primary_text_color};
     width: 210px;
     padding: 10px 0px;

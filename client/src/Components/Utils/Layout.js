@@ -6,7 +6,7 @@ import Footer from '../Navigation/Footer/Footer';
 import colors from '../../styles/colors';
 
 const Main = styled.div`
-	background-color: ${colors.white_background};
+	background-color: ${colors.white_color};
 	display: flex;
 	flex-direction: column;
 	row-gap: ${(props) => (props.page.match(/home/ig) ? '' : '60px')};

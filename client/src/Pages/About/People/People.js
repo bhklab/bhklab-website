@@ -166,8 +166,9 @@ function People() {
 										new predictive models in order to significantly improve disease management. Dr. Haibe-Kains' main scientific contributions
 										include several prognostic gene signatures in breast cancer, subtype classification models for ovarian and breast cancers, as well as genomic predictors of drug response in cancer cell lines."
 								/>
-
-								<StyledHeading>Current Members</StyledHeading>
+								<StyledHeading>
+									Current Members
+								</StyledHeading>
 								<StyledPeople>
 									{
 										people.length
