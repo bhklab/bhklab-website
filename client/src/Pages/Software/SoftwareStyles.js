@@ -41,9 +41,11 @@ const StyledSoftware = styled.div`
   .app-section, .package-section {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     position: relative;
     transition: linear 0.2s;
+    min-height: 100px;
   }
 
   .package-section {
