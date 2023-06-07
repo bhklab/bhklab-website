@@ -1,37 +1,37 @@
 import React from 'react';
 import Container from '@mui/material/Container';
-import SwipeableViews from 'react-swipeable-views';
+// import SwipeableViews from 'react-swipeable-views';
 import Box from '@mui/material/Box';
 import { useTheme } from '@mui/material/styles';
 import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
-import CollaborationPlot from './CollaborationComponents/CollaborationPlot';
+// import CollaborationPlot from './CollaborationComponents/CollaborationPlot';
 import colors from '../../../styles/colors';
-import CollaborationMap from './CollaborationComponents/CollaborationMap';
+// import CollaborationMap from './CollaborationComponents/CollaborationMap';
 import Layout from '../../../Components/Utils/Layout';
 import SlideButton from '../../../styles/StyledButton';
-import CollectionMapBubble from './CollaborationComponents/CollectionMapBubble';
+// import CollectionMapBubble from './CollaborationComponents/CollectionMapBubble';
 
-function TabPanel(props) {
-	const {
-		children, value, index, ...other
-	} = props;
-	return (
-		<div
-			role="tabpanel"
-			hidden={value !== index}
-			id={`full-width-tabpanel-${index}`}
-			aria-labelledby={`full-width-tab-${index}`}
-			{...other}
-		>
-			{value === index && (
-				<Box sx={{ p: 1 }}>
-					{children}
-				</Box>
-			)}
-		</div>
-	);
-}
+// function TabPanel(props) {
+// 	const {
+// 		children, value, index, ...other
+// 	} = props;
+// 	return (
+// 		<div
+// 			role="tabpanel"
+// 			hidden={value !== index}
+// 			id={`full-width-tabpanel-${index}`}
+// 			aria-labelledby={`full-width-tab-${index}`}
+// 			{...other}
+// 		>
+// 			{value === index && (
+// 				<Box sx={{ p: 1 }}>
+// 					{children}
+// 				</Box>
+// 			)}
+// 		</div>
+// 	);
+// }
 
 function Collaboration() {
 	const theme = useTheme();
@@ -61,7 +61,7 @@ function Collaboration() {
 					/>
 				</SlideButton>
 				<Container>
-					<SwipeableViews
+					{/* <SwipeableViews
 						axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
 						index={value}
 						onChangeIndex={handleChangeIndex}
@@ -73,7 +73,7 @@ function Collaboration() {
 						<TabPanel value={value} index={1} dir={theme.direction}>
 							<CollaborationPlot />
 						</TabPanel>
-					</SwipeableViews>
+					</SwipeableViews> */}
 				</Container>
 				<SlideButton
 					style={{ right: '10px', color: `${!value ? colors.dark_gray : colors.light_gray}` }}

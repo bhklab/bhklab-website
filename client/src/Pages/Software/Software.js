@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import * as React from 'react';
 import 'animate.css/animate.min.css';
-import SwipeableViews from 'react-swipeable-views';
+// import SwipeableViews from 'react-swipeable-views';
 import { useTheme } from '@mui/material/styles';
 import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
@@ -76,7 +76,7 @@ function Software() {
 				/>
 			</SlideButton>
 			<Container>
-				<SwipeableViews
+				{/* <SwipeableViews
 					axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
 					index={value}
 					onChangeIndex={handleChangeIndex}
@@ -87,7 +87,7 @@ function Software() {
 					<TabPanel value={value} index={1} dir={theme.direction}>
 						<Packages />
 					</TabPanel>
-				</SwipeableViews>
+				</SwipeableViews> */}
 			</Container>
 			<SlideButton
 				isActive={Boolean(!value)}
