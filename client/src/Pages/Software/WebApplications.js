@@ -1,9 +1,12 @@
 import React from 'react';
 import StyledSoftware from './SoftwareStyles';
+import getRandomElementsFromArray from '../../utils/getRandomElementsFromArray';
+
+const WEBAPPLICATION_DISPLAY_COUNT = 4;
 
 const imgDirectory = 'images/software/';
 
-const applicationsObject = [
+const webApplications = [
 	{
 		applicationName: 'Orcestra',
 		imgSrc: `${imgDirectory}orcestra.png`,
@@ -76,6 +79,11 @@ const applicationsObject = [
 	},
 ];
 
+const subsetOfWebApplications = getRandomElementsFromArray(
+	webApplications,
+	WEBAPPLICATION_DISPLAY_COUNT,
+);
+
 function WebApplications() {
 	return (
 		<StyledSoftware>
@@ -93,7 +101,7 @@ function WebApplications() {
 			</div>
 			<div className="web-apps-container">
 				{
-					applicationsObject.map((application) => (
+					subsetOfWebApplications.map((application) => (
 						<div className="single-app-container">
 							<div className="app-section">
 								<img
