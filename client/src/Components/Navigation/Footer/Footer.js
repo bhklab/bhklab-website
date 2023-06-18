@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import React from 'react';
-import { TwitterTimelineEmbed } from 'react-twitter-embed';
+// import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import colors from '../../../styles/colors';
 
 const StyledFooter = styled.div`
@@ -19,19 +19,6 @@ const StyledFooter = styled.div`
 		flex-wrap: wrap;
 		justify-content: space-around;
 		width: 60%;
-	}
-
-	.twitter-feed-container {
-		width: 40%;
-		display: flex;
-		justify-content: center;
-	}
-
-	.twitter-feed-container > div {
-		width: 400px;
-		height: 250px;
-		display: flex;
-		justify-content: center;
 	}
 
 	.grouped-links-container {
@@ -102,14 +89,6 @@ function Footer() {
 						<Link to="/contact"> Contact Us </Link>
 						<Link to="/positions"> Join Us </Link>
 					</div>
-				</div>
-				<div className="twitter-feed-container">
-					<TwitterTimelineEmbed
-						sourceType="profile"
-						screenName="bhklab"
-						options={{ width: 500, height: 250 }}
-						// tweetLimit={5}
-					/>
 				</div>
 			</footer>
 			<div className="footer-info">
