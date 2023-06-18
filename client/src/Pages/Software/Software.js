@@ -9,14 +9,12 @@ import WebApplications from './WebApplications';
 const StyledContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	margin: 0 50px;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
 
-	@media screen and (min-width: 1900px) {
-		margin: 0 150px;
-	}
-
-	@media screen and (min-width: 2200px) {
-		margin: 0 200px;
+	hr {
+		margin-bottom: 50px;
 	}
 `;
 
@@ -24,6 +22,7 @@ function Software() {
 	return (
 		<StyledContainer>
 			<WebApplications />
+			<hr />
 			<Packages />
 		</StyledContainer>
 	);

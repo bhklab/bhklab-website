@@ -98,12 +98,7 @@ function Packages() {
 		<StyledSoftware>
 			<div className="component-heading">
 				<h1>
-					We&rsquo;re developing
-					{' '}
-					<span className="highlight">software packages</span>
-					{' '}
-					to empower the scientific community in their
-					pharmacogenomic analysis of cancer model systems.
+					Packages
 				</h1>
 			</div>
 			<div className="packages-container">

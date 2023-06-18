@@ -4,10 +4,6 @@ import colors from '../../styles/colors';
 const StyledSoftware = styled.div`
   max-width: 100%;
 
-  h1 {
-    font-size: 1.5rem;
-  }
-
   .component-heading {
     text-align: center;
     line-height: 40px;

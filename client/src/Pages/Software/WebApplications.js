@@ -89,14 +89,7 @@ function WebApplications() {
 		<StyledSoftware>
 			<div className="component-heading">
 				<h1>
-					We&rsquo;re developing
-					{' '}
-					<span className="highlight">
-						databases and web applications
-					</span>
-					{' '}
-					to empower the scientific community in
-					their pharmacogenomic analysis of cancer model systems.
+					Softwares
 				</h1>
 			</div>
 			<div className="web-apps-container">
