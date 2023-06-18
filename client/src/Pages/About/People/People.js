@@ -10,7 +10,7 @@ import MemberCard from './MemberComponents/MemberCard';
 
 const StyledCard = styled.div`
   width: 245px;
-  height: 380px;
+  height: 300px;
   border-radius: 10px;
   overflow: hidden;
   background-color: ${colors.main};
@@ -19,7 +19,7 @@ const StyledCard = styled.div`
 
 const StyledImage = styled.img`
   width: 245px;
-  height: 320px;
+  height: 240px;
   object-fit: cover;
 `;
 
