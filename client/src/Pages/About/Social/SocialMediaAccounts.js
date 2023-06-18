@@ -11,7 +11,7 @@ const SocialMediaAccountWrapper = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 200px;
+    gap: 150px;
 
     @media only screen and (min-width: 2000px) {
         gap: 300px;

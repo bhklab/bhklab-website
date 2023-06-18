@@ -1,14 +1,17 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import React from 'react';
-// import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import colors from '../../../styles/colors';
 
 const StyledFooter = styled.div`
+	height: 300px;
 	border-top: 1px solid ${colors.border_line_color};
-	padding: 20px;
+	padding: 30px 80px;
 	font-size: 0.9rem;
 	margin-top: 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 
 	.footer-links-and-twitter-container {
 		display: flex;
@@ -24,7 +27,7 @@ const StyledFooter = styled.div`
 	.grouped-links-container {
 		display: flex;
 		flex-direction: column;
-		gap: 5px;
+		gap: 10px;
 	}
 
 	.grouped-links-container a {
