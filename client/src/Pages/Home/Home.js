@@ -12,6 +12,7 @@ import Papers from '../Publications/Papers/Papers';
 import Presentation from '../Publications/Presentation/Presentation';
 import Software from '../Software/Software';
 import People from '../About/People/People';
+import SocialMediaAccounts from '../About/Social/SocialMediaAccounts';
 
 const StyledHome = styled.div`
 	.home-component-sub-section {
@@ -72,6 +73,10 @@ function Home() {
 						</div>
 						<div id="team" className="home-component-sub-section">
 							<People />
+						</div>
+						<div id="social-media-accounts" className="home-component-sub-section">
+							<hr />
+							<SocialMediaAccounts />
 						</div>
 					</StyledHome>
 				</Container>
