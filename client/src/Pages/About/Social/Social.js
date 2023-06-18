@@ -4,6 +4,8 @@ import axios from 'axios';
 import styled from 'styled-components';
 import Layout from '../../../Components/Utils/Layout';
 
+// TODO: Not sure if it this component is used anywhere! need to ask Parinaz!
+
 const StyledSocial = styled.div`
 	width: 80%;
 	.subject {

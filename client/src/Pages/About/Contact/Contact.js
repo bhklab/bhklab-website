@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
