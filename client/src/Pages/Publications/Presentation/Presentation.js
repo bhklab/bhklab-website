@@ -33,7 +33,7 @@ function Presentation() {
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.5 }}
 					>
-						<StyledHeading> Presentations </StyledHeading>
+						<StyledHeading noTopMargin> Presentations </StyledHeading>
 						<PaginatedPublications
 							customizedContent={customizedContent}
 							publications={presentations}

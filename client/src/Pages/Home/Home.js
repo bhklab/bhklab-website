@@ -15,7 +15,7 @@ import People from '../About/People/People';
 
 const StyledHome = styled.div`
 	.home-component-sub-section {
-		padding-top: 80px;
+		padding-top: 60px;
 	}
 
 	.home-component-sub-section > hr {
