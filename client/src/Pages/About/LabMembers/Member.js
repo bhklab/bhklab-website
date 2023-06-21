@@ -29,6 +29,7 @@ function Member() {
 		};
 		getMember();
 	}, [token]);
+
 	const {
 		image, position, bio, name,
 	} = member.data;

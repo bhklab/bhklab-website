@@ -115,7 +115,7 @@ const sortMembers = (people) => {
 		Volunteer: 26,
 	};
 	const result = people.sort((a, b) => (order[a.position] - order[b.position]));
-	return (result);
+	return result;
 };
 
 function People() {
@@ -151,7 +151,6 @@ function People() {
 				ready
 						&& (
 							<>
-								{/* <StyledHeading>Principal Investigator</StyledHeading> */}
 								<MemberCard
 									name="Benjamin Haibe-Kains"
 									title="Principal Investigator"
