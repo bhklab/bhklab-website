@@ -7,7 +7,7 @@ import Papers from './Publications/Papers/Papers';
 import Equipments from './Resources/Equipments/Equipments';
 import Software from './Software/Software';
 import Contact from './About/Contact/Contact';
-import People from './About/LabMembers/LabMembers';
+import LabMembers from './About/LabMembers/LabMembers';
 import Member from './About/LabMembers/Member';
 import Collaboration from './About/Collaboration/Collaboration';
 import JoinUs from './About/Join/JoinUs';
@@ -24,7 +24,7 @@ export {
 	Equipments,
 	Software,
 	Contact,
-	People,
+	LabMembers,
 	Member,
 	Collaboration,
 	JoinUs,

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AuthContext from '../hooks/Contexts';
@@ -12,7 +13,7 @@ import {
 	Equipments,
 	Software,
 	Contact,
-	People,
+	LabMembers,
 	Member,
 	Collaboration,
 	JoinUs,
@@ -40,7 +41,7 @@ function PublicRoutes() {
 					<Route path="/publications" element={<Papers />} />
 					<Route path="/equipments" element={<Equipments />} />
 					<Route path="/contact" element={<Contact />} />
-					<Route path="/people" element={<People />} />
+					<Route path="/people" element={<LabMembers />} />
 					<Route path="/people/:token" element={<Member />} />
 					<Route path="/collaboration" element={<Collaboration />} />
 					<Route path="/positions" element={<JoinUs />} />

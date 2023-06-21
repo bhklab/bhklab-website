@@ -6,6 +6,8 @@ import Container from '@mui/material/Container';
 import MemberCard from './MemberComponents/MemberCard';
 import Layout from '../../../Components/Utils/Layout';
 
+// TODO: Not sure if this component is being used anywhere; ask Parinaz in case of any confusion
+
 const StyledMember = styled.div`
 	margin-top: 200px;
 

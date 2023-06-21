@@ -11,7 +11,7 @@ import Vision from '../Vision/Vision';
 import Papers from '../Publications/Papers/Papers';
 import Presentation from '../Publications/Presentation/Presentation';
 import Software from '../Software/Software';
-import People from '../About/LabMembers/LabMembers';
+import LabMembers from '../About/LabMembers/LabMembers';
 import SocialMediaAccounts from '../About/Social/SocialMediaAccounts';
 
 const StyledHome = styled.div`
@@ -72,7 +72,7 @@ function Home() {
 							<TeamImage />
 						</div>
 						<div id="team" className="home-component-sub-section">
-							<People />
+							<LabMembers />
 						</div>
 						<div id="social-media-accounts" className="home-component-sub-section">
 							<hr />
