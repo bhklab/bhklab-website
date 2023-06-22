@@ -2,7 +2,7 @@ import React from 'react';
 import StyledSoftware from './SoftwareStyles';
 import getRandomElementsFromArray from '../../utils/getRandomElementsFromArray';
 
-const PACKAGE_DISPLAY_COUNT = 4;
+const PACKAGE_DISPLAY_COUNT = 6;
 
 const packageList = [
 	{
