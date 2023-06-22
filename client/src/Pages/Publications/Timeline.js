@@ -5,7 +5,14 @@ import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
+import styled from 'styled-components';
 import colors from '../../styles/colors';
+
+// styling for timeline
+const StyledTimeline = styled.div`
+	max-width: 150px;
+	min-width: 150px;
+`;
 
 // timeline years
 const YEARS = ['2023', '2022', '2021', '2020', '2019', '2018'];
@@ -47,11 +54,13 @@ const displayTimeline = (years) => years.map((year, index) => {
  */
 function LeftPositionedTimeline() {
 	return (
-		<Timeline position="left">
-			{
-				displayTimeline(YEARS)
-			}
-		</Timeline>
+		<StyledTimeline>
+			<Timeline position="left">
+				{
+					displayTimeline(YEARS)
+				}
+			</Timeline>
+		</StyledTimeline>
 	);
 }
 

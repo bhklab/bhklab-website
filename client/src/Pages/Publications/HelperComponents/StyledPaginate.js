@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import colors from '../../../styles/colors';
 
 const StyledPaginate = styled.div`
+  flex-grow: 1;
+  
   .pagination-container {
     margin-top: 20px;
   }

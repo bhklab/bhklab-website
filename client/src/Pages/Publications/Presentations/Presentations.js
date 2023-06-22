@@ -34,7 +34,7 @@ function Presentations() {
 	}, []);
 
 	return (
-		<Container fixed>
+		<Container maxWidth="lg">
 			{ ready
 				&& (
 					<motion.nav
