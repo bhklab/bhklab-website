@@ -9,7 +9,7 @@ import Layout from '../../Components/Utils/Layout';
 import ResearchTopics from './ResearchTeams';
 import Vision from '../Vision/Vision';
 import Publications from '../Publications/Publications/Publications';
-import Presentation from '../Publications/Presentation/Presentation';
+import Presentations from '../Publications/Presentations/Presentations';
 import Software from '../Software/Software';
 import LabMembers from '../About/LabMembers/LabMembers';
 import SocialMediaAccounts from '../About/Social/SocialMediaAccounts';
@@ -60,7 +60,7 @@ function Home() {
 							<hr />
 						</div>
 						<div id="presentations" className="home-component-sub-section">
-							<Presentation />
+							<Presentations />
 						</div>
 						<div id="bhklab-logo-image-container" className="home-component-sub-section">
 							<BHKLabImage />

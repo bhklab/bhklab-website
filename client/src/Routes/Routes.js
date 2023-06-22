@@ -6,7 +6,7 @@ import AuthContext from '../hooks/Contexts';
 import {
 	Home,
 	Dataset,
-	Presentation,
+	Presentations,
 	Research,
 	IndivResearch,
 	Publications,
@@ -35,7 +35,7 @@ function PublicRoutes() {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/datasets" element={<Dataset />} />
-					<Route path="/presentations" element={<Presentation />} />
+					<Route path="/presentations" element={<Presentations />} />
 					<Route path="/research" element={<Research />} />
 					<Route path="/research/:token" element={<IndivResearch />} />
 					<Route path="/publications" element={<Publications />} />

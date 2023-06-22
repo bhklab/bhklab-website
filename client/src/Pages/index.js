@@ -1,6 +1,6 @@
 import Home from './Home/Home';
 import Dataset from './Resources/Dataset/Dataset';
-import Presentation from './Publications/Presentation/Presentation';
+import Presentations from './Publications/Presentations/Presentations';
 import Research from './Research/Research';
 import IndivResearch from './Research/IndivResearch';
 import Publications from './Publications/Publications/Publications';
@@ -17,7 +17,7 @@ import Admin from './Admin/Admin';
 export {
 	Home,
 	Dataset,
-	Presentation,
+	Presentations,
 	Research,
 	IndivResearch,
 	Publications,

@@ -11,7 +11,7 @@ const customizedContent = (item, index) => (
 	<PresentationCard key={index} publication={item} />
 );
 
-function Presentation() {
+function Presentations() {
 	const [ready, setReady] = useState(false);
 	const [presentations, setPresentation] = useState({});
 
@@ -47,4 +47,4 @@ function Presentation() {
 	);
 }
 
-export default Presentation;
+export default Presentations;
