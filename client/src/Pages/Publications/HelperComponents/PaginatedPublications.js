@@ -8,7 +8,8 @@ import StyledPaginate from './StyledPaginate';
 function Items({ currentItems }) {
 	return (
 		currentItems && currentItems.map((item) => (
-			<div key={item}>
+			// eslint-disable-next-line no-underscore-dangle
+			<div key={item.props.publication._id}>
 				{item}
 			</div>
 		))
