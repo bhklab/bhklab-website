@@ -3,9 +3,17 @@ import axios from 'axios';
 import 'primeicons/primeicons.css';
 import Container from '@mui/material/Container';
 import { motion } from 'framer-motion';
+import styled from 'styled-components';
 import { PresentationCard } from '../HelperComponents/PublicationCard';
 import PaginatedPublications from '../HelperComponents/PaginatedPublications';
 import StyledHeading from '../../../styles/StyledHeading';
+import LeftPositionedTimeline from '../Timeline';
+
+const PresentationsContainer = styled.div`
+	display: flex;
+	align-items: center;
+	gap: 50px;
+`;
 
 const customizedContent = (item, index) => (
 	<PresentationCard key={index} publication={item} />
@@ -36,11 +44,14 @@ function Presentations() {
 						transition={{ duration: 0.5 }}
 					>
 						<StyledHeading noTopMargin> Presentations </StyledHeading>
-						<PaginatedPublications
-							customizedContent={customizedContent}
-							publications={presentations}
-							itemsPerPage={5}
-						/>
+						<PresentationsContainer>
+							<LeftPositionedTimeline />
+							<PaginatedPublications
+								customizedContent={customizedContent}
+								publications={presentations}
+								itemsPerPage={5}
+							/>
+						</PresentationsContainer>
 					</motion.nav>
 				)}
 		</Container>
