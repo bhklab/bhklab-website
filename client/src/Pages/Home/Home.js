@@ -16,7 +16,7 @@ import SocialMediaAccounts from '../About/Social/SocialMediaAccounts';
 
 const StyledHome = styled.div`
 	.home-component-sub-section {
-		padding-top: 60px;
+		padding-top: 70px;
 	}
 
 	.home-component-sub-section > hr {
