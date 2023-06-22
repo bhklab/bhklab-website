@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import StyledPaginate from '../../../styles/StyledPaginate';
+import StyledPaginate from './StyledPaginate';
 
 function Items({ currentItems }) {
 	return (
