@@ -9,11 +9,11 @@ export const StyledMember = styled.div`
 	flex-direction: row;
 	background-color: ${colors.white_color};
 	border-radius: 10px;
-	margin-top: 20px;
+	margin: 20px 0 80px 0;
 
-	img {
+	img.principal-investigator-photo {
 		width: 320px;
-		height: 360px;
+		height: 340px;
 		object-fit: cover;
 		border-radius: 10px;
 		overflow: hidden;
@@ -21,7 +21,7 @@ export const StyledMember = styled.div`
 		box-shadow: 0px 0px 10px ${colors.card_shadow_color};
 	}
 
-	.LabMember-info {
+	.principal-investigator-info {
 		display: flex;
 		flex-direction: column;
 		line-height: 25px;
@@ -30,19 +30,29 @@ export const StyledMember = styled.div`
 		text-align: justify;
 	}
 
-	.LabMember-name {
+	.principal-investigator-name {
 		font-weight: bold;
-		margin-bottom: 10px;
 		font-size: 1.4rem;
+		display: flex;
+		margin-bottom: 5px;
+		
+		span {
+			margin-right: 5px;
+		}
+
+		img {
+			height: 24px;
+			width: 24px;
+		}
 	}
 
-	.LabMember-title {
+	.principal-investigator-title {
 		font-style: italic;
 		color: ${colors.primary_text_light};
 		font-size: 1.1rem;
 	}
 
-	.LabMember-bio {
+	.principal-investigator-bio {
 		margin-top: 30px;
 		font-size: 1rem;
 	}
@@ -50,7 +60,7 @@ export const StyledMember = styled.div`
 	@media screen and (max-width: 500px) {
 		flex-direction: column;
 
-		.LabMember-info {
+		.principal-investigator-info {
 			width: 100%;
 		}
 	}
@@ -61,11 +71,27 @@ function PrincipalInvestigatorCard({
 }) {
 	return (
 		<StyledMember>
-			<img className="pi-photo" src={photo} alt="" />
-			<div className="LabMember-info">
-				<div className="LabMember-name">{name}</div>
-				<div className="LabMember-title">{title}</div>
-				<div className="LabMember-bio">{bio}</div>
+			<img className="principal-investigator-photo" src={photo} alt="" />
+			<div className="principal-investigator-info">
+				<div className="principal-investigator-name">
+					<span>{name}</span>
+					<a
+						href="https://twitter.com/bhaibeka"
+						target="_blank"
+						rel="noreferrer"
+					>
+						<img src="/images/social-media/twitter.png" alt="twitter" />
+					</a>
+					<a
+						href="https://www.linkedin.com/in/benhaibekains/"
+						target="_blank"
+						rel="noreferrer"
+					>
+						<img src="/images/social-media/linkedin.png" alt="linkedin" />
+					</a>
+				</div>
+				<div className="principal-investigator-title">{title}</div>
+				<div className="principal-investigator-bio">{bio}</div>
 			</div>
 		</StyledMember>
 	);
