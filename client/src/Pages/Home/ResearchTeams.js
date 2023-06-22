@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { ResearchCard } from '../../Components/Utils/CustomCard';
+import { ResearchAxisCard } from '../../Components/Utils/CustomCard';
 import slugGeneratorHelper from '../../Components/Utils/slugGeneratorHelper';
 import { StyledSection } from '../../styles/StyledPage';
 
@@ -27,7 +27,7 @@ function ResearchTopics() {
 				{
 					!isLoading
 					&& researchTeams.map((item) => (
-						<ResearchCard
+						<ResearchAxisCard
 							key={`${item.title}`}
 							title={item.title}
 							description={(

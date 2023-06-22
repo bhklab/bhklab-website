@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 // const [filterValue, setFilterValue] = useState('');
 // const filterInputRef = useRef();
 //
@@ -33,6 +34,7 @@
 //     setFilterValue(_filterValue);
 //     options.filter(event);
 // }
+// TODO: Again not sure if this is used anywhere! Ask Parinaz for details
 
 import React from 'react';
 import { Dropdown } from 'primereact/dropdown';
@@ -44,7 +46,7 @@ const StyledDropdown = styled(Dropdown)`
     .pi {
         font-size: 0.7rem;
     }
-    .p-dropdown-items .p-dropdown-item {;
+    .p-dropdown-items .p-dropdown-item {
         color: ${colors.gray_text};
     }
     .p-dropdown-label, .p-dropdown-item {

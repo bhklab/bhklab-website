@@ -1,72 +1,6 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 import React from 'react';
-import colors from '../../../styles/colors';
-
-const StyledFooter = styled.div`
-	height: 300px;
-	border-top: 1px solid ${colors.border_line_color};
-	padding: 30px 80px;
-	font-size: 0.9rem;
-	margin-top: 100px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-
-	.footer-links-and-twitter-container {
-		display: flex;
-	}
-
-	.all-links-container {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-around;
-		width: 60%;
-	}
-
-	.grouped-links-container {
-		display: flex;
-		flex-direction: column;
-		gap: 10px;
-	}
-
-	.grouped-links-container a {
-		color: ${colors.blue_footer};
-		margin-bottom: 10px;
-		text-decoration: none;
-		transition: color 0.2s ease-in-out;
-	}
-
-	.grouped-links-container a:hover {
-		color: ${colors.navbarLink};
-	}
-
-	.footer-info {
-		text-align: center;
-		margin-top: 30px;
-		margin-bottom: 10px;
-	}
-
-	.footer-info p {
-		color: ${colors.blue_footer};
-	}
-
-	@media only screen and (min-width: 2000px) {
-		padding: 40px 20px;
-
-		.twitter-feed-container > div {
-			width: 500px;
-		}
-
-		.all-links-container {
-			justify-content: space-evenly;
-		}
-		
-		.grouped-links-container {
-			gap: 7.5px;
-		}
-	}
-`;
+import StyledFooter from './FooterStyle';
 
 function Footer() {
 	return (
@@ -74,19 +8,26 @@ function Footer() {
 			<footer className="footer-links-and-twitter-container">
 				<div className="all-links-container">
 					<div className="grouped-links-container">
-						<a href="/research"> Research </a>
-						<a href="/people"> People </a>
+						<a href="#research"> Research </a>
+						<a href="#people"> People </a>
 						<a href="/collaboration"> Collaboration </a>
 					</div>
 					<div className="grouped-links-container">
-						<a href="/publications"> Publications </a>
-						<a href="/presentations"> Presentations </a>
-						<a href="/software"> Software </a>
+						<a href="#publications"> Publications </a>
+						<a href="#presentations"> Presentations </a>
+						<a href="#software"> Software </a>
 					</div>
+					{/* TODO: This has to be updated!! */}
 					<div className="grouped-links-container">
 						<a href="/resources"> Resources </a>
 						<a href="/datasets"> Datasets </a>
-						<a href="https://www.pmgenomics.ca/bhklab/"> Github </a>
+						<a
+							href="https://github.com/bhklab"
+							target="_blank"
+							rel="noreferrer"
+						>
+							Github
+						</a>
 					</div>
 					<div className="grouped-links-container">
 						<Link to="/contact"> Contact Us </Link>
@@ -95,9 +36,30 @@ function Footer() {
 				</div>
 			</footer>
 			<div className="footer-info">
-				<p style={{ fontWeight: 'lighter' }}>
+				<a
+					href="https://github.com/bhklab"
+					target="_blank"
+					rel="noreferrer"
+				>
+					<img src="/images/social-media/github.png" alt="github" />
+				</a>
+				<a
+					href="https://twitter.com/bhklab"
+					target="_blank"
+					rel="noreferrer"
+				>
+					<img src="/images/social-media/twitter.png" alt="twitter" />
+				</a>
+				<a
+					href="https://www.linkedin.com/in/bhklab/"
+					target="_blank"
+					rel="noreferrer"
+				>
+					<img src="/images/social-media/linkedin.png" alt="linkedin" />
+				</a>
+				<span className="footer-text">
 					BHKLab © 2023
-				</p>
+				</span>
 			</div>
 		</StyledFooter>
 	);

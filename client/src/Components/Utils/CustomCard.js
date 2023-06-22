@@ -45,13 +45,13 @@ const StyledDescription = styled.div`
  * and a link to individual research page
  *
  * @example
- * <ResearchCard
+ * <ResearchAxisCard
  * 	path = "linkToResearchPage"
  * 	title = "Title"
  * 	description= "description" image="src"
  * />
  */
-export function ResearchCard(props) {
+export function ResearchAxisCard(props) {
 	const {
 		title, description, image, path,
 	} = props;
@@ -60,7 +60,7 @@ export function ResearchCard(props) {
 		<StyledCard>
 			<a href={path}>
 				<StyledImage src={image || '/images/research/research.png'} alt={title} />
-				<StyledTitle>{title}</StyledTitle>
+				<StyledTitle>lol</StyledTitle>
 			</a>
 			<StyledDescription>{description}</StyledDescription>
 		</StyledCard>
