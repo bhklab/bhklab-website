@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 import Container from '@mui/material/Container';
-import MemberCard from './MemberComponents/MemberCard';
+import PrincipalInvestigatorCard from './PrincipalInvestigatorCard';
 import Layout from '../../../Components/Utils/Layout';
 
 // TODO: Not sure if this component is being used anywhere; ask Parinaz in case of any confusion
@@ -43,7 +43,7 @@ function Member() {
 					member.ready
 					&& (
 						<StyledMember>
-							<MemberCard
+							<PrincipalInvestigatorCard
 								photo={`/images/people/${image}`}
 								name={name}
 								title={position}

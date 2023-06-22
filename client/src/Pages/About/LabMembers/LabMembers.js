@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Container from '@mui/material/Container';
 import StyledHeading from '../../../styles/StyledHeading';
-import MemberCard from './MemberComponents/MemberCard';
+import PrincipalInvestigatorCard from './PrincipalInvestigatorCard';
 import {
 	StyledCard, StyledImage, StyledName, StyledTitle, StyledPeople,
 } from './LabMembersStyle';
@@ -37,7 +37,7 @@ function MemberHeadShot({ title, description, imageUrl }) {
 	);
 }
 
-const member = (item, index) => (
+const displayMember = (item, index) => (
 	<div key={index}>
 		<Link to={{
 			pathname: `/people/${item.slug}`,
@@ -124,7 +124,7 @@ function LabMembers() {
 				ready
 						&& (
 							<>
-								<MemberCard
+								<PrincipalInvestigatorCard
 									name="Benjamin Haibe-Kains"
 									title="Principal Investigator"
 									photo="/images/people/bhk.jpg"
@@ -138,7 +138,13 @@ function LabMembers() {
 										people.length
 									&& (
 										<>
-											{ sortMembers(people.filter((item) => item.status === 'current member').sort((a, b) => new Date(a.startDate) - new Date(b.startDate))).map((item, i) => (member(item, i, (i !== people.length - 1))))}
+											{
+												sortMembers(
+													people
+														.filter((item) => item.status === 'current member')
+														.sort((a, b) => new Date(a.startDate) - new Date(b.startDate)),
+												).map((item, i) => (displayMember(item, i, (i !== people.length - 1))))
+											}
 										</>
 									)
 									}
@@ -151,7 +157,7 @@ function LabMembers() {
 										<>
 											{ sortMembers(people.filter((item) => item.status === 'alumni')
 												.sort((a, b) => new Date(b.endDate) - new Date(a.endDate)))
-												.map((item, i) => (member(item, i)))}
+												.map((item, i) => (displayMember(item, i)))}
 										</>
 									)
 									}
