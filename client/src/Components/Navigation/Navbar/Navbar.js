@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import React, { useContext } from 'react';
 import BurgerMenu from './BurgerMenu';
-import { LogoContainer, NavLinks, StyledNavigation } from '../../../styles/StyledNavigation';
+import { LogoContainer, NavLinks, StyledNavigation } from './StyledNavigation';
 import useAuth from '../../../hooks/useAuth';
 import AuthContext from '../../../hooks/Contexts';
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import colors from './colors';
+import colors from '../../../styles/colors';
 
 const StyledNavigation = styled.nav`
   border-bottom: 1px solid ${colors.border_line_color};
@@ -51,7 +51,7 @@ const NavLinks = styled.div`
     position: absolute;
     /* margin-top: 5px; */
     border-radius: 1px;
-    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 5px 5px 0px ${colors.card_shadow_color};
     z-index: 999;
   }  
 
@@ -100,10 +100,15 @@ const NavLinks = styled.div`
 const BurgerNav = styled.div`
   position: fixed;
   right: 0;
+  top: 0;
   margin-right: 15vw;
   /*react-burger-nav style*/
 
   /* Position and sizing of burger button */
+
+  .burger-menu {
+    box-shadow: 0px 0px 10px ${colors.card_shadow_color};
+  }
 
   .bm-burger-button {
     position: fixed;
@@ -116,26 +121,26 @@ const BurgerNav = styled.div`
   /* Color/shape of burger icon bars */
 
   .bm-burger-bars {
-    background: #1327d4;
+    background: ${colors.primary_text_color};
   }
 
   /* Color/shape of burger icon bars on hover*/
 
   .bm-burger-bars-hover {
-    background: #555975;
+    background: ${colors.dark_gray};
   }
 
   /* Position and sizing of clickable cross button */
 
   .bm-cross-button {
-    height: 24px;
-    width: 24px;
+    margin: 20px;
   }
 
   /* Color/shape of close button cross */
 
   .bm-cross {
-    background: #3D405A;
+    background: ${colors.dark_gray};
+    height: 20px !important;
   }
 
   /*
@@ -151,7 +156,7 @@ const BurgerNav = styled.div`
   /* General sidebar styles */
 
   .bm-menu {
-    background: rgba(255, 255, 255, 0.3);
+    background: ${colors.white_color};
     padding: 30px 10px 20px 10px;
     font-size: 12px;
 
@@ -162,7 +167,11 @@ const BurgerNav = styled.div`
 
       a {
         margin-bottom: 15px;
-        color: rgb(61, 64, 90);
+        color: ${colors.primary_text_color};
+      }
+
+      a:hover {
+        color: ${colors.link_color};
       }
 
       button {
@@ -176,29 +185,26 @@ const BurgerNav = styled.div`
   }
 
   /* Morph shape necessary with bubble or elastic */
-
   .bm-morph-shape {
-    fill: #373a47;
+    fill: ${colors.primary_text_color};
   }
 
   /* Wrapper for item list */
 
   .bm-item-list {
-    color: #b8b7ad;
-    padding: 0.8em;
+    margin-top: 50px;
+    padding: 20px;
   }
 
   /* Individual item */
 
   .bm-item {
-    margin-bottom: 20px;
-    text-align: left;
+    /* text-align: left; */
+    padding: 5px 0;
   }
 
   /* Styling of overlay */
-
   .bm-overlay {
-    background: rgba(61, 64, 90, 0.5);
   }
 
   @media only screen and (min-width: 1001px) {
@@ -251,7 +257,7 @@ const styles = {
 		display: 'inline-block',
 	},
 	bmOverlay: {
-		background: 'rgba(0, 0, 0, 0.3)',
+		background: `${colors.card_shadow_color}`,
 	},
 };
 

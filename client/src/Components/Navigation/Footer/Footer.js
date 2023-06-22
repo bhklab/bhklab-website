@@ -58,7 +58,7 @@ function Footer() {
 					<img src="/images/social-media/linkedin.png" alt="linkedin" />
 				</a>
 				<span className="footer-text">
-					BHKLab © 2023
+					BHKLab ©2023
 				</span>
 			</div>
 		</StyledFooter>
