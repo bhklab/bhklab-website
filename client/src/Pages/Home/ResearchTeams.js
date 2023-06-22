@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { ResearchAxisCard } from '../../Components/Utils/CustomCard';
-import slugGeneratorHelper from '../../Components/Utils/slugGeneratorHelper';
+import slugGeneratorHelper from '../../utils/slugGeneratorHelper';
 import { StyledSection } from '../../styles/StyledPage';
 
 function ResearchTopics() {

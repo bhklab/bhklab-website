@@ -3,7 +3,7 @@ import axios from 'axios';
 import Layout from '../../Components/Utils/Layout';
 import 'animate.css/animate.min.css';
 import { TeamCard } from '../../Components/Utils/CustomCard';
-import slugGeneratorHelper from '../../Components/Utils/slugGeneratorHelper';
+import slugGeneratorHelper from '../../utils/slugGeneratorHelper';
 import { StyledSection } from '../../styles/StyledPage';
 
 function Research() {

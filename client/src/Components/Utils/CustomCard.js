@@ -60,7 +60,7 @@ export function ResearchAxisCard(props) {
 		<StyledCard>
 			<a href={path}>
 				<StyledImage src={image || '/images/research/research.png'} alt={title} />
-				<StyledTitle>lol</StyledTitle>
+				<StyledTitle>{title}</StyledTitle>
 			</a>
 			<StyledDescription>{description}</StyledDescription>
 		</StyledCard>
