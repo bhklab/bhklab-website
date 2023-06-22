@@ -12,22 +12,15 @@ const SocialMediaAccountWrapper = styled.div`
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
-    /* gap: 20px; */
+    gap: 50px;
 
-    /* @media only screen and (min-width: 1000px) {
-        gap: 50px;
-    }
-
-    @media only screen and (min-width: 1400px) {
+    @media only screen and (min-width: 1600px) {
+        justify-content: center;
         gap: 100px;
     }
 
-    @media only screen and (min-width: 2000px) {
-        gap: 300px;
-    } */
-
-    .linkedin-wrapper {
-        border: 1px solid black;
+    @media only screen and (min-width: 1900px) {
+        gap: 200px;
     }
 `;
 
