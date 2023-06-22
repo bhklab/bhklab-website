@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import colors from '../../../styles/colors';
 
 const StyledNavigation = styled.nav`
-  border-bottom: 1px solid ${colors.border_line_color};
   height: 70px;
   width: 100%;
   display: flex;
@@ -11,6 +10,7 @@ const StyledNavigation = styled.nav`
   position: fixed;
   z-index: 1000;
   background-color: white;
+  box-shadow: 0px 0px 10px ${colors.card_shadow_color};
 `;
 
 const LogoContainer = styled.div`
