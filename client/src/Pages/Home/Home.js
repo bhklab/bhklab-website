@@ -8,7 +8,7 @@ import {
 import Layout from '../../Components/Utils/Layout';
 import ResearchTopics from './ResearchTeams';
 import Vision from '../Vision/Vision';
-import Papers from '../Publications/Papers/Papers';
+import Publications from '../Publications/Publications/Publications';
 import Presentation from '../Publications/Presentation/Presentation';
 import Software from '../Software/Software';
 import LabMembers from '../About/LabMembers/LabMembers';
@@ -54,7 +54,7 @@ function Home() {
 							<PMCRTTowerImage />
 						</div>
 						<div id="publications" className="home-component-sub-section">
-							<Papers />
+							<Publications />
 						</div>
 						<div className="home-component-sub-section">
 							<hr />

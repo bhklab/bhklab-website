@@ -3,11 +3,13 @@ import axios from 'axios';
 import 'primeicons/primeicons.css';
 import Container from '@mui/material/Container';
 import { motion } from 'framer-motion';
-import { PresentationCard } from '../PublicationComponents/PublicationCard';
-import PaginatedPublications from '../PublicationComponents/PaginatedPublications';
+import { PresentationCard } from '../HelperComponents/PublicationCard';
+import PaginatedPublications from '../HelperComponents/PaginatedPublications';
 import StyledHeading from '../../../styles/StyledHeading';
 
-const customizedContent = (item, index) => (<PresentationCard key={index} publication={item} />);
+const customizedContent = (item, index) => (
+	<PresentationCard key={index} publication={item} />
+);
 
 function Presentation() {
 	const [ready, setReady] = useState(false);

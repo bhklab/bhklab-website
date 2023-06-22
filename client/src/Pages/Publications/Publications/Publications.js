@@ -2,13 +2,23 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Container from '@mui/material/Container';
 import { motion } from 'framer-motion';
-import PaginatedPublications from '../PublicationComponents/PaginatedPublications';
-import { PaperCard } from '../PublicationComponents/PublicationCard';
+import styled from 'styled-components';
+import PaginatedPublications from '../HelperComponents/PaginatedPublications';
+import { PaperCard } from '../HelperComponents/PublicationCard';
 import StyledHeading from '../../../styles/StyledHeading';
+import LeftPositionedTimeline from '../Timeline';
 
-const customizedContent = (item, index) => (<PaperCard index={index} publication={item} />);
+const PublicationsContainer = styled.div`
+	display: flex;
+	align-items: center;
+	gap: 50px;
+`;
 
-function Papers() {
+const customizedContent = (item, index) => (
+	<PaperCard index={index} publication={item} />
+);
+
+function Publications() {
 	const [ready, setReady] = useState(false);
 	const [publications, setPublications] = useState({});
 
@@ -35,15 +45,18 @@ function Papers() {
 							transition={{ duration: 0.5 }}
 						>
 							<StyledHeading> Publications </StyledHeading>
-							<PaginatedPublications
-								customizedContent={customizedContent}
-								publications={publications}
-								itemsPerPage={5}
-							/>
+							<PublicationsContainer>
+								<LeftPositionedTimeline />
+								<PaginatedPublications
+									customizedContent={customizedContent}
+									publications={publications}
+									itemsPerPage={5}
+								/>
+							</PublicationsContainer>
 						</motion.nav>
 					)}
 		</Container>
 	);
 }
 
-export default Papers;
+export default Publications;

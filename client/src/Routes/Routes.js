@@ -9,7 +9,7 @@ import {
 	Presentation,
 	Research,
 	IndivResearch,
-	Papers,
+	Publications,
 	Equipments,
 	Software,
 	Contact,
@@ -38,7 +38,7 @@ function PublicRoutes() {
 					<Route path="/presentations" element={<Presentation />} />
 					<Route path="/research" element={<Research />} />
 					<Route path="/research/:token" element={<IndivResearch />} />
-					<Route path="/publications" element={<Papers />} />
+					<Route path="/publications" element={<Publications />} />
 					<Route path="/equipments" element={<Equipments />} />
 					<Route path="/contact" element={<Contact />} />
 					<Route path="/people" element={<LabMembers />} />

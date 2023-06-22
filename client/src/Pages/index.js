@@ -3,7 +3,7 @@ import Dataset from './Resources/Dataset/Dataset';
 import Presentation from './Publications/Presentation/Presentation';
 import Research from './Research/Research';
 import IndivResearch from './Research/IndivResearch';
-import Papers from './Publications/Papers/Papers';
+import Publications from './Publications/Publications/Publications';
 import Equipments from './Resources/Equipments/Equipments';
 import Software from './Software/Software';
 import Contact from './About/Contact/Contact';
@@ -20,7 +20,7 @@ export {
 	Presentation,
 	Research,
 	IndivResearch,
-	Papers,
+	Publications,
 	Equipments,
 	Software,
 	Contact,
