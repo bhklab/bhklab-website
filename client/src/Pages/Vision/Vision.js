@@ -4,6 +4,16 @@ import StrategicPriorities from './StrategicPriorities';
 import Culture from './Culture';
 import OrganizationPillar from './OrganizationPillar';
 
+const VISION = (
+	<p>
+		Our laboratory is committed to bringing the best
+		tailored therapy to cancer patients through its
+		<br />
+		innovative discoveries and methodologies
+		in chromatin & epigenetic-based research.
+	</p>
+);
+
 function Vision() {
 	return (
 		<StyledSection>
@@ -11,13 +21,7 @@ function Vision() {
 				<h1>
 					Vision
 				</h1>
-				<p>
-					Our laboratory is committed to bringing the best
-					tailored therapy to cancer patients through its
-					<br />
-					innovative discoveries and methodologies
-					in chromatin & epigenetic-based research.
-				</p>
+				{VISION}
 			</StyledVision>
 			<hr />
 			<StrategicPriorities />
