@@ -1,7 +1,7 @@
 import React from 'react';
 import Container from '@mui/material/Container';
 // import SwipeableViews from 'react-swipeable-views';
-import Box from '@mui/material/Box';
+// import Box from '@mui/material/Box';
 import { useTheme } from '@mui/material/styles';
 import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
