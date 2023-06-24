@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import colors from '../../../styles/colors';
 
-const StyledFooter = styled.div`
+const StyledFooter = styled.footer`
 	height: 300px;
 	border-top: 1px solid ${colors.border_line_color};
 	padding: 30px 80px;
@@ -10,10 +10,6 @@ const StyledFooter = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-
-	.footer-links-and-twitter-container {
-		display: flex;
-	}
 
 	.all-links-container {
 		display: flex;
@@ -39,7 +35,7 @@ const StyledFooter = styled.div`
 		color: ${colors.navbarLink};
 	}
 
-	.footer-info {
+	.footer-social-media-links {
 		display: flex;
         justify-content: center;
         align-items: center;
