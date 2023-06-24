@@ -16,6 +16,7 @@ const StyledFooter = styled.footer`
 		flex-wrap: wrap;
 		justify-content: space-around;
 		width: 60%;
+		gap: 20px;
 	}
 
 	.grouped-links-container {
@@ -36,10 +37,10 @@ const StyledFooter = styled.footer`
 	}
 
 	.footer-social-media-links {
+		color: ${colors.dark_gray};
 		display: flex;
         justify-content: center;
         align-items: center;
-        color: ${colors.dark_gray};
 
         .footer-text {
             margin-left: 4px;
@@ -49,6 +50,14 @@ const StyledFooter = styled.footer`
             max-height: 24px;
             max-width: 24px;
         }
+	}
+
+	@media only screen and (max-width: 750px) {
+		padding: 20px;
+	
+		.all-links-container {
+			width: 100%;
+		}
 	}
 
 	@media only screen and (min-width: 2000px) {

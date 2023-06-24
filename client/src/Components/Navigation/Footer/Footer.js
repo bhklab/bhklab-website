@@ -59,10 +59,7 @@ function Footer() {
 					<a href="#presentations"> Presentations </a>
 					<a href="#software"> Software </a>
 				</div>
-				{/* TODO: This has to be updated!! */}
 				<div className="grouped-links-container">
-					<a href="/resources"> Resources </a>
-					<a href="/datasets"> Datasets </a>
 					<a
 						href="https://github.com/bhklab"
 						target="_blank"
@@ -70,8 +67,6 @@ function Footer() {
 					>
 						Github
 					</a>
-				</div>
-				<div className="grouped-links-container">
 					<Link to="/contact"> Contact Us </Link>
 					<Link to="/positions"> Join Us </Link>
 				</div>
