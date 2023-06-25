@@ -12,7 +12,6 @@ import Member from './About/LabMembers/Member';
 import Collaboration from './About/Collaboration/Collaboration';
 import JoinUs from './About/Join/JoinUs';
 import Social from './About/Social/Social';
-import Admin from './Admin/Admin';
 
 export {
 	Home,
@@ -29,5 +28,4 @@ export {
 	Collaboration,
 	JoinUs,
 	Social,
-	Admin,
 };
