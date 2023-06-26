@@ -5,12 +5,10 @@ import AuthContext from '../hooks/Contexts';
 
 import {
 	Home,
-	Dataset,
 	Presentations,
 	Research,
 	IndivResearch,
 	Publications,
-	Equipments,
 	Software,
 	Contact,
 	LabMembers,
@@ -18,7 +16,6 @@ import {
 	Collaboration,
 	JoinUs,
 	Social,
-	Admin,
 } from '../Pages/index';
 import useFindAdmin from '../hooks/useFindAdmin';
 
@@ -34,12 +31,10 @@ function PublicRoutes() {
 			>
 				<Routes>
 					<Route path="/" element={<Home />} />
-					<Route path="/datasets" element={<Dataset />} />
 					<Route path="/presentations" element={<Presentations />} />
 					<Route path="/research" element={<Research />} />
 					<Route path="/research/:token" element={<IndivResearch />} />
 					<Route path="/publications" element={<Publications />} />
-					<Route path="/equipments" element={<Equipments />} />
 					<Route path="/contact" element={<Contact />} />
 					<Route path="/people" element={<LabMembers />} />
 					<Route path="/people/:token" element={<Member />} />
@@ -47,12 +42,6 @@ function PublicRoutes() {
 					<Route path="/positions" element={<JoinUs />} />
 					<Route path="/social" element={<Social />} />
 					<Route path="/software" element={<Software />} />
-					<Route path="/admin" element={<Admin />} />
-					{
-						true
-                        && <Route path="/administration" element={<Admin />} />
-					}
-					<Route path="/administration" element={<Admin />} />
 				</Routes>
 			</AuthContext.Provider>
 		</Router>

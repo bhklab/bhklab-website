@@ -1,28 +1,17 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import React from 'react';
 import { motion } from 'framer-motion';
-import styled from 'styled-components';
 import {
-	Container, PMCRTImage, PMCRTTowerImage, TeamImage, BHKLabImage,
-} from './HomeStyles';
+	Container, PMCRTImage, PMCRTTowerImage, TeamImage, BHKLabImage, StyledHome,
+} from './StyledHome';
 import Layout from '../../Components/Utils/Layout';
 import ResearchTopics from './ResearchTeams';
-import Vision from '../Vision/Vision';
-import Publications from '../Publications/Publications/Publications';
-import Presentations from '../Publications/Presentations/Presentations';
-import Software from '../Software/Software';
+import Values from '../LabValues/Values';
+import Publications from '../PresenationsAndPublications/Publications';
+import Presentations from '../PresenationsAndPublications/Presentations';
+import Software from '../SoftwaresAndPackages/Software';
 import LabMembers from '../About/LabMembers/LabMembers';
 import SocialMediaAccounts from '../About/Social/SocialMediaAccounts';
-
-const StyledHome = styled.div`
-	.home-component-sub-section {
-		padding-top: 70px;
-	}
-
-	.home-component-sub-section > hr {
-		margin: auto;
-	}
-`;
 
 function Home() {
 	return (
@@ -41,8 +30,8 @@ function Home() {
 								<source src="/videos/microsoft_bhklab.mp4" type="video/mp4" />
 							</video>
 						</div>
-						<div id="vision" className="home-component-sub-section">
-							<Vision />
+						<div id="Values" className="home-component-sub-section">
+							<Values />
 						</div>
 						<div id="pmcrt-image-container" className="home-component-sub-section">
 							<PMCRTImage />

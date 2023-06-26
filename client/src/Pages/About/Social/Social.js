@@ -1,49 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import styled from 'styled-components';
+import { Container, StyledSocial } from './StyledSocial';
 import Layout from '../../../Components/Utils/Layout';
 
 // TODO: Not sure if it this component is used anywhere! need to ask Parinaz!
-
-const StyledSocial = styled.div`
-	width: 80%;
-	.subject {
-		color: red;
-		display: flex;
-		align-items: center;
-		height: 60px;
-		font-size: 14px;
-		font-weight: normal;
-		margin-top: 30px;
-	}
-	.date{
-		color: darkred;
-		display: flex;
-		align-items: center;
-		height: 30px;
-		font-size: 12px;
-		font-weight: normal;
-	}
-	.content {
-		font-size: 15px;
-		line-height: 25px;
-		font-weight: normal;
-		width: 75%;
-		color: mediumvioletred;
-	}
-	.divider {
-		margin-bottom: 30px;
-		padding-top: 10px;
-	}
-`;
-
-const Container = styled.div`
-  width: 80%;
-  margin: 0px 20px;
-  display: flex;
-  flex-direction: column;
-`;
 
 // const customizedSocial = (item,index, divider) => {
 //     return (
