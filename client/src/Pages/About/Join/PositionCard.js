@@ -5,7 +5,7 @@ import { Markup } from 'interweave';
 // import DeleteButton from '../../../Components/Utils/DeleteButton';
 import AuthContext from '../../../hooks/Contexts';
 import AdminTool from '../../../Components/Utils/AdminTools';
-import StyledCard from './StyledPositionCard';
+import StyledPositionCard from './StyledPositionCard';
 
 function StyledContent({ title, content }) {
 	return (

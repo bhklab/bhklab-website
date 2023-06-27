@@ -28,7 +28,7 @@ function Presentations() {
 	}, []);
 
 	return (
-		<Container fixed>
+		<Container maxWidth="lg">
 			{ ready
 				&& (
 					<motion.nav
@@ -37,8 +37,13 @@ function Presentations() {
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.5 }}
 					>
-						<StyledHeading noTopMargin> Presentations </StyledHeading>
-						<DisplayContainer>
+						<StyledHeading
+							noTopMargin
+							className="presentations-heading"
+						>
+							Presentations
+						</StyledHeading>
+						<DisplayContainer className="presentations-container">
 							<LeftPositionedTimeline />
 							<PaginatedPublications
 								customizedContent={customizedContent}

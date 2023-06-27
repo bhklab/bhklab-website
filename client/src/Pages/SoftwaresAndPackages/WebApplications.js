@@ -2,7 +2,7 @@ import React from 'react';
 import { SoftwareAndPackageStyles } from './SoftwareAndPackageStyles';
 import getRandomElementsFromArray from '../../utils/getRandomElementsFromArray';
 
-const WEBAPPLICATION_DISPLAY_COUNT = 4;
+const WEBAPPLICATION_DISPLAY_COUNT = 6;
 
 const imgDirectory = 'images/software/';
 

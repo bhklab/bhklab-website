@@ -29,7 +29,7 @@ function Publications() {
 	}, []);
 
 	return (
-		<Container fixed>
+		<Container maxWidth="lg">
 			{ ready
 					&& (
 						<motion.nav

@@ -16,7 +16,7 @@ function PresentationCard(props) {
 		image, title, event, url, members, date,
 	} = props.publication;
 	return (
-		<Card sx={{ display: 'flex', margin: '10px 0px' }}>
+		<Card sx={{ display: 'flex', margin: '10px 0px' }} className="presentation-card-container">
 			{
 				url
 					? (
