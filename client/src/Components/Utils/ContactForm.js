@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import { StyledPIInfo, MarginBar } from './StyledUtils';
+import { StyledPIInfo, MarginBar } from './UtilStyles';
 
 /**
  * A function to format text input fields and add a red start for mandatory inputs

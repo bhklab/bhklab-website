@@ -3,7 +3,7 @@ import React from 'react';
 import {
 	StyledMemberDetailed, StyledInfoDetailed, StyledImageDetailed,
 	StyledNameDetailed, StyledTitleDetailed, StyledBioDetailed,
-} from './StyledMembersInDetail';
+} from './MembersInDetailStyles';
 
 function MemberInDetail({
 	photo, name, title, bio,

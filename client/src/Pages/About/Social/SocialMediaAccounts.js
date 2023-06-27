@@ -1,5 +1,5 @@
 import React from 'react';
-import { SocialMediaAccountWrapper } from './StyledSocial';
+import { SocialMediaAccountWrapper } from './SocialStyles';
 import Linkedin from '../../../Components/Social/Linkedin';
 import Twitter from '../../../Components/Social/Twitter';
 

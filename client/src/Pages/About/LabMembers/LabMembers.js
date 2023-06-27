@@ -5,7 +5,7 @@ import Container from '@mui/material/Container';
 import StyledHeading from '../../../styles/StyledHeading';
 import {
 	StyledCard, StyledImage, StyledName, StyledTitle, StyledPeople,
-} from './StyledMembersOverview';
+} from './MembersOverviewStyles';
 import MemberInDetail from './MemberInDetail';
 // import AuthContext from '../../../hooks/Contexts';
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { Container, StyledSocial } from './StyledSocial';
+import { Container, StyledSocial } from './SocialStyles';
 import Layout from '../../../Components/Utils/Layout';
 
 // TODO: Not sure if it this component is used anywhere! need to ask Parinaz!

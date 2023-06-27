@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledSection } from './StyledValues';
+import { StyledSection } from './ValuesStyles';
 import Vision from '../../Components/LabValuesComponents/Vision';
 import StrategicPriorities from '../../Components/LabValuesComponents/StrategicPriorities';
 import Culture from '../../Components/LabValuesComponents/Culture';

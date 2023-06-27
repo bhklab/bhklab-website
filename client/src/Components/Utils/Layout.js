@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Navbar from '../Navigation/Navbar/Navbar';
 import Footer from '../Navigation/Footer/Footer';
-import { Main } from './StyledUtils';
+import { Main } from './UtilStyles';
 
 /**
  * wrapper for every page

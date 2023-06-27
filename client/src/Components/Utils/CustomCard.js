@@ -4,7 +4,7 @@ import AdminTool from './AdminTools';
 import AuthContext from '../../hooks/Contexts';
 import {
 	StyledCard, StyledImage, StyledTitle, StyledDescription,
-} from './StyledUtils';
+} from './UtilStyles';
 
 /**
  * A custom React component that returns customized cards

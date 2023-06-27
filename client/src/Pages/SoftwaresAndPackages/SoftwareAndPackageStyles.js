@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import colors from '../../styles/colors';
 
-const StyledSoftware = styled.div`
+const SoftwareAndPackageStyles = styled.div`
   max-width: 100%;
 
   .component-heading {
@@ -171,6 +171,6 @@ const StyledContainer = styled.div`
 `;
 
 export {
-	StyledSoftware,
+	SoftwareAndPackageStyles,
 	StyledContainer,
 };

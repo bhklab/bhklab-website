@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import Container from '@mui/material/Container';
 import Layout from '../../../Components/Utils/Layout';
-import { StyledMember } from './StyledMembersOverview';
+import { StyledMember } from './MembersOverviewStyles';
 import MemberInDetail from './MemberInDetail';
 
 // TODO: Not sure if this component is being used anywhere; ask Parinaz in case of any confusion

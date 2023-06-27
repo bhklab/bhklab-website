@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledSoftware } from './StyledSoftwaresAndPackages';
+import { SoftwareAndPackageStyles } from './SoftwareAndPackageStyles';
 import getRandomElementsFromArray from '../../utils/getRandomElementsFromArray';
 
 const PACKAGE_DISPLAY_COUNT = 4;
@@ -95,7 +95,7 @@ const subsetPackageList = getRandomElementsFromArray(packageList, PACKAGE_DISPLA
 
 function Packages() {
 	return (
-		<StyledSoftware>
+		<SoftwareAndPackageStyles>
 			<div className="component-heading">
 				<h1>
 					Packages
@@ -116,7 +116,7 @@ function Packages() {
 					))
 				}
 			</div>
-		</StyledSoftware>
+		</SoftwareAndPackageStyles>
 	);
 }
 

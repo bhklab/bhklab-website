@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import colors from '../../../styles/colors';
 
-const StyledCard = styled.div`
+const StyledPositionCard = styled.div`
   width: 60%;
   padding: 20px 30px 10px 30px;
   margin: 20px 10px;
@@ -49,4 +49,4 @@ const StyledCard = styled.div`
   }
 `;
 
-export default StyledCard;
+export default StyledPositionCard;

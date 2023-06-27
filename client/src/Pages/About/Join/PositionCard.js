@@ -36,7 +36,7 @@ function StyledPosition({ position }) {
 	} = position;
 	const [display, setDisplay] = useState(false);
 	return (
-		<StyledCard>
+		<StyledPositionCard>
 			{admin && <AdminTool id={_id} collection="positions" item={position} />}
 			<div className="title">{title}</div>
 			<Markup content={description} />
@@ -58,7 +58,7 @@ function StyledPosition({ position }) {
 					</div>
 				)
 			}
-		</StyledCard>
+		</StyledPositionCard>
 	);
 }
 

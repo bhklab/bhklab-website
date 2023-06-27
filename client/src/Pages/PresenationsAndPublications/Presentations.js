@@ -7,7 +7,7 @@ import { PresentationCard } from '../../Components/HelperComponents/PublicationC
 import PaginatedPublications from '../../Components/HelperComponents/PaginatedPublications';
 import StyledHeading from '../../styles/StyledHeading';
 import LeftPositionedTimeline from './Timeline';
-import DisplayContainer from './StyledPresAndPup';
+import DisplayContainer from './PresentationAndPupblicationStyles';
 
 const customizedContent = (item, index) => (
 	<PresentationCard key={index} publication={item} />

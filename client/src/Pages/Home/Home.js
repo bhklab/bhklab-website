@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import {
 	Container, PMCRTImage, PMCRTTowerImage, TeamImage, BHKLabImage, StyledHome,
-} from './StyledHome';
+} from './HomeStyles';
 import Layout from '../../Components/Utils/Layout';
 import ResearchTopics from './ResearchTeams';
 import Values from '../LabValues/Values';
