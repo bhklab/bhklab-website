@@ -21,10 +21,14 @@ const StyledSection = styled.section`
     }
 `;
 
-const StyledVision = styled.div`
+const StyledMission = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media only screen and (min-width: 768px) {
+        max-width: 60%;
+    }
 `;
 
 const StyledStrategicPriorities = styled.div`
@@ -44,7 +48,7 @@ const StyledOrganizationPillar = styled.div`
 
 export {
 	StyledSection,
-	StyledVision,
+	StyledMission,
 	StyledStrategicPriorities,
 	StyledCulture,
 	StyledOrganizationPillar,

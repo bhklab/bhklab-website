@@ -6,7 +6,7 @@ import {
 } from './HomeStyles';
 import Layout from '../../Components/Utils/Layout';
 import ResearchTopics from './ResearchTeams';
-import Values from '../LabValues/Values';
+import LabMission from '../LabMission/LabMission';
 import Publications from '../PresenationsAndPublications/Publications';
 import Presentations from '../PresenationsAndPublications/Presentations';
 import Software from '../SoftwaresAndPackages/Software';
@@ -30,8 +30,8 @@ function Home() {
 								<source src="/videos/microsoft_bhklab.mp4" type="video/mp4" />
 							</video>
 						</div>
-						<div id="Values" className="home-component-sub-section">
-							<Values />
+						<div id="mission" className="home-component-sub-section">
+							<LabMission />
 						</div>
 						<div id="pmcrt-image-container" className="home-component-sub-section">
 							<PMCRTImage />

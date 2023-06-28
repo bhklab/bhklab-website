@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledCulture } from '../../Pages/LabValues/ValuesStyles';
+import { StyledCulture } from '../../Pages/LabMission/LabMissionStyles';
 
 function Culture() {
 	return (
