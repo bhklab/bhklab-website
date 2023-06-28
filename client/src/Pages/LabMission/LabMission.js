@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyledSection } from './LabMissionStyles';
-import Mission from '../../Components/LabValuesComponents/Mission';
-import Culture from '../../Components/LabValuesComponents/Culture';
+import Mission from '../../Components/lab-values-components/Mission';
+import Culture from '../../Components/lab-values-components/Culture';
 
 function Values() {
 	return (
