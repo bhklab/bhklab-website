@@ -1,68 +1,15 @@
 import React from 'react';
-import styled from 'styled-components';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import Container from '@mui/material/Container';
 import { Grid } from '@mui/material';
-import Paper from '@mui/material/Paper';
 import ContactForm from '../../../Components/Utils/ContactForm';
-import colors from '../../../styles/colors';
+import {
+	StyledIcons, StyledContent, StyledEmail, MapFrame, Box,
+} from './StyledContact';
 import Layout from '../../../Components/Utils/Layout';
 import StyledHeading from '../../../styles/StyledHeading';
-
-/**
- * A styled component for items on the page
-* */
-const Box = styled(Paper)(({ theme }) => ({
-	backgroundColor: '#fff',
-	padding: '20px',
-	marginBottom: '20px',
-	textAlign: 'center',
-}));
-
-/**
- * Styling google map frame
- * */
-const MapFrame = styled.iframe`
-  width: 100%;
-  height: 100%;
-  border: 0;
-`;
-
-const StyledEmail = styled.a`
-  width: fit-content;
-  display: flex;
-  align-Papers: center;
-  flex-direction: row;
-  white-space: nowrap;
-  border-radius: 3.5px;
-  color: black;
-  margin-bottom: 10%;
-  &:hover {
-    color: ${colors.header_deep_blue};
-  }
-`;
-
-const StyledContent = styled.div`
-  width: 100%;
-  color: black;
-  display: flex;
-  line-height: 20px;
-  font-weight: normal;
-  flex-direction: column;
-  .icons {
-    flex-direction: row;
-  }
-`;
-
-const StyledIcons = styled.div`
-  width: 100%;
-  display: flex;
-  line-height: 20px;
-  flex-direction: row;
-  justify-content: center;
-`;
 
 function Contact() {
 	return (

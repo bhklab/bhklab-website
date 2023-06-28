@@ -37,22 +37,7 @@
 // TODO: Again not sure if this is used anywhere! Ask Parinaz for details
 
 import React from 'react';
-import { Dropdown } from 'primereact/dropdown';
-import styled from 'styled-components';
-import colors from '../../styles/colors';
-
-const StyledDropdown = styled(Dropdown)`
-    min-width: 200px;
-    .pi {
-        font-size: 0.7rem;
-    }
-    .p-dropdown-items .p-dropdown-item {
-        color: ${colors.gray_text};
-    }
-    .p-dropdown-label, .p-dropdown-item {
-        font-size: 12px;
-    }
-`;
+import { StyledDropdown } from './StyledUtils';
 
 function CustomDropdown(props) {
 	const {

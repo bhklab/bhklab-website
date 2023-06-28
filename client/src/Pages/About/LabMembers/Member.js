@@ -1,23 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import styled from 'styled-components';
 import Container from '@mui/material/Container';
-import PrincipalInvestigatorCard from './PrincipalInvestigatorCard';
 import Layout from '../../../Components/Utils/Layout';
+import { StyledMember } from './MembersOverviewStyles';
+import MemberInDetail from './MemberInDetail';
 
 // TODO: Not sure if this component is being used anywhere; ask Parinaz in case of any confusion
-
-const StyledMember = styled.div`
-	margin-top: 200px;
-
-	// 80px corresponds to header height and 120px row-gap from layout
-	min-height: calc(100vh - 80px - 120px); 
-
-	@media screen and (min-height: 1100px) {
-		min-height: calc(100vh - 650px);
-	}
-`;
 
 function Member() {
 	const { token } = useParams();
@@ -43,7 +32,7 @@ function Member() {
 					member.ready
 					&& (
 						<StyledMember>
-							<PrincipalInvestigatorCard
+							<MemberInDetail
 								photo={`/images/people/${image}`}
 								name={name}
 								title={position}

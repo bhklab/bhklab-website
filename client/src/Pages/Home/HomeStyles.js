@@ -26,6 +26,16 @@ const StyledImage = styled.div`
     background-size: cover;
 `;
 
+const StyledHome = styled.div`
+	.home-component-sub-section {
+		padding-top: 70px;
+	}
+
+	.home-component-sub-section > hr {
+		margin: auto;
+	}
+`;
+
 const PMCRTImage = styled(StyledImage)`
     background-image: url('images/pmcrt1.jpg');
 `;
@@ -50,4 +60,5 @@ export {
 	PMCRTTowerImage,
 	TeamImage,
 	BHKLabImage,
+	StyledHome,
 };

@@ -3,10 +3,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Container from '@mui/material/Container';
 import StyledHeading from '../../../styles/StyledHeading';
-import PrincipalInvestigatorCard from './PrincipalInvestigatorCard';
 import {
 	StyledCard, StyledImage, StyledName, StyledTitle, StyledPeople,
-} from './LabMembersStyle';
+} from './MembersOverviewStyles';
+import MemberInDetail from './MemberInDetail';
 // import AuthContext from '../../../hooks/Contexts';
 
 const PI_BIO = `
@@ -109,7 +109,7 @@ function LabMembers() {
 
 	useEffect(() => (() => {
 		if (history.action === 'POP' && history.location.pathname === '/') {
-			console.log('history');
+			console.log(history);
 			history.replace({
 				pathname: '/',
 				state: {
@@ -124,7 +124,7 @@ function LabMembers() {
 				ready
 						&& (
 							<>
-								<PrincipalInvestigatorCard
+								<MemberInDetail
 									name="Benjamin Haibe-Kains"
 									title="Principal Investigator"
 									photo="/images/people/bhk.jpg"

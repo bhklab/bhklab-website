@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
-import StyledFooter from './FooterStyle';
+import StyledFooter from './StyledFooter';
 
 // list of objects storing information for social media accounts
 const socialMediaAccounts = [

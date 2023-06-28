@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
-import styled from 'styled-components';
 import Button from '@mui/material/Button';
+import { StyledPIInfo, MarginBar } from './UtilStyles';
 
 /**
  * A function to format text input fields and add a red start for mandatory inputs
@@ -18,37 +18,6 @@ function StyledLabel(props) {
 		</div>
 	);
 }
-
-/**
- * A function to create margin between input fields
- */
-function MarginBar() {
-	return (
-		<Box
-			sx={{
-				height: 20,
-				backgroundColor: 'rgba(255,255,255,0)',
-			}}
-		/>
-	);
-}
-
-/**
- * Styles for PI information at the top of form
- */
-const StyledPIInfo = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: left;
-  height: 60px;
-  line-spacing: 20px;
-  margin-left: 5px;
-  margin-bottom: 20px;
-  font-size: 16px;
-  font-weight: normal;
-  text-align: left;
-`;
 
 /**
  * A custom React component that returns a contact form to receive emails by a registered
