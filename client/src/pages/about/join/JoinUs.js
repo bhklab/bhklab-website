@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Container from '@mui/material/Container';
 import StyledPosition from './PositionCard';
-import Layout from '../../../Components/Utils/Layout';
+import Layout from '../../../Components/utils/Layout';
 import StyledHeading from '../../../styles/StyledHeading';
 
 function JoinUs() {

@@ -4,11 +4,11 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import Container from '@mui/material/Container';
 import { Grid } from '@mui/material';
-import ContactForm from '../../../Components/Utils/ContactForm';
+import ContactForm from '../../../Components/utils/ContactForm';
 import {
 	StyledIcons, StyledContent, StyledEmail, MapFrame, Box,
 } from './StyledContact';
-import Layout from '../../../Components/Utils/Layout';
+import Layout from '../../../Components/utils/Layout';
 import StyledHeading from '../../../styles/StyledHeading';
 
 function Contact() {

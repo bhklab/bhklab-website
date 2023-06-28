@@ -4,14 +4,14 @@ import { motion } from 'framer-motion';
 import {
 	Container, PMCRTImage, PMCRTTowerImage, TeamImage, BHKLabImage, StyledHome,
 } from './HomeStyles';
-import Layout from '../../Components/Utils/Layout';
+import Layout from '../../Components/utils/Layout';
 import ResearchTopics from './ResearchTeams';
-import LabMission from '../LabMission/LabMission';
-import Publications from '../PresenationsAndPublications/Publications';
-import Presentations from '../PresenationsAndPublications/Presentations';
+import LabMission from '../lab-mission/LabMission';
+import Publications from '../presentations-and-publications/Publications';
+import Presentations from '../presentations-and-publications/Presentations';
 import Software from '../web-apps-and-packages/WebAppsAndPackages';
-import LabMembers from '../About/lab-members/LabMembers';
-import SocialMediaAccounts from '../About/social/SocialMediaAccounts';
+import LabMembers from '../about/lab-members/LabMembers';
+import SocialMediaAccounts from '../about/social/SocialMediaAccounts';
 
 function Home() {
 	return (

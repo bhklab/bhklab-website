@@ -1,7 +1,7 @@
 import { IconButton } from '@mui/material';
 import React from 'react';
-import DeleteButton from './Buttons/DeleteButton';
-import EditButton from './Buttons/EditButton';
+import DeleteButton from './buttons/DeleteButton';
+import EditButton from './buttons/EditButton';
 
 function AdminTool(props) {
 	const { id, collection, item } = props;
