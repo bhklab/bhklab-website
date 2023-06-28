@@ -9,7 +9,7 @@ import ResearchTopics from './ResearchTeams';
 import LabMission from '../LabMission/LabMission';
 import Publications from '../PresenationsAndPublications/Publications';
 import Presentations from '../PresenationsAndPublications/Presentations';
-import Software from '../SoftwaresAndPackages/Software';
+import Software from '../web-apps-and-packages/WebAppsAndPackages';
 import LabMembers from '../About/LabMembers/LabMembers';
 import SocialMediaAccounts from '../About/Social/SocialMediaAccounts';
 

@@ -6,7 +6,7 @@ import PaginatedPublications from './helper-components/PaginatedPublications';
 import { PaperCard } from './helper-components/PublicationCards';
 import StyledHeading from '../../styles/StyledHeading';
 import LeftPositionedTimeline from './Timeline';
-import DisplayContainer from './PresentationAndPupblicationStyles';
+import DisplayContainer from './PresentationsAndPupblicationsStyles';
 
 const customizedContent = (item, index) => (
 	<PaperCard index={index} publication={item} />
