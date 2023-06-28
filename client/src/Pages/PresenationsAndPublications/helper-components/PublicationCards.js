@@ -7,7 +7,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 // import { DateTime } from 'luxon';
-import colors from '../../styles/colors';
+import colors from '../../../styles/colors';
 
 const { DateTime } = require('luxon');
 

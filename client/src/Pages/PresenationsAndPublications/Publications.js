@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Container from '@mui/material/Container';
 import { motion } from 'framer-motion';
-import PaginatedPublications from '../../Components/HelperComponents/PaginatedPublications';
-import { PaperCard } from '../../Components/HelperComponents/PublicationCards';
+import PaginatedPublications from './helper-components/PaginatedPublications';
+import { PaperCard } from './helper-components/PublicationCards';
 import StyledHeading from '../../styles/StyledHeading';
 import LeftPositionedTimeline from './Timeline';
-import DisplayContainer from './PresentationAndPupblicationStyles';
+import DisplayContainer from './PresentationsAndPupblicationsStyles';
 
 const customizedContent = (item, index) => (
 	<PaperCard index={index} publication={item} />
