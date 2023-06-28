@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Container from '@mui/material/Container';
 import StyledHeading from '../../styles/StyledHeading';
-import Layout from '../../Components/Utils/Layout';
+import Layout from '../../components/utils/Layout';
 
 function IndivResearch() {
 	const [ready, setReady] = useState(false);

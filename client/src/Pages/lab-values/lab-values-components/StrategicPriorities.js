@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledStrategicPriorities } from '../../Pages/LabValues/ValuesStyles';
+import { StyledStrategicPriorities } from '../ValuesStyles';
 
 function StrategicPriorities() {
 	return (

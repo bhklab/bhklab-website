@@ -1,5 +1,5 @@
 import React from 'react';
-import { SoftwareAndPackageStyles } from './SoftwareAndPackageStyles';
+import { SoftwareAndPackageStyles } from './SoftwaresAndPackagesStyles';
 import getRandomElementsFromArray from '../../utils/getRandomElementsFromArray';
 
 const PACKAGE_DISPLAY_COUNT = 6;

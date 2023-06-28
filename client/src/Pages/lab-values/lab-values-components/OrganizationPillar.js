@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledOrganizationPillar } from '../../Pages/LabValues/ValuesStyles';
+import { StyledOrganizationPillar } from '../ValuesStyles';
 
 function OrganizationPillar() {
 	return (

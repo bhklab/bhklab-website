@@ -5,12 +5,12 @@ import Container from '@mui/material/Container';
 import { useTheme } from '@mui/material/styles';
 import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
-// import CollaborationPlot from './CollaborationComponents/CollaborationPlot';
+// import CollaborationPlot from './collaboration-components/CollaborationPlot';
 import colors from '../../../styles/colors';
-// import CollaborationMap from './CollaborationComponents/CollaborationMap';
-import Layout from '../../../Components/Utils/Layout';
+// import CollaborationMap from './collaboration-components/CollaborationMap';
+import Layout from '../../../components/utils/Layout';
 import SlideButton from '../../../styles/StyledButton';
-// import CollectionMapBubble from './CollaborationComponents/CollectionMapBubble';
+// import CollectionMapBubble from './collaboration-components/CollectionMapBubble';
 
 // function TabPanel(props) {
 // 	const {

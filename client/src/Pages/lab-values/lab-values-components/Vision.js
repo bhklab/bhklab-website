@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledVision } from '../../Pages/LabValues/ValuesStyles';
+import { StyledVision } from '../ValuesStyles';
 
 function Vision() {
 	return (

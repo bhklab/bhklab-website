@@ -1,15 +1,15 @@
-import Home from './Home/Home';
-import Presentations from './PresenationsAndPublications/Presentations';
-import Research from './Research/Research';
-import IndivResearch from './Research/IndivResearch';
-import Publications from './PresenationsAndPublications/Publications';
-import Software from './SoftwaresAndPackages/Software';
-import Contact from './About/Contact/Contact';
-import LabMembers from './About/LabMembers/LabMembers';
-import Member from './About/LabMembers/Member';
-import Collaboration from './About/Collaboration/Collaboration';
-import JoinUs from './About/Join/JoinUs';
-import Social from './About/Social/Social';
+import Home from './home/Home';
+import Presentations from './presentations-and-publications/Presentations';
+import Research from './research/Research';
+import IndivResearch from './research/IndivResearch';
+import Publications from './presentations-and-publications/Publications';
+import Software from './softwares-and-packages/Softwares';
+import Contact from './about/contact/Contact';
+import LabMembers from './about/lab-members/LabMembers';
+import Member from './about/lab-members/Member';
+import Collaboration from './about/collaboration/Collaboration';
+import JoinUs from './about/join/JoinUs';
+import Social from './about/social/Social';
 
 export {
 	Home,

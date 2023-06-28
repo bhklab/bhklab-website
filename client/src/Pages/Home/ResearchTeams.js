@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { ResearchAxisCard } from '../../Components/Utils/CustomCard';
+import { ResearchAxisCard } from '../../components/utils/CustomCard';
 import slugGeneratorHelper from '../../utils/slugGeneratorHelper';
 import { StyledSection } from '../../styles/StyledPage';
 
