@@ -10,8 +10,8 @@ import LabMission from '../LabMission/LabMission';
 import Publications from '../PresenationsAndPublications/Publications';
 import Presentations from '../PresenationsAndPublications/Presentations';
 import Software from '../web-apps-and-packages/WebAppsAndPackages';
-import LabMembers from '../About/LabMembers/LabMembers';
-import SocialMediaAccounts from '../About/Social/SocialMediaAccounts';
+import LabMembers from '../About/lab-members/LabMembers';
+import SocialMediaAccounts from '../About/social/SocialMediaAccounts';
 
 function Home() {
 	return (
