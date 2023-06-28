@@ -8,7 +8,7 @@ import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRound
 // import CollaborationPlot from './CollaborationComponents/CollaborationPlot';
 import colors from '../../../styles/colors';
 // import CollaborationMap from './CollaborationComponents/CollaborationMap';
-import Layout from '../../../Components/Utils/Layout';
+import Layout from '../../../Components/utils/Layout';
 import SlideButton from '../../../styles/StyledButton';
 // import CollectionMapBubble from './CollaborationComponents/CollectionMapBubble';
 

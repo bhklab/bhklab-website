@@ -4,7 +4,7 @@ import React, { useContext, useState } from 'react';
 import { Markup } from 'interweave';
 // import DeleteButton from '../../../Components/Utils/DeleteButton';
 import AuthContext from '../../../hooks/Contexts';
-import AdminTool from '../../../Components/Utils/AdminTools';
+import AdminTool from '../../../Components/utils/AdminTools';
 import StyledPositionCard from './StyledPositionCard';
 
 function StyledContent({ title, content }) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Navbar from '../Navigation/Navbar/Navbar';
-import Footer from '../Navigation/Footer/Footer';
+import Navbar from '../navigation/navbar/Navbar';
+import Footer from '../navigation/footer/Footer';
 import { Main } from './UtilStyles';
 
 /**
