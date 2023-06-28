@@ -16,7 +16,7 @@ import {
 	Collaboration,
 	JoinUs,
 	Social,
-} from '../Pages/index';
+} from '../pages/Index';
 import useFindAdmin from '../hooks/useFindAdmin';
 
 function PublicRoutes() {

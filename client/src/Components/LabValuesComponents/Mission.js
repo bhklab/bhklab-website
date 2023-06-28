@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledSection, StyledMission } from '../../Pages/LabMission/LabMissionStyles';
+import { StyledSection, StyledMission } from '../../pages/LabMission/LabMissionStyles';
 import CoreValues from './CoreValues';
 
 const labOverallMission = (
