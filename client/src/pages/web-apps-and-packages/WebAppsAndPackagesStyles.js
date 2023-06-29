@@ -4,12 +4,6 @@ import colors from '../../styles/colors';
 const WebAppsAndPackagesStyles = styled.div`
   max-width: 100%;
 
-  .component-heading {
-    text-align: center;
-    line-height: 40px;
-    margin-bottom: 50px;
-  }
-
   .highlight {
     color: ${colors.link_color};
   }
@@ -49,6 +43,13 @@ const WebAppsAndPackagesStyles = styled.div`
   }
 
   /*  WEB APPS */
+
+  .component-heading-web-apps {
+    text-align: center;
+    line-height: 40px;
+    margin-bottom: 50px;
+  }
+
   .logo {
     width: calc(3vw + 8em);
     opacity: 1;
@@ -89,6 +90,14 @@ const WebAppsAndPackagesStyles = styled.div`
   }
 
   /* PACKAGES */
+
+  .component-heading-packages {
+    text-align: center;
+    line-height: 40px;
+    margin-bottom: 50px;
+	margin-top: 50px;
+  }
+
   .packages-container {
     margin-top: 3vw;
   }
