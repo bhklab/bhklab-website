@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import {
 	Container, PMCRTImage, PMCRTTowerImage, TeamImage, BHKLabImage, StyledHome,
 } from './HomeStyles';
-import Layout from '../../Components/utils/Layout';
+import Layout from '../../components/utils/Layout';
 import ResearchTopics from './ResearchTeams';
 import LabMission from '../lab-mission/LabMission';
 import Publications from '../presentations-and-publications/Publications';

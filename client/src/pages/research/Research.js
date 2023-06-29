@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Layout from '../../Components/utils/Layout';
+import Layout from '../../components/utils/Layout';
 import 'animate.css/animate.min.css';
-import { TeamCard } from '../../Components/utils/CustomCard';
+import { TeamCard } from '../../components/utils/CustomCard';
 import slugGeneratorHelper from '../../utils/slugGeneratorHelper';
 import { StyledSection } from '../../styles/StyledPage';
 
