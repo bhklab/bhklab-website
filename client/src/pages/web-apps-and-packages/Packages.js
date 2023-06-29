@@ -1,5 +1,5 @@
 import React from 'react';
-import { SoftwareAndPackageStyles } from './WebAppsAndPackagesStyles';
+import { WebAppsAndPackagesStyles } from './WebAppsAndPackagesStyles';
 import getRandomElementsFromArray from '../../utils/getRandomElementsFromArray';
 
 const PACKAGE_DISPLAY_COUNT = 6;
@@ -95,7 +95,7 @@ const subsetPackageList = getRandomElementsFromArray(packageList, PACKAGE_DISPLA
 
 function Packages() {
 	return (
-		<SoftwareAndPackageStyles>
+		<WebAppsAndPackagesStyles>
 			<div className="component-heading">
 				<h1>
 					Packages
@@ -116,7 +116,7 @@ function Packages() {
 					))
 				}
 			</div>
-		</SoftwareAndPackageStyles>
+		</WebAppsAndPackagesStyles>
 	);
 }
 
