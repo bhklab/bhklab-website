@@ -6,7 +6,7 @@ const WEBAPPLICATION_DISPLAY_COUNT = 6;
 
 const imgDirectory = 'images/software/';
 
-const webApplications = [
+const listWebApps = [
 	{
 		applicationName: 'Orcestra',
 		imgSrc: `${imgDirectory}orcestra.png`,
@@ -79,12 +79,12 @@ const webApplications = [
 	},
 ];
 
-const subsetOfWebApplications = getRandomElementsFromArray(
-	webApplications,
+const subsetOfWebApps = getRandomElementsFromArray(
+	listWebApps,
 	WEBAPPLICATION_DISPLAY_COUNT,
 );
 
-function WebApplications() {
+function WebApps() {
 	return (
 		<SoftwareAndPackageStyles>
 			<div className="component-heading">
@@ -94,7 +94,7 @@ function WebApplications() {
 			</div>
 			<div className="web-apps-container">
 				{
-					subsetOfWebApplications.map((application) => (
+					subsetOfWebApps.map((application) => (
 						<div className="single-app-container">
 							<div className="app-section">
 								<img
@@ -122,4 +122,4 @@ function WebApplications() {
 	);
 }
 
-export default WebApplications;
+export default WebApps;
