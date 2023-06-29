@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyledSection, StyledMission } from '../LabMissionStyles';
-import CoreValues from './CoreValues';
 
 const labOverallMission = (
 	<p>
@@ -30,8 +29,6 @@ function Mission() {
 				<h1>Mission</h1>
 				{labOverallMission}
 			</StyledMission>
-			<hr />
-			<CoreValues />
 		</StyledSection>
 	);
 }
