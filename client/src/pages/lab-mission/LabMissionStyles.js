@@ -31,15 +31,28 @@ const StyledMission = styled.div`
     }
 `;
 
-const StyledStrategicPriorities = styled.div`
-    /* margin: 30px; */
-`;
-
 const StyledCulture = styled.div`
     /* margin: 30px; */
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media only screen and (min-width: 768px) {
+        max-width: 60%;
+    }
+`;
+
+const StyledValues = styled.div`
+    /* margin: 30px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media only screen and (min-width: 768px) {
+        max-width: 60%;
+    }
+`;
+
+const StyledStrategicPriorities = styled.div`
+    /* margin: 30px; */
 `;
 
 const StyledOrganizationPillar = styled.div`
@@ -49,6 +62,7 @@ const StyledOrganizationPillar = styled.div`
 export {
 	StyledSection,
 	StyledMission,
+	StyledValues,
 	StyledStrategicPriorities,
 	StyledCulture,
 	StyledOrganizationPillar,

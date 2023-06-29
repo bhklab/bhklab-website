@@ -87,7 +87,7 @@ const subsetOfWebApps = getRandomElementsFromArray(
 function WebApps() {
 	return (
 		<WebAppsAndPackagesStyles>
-			<div className="component-heading">
+			<div className="component-heading-web-apps">
 				<h1>
 					Softwares
 				</h1>

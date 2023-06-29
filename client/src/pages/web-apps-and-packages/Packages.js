@@ -96,7 +96,7 @@ const subsetPackageList = getRandomElementsFromArray(packageList, PACKAGE_DISPLA
 function Packages() {
 	return (
 		<WebAppsAndPackagesStyles>
-			<div className="component-heading">
+			<div className="component-heading-packages">
 				<h1>
 					Packages
 				</h1>
