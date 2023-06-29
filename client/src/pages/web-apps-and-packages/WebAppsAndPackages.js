@@ -4,15 +4,15 @@ import * as React from 'react';
 import 'animate.css/animate.min.css';
 import Packages from './Packages';
 import WebApps from './WebApps';
-import { SoftwareAndPackageStyles } from './WebAppsAndPackagesStyles';
+import { WebAppsAndPackagesStyles } from './WebAppsAndPackagesStyles';
 
 function Software() {
 	return (
-		<SoftwareAndPackageStyles>
+		<WebAppsAndPackagesStyles>
 			<WebApps />
 			<hr />
 			<Packages />
-		</SoftwareAndPackageStyles>
+		</WebAppsAndPackagesStyles>
 	);
 }
 

@@ -4,9 +4,9 @@ import { StyledCulture } from '../LabMissionStyles';
 function Culture() {
 	return (
 		<StyledCulture>
-			<h2>
+			<h1>
 				Our culture
-			</h2>
+			</h1>
 			<p>
 				We embrace diversity as our greatest asset. It spurs our creativity,
 				galvanizes our collaborations and drives our innovations.

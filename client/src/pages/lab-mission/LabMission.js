@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyledSection } from './LabMissionStyles';
-import Mission from './lab-values-components/Mission';
-import Culture from './lab-values-components/Culture';
+import Mission from './lab-mission-components/Mission';
+import Culture from './lab-mission-components/Culture';
 
-function Values() {
+function LabMission() {
 	return (
 		<StyledSection>
 			<Mission />
@@ -13,4 +13,4 @@ function Values() {
 	);
 }
 
-export default Values;
+export default LabMission;
