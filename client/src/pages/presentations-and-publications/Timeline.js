@@ -19,40 +19,46 @@ const YEARS = ['2023', '2022', '2021', '2020', '2019', '2018'];
 
 /**
  *
- * @param {Array} years - an array of years for the timeline
- * @returns {JSX} - returns the JSX for the timeline
+ * @returns {React.JSX}
  */
-const displayTimeline = (years) => years.map((year, index) => {
-	if (index === years.length - 1) {
+function LeftPositionedTimeline({ selectYear }) {
+	/**
+	 *
+	 * @param {Array} years - an array of years for the timeline
+	 * @returns {JSX} - returns the JSX for the timeline
+	 */
+	const displayTimeline = (years) => years.map((year, index) => {
+		if (index === years.length - 1) {
+			return (
+				<TimelineItem>
+					<TimelineSeparator>
+						<TimelineDot />
+					</TimelineSeparator>
+					<TimelineContent
+						x={{ color: colors.primary_text_color }}
+						onClick={() => selectYear(year)}
+					>
+						{year}
+					</TimelineContent>
+				</TimelineItem>
+			);
+		}
 		return (
 			<TimelineItem>
 				<TimelineSeparator>
 					<TimelineDot />
+					<TimelineConnector />
 				</TimelineSeparator>
-				<TimelineContent x={{ color: colors.primary_text_color }}>
+				<TimelineContent
+					sx={{ color: colors.primary_text_color }}
+					onClick={() => selectYear(year)}
+				>
 					{year}
 				</TimelineContent>
 			</TimelineItem>
 		);
-	}
-	return (
-		<TimelineItem>
-			<TimelineSeparator>
-				<TimelineDot />
-				<TimelineConnector />
-			</TimelineSeparator>
-			<TimelineContent sx={{ color: colors.primary_text_color }}>
-				{year}
-			</TimelineContent>
-		</TimelineItem>
-	);
-});
+	});
 
-/**
- *
- * @returns {React.JSX}
- */
-function LeftPositionedTimeline() {
 	return (
 		<StyledTimeline>
 			<Timeline position="left">
