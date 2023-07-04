@@ -4,7 +4,7 @@ import { ResearchAxisCard } from '../../components/utils/CustomCard';
 import slugGeneratorHelper from '../../utils/slugGeneratorHelper';
 import { StyledSection } from '../../styles/StyledPage';
 
-function ResearchTopics() {
+function ResearchAxis() {
 	const [isLoading, setIsisLoadingState] = useState(true);
 	const [researchTeams, setResearchTeams] = useState({});
 
@@ -54,4 +54,4 @@ function ResearchTopics() {
 	);
 }
 
-export default ResearchTopics;
+export default ResearchAxis;

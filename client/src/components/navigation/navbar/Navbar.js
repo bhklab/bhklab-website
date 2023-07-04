@@ -11,7 +11,7 @@ import { LogoContainer, NavLinks, StyledNavigation } from './StyledNavigation';
 const navigationLinks = [
 	{ name: 'Home', linkTo: 'home' },
 	{ name: 'Mission', linkTo: 'mission' },
-	{ name: 'Research', linkTo: 'research' },
+	{ name: 'Research', linkTo: 'research-axis' },
 	{ name: 'Publications', linkTo: 'publications' },
 	{ name: 'Presentations', linkTo: 'presentations' },
 	{ name: 'Softwares', linkTo: 'softwares' },

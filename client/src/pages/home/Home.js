@@ -5,7 +5,7 @@ import {
 	Container, PMCRTImage, PMCRTTowerImage, TeamImage, BHKLabImage, StyledHome,
 } from './HomeStyles';
 import Layout from '../../components/utils/Layout';
-import ResearchTopics from './ResearchTeams';
+import ResearchAxis from '../research-axis/ResearchAxis';
 import LabMission from '../lab-mission/LabMission';
 import Publications from '../presentations-and-publications/Publications';
 import Presentations from '../presentations-and-publications/Presentations';
@@ -36,8 +36,8 @@ function Home() {
 						<div id="pmcrt-image-container" className="home-component-sub-section">
 							<PMCRTImage />
 						</div>
-						<div id="research" className="home-component-sub-section">
-							<ResearchTopics />
+						<div id="research-axis" className="home-component-sub-section">
+							<ResearchAxis />
 						</div>
 						<div id="pmcrt-tower-image-container" className="home-component-sub-section">
 							<PMCRTTowerImage />
