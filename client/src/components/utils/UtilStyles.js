@@ -59,6 +59,13 @@ const StyledTitle = styled.div`
   text-align: center;
 `;
 
+const StyledResearchAxisTitle = styled.div`
+  font-size: 1.15rem;
+  margin: 10px 0;
+  color: ${colors.primary_text_color};
+  text-align: center;
+`;
+
 const StyledDescription = styled.div`
   font-size: 0.9rem;
   margin: 20px 25px;
@@ -103,6 +110,7 @@ export {
 	StyledCard,
 	StyledImage,
 	StyledTitle,
+	StyledResearchAxisTitle,
 	StyledDescription,
 	StyledPIInfo,
 	MarginBar,

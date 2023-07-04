@@ -25,8 +25,8 @@ function Presentations() {
 			setChosenYear(year);
 			const res = await axios.get('/api/data/presentations');
 			const filter = res.data.presentations.filter(
-				(pres) => pres.date >= (year + '-00-00T00:00:00.000Z')
-				&& pres.date < (parseInt(year) + 1).toString() + '-00-00T00:00:00.000Z',
+				(pres) => pres.date >= (`${year}-00-00T00:00:00.000Z`)
+				&& pres.date < `${(parseInt(year) + 1).toString()}-00-00T00:00:00.000Z`,
 			);
 			setPresentation(
 				filter.sort((a, b) => new Date(b.date) - new Date(a.date)),

@@ -3,7 +3,11 @@ import React, { useContext } from 'react';
 import AdminTool from './AdminTools';
 import AuthContext from '../../hooks/Contexts';
 import {
-	StyledCard, StyledImage, StyledTitle, StyledDescription,
+	StyledCard,
+	StyledImage,
+	StyledTitle,
+	StyledResearchAxisTitle,
+	StyledDescription,
 } from './UtilStyles';
 
 /**
@@ -29,7 +33,7 @@ export function ResearchAxisCard(props) {
 		<StyledCard>
 			<a href={path}>
 				<StyledImage src={image || '/images/research/research.png'} alt={title} />
-				<StyledTitle>{title}</StyledTitle>
+				<StyledResearchAxisTitle>{title}</StyledResearchAxisTitle>
 			</a>
 			<StyledDescription>{description}</StyledDescription>
 		</StyledCard>
