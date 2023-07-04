@@ -43,7 +43,7 @@ function Presentations() {
 		window.scrollTo(0, 0);
 		const getPresentation = async () => {
 			const res = await axios.get('/api/data/presentations');
-			setPresentation(res.data.presentations.sort((a, b) => new Date(b.date) - new Date(a.date)));
+			setPresentation(res.data.presentations.sort((a, b) => b.date - a.date));
 			setReady(true);
 			console.log(res.data.presentations.sort((a, b) => new Date(b.date) - new Date(a.date)));
 		};
