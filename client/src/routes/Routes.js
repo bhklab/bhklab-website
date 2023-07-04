@@ -15,7 +15,6 @@ import {
 	Member,
 	Collaboration,
 	JoinUs,
-	Social,
 } from '../pages/Index';
 import useFindAdmin from '../hooks/useFindAdmin';
 
@@ -40,7 +39,6 @@ function PublicRoutes() {
 					<Route path="/people/:token" element={<Member />} />
 					<Route path="/collaboration" element={<Collaboration />} />
 					<Route path="/positions" element={<JoinUs />} />
-					<Route path="/social" element={<Social />} />
 					<Route path="/software" element={<Software />} />
 				</Routes>
 			</AuthContext.Provider>

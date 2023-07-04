@@ -9,7 +9,6 @@ import LabMembers from './about/lab-members/LabMembers';
 import Member from './about/lab-members/Member';
 import Collaboration from './about/collaboration/Collaboration';
 import JoinUs from './about/join/JoinUs';
-import Social from './about/social/Social';
 
 export {
 	Home,
@@ -23,5 +22,4 @@ export {
 	Member,
 	Collaboration,
 	JoinUs,
-	Social,
 };
