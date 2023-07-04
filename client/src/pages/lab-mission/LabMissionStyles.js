@@ -7,6 +7,7 @@ const StyledSection = styled.section`
     justify-content: center;
     align-items: center;
     row-gap: 30px;
+    text-wrap: balance;
 
     p {
         margin: 20px;
