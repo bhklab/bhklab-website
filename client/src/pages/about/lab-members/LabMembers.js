@@ -93,7 +93,7 @@ const sortMembers = (people) => {
 
 function LabMembers() {
 	// const { admin } = useContext(AuthContext);
-	const [ready, setReady] = useState(false);
+	const [isLoading, setLoadingState] = useState(false);
 	const [people, setPeople] = useState({});
 	const history = useNavigate();
 
@@ -102,14 +102,14 @@ function LabMembers() {
 		const getPeople = async () => {
 			const res = await axios.get('/api/data/members');
 			setPeople(res.data.members.filter((item) => item.display));
-			setReady(true);
+			setLoadingState(true);
 		};
 		getPeople();
 	}, []);
 
 	useEffect(() => (() => {
 		if (history.action === 'POP' && history.location.pathname === '/') {
-			console.log(history);
+			// console.log(history);
 			history.replace({
 				pathname: '/',
 				state: {
@@ -121,7 +121,7 @@ function LabMembers() {
 	return (
 		<Container fixed>
 			{
-				ready
+				isLoading
 						&& (
 							<>
 								<MemberInDetail

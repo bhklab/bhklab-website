@@ -6,7 +6,6 @@ import Publications from './presentations-and-publications/Publications';
 import Software from './web-apps-and-packages/WebAppsAndPackages';
 import Contact from './about/contact/Contact';
 import LabMembers from './about/lab-members/LabMembers';
-import Member from './about/lab-members/Member';
 import Collaboration from './about/collaboration/Collaboration';
 import JoinUs from './about/join/JoinUs';
 
@@ -19,7 +18,6 @@ export {
 	Software,
 	Contact,
 	LabMembers,
-	Member,
 	Collaboration,
 	JoinUs,
 };

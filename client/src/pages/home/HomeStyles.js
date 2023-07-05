@@ -37,11 +37,11 @@ const StyledHome = styled.div`
 `;
 
 const PMCRTImage = styled(StyledImage)`
-    background-image: url('images/pmcrt1.jpg');
+    background-image: url('images/software/layout-bg.png');
 `;
 
 const PMCRTTowerImage = styled(StyledImage)`
-    background-image: url('images/pmcrt1.png');
+    background-image: url('images/software/layout-bg.png');
 `;
 
 const TeamImage = styled(StyledImage)`
@@ -50,7 +50,7 @@ const TeamImage = styled(StyledImage)`
 
 const BHKLabImage = styled(StyledImage)`
 	background-color: #8d99ae;
-	background-image: url('images/software/bhklogo.png');
+	background-image: url('images/software/layout-bg.png');
 `;
 
 export {
