@@ -23,10 +23,8 @@ function Publications() {
 	const sortByMonth = (arr) => {
 		const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
 			'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-		return (arr.sort(function (a, b) {
-			return months.indexOf((a.releaseDate).substring(5, 8))
-				- months.indexOf((b.releaseDate).substring(5, 8));
-		}));
+		return (arr.sort((a, b) => months.indexOf((a.releaseDate).substring(5, 8))
+				- months.indexOf((b.releaseDate).substring(5, 8))));
 	};
 
 	const selectYear = async (year) => {
