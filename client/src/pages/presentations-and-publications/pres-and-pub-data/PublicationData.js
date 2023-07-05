@@ -15,8 +15,8 @@ const PublicationData = [
 		year: '2023',
 		url: 'https://pubmed.ncbi.nlm.nih.gov/36948414/',
 		publisher: '',
-		releaseDate: '2023 Mar 20',
-		image: '',
+		releaseDate: '2023 Mar 21',
+		image: 'practical-rad-oncol.png',
 		members: [],
 	},
 	{
@@ -26,7 +26,7 @@ const PublicationData = [
 		url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10309070/',
 		publisher: '',
 		releaseDate: '2023 Jun 29',
-		image: '',
+		image: 'cancer-research-comm.png',
 		members: [],
 	},
 	{
@@ -36,7 +36,7 @@ const PublicationData = [
 		url: 'https://pubmed.ncbi.nlm.nih.gov/34850112/',
 		publisher: 'NIH',
 		releaseDate: '2022 Jan 7',
-		image: '',
+		image: 'nar_101093.jpg',
 		members: [],
 	},
 	{
@@ -66,7 +66,7 @@ const PublicationData = [
 		url: 'https://pubmed.ncbi.nlm.nih.gov/36055464/',
 		publisher: 'NIH',
 		releaseDate: '2022 Aug 30',
-		image: '',
+		image: 'ann-oncol.png',
 		members: [],
 	},
 	{
@@ -76,7 +76,7 @@ const PublicationData = [
 		url: 'https://pubmed.ncbi.nlm.nih.gov/36948414/',
 		publisher: 'NIH',
 		releaseDate: '2022 Oct 24',
-		image: '',
+		image: 'practical-rad-oncol.png',
 		members: [],
 	},
 	{
@@ -86,7 +86,7 @@ const PublicationData = [
 		url: 'https://pubmed.ncbi.nlm.nih.gov/33594052/',
 		publisher: 'Nat Commun',
 		releaseDate: '2021 Feb 16',
-		image: '',
+		image: 'ncomms.jpeg',
 		members: [],
 	},
 	{
@@ -106,7 +106,7 @@ const PublicationData = [
 		url: 'https://www.nature.com/articles/s41467-021-25974-w',
 		publisher: 'Nature',
 		releaseDate: '2021 Oct 4',
-		image: '',
+		image: 'ncomms.jpeg',
 		members: [],
 	},
 	{
@@ -116,7 +116,7 @@ const PublicationData = [
 		url: 'https://pubmed.ncbi.nlm.nih.gov/34382071/',
 		publisher: 'NIH',
 		releaseDate: '2021 Nov 5',
-		image: '',
+		image: 'ML.png',
 		members: [],
 	},
 	{
@@ -137,7 +137,7 @@ const PublicationData = [
 		url: 'https://www.nature.com/articles/s41698-020-0122-1',
 		publisher: 'Nature',
 		releaseDate: '2020 Jun 15',
-		image: '',
+		image: 'preci-oncol.png',
 		members: [],
 	},
 	{
@@ -158,7 +158,7 @@ const PublicationData = [
 		url: 'https://pubmed.ncbi.nlm.nih.gov/32421831/',
 		publisher: 'Nucleic Acids Res',
 		releaseDate: '2020 Jul 2',
-		image: '',
+		image: 'nar_101093.jpg',
 		members: [],
 	},
 	{
@@ -239,7 +239,7 @@ const PublicationData = [
 		url: 'https://academic.oup.com/nar/article/46/D1/D994/4372597',
 		publisher: 'Nucleic Acids Research',
 		releaseDate: '2018 Jan 4',
-		image: '',
+		image: 'NAR.jpg',
 		members: [],
 	},
 	{
@@ -249,7 +249,7 @@ const PublicationData = [
 		url: 'https://pubmed.ncbi.nlm.nih.gov/29459407/',
 		publisher: 'Cancer Res',
 		releaseDate: '2018 Apr 15',
-		image: '',
+		image: 'cancer_res_jan_2018.jpg',
 		members: [],
 	},
 	{
