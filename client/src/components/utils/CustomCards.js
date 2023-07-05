@@ -4,10 +4,12 @@ import AdminTool from './AdminTools';
 import AuthContext from '../../hooks/Contexts';
 import {
 	StyledCard,
+	StyledResearchAxisCard,
 	StyledImage,
 	StyledTitle,
 	StyledResearchAxisTitle,
 	StyledDescription,
+	StyledResearchAxisDescription,
 } from './UtilStyles';
 
 /**
@@ -30,13 +32,13 @@ export function ResearchAxisCard(props) {
 	} = props;
 
 	return (
-		<StyledCard>
+		<StyledResearchAxisCard>
 			<a href={path}>
 				<StyledImage src={image || '/images/research/research.png'} alt={title} />
 				<StyledResearchAxisTitle>{title}</StyledResearchAxisTitle>
 			</a>
-			<StyledDescription>{description}</StyledDescription>
-		</StyledCard>
+			<StyledResearchAxisDescription>{description}</StyledResearchAxisDescription>
+		</StyledResearchAxisCard>
 	);
 }
 

@@ -59,16 +59,28 @@ const StyledTitle = styled.div`
   text-align: center;
 `;
 
-const StyledResearchAxisTitle = styled.div`
-  font-size: 1.15rem;
-  margin: 10px 0;
-  color: ${colors.primary_text_color};
-  text-align: center;
-`;
-
 const StyledDescription = styled.div`
   font-size: 0.9rem;
   margin: 20px 25px;
+`;
+
+/**
+ * styles for research axis card
+ */
+const StyledResearchAxisCard = styled(StyledCard)`
+  width: 450px;
+  height: 420px;
+`;
+
+const StyledResearchAxisTitle = styled(StyledTitle)`
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 15px 0;
+  text-wrap: balance;
+`;
+
+const StyledResearchAxisDescription = styled(StyledDescription)`
+  color: ${colors.primary_text_light};
 `;
 
 /**
@@ -108,10 +120,12 @@ export {
 	Main,
 	StyledDropdown,
 	StyledCard,
+	StyledResearchAxisCard,
 	StyledImage,
 	StyledTitle,
 	StyledResearchAxisTitle,
 	StyledDescription,
+	StyledResearchAxisDescription,
 	StyledPIInfo,
 	MarginBar,
 };
