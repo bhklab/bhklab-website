@@ -13,9 +13,9 @@ function CoreValues() {
 		<div>
 			<StyledSection>
 				<StyledValues>
-					<h1>
+					<h2>
 						Core Values
-					</h1>
+					</h2>
 					<p>
 						{coreValuesList}
 					</p>
