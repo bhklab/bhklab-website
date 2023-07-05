@@ -113,18 +113,36 @@ export const StyledPage = styled.div`
 `;
 
 export const StyledSection = styled.div`  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   h1 {
     text-align: center;
   }
 
   .container {
-    width: 100%;
     margin: 15px 0;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-content: center;
     align-items: center;
     flex-wrap: wrap;
+    gap: 20px;
+
+    @media screen and (min-width: 1780px) {
+      width: 90%;
+    }
+
+    @media screen and (min-width: 1968px) {
+      width: 80%;
+    }
+
+    @media screen and (min-width: 2300px) {
+      width: 70%;
+    }
   }
 
   .box {

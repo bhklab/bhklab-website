@@ -68,8 +68,14 @@ const StyledDescription = styled.div`
  * styles for research axis card
  */
 const StyledResearchAxisCard = styled(StyledCard)`
-  width: 450px;
-  height: 420px;
+  width: 400px;
+  height: 450px;
+  padding: 20px 7.5px;
+
+  @media screen and (min-width: 1700px) {
+    width: 500px;
+    height: 400px;
+  }
 `;
 
 const StyledResearchAxisTitle = styled(StyledTitle)`
