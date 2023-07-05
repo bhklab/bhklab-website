@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import 'primeicons/primeicons.css';
 import Container from '@mui/material/Container';
 import { motion } from 'framer-motion';
@@ -8,6 +8,7 @@ import PaginatedPublications from './presentations-and-publications-components/P
 import StyledHeading from '../../styles/StyledHeading';
 import LeftPositionedTimeline from './Timeline';
 import DisplayContainer from './PresentationsAndPupblicationsStyles';
+import PresentationData from './pres-and-pub-data/PresentationData';
 
 const customizedContent = (item, index) => (
 	<PresentationCard key={index} publication={item} />
@@ -23,29 +24,34 @@ function Presentations() {
 		// if the year selected isn't already selected: filter for the newly selected year
 		if (chosenYear !== year) {
 			setChosenYear(year);
-			const res = await axios.get('/api/data/presentations');
-			const filter = res.data.presentations.filter(
-				(pres) => pres.date >= (`${year}-00-00T00:00:00.000Z`)
-				&& pres.date < `${(parseInt(year) + 1).toString()}-00-00T00:00:00.000Z`,
+			// const res = await axios.get('/api/data/presentations');
+			const presData = PresentationData;
+			const filter = presData.filter(
+				(pres) => pres.date.substring(0, 10) >= (`${year}-00-00`)
+				&& pres.date < `${((parseInt(year) + 1).toString()).substring(0, 10)}-00-00`,
 			);
 			setPresentation(
 				filter.sort((a, b) => new Date(b.date) - new Date(a.date)),
 			);
 		} else { // if the year selected is already selected: filter back to the default
 			setChosenYear('');
-			const res = await axios.get('/api/data/presentations');
+			// const res = await axios.get('/api/data/presentations');
+			const presData = PresentationData;
 			setPresentation(
-				res.data.presentations.sort((a, b) => new Date(b.date) - new Date(a.date)),
+				presData.sort((a, b) => new Date(a.date) - new Date(b.date)),
 			);
 		}
 	};
 	useEffect(() => {
 		window.scrollTo(0, 0);
 		const getPresentation = async () => {
-			const res = await axios.get('/api/data/presentations');
-			setPresentation(res.data.presentations.sort((a, b) => b.date - a.date));
+			// const res = await axios.get('/api/data/presentations');
+			const presData = PresentationData;
+			console.log(presData);
+			setPresentation(
+				presData.sort((a, b) => new Date(b.date) - new Date(a.date))
+			);
 			setReady(true);
-			console.log(res.data.presentations.sort((a, b) => new Date(b.date) - new Date(a.date)));
 		};
 		getPresentation();
 	}, []);

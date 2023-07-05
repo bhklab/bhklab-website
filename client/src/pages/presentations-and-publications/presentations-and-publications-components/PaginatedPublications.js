@@ -9,7 +9,7 @@ function Items({ currentItems }) {
 	return (
 		currentItems && currentItems.map((item) => (
 			// eslint-disable-next-line no-underscore-dangle
-			<div key={item.props.publication._id}>
+			<div key={item.props.publication.title}>
 				{item}
 			</div>
 		))
@@ -25,7 +25,6 @@ function PaginatedPublications({ customizedContent, publications, itemsPerPage }
 		const endOffset = itemOffset + itemsPerPage;
 		setCurrentItems(
 			publications
-				.sort((a, b) => new Date(b.date) - new Date(a.date))
 				.map((item, index) => (customizedContent(item, index))).slice(itemOffset, endOffset),
 		);
 		setPageCount(Math.ceil(publications.length / itemsPerPage));

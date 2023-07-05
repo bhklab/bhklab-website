@@ -30,13 +30,12 @@ function LeftPositionedTimeline({ selectYear }) {
 	const displayTimeline = (years) => years.map((year, index) => {
 		if (index === years.length - 1) {
 			return (
-				<TimelineItem>
+				<TimelineItem onClick={() => selectYear(year)} x = {{ color: colors.dark_gray}}>
 					<TimelineSeparator>
 						<TimelineDot />
 					</TimelineSeparator>
 					<TimelineContent
 						x={{ color: colors.primary_text_color }}
-						onClick={() => selectYear(year)}
 					>
 						{year}
 					</TimelineContent>
@@ -44,14 +43,13 @@ function LeftPositionedTimeline({ selectYear }) {
 			);
 		}
 		return (
-			<TimelineItem>
+			<TimelineItem onClick={() => selectYear(year)} >
 				<TimelineSeparator>
 					<TimelineDot />
 					<TimelineConnector />
 				</TimelineSeparator>
 				<TimelineContent
 					sx={{ color: colors.primary_text_color }}
-					onClick={() => selectYear(year)}
 				>
 					{year}
 				</TimelineContent>
