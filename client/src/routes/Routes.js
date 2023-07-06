@@ -10,6 +10,7 @@ import {
 	IndivResearch,
 	Publications,
 	Software,
+	SingleMemberInformation,
 	Contact,
 	LabMembers,
 	Collaboration,
@@ -35,6 +36,7 @@ function PublicRoutes() {
 					<Route path="/publications" element={<Publications />} />
 					<Route path="/contact" element={<Contact />} />
 					<Route path="/people" element={<LabMembers />} />
+					<Route path="/people/:name" element={<SingleMemberInformation />} />
 					<Route path="/collaboration" element={<Collaboration />} />
 					<Route path="/positions" element={<JoinUs />} />
 					<Route path="/software" element={<Software />} />
