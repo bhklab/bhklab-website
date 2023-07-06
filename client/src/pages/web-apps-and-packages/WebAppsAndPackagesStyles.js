@@ -40,7 +40,11 @@ const WebAppsAndPackagesStyles = styled.div`
     flex-direction: column;
     position: relative;
     transition: linear 0.2s;
-    min-height: 100px;
+    height: 150px;
+  }
+
+  .package-section {
+    height: 100px !important;
   }
 
   .package-section {
@@ -99,12 +103,7 @@ const WebAppsAndPackagesStyles = styled.div`
   .component-heading-packages {
     text-align: center;
     line-height: 40px;
-    margin-bottom: 50px;
-    margin-top: 50px;
-  }
-
-  .packages-container {
-    margin-top: 3vw;
+    margin: 50px 0;
   }
 
   .package-title {

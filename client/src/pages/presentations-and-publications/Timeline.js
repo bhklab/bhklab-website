@@ -30,6 +30,8 @@ const YEARS = ['2023', '2022', '2021', '2020', '2019', '2018'];
  *
  * @returns {React.JSX}
  */
+// TODO: Add props validation
+// eslint-disable-next-line react/prop-types
 function LeftPositionedTimeline({ selectYear }) {
 	/**
 	 *
@@ -39,8 +41,8 @@ function LeftPositionedTimeline({ selectYear }) {
 	const displayTimeline = (years) => years.map((year, index) => {
 		if (index === years.length - 1) {
 			return (
-				<TimelineItem onClick={() => selectYear(year)} className='hover-timeline-item static-timeline-item'>
-					<TimelineSeparator >
+				<TimelineItem onClick={() => selectYear(year)} className="hover-timeline-item static-timeline-item">
+					<TimelineSeparator>
 						<TimelineDot />
 					</TimelineSeparator>
 					<TimelineContent>
@@ -50,8 +52,8 @@ function LeftPositionedTimeline({ selectYear }) {
 			);
 		}
 		return (
-			<TimelineItem onClick={() => selectYear(year)} className='hover-timeline-item static-timeline-item'>
-				<TimelineSeparator >
+			<TimelineItem onClick={() => selectYear(year)} className="hover-timeline-item static-timeline-item">
+				<TimelineSeparator>
 					<TimelineDot />
 					<TimelineConnector />
 				</TimelineSeparator>
