@@ -47,9 +47,8 @@ function Presentations() {
 		const getPresentation = async () => {
 			// const res = await axios.get('/api/data/presentations');
 			const presData = PresentationData;
-			console.log(presData);
 			setPresentation(
-				presData.sort((a, b) => new Date(b.date) - new Date(a.date))
+				presData.sort((a, b) => new Date(b.date) - new Date(a.date)),
 			);
 			setReady(true);
 		};
