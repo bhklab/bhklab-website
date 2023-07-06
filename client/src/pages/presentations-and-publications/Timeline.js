@@ -5,7 +5,7 @@ import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
-import { grey } from '@mui/material';
+import { sizing } from '@mui/system';
 import styled from 'styled-components';
 import colors from '../../styles/colors';
 import { useState } from 'react';
@@ -53,7 +53,9 @@ function LeftPositionedTimeline({ selectYear }) {
 	const displayTimeline = (years) => years.map((year, index) => {
 		if (index === years.length - 1) {
 			return (
-				<TimelineItem onClick={() => yearAction(year, index) } className='hover-timeline-item static-timeline-item'>
+				<TimelineItem onClick={() => yearAction(year, index) } 
+					className='hover-timeline-item static-timeline-item'
+				>
 					<TimelineSeparator >
 						<TimelineDot sx={{ backgroundColor: selectedYear === year ? '#039be5' : '#bdbdbd'}}/>
 					</TimelineSeparator>
@@ -64,7 +66,7 @@ function LeftPositionedTimeline({ selectYear }) {
 			);
 		}
 		return (
-			<TimelineItem onClick={() => yearAction(year, index)} className='hover-timeline-item static-timeline-item'>
+			<TimelineItem onClick={() => yearAction(year, index)} className='hover-timeline-item static-timeline-item' sx={{ height: '25%'}}>
 				<TimelineSeparator>
 					<TimelineDot sx={{ backgroundColor: selectedYear === year ? '#039be5' : '#bdbdbd'}}/>
 					<TimelineConnector/>
