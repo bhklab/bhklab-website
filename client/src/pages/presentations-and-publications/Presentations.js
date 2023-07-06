@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 // import axios from 'axios';
 import 'primeicons/primeicons.css';
 import Container from '@mui/material/Container';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import { PresentationCard } from './presentations-and-publications-components/PublicationCards';
 import PaginatedPublications from './presentations-and-publications-components/PaginatedPublications';
 import StyledHeading from '../../styles/StyledHeading';
@@ -38,7 +38,7 @@ function Presentations() {
 			// const res = await axios.get('/api/data/presentations');
 			const presData = PresentationData;
 			setPresentation(
-				presData.sort((a, b) => new Date(a.date) - new Date(b.date)),
+				presData.sort((a, b) => new Date(b.date) - new Date(a.date)),
 			);
 		}
 	};
@@ -60,12 +60,7 @@ function Presentations() {
 		<Container maxWidth="lg">
 			{ ready
 				&& (
-					<motion.nav
-						className="navbar"
-						initial={{ opacity: 0, y: -50 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.5 }}
-					>
+					<>
 						<StyledHeading
 							noTopMargin
 							className="presentations-heading"
@@ -80,7 +75,7 @@ function Presentations() {
 								itemsPerPage={5}
 							/>
 						</DisplayContainer>
-					</motion.nav>
+					</>
 				)}
 		</Container>
 	);
