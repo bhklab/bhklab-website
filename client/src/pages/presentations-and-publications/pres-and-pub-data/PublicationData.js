@@ -253,6 +253,16 @@ const PublicationData = [
 		members: [],
 	},
 	{
+		title: 'Gene Expression Analyses in Breast Cancer: Sample Matters',
+		authors: 'Haibe-Kains B, Cescon DW',
+		year: '2018',
+		url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6649719/',
+		publisher: 'JNCI',
+		releaseDate: '2018 May 22',
+		image: 'jncics.png',
+		members: [],
+	},
+	{
 		title: 'Consensus on Molecular Subtypes of Ovarian Cancer',
 		authors: 'Chen GM, Kannan L,  Geistlinger L,  Kofia V,  Safikhani Z, Gendoo DMA,  Parmigiani G, Birrer M,  Haibe-Kains B',
 		year: '2018',
@@ -260,6 +270,16 @@ const PublicationData = [
 		publisher: 'Clin Cancer Res',
 		releaseDate: '2018 Oct 15',
 		image: '',
+		members: [],
+	},
+	{
+		title: 'Metabolic Perturbation of Dermal Fibroblasts Regulates Skin Extracellular Matrix Homeostasis and Fibrosis',
+		authors: 'Haibe-Kains B, Cescon DW',
+		year: '2018',
+		url: 'https://pubmed.ncbi.nlm.nih.gov/32694814/',
+		publisher: 'Nature metabolism',
+		releaseDate: '2018 Oct 29',
+		image: 'Nature metabolism',
 		members: [],
 	},
 
