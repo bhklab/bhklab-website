@@ -37,7 +37,7 @@ const listWebApps = [
 	},
 	{
 		applicationName: 'PharmacoDB',
-		imgSrc: `${imgDirectory}pharmacodb-logo-new.png`,
+		imgSrc: `${imgDirectory}pharmacodb-logo-new-dark.png`,
 		imgAltAttribute: 'pharmacodb',
 		appURL: 'https://pharmacodb.ca/',
 		appDescription: 'Mine pharmacogenomic profiles of cancer cell lines treated with single agent',

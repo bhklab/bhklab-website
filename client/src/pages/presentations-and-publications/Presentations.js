@@ -28,6 +28,7 @@ function Presentations() {
 			const presData = PresentationData;
 			const filter = presData.filter(
 				(pres) => pres.date.substring(0, 10) >= (`${year}-00-00`)
+				// eslint-disable-next-line radix
 				&& pres.date < `${((parseInt(year) + 1).toString()).substring(0, 10)}-00-00`,
 			);
 			setPresentation(

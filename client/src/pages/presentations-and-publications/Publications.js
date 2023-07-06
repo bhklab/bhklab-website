@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// import axios from 'axios';
 import Container from '@mui/material/Container';
-import { motion } from 'framer-motion';
 import PaginatedPublications from './presentations-and-publications-components/PaginatedPublications';
 import { PaperCard } from './presentations-and-publications-components/PublicationCards';
 import StyledHeading from '../../styles/StyledHeading';

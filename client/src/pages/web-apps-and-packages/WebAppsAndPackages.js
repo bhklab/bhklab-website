@@ -8,7 +8,7 @@ import { WebAppsAndPackagesStyles } from './WebAppsAndPackagesStyles';
 
 function Software() {
 	return (
-		<WebAppsAndPackagesStyles>
+		<WebAppsAndPackagesStyles className="webapps-packages-container">
 			<WebApps />
 			<hr />
 			<Packages />

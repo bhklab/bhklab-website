@@ -34,6 +34,8 @@ const YEARS = ['2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '
  *
  * @returns {React.JSX}
  */
+// TODO: Add props validation
+// eslint-disable-next-line react/prop-types
 function LeftPositionedTimeline({ selectYear }) {
 	const [selectedYear, setSelectedYear] = useState('2023');
 	const [color, setColor] = useState('')
