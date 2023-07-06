@@ -34,13 +34,6 @@ function Presentations() {
 			setPresentation(
 				filter.sort((a, b) => new Date(b.date) - new Date(a.date)),
 			);
-		} else { // if the year selected is already selected: filter back to the default
-			setChosenYear('');
-			// const res = await axios.get('/api/data/presentations');
-			const presData = PresentationData;
-			setPresentation(
-				presData.sort((a, b) => new Date(b.date) - new Date(a.date)),
-			);
 		}
 	};
 	useEffect(() => {
@@ -48,8 +41,13 @@ function Presentations() {
 		const getPresentation = async () => {
 			// const res = await axios.get('/api/data/presentations');
 			const presData = PresentationData;
+			//display 2023 data on page load
+			const filter = presData.filter(
+				(pres) => pres.date.substring(0, 10) >= (`2023-00-00`)
+				&& pres.date < '2024-00-00'
+			);
 			setPresentation(
-				presData.sort((a, b) => new Date(b.date) - new Date(a.date)),
+				filter.sort((a, b) => new Date(b.date) - new Date(a.date)),
 			);
 			setReady(true);
 		};

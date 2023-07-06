@@ -40,13 +40,6 @@ function Publications() {
 			setPublications(// sort condensed list by month
 				sortByMonth(sortByYear),
 			);
-		} else { // if the year selected is already selected: filter back to the default
-			setChosenYear('');
-			// const res = await axios.get('/api/data/publications');
-			const pubData = PublicationData;
-			setPublications(
-				pubData.sort((a, b) => new Date(b.year) - new Date(a.year)),
-			);
 		}
 	};
 
@@ -55,8 +48,12 @@ function Publications() {
 		const getPublications = async () => {
 			// const res = await axios.get('/api/data/publications');
 			const pubData = PublicationData;
-			setPublications(
-				pubData.sort((a, b) => new Date(b.year) - new Date(a.year)),
+			const filter = pubData.filter((pub) => pub.year === '2023');
+			const sortByYear = filter.sort(
+				(a, b) => b.releaseDate.substring(0, 5) - a.releaseDate.substring(0, 5),
+			);
+			setPublications(// sort condensed list by month
+				sortByMonth(sortByYear),
 			);
 			setReady(true);
 		};
