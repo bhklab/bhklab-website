@@ -129,7 +129,6 @@ const PublicationData = [
 		image: 'sci-trans.jpg',
 		members: [],
 	},
-
 	{
 		title: 'Machine learning approaches to drug response prediction: challenges and recent progress',
 		authors: 'Adam G, Rampášek L, Safikhani Z, Smirnov P, Haibe-Kains B*, Goldenberg A',
@@ -150,7 +149,6 @@ const PublicationData = [
 		image: 'NAR.jpg',
 		members: [],
 	},
-
 	{
 		title: 'ToxicoDB: an integrated database to mine and visualize large-scale toxicogenomic datasets',
 		authors: 'Nair SK, Eeles C, Ho C, Beri G, Yoo E, Tkachuk D, Tang A, Nijrabi P, Smirnov P, Seo H, Jennen D, Haibe-Kains B',
@@ -383,11 +381,6 @@ const PublicationData = [
 		image: 'pubs_bioinformatics.jpg',
 		members: [],
 	},
-
-
-
-
-
 	{
 		title: 'Genefu: an R/Bioconductor package for computation of gene expression-based signatures in breast cancer',
 		authors: 'Gendoo DM, Ratanasirigulchai N, Schröder MS, Paré L, Parker JS, Prat A, Haibe-Kains B',
@@ -438,9 +431,6 @@ const PublicationData = [
 		image: 'genomics_data.gif',
 		members: [],
 	},
-
-
-
 	{
 		title: 'Transfer of Clinically Relevant Gene Expression Signatures in Breast Cancer: from Affymetrix to Illumina RNA-Seq Technology',
 		authors: 'Fumagalli D, Desmedt D, Brown DN, Blanchet-Cohen A, Gacquer D, Michiels S, Rothé F, Majjaj S, Salgado R, Larsimont D, Ignatiadis M, Maetens M, Piccart M, Detours V, Sotiriou C, Haibe-Kains B',
@@ -491,11 +481,6 @@ const PublicationData = [
 		image: 'pubs_scirep.jpg',
 		members: [],
 	},
-
-
-
-
-
 	{
 		title: 'Inconsistency in large pharmacogenomic studies',
 		authors: 'Haibe-Kains B, El-Hachem N, Birkbak NJ, Jin AC, Beck AH, Aerts HJ, Quackenbush J',

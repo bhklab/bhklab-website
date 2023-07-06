@@ -5,10 +5,9 @@ import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
-import { sizing } from '@mui/system';
 import styled from 'styled-components';
-import colors from '../../styles/colors';
 import { useState } from 'react';
+import colors from '../../styles/colors';
 
 // styling for timeline
 const StyledTimeline = styled.div`
@@ -23,7 +22,7 @@ const StyledTimeline = styled.div`
 		cursor: pointer;
 	}
 	.selected-timeline-dot{
-		color: info
+		color: info;
 	}
 `;
 
@@ -38,12 +37,11 @@ const YEARS = ['2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '
 // eslint-disable-next-line react/prop-types
 function LeftPositionedTimeline({ selectYear }) {
 	const [selectedYear, setSelectedYear] = useState('2023');
-	const [color, setColor] = useState('')
 
 	const yearAction = (year) => {
-		setSelectedYear(year)
-		selectYear(year)
-	}
+		setSelectedYear(year);
+		selectYear(year);
+	};
 
 	/**
 	 *
@@ -53,11 +51,12 @@ function LeftPositionedTimeline({ selectYear }) {
 	const displayTimeline = (years) => years.map((year, index) => {
 		if (index === years.length - 1) {
 			return (
-				<TimelineItem onClick={() => yearAction(year, index) } 
-					className='hover-timeline-item static-timeline-item'
+				<TimelineItem
+					onClick={() => yearAction(year, index)}
+					className="hover-timeline-item static-timeline-item"
 				>
-					<TimelineSeparator >
-						<TimelineDot sx={{ backgroundColor: selectedYear === year ? '#039be5' : '#bdbdbd'}}/>
+					<TimelineSeparator>
+						<TimelineDot sx={{ backgroundColor: selectedYear === year ? '#039be5' : '#bdbdbd' }} />
 					</TimelineSeparator>
 					<TimelineContent color={selectedYear === year ? 'primary' : colors.primary_text_color}>
 						{year}
@@ -66,11 +65,14 @@ function LeftPositionedTimeline({ selectYear }) {
 			);
 		}
 		return (
-			<TimelineItem onClick={() => yearAction(year, index)} className='hover-timeline-item static-timeline-item' sx={{ height: '25%'}}>
+			<TimelineItem
+				onClick={() => yearAction(year, index)}
+				className="hover-timeline-item static-timeline-item"
+			>
 				<TimelineSeparator>
-					<TimelineDot sx={{ backgroundColor: selectedYear === year ? '#039be5' : '#bdbdbd'}}/>
-					<TimelineConnector/>
-				</TimelineSeparator >
+					<TimelineDot sx={{ backgroundColor: selectedYear === year ? '#039be5' : '#bdbdbd' }} />
+					<TimelineConnector />
+				</TimelineSeparator>
 				<TimelineContent color={selectedYear === year ? 'primary' : colors.primary_text_color}>
 					{year}
 				</TimelineContent>
