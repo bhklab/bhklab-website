@@ -3,6 +3,11 @@ import colors from '../../styles/colors';
 
 const WebAppsAndPackagesStyles = styled.div`
   max-width: 100%;
+  /* text-wrap: balance; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
 
   .highlight {
     color: ${colors.link_color};
@@ -95,7 +100,7 @@ const WebAppsAndPackagesStyles = styled.div`
     text-align: center;
     line-height: 40px;
     margin-bottom: 50px;
-	margin-top: 50px;
+    margin-top: 50px;
   }
 
   .packages-container {
