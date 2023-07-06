@@ -106,12 +106,27 @@ function Packages() {
 					subsetPackageList.map((pkg) => (
 						<div className="single-package-container" key={pkg.title}>
 							<div className="package-section">
-								<a target="_blank" href={pkg.link} className="package-title" rel="noreferrer">
-									{pkg.title}
-								</a>
-								<img className="lang" src={pkg.image} title="Package Logo" alt="Package Logo" />
+								<div className="package-section-link-image">
+									<a
+										target="_blank"
+										href={pkg.link}
+										className="package-title"
+										rel="noreferrer"
+									>
+										{pkg.title}
+									</a>
+									<img
+										className="package-language-image"
+										src={pkg.image}
+										title="Package Logo"
+										alt="Package Logo"
+									/>
+								</div>
+								<div className="package-section-description">
+									{pkg.description}
+								</div>
 							</div>
-							<div className="description-section">{pkg.description}</div>
+
 						</div>
 					))
 				}

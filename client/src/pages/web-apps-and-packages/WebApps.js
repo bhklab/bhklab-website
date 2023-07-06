@@ -97,22 +97,22 @@ function WebApps() {
 					subsetOfWebApps.map((application) => (
 						<div className="single-app-container">
 							<div className="app-section">
-								<img
-									className="logo"
-									src={application.imgSrc}
-									alt={application.imgAltAttribute}
-								/>
-								<a
-									target="_blank"
-									href="https://predictio.ca/"
-									className="link bottom-row"
-									rel="noreferrer"
-								>
-									Go!
-								</a>
-							</div>
-							<div className="description-section">
-								{application.appDescription}
+								<div className="app-section-link">
+									<a
+										target="_blank"
+										href={application.appURL}
+										rel="noreferrer"
+									>
+										<img
+											className="logo"
+											src={application.imgSrc}
+											alt={application.imgAltAttribute}
+										/>
+									</a>
+								</div>
+								<div className="app-section-description">
+									{application.appDescription}
+								</div>
 							</div>
 						</div>
 					))

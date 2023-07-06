@@ -26,7 +26,7 @@ const GlobalStyles = createGlobalStyle`
 
     hr {
         border: none;
-        width: 80%;
+        width: 75%;
         color: ${colors.border_line_color};
         background-color: ${colors.border_line_color};
         height: 1px;
