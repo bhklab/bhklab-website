@@ -12,6 +12,15 @@ import colors from '../../styles/colors';
 const StyledTimeline = styled.div`
 	max-width: 150px;
 	min-width: 150px;
+
+	.static-timeline-item {
+		color: ${colors.primary_text_color};
+	}
+	
+	.hover-timeline-item:hover {
+		color: ${colors.link_color};
+		cursor: pointer;
+	}
 `;
 
 // timeline years
@@ -30,27 +39,23 @@ function LeftPositionedTimeline({ selectYear }) {
 	const displayTimeline = (years) => years.map((year, index) => {
 		if (index === years.length - 1) {
 			return (
-				<TimelineItem onClick={() => selectYear(year)} >
-					<TimelineSeparator>
+				<TimelineItem onClick={() => selectYear(year)} className='hover-timeline-item static-timeline-item'>
+					<TimelineSeparator >
 						<TimelineDot />
 					</TimelineSeparator>
-					<TimelineContent
-						x={{ color: colors.primary_text_color }}
-					>
+					<TimelineContent>
 						{year}
 					</TimelineContent>
 				</TimelineItem>
 			);
 		}
 		return (
-			<TimelineItem onClick={() => selectYear(year)} >
-				<TimelineSeparator>
+			<TimelineItem onClick={() => selectYear(year)} className='hover-timeline-item static-timeline-item'>
+				<TimelineSeparator >
 					<TimelineDot />
 					<TimelineConnector />
 				</TimelineSeparator>
-				<TimelineContent
-					sx={{ color: colors.primary_text_color }}
-				>
+				<TimelineContent>
 					{year}
 				</TimelineContent>
 			</TimelineItem>

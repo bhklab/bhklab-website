@@ -34,6 +34,19 @@ const StyledHome = styled.div`
 	.home-component-sub-section > hr {
 		margin: auto;
 	}
+	.home-publication-and-presentation-section {
+		padding-top: 70px;
+		height: 800px;
+		@media only screen and (max-width: 1200px) {
+			height: 1000px
+		}
+		@media only screen and (max-width: 768px) {
+			height: 1200px
+		}
+		@media only screen and (max-width: 640px) {
+			height: 1500px
+		}
+	}
 `;
 
 const PMCRTImage = styled(StyledImage)`

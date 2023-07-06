@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
-import ReactPaginate from 'react-paginate';
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+// import ReactPaginate from 'react-paginate';
+// import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
+// import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import StyledPaginate from './StyledPaginate';
+
+/* ** Commented out code is for pagination if needed again ** */
 
 function Items({ currentItems }) {
 	return (
@@ -18,7 +20,7 @@ function Items({ currentItems }) {
 
 function PaginatedPublications({ customizedContent, publications, itemsPerPage }) {
 	const [currentItems, setCurrentItems] = useState(null);
-	const [pageCount, setPageCount] = useState(0);
+	// const [pageCount, setPageCount] = useState(0);
 	const [itemOffset, setItemOffset] = useState(0);
 
 	useEffect(() => {
@@ -27,18 +29,18 @@ function PaginatedPublications({ customizedContent, publications, itemsPerPage }
 			publications
 				.map((item, index) => (customizedContent(item, index))).slice(itemOffset, endOffset),
 		);
-		setPageCount(Math.ceil(publications.length / itemsPerPage));
-	}, [itemOffset, itemsPerPage, publications]);
+		// setPageCount(Math.ceil(publications.length / itemsPerPage));
+	}, [itemsPerPage, publications]);
 
-	const handlePageClick = (event) => {
-		const newOffset = (event.selected * itemsPerPage) % publications.length;
-		setItemOffset(newOffset);
-	};
+	// const handlePageClick = (event) => {
+	// 	const newOffset = (event.selected * itemsPerPage) % publications.length;
+	// 	setItemOffset(newOffset);
+	// };
 
 	return (
 		<StyledPaginate>
 			<Items currentItems={currentItems} />
-			<div className="pagination-container">
+			{/* <div className="pagination-container">
 				<ReactPaginate
 					pageCount={pageCount}
 					onPageChange={handlePageClick}
@@ -53,7 +55,7 @@ function PaginatedPublications({ customizedContent, publications, itemsPerPage }
 					pageRangeDisplayed={5}
 					renderOnZeroPageCount={null}
 				/>
-			</div>
+			</div> */}
 		</StyledPaginate>
 	);
 }

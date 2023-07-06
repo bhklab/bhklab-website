@@ -69,12 +69,7 @@ function Publications() {
 		<Container maxWidth="lg">
 			{ ready
 					&& (
-						<motion.nav
-							className="navbar"
-							initial={{ opacity: 0, y: -50 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.5 }}
-						>
+						<>
 							<StyledHeading> Publications </StyledHeading>
 							<DisplayContainer>
 								<LeftPositionedTimeline selectYear={selectYear} />
@@ -84,7 +79,7 @@ function Publications() {
 									itemsPerPage={5}
 								/>
 							</DisplayContainer>
-						</motion.nav>
+						</>
 					)}
 		</Container>
 	);

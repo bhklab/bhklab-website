@@ -42,13 +42,13 @@ function Home() {
 						<div id="pmcrt-tower-image-container" className="home-component-sub-section">
 							<PMCRTTowerImage />
 						</div>
-						<div id="publications" className="home-component-sub-section">
+						<div id="publications" className="home-publication-and-presentation-section">
 							<Publications />
 						</div>
 						<div className="home-component-sub-section">
 							<hr />
 						</div>
-						<div id="presentations" className="home-component-sub-section">
+						<div id="presentations" className="home-publication-and-presentation-section">
 							<Presentations />
 						</div>
 						<div id="bhklab-logo-image-container" className="home-component-sub-section">
