@@ -11,12 +11,13 @@ import colors from '../../../styles/colors';
 
 const { DateTime } = require('luxon');
 
+//presentation cards
 function PresentationCard(props) {
 	const {
 		image, title, event, url, members, date,
 	} = props.publication;
 	return (
-		<Card sx={{ display: 'flex', margin: '10px 0px' }} className="presentation-card-container">
+		<Card sx={{ display: 'flex', margin: '10px 0px', height: '110px' }} className="presentation-card-container">
 			{
 				url
 					? (
@@ -39,7 +40,7 @@ function PresentationCard(props) {
 					)
 			}
 			<Box sx={{ display: 'flex', flexDirection: 'column' }}>
-				<CardContent sx={{ flex: '1 0 auto' }}>
+				<CardContent sx={{ flex: '1 0 auto'}}>
 					<Typography component="div" variant="subtitle1">
 						{
 							url
@@ -79,12 +80,13 @@ function PresentationCard(props) {
 	);
 }
 
+// publication cards
 function PaperCard(props) {
 	const {
 		image, title, url, authors, members, releaseDate,
 	} = props.publication;
 	return (
-		<Card sx={{ display: 'flex', marginBottom: '10px' }}>
+		<Card sx={{ display: 'flex', marginBottom: '10px', height: '110px'}}>
 			<div style={{ width: '110px' }}>
 				{
 					url
@@ -109,7 +111,7 @@ function PaperCard(props) {
 			</div>
 			<Box sx={{ display: 'flex', flexDirection: 'column' }}>
 				<CardContent sx={{ flex: '1 0 auto' }}>
-					<Typography component="div" variant="subtitle1">
+					<Typography component="div" variant="subtitle1" style={{ fontSize: '18px' }}>
 						{
 							url
 								? (
