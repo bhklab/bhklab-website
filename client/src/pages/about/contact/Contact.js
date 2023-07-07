@@ -4,7 +4,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import Container from '@mui/material/Container';
 import { Grid } from '@mui/material';
-import ContactForm from '../../../components/utils/ContactForm';
+import ContactForm from '../../../components/utils/contact-form/ContactForm';
 import {
 	StyledIcons, StyledContent, StyledEmail, MapFrame, Box,
 } from './StyledContact';

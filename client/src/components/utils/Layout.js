@@ -1,8 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 import Navbar from '../navigation/navbar/Navbar';
 import Footer from '../navigation/footer/Footer';
-import { Main } from './UtilStyles';
+import colors from '../../styles/colors';
+
+const Main = styled.div`
+  background-color: ${colors.white_color};
+  display: flex;
+  flex-direction: column;
+  row-gap: ${(props) => (props.page.match(/home/ig) ? '' : '60px')};
+  /* justify-content: space-between;
+  height: 100vh; */
+`;
 
 /**
  * wrapper for every page

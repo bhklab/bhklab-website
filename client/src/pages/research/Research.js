@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Layout from '../../components/utils/Layout';
 import 'animate.css/animate.min.css';
-import { TeamCard } from '../../components/utils/CustomCards';
+import { TeamCard } from '../../components/utils/custom-cards/CustomCards';
 import slugGeneratorHelper from '../../utils/slugGeneratorHelper';
 import { StyledSection } from '../../styles/StyledPage';
 

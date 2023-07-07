@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useContext } from 'react';
-import AdminTool from './AdminTools';
-import AuthContext from '../../hooks/Contexts';
+import AdminTool from '../AdminTools';
+import AuthContext from '../../../hooks/Contexts';
 import {
 	StyledCard,
 	StyledResearchAxisCard,
@@ -10,7 +10,7 @@ import {
 	StyledResearchAxisTitle,
 	StyledDescription,
 	StyledResearchAxisDescription,
-} from './UtilStyles';
+} from './CustomCardsStyles';
 
 /**
  * A custom React component that returns customized cards

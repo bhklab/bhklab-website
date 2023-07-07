@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyledSection } from '../../styles/StyledPage';
 import researchAxisDescription from './ResearchAxisDescription';
-import { ResearchAxisCard } from '../../components/utils/CustomCards';
+import { ResearchAxisCard } from '../../components/utils/custom-cards/CustomCards';
 
 function ResearchAxis() {
 	return (

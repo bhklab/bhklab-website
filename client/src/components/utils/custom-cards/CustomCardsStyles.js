@@ -1,34 +1,5 @@
-import React from 'react';
 import styled from 'styled-components';
-import { Dropdown } from 'primereact/dropdown';
-import Box from '@mui/material/Box';
-import colors from '../../styles/colors';
-
-const Main = styled.div`
-  background-color: ${colors.white_color};
-  display: flex;
-  flex-direction: column;
-  row-gap: ${(props) => (props.page.match(/home/ig) ? '' : '60px')};
-  /* justify-content: space-between;
-  height: 100vh; */
-`;
-
-const StyledDropdown = styled(Dropdown)`
-  min-width: 200px;
-
-  .pi {
-    font-size: 0.7rem;
-  }
-
-  .p-dropdown-items .p-dropdown-item {
-    color: ${colors.gray_text};
-  }
-
-  .p-dropdown-label,
-  .p-dropdown-item {
-    font-size: 12px;
-  }
-`;
+import colors from '../../../styles/colors';
 
 const StyledCard = styled.div`
   width: 250px;
@@ -85,27 +56,7 @@ const StyledResearchAxisDescription = styled(StyledDescription)`
   color: ${colors.primary_text_light};
 `;
 
-const StyledPIInfo = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: left;
-  height: 60px;
-  line-spacing: 20px;
-  margin-left: 5px;
-  margin-bottom: 20px;
-  font-size: 16px;
-  font-weight: normal;
-  text-align: left;
-`;
-
-function MarginBar() {
-	return <Box sx={{ height: 20 }} />;
-}
-
 export {
-	Main,
-	StyledDropdown,
 	StyledCard,
 	StyledResearchAxisCard,
 	StyledImage,
@@ -113,6 +64,4 @@ export {
 	StyledResearchAxisTitle,
 	StyledDescription,
 	StyledResearchAxisDescription,
-	StyledPIInfo,
-	MarginBar,
 };
