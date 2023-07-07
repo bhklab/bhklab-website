@@ -7,12 +7,44 @@ const labOverallMission = `
 			and improve the precision oncology is delivered to patients.`;
 
 const waysToAchieveMission = [
-	`The development of Machine Learning and Artificial 
-		Intelligence approaches for biomedical applications`,
-	`The adoption and improvement of findability, accessibility, 
-		interoperability, and reusability (FAIR) and Open Science principles`,
-	`The training of the next generation following the principles 
-		of inclusion, diversity, equity, and accessibility (IDEA)`,
+	<p>
+		The development of Machine Learning and Artificial
+		Intelligence approaches for biomedical applications
+	</p>,
+	<p>
+		The adoption and improvement of findability, accessibility,
+		interoperability, and reusability
+		{' '}
+		<a
+			href="https://www.go-fair.org/fair-principles/"
+			target="_blank"
+			rel="noreferrer"
+		>
+			(FAIR)
+		</a>
+		{' '}
+		and
+		{' '}
+		<a
+			href="https://www.unesco.org/en/open-science/about"
+			target="_blank"
+			rel="noreferrer"
+		>
+			Open Science principles
+		</a>
+	</p>,
+	<p>
+		The training of the next generation following the principles
+		of inclusion, diversity, equity, and accessibility
+		{' '}
+		<a
+			href="https://en.ccunesco.ca/-/media/Files/Unesco/Resources/2021/09/ToolkitIDEA.pdf"
+			target="_blank"
+			rel="noreferrer"
+		>
+			(IDEA)
+		</a>
+	</p>,
 ];
 
 /**
@@ -20,9 +52,13 @@ const waysToAchieveMission = [
  * @param {Array} mission
  */
 const displayWaysToAchieveMission = (missions) => missions.map((mission) => (
-	<p className="ways-to-achieve-mission-single-item">
+	<div className="ways-to-achieve-mission-single-item">
+		<img
+			src="/images/Logo/artificial-intelligence.png"
+			alt="artifical-intelligence"
+		/>
 		{mission}
-	</p>
+	</div>
 ));
 
 /**
@@ -35,7 +71,7 @@ function Mission() {
 			<h1 className="mission-heading">
 				Mission
 			</h1>
-			<p className="overall-mission-section">
+			<p className="overall-mission-content-section">
 				{labOverallMission}
 			</p>
 			<div className="ways-to-achieve-mission-section">
