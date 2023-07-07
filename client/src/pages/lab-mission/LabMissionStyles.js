@@ -44,7 +44,7 @@ const StyledMission = styled.div`
 
     .ways-to-achieve-mission-single-item {
         width: 300px;
-        padding: 20px;
+        padding: 20px 10px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -57,7 +57,7 @@ const StyledMission = styled.div`
         }
 
         :first-of-type, :last-of-type {
-            height: 260px;
+            height: 250px;
         }
 
         @media only screen and (max-width: 1100px) {

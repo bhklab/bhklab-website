@@ -43,7 +43,8 @@ const StyledCard = styled.div`
 
 const StyledImage = styled.img`
   width: 100%;
-  height: 100px;
+  height: 85px;
+  /* width: 75px; */
   object-fit: contain;
 `;
 
@@ -60,11 +61,12 @@ const StyledDescription = styled.div`
 `;
 
 const StyledResearchAxisCard = styled(StyledCard)`
-  width: 400px;
-  height: 450px;
-  padding: 20px 5px;
+  width: 420px;
+  height: 400px;
+  padding: 20px 0;
   border-radius: 10px;
   box-shadow: 0px 0px 5px ${colors.card_shadow_color};
+  text-align: justify;
 
   @media screen and (min-width: 1700px) {
     width: 500px;
@@ -73,7 +75,7 @@ const StyledResearchAxisCard = styled(StyledCard)`
 `;
 
 const StyledResearchAxisTitle = styled(StyledTitle)`
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 700;
   margin: 15px 0;
   text-wrap: balance;

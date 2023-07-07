@@ -42,8 +42,7 @@ const researchAxisDescription = {
 		We recognize that achieving full transparency, reproducibility, and reusability in research poses significant technological challenges. 
 		Therefore, our team is actively leveraging cutting-edge computational technologies to facilitate the adoption of an 
 		Open Science approach in both academic and industry labs. By providing accessible tools and solutions, 
-		we strive to empower researchers to embrace Open Science principles and advance scientific progress.
-		`,
+		we strive to empower researchers to embrace Open Science principles and advance scientific progress.`,
 		imagePath: '/images/research/software.png',
 	},
 };

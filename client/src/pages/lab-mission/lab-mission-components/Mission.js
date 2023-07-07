@@ -9,8 +9,8 @@ const labOverallMission = `
 const waysToAchieveMission = [
 	<>
 		<img
-			src="/images/Logo/artificial-intelligence.png"
-			alt="artifical-intelligence"
+			src="/images/Logo/deep-learning.png"
+			alt="deep-learning"
 		/>
 		<p>
 			The development of Machine Learning and Artificial
