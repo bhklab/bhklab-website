@@ -1,40 +1,35 @@
 import React from 'react';
-import { Dropdown } from 'primereact/dropdown';
 import styled from 'styled-components';
+import { Dropdown } from 'primereact/dropdown';
 import Box from '@mui/material/Box';
 import colors from '../../styles/colors';
 
-/*
-*** Layout.js
-*/
 const Main = styled.div`
-	background-color: ${colors.white_color};
-	display: flex;
-	flex-direction: column;
-	row-gap: ${(props) => (props.page.match(/home/ig) ? '' : '60px')};
-	/* justify-content: space-between;
-	height: 100vh; */
+  background-color: ${colors.white_color};
+  display: flex;
+  flex-direction: column;
+  row-gap: ${(props) => (props.page.match(/home/ig) ? '' : '60px')};
+  /* justify-content: space-between;
+  height: 100vh; */
 `;
 
-/*
-*** CustomDropdown.js
-*/
 const StyledDropdown = styled(Dropdown)`
-    min-width: 200px;
-    .pi {
-        font-size: 0.7rem;
-    }
-    .p-dropdown-items .p-dropdown-item {
-        color: ${colors.gray_text};
-    }
-    .p-dropdown-label, .p-dropdown-item {
-        font-size: 12px;
-    }
+  min-width: 200px;
+
+  .pi {
+    font-size: 0.7rem;
+  }
+
+  .p-dropdown-items .p-dropdown-item {
+    color: ${colors.gray_text};
+  }
+
+  .p-dropdown-label,
+  .p-dropdown-item {
+    font-size: 12px;
+  }
 `;
 
-/*
-*** CustomCard.js
-*/
 const StyledCard = styled.div`
   width: 250px;
   height: 300px;
@@ -64,13 +59,12 @@ const StyledDescription = styled.div`
   margin: 20px 25px;
 `;
 
-/**
- * styles for research axis card
- */
 const StyledResearchAxisCard = styled(StyledCard)`
   width: 400px;
   height: 450px;
-  padding: 20px 7.5px;
+  padding: 20px 5px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px ${colors.card_shadow_color};
 
   @media screen and (min-width: 1700px) {
     width: 500px;
@@ -89,11 +83,6 @@ const StyledResearchAxisDescription = styled(StyledDescription)`
   color: ${colors.primary_text_light};
 `;
 
-/**
- *** ContactForm.js
- *
- * Styles for PI information at the top of form
- */
 const StyledPIInfo = styled.div`
   width: 100%;
   display: flex;
@@ -108,18 +97,8 @@ const StyledPIInfo = styled.div`
   text-align: left;
 `;
 
-/**
- * A function to create margin between input fields
- */
-
 function MarginBar() {
-	return (
-		<Box
-			sx={{
-				height: 20,
-			}}
-		/>
-	);
+	return <Box sx={{ height: 20 }} />;
 }
 
 export {

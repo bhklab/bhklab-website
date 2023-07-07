@@ -32,7 +32,7 @@ export function ResearchAxisCard(props) {
 	} = props;
 
 	return (
-		<StyledResearchAxisCard>
+		<StyledResearchAxisCard className="styled-research-axis-card">
 			<a href={path}>
 				<StyledImage src={image || '/images/research/research.png'} alt={title} />
 				<StyledResearchAxisTitle>{title}</StyledResearchAxisTitle>
