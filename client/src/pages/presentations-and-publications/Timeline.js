@@ -120,9 +120,10 @@ function LeftPositionedTimeline({ selectYear }) {
 					fontSize: itemsLoaded === 11 ? '0.63rem' : '2rem',
 					"&.MuiButtonBase-root:hover": {	bgcolor: "transparent" },
 				}} 
-				onClick={() => adjustItems()}>
-					{itemsButton}
-				</Button>
+				onClick={() => adjustItems()}
+			>
+				{itemsButton}
+			</Button>
 			</Timeline>
 		</StyledTimeline>
 	);

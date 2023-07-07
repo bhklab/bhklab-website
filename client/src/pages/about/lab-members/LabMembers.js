@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Container from '@mui/material/Container';
+import { CardActions } from '@mui/material';
 import StyledHeading from '../../../styles/StyledHeading';
 import {
 	StyledCard, StyledImage, StyledName, StyledTitle, StyledPeople,
 } from './MembersOverviewStyles';
 import MemberInDetail from './MemberInDetail';
+import BasicModal from '../../../components/utils/Modal';
 // import AuthContext from '../../../hooks/Contexts';
 
 const PI_BIO = `
@@ -27,29 +29,32 @@ const PI_BIO = `
 `;
 
 // eslint-disable-next-line react/prop-types
-function MemberHeadShot({ title, description, imageUrl }) {
+function MemberHeadShot({ title, description, imageUrl, item }) {
 	return (
 		<StyledCard>
 			<StyledImage src={imageUrl} alt={title} PlaceholderSrc="./images/Logo/bhklab-logo.png" />
 			<StyledName>{title}</StyledName>
 			<StyledTitle>{description}</StyledTitle>
+			<BasicModal person={item}/>
 		</StyledCard>
 	);
 }
 
+// cunrrently: links to a new page and display the member
 const displayMember = (item, index) => (
 	<div key={index}>
-		<Link to={{
+		{/* <Link to={{
 			pathname: `/people/${item.slug}`,
 			param: { member: item },
 		}}
-		>
+		> */}
 			<MemberHeadShot
 				description={item.position}
 				title={item.name}
 				imageUrl={`/images/people/${item.image}`}
+				item={item}
 			/>
-		</Link>
+		{/* </Link> */}
 	</div>
 );
 
