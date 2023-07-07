@@ -63,7 +63,6 @@ const WebAppsAndPackagesStyles = styled.div`
   .package-section:hover {
     border-radius: 20px;
     box-shadow: 0 0 4px ${colors.card_shadow_color};
-    cursor: pointer;
   }
 
   /*  WEB APPS SPECIFIC STYLES */
