@@ -1,13 +1,10 @@
 import React from 'react';
-import { StyledSection, StyledMission } from '../LabMissionStyles';
+import { StyledMission } from '../LabMissionStyles';
 
-const labOverallMission = (
-	<p>
-		Our overarching goal consists of developing cutting-edge computational tools
-		and predictive models to identify new cancer vulnerabilities
-		and improve the precision oncology is delivered to patients.
-	</p>
-);
+const labOverallMission = `
+			Our overarching goal consists of developing cutting-edge computational tools
+			and predictive models to identify new cancer vulnerabilities
+			and improve the precision oncology is delivered to patients.`;
 
 const waysToAchieveMission = [
 	`The development of Machine Learning and Artificial 
@@ -20,16 +17,32 @@ const waysToAchieveMission = [
 
 /**
  *
+ * @param {Array} mission
+ */
+const displayWaysToAchieveMission = (missions) => missions.map((mission) => (
+	<p className="ways-to-achieve-mission-single-item">
+		{mission}
+	</p>
+));
+
+/**
+ *
  * @returns {React.JSX}
  */
 function Mission() {
 	return (
-		<StyledSection>
-			<StyledMission>
-				<h1>Mission</h1>
+		<StyledMission>
+			<h1 className="mission-heading">
+				Mission
+			</h1>
+			<p className="overall-mission-section">
 				{labOverallMission}
-			</StyledMission>
-		</StyledSection>
+			</p>
+			<div className="ways-to-achieve-mission-section">
+				{displayWaysToAchieveMission(waysToAchieveMission)}
+			</div>
+		</StyledMission>
+
 	);
 }
 

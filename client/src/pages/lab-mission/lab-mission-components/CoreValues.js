@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledSection, StyledValues } from '../LabMissionStyles';
+import { StyledValues } from '../LabMissionStyles';
 
 const coreValuesList = [
 	'Research transparency, reproducibility, and reusability. ',
@@ -10,18 +10,14 @@ const coreValuesList = [
 
 function CoreValues() {
 	return (
-		<div>
-			<StyledSection>
-				<StyledValues>
-					<h2>
-						Core Values
-					</h2>
-					<p>
-						{coreValuesList}
-					</p>
-				</StyledValues>
-			</StyledSection>
-		</div>
+		<StyledValues>
+			<h2>
+				Core Values
+			</h2>
+			<p>
+				{coreValuesList}
+			</p>
+		</StyledValues>
 	);
 }
 

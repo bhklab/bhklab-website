@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import colors from '../../styles/colors';
 
-const StyledSection = styled.section`
+const StyledMissionContainer = styled.section`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -26,9 +26,28 @@ const StyledMission = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 
-    @media only screen and (min-width: 768px) {
-        max-width: 60%;
+    .overall-mission-section {
+        font-size: 1.1rem;
+        text-align: center;
+
+        @media only screen and (min-width: 768px) {
+            max-width: 60%;
+        }
+    }
+
+    .ways-to-achieve-mission-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .ways-to-achieve-mission-section >
+    .ways-to-achieve-mission-single-item {
+        width: 300px;
+        font-size: 1rem;
     }
 `;
 
@@ -47,24 +66,15 @@ const StyledValues = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    
     @media only screen and (min-width: 768px) {
         max-width: 60%;
     }
 `;
 
-const StyledStrategicPriorities = styled.div`
-    /* margin: 30px; */
-`;
-
-const StyledOrganizationPillar = styled.div`
-    /* margin: 30px; */
-`;
-
 export {
-	StyledSection,
+	StyledMissionContainer,
 	StyledMission,
 	StyledValues,
-	StyledStrategicPriorities,
 	StyledCulture,
-	StyledOrganizationPillar,
 };
