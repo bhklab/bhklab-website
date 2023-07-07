@@ -27,7 +27,7 @@ const WebAppsAndPackagesStyles = styled.div`
   .single-app-container, 
   .single-package-container {
     text-align: center;
-    height: 220px;
+    height: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,15 +36,20 @@ const WebAppsAndPackagesStyles = styled.div`
     flex-basis: 25%;
   }
 
+  .single-package-container {
+    height: 200px;
+  }
+
   .app-section, 
   .package-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     width: 350px;
     height: inherit;
     padding: 15px;
+    gap: 15px;
   }
 
   .app-section-description, 
@@ -57,7 +62,7 @@ const WebAppsAndPackagesStyles = styled.div`
   .app-section:hover,
   .package-section:hover {
     border-radius: 20px;
-    box-shadow: 0 0 5px ${colors.card_shadow_color};
+    box-shadow: 0 0 4px ${colors.card_shadow_color};
     cursor: pointer;
   }
 
@@ -69,9 +74,13 @@ const WebAppsAndPackagesStyles = styled.div`
   }
 
   img.logo {
-    width: calc(3vw + 8em);
+    width: calc(3vw + 6rem);
     opacity: 1;
     transition: linear 0.2s;
+  }
+
+  .app-section-description-github {
+    margin-top: 10px;
   }
 
   /* PACKAGE SPECIFIC STYLES */
