@@ -5,7 +5,7 @@ const researchAxisDescription = {
 		our objective is to discover novel vulnerabilities in cancer and identify predictive markers of drug response.
 		By integrating pre-clinical and clinical data, we strive to uncover valuable insights 
 		that can enhance our understanding of cancer and optimize treatment strategies.`,
-		imagePath: '/images/research/segmentation_liver.png',
+		imagePath: '/images/logo/dna.png',
 	},
 
 	Radiomics: {
@@ -23,7 +23,7 @@ const researchAxisDescription = {
 		enhancing sensitivity and accuracy through effective integration. 
 		Our primary objective is to advance computational modeling approaches 
 		that harness the complementary and synergistic nature of existing and emerging biomedical profiling technologies.`,
-		imagePath: '/images/research/software.png',
+		imagePath: '/images/logo/data-collection.png',
 	},
 
 	'Software Development': {
@@ -32,7 +32,7 @@ const researchAxisDescription = {
 		requires extensive expertise in data and software engineering, which is often scarce within research labs. 
 		Our laboratory boasts a team of skilled software developers who collaborate closely with academic 
 		and industry partners to implement high-quality open-source scientific software, making it freely available to the public.`,
-		imagePath: '/images/research/research.png',
+		imagePath: '/images/logo/backend.png',
 	},
 
 	'Open Science': {
@@ -43,7 +43,7 @@ const researchAxisDescription = {
 		Therefore, our team is actively leveraging cutting-edge computational technologies to facilitate the adoption of an 
 		Open Science approach in both academic and industry labs. By providing accessible tools and solutions, 
 		we strive to empower researchers to embrace Open Science principles and advance scientific progress.`,
-		imagePath: '/images/research/software.png',
+		imagePath: '/images/logo/book.png',
 	},
 };
 
