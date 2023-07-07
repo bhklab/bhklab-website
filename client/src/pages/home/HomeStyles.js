@@ -37,15 +37,6 @@ const StyledHome = styled.div`
 	.home-publication-and-presentation-section {
 		padding-top: 70px;
 		height: 900px;
-		@media only screen and (max-width: 1200px) {
-			height: 1100px
-		}
-		@media only screen and (max-width: 768px) {
-			height: 1300px
-		}
-		@media only screen and (max-width: 640px) {
-			height: 1600px
-		}
 	}
 `;
 

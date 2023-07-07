@@ -12,7 +12,7 @@ const StyledMember = styled.div`
 
 const StyledCard = styled.div`
     width: 245px;
-    height: 300px;
+    height: 330px;
     border-radius: 10px;
     overflow: hidden;
     background-color: ${colors.main};
@@ -36,7 +36,7 @@ const StyledTitle = styled.p`
     font-size: 12px;
     font-style: italic;
     color: ${colors.gray_footer};
-    margin: 10px 10px;
+    margin: 10px 10px 0 10px;
     text-align: center;
 `;
 
