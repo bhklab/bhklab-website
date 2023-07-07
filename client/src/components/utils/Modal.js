@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import MemberInDetail from '../../pages/about/lab-members/MemberInDetail';
 import styled from 'styled-components';
+import colors from '../../styles/colors';
 
 const boxStyle = {
 	position: 'absolute',
@@ -12,8 +13,8 @@ const boxStyle = {
 	transform: 'translate(-50%, -50%)',
 	width: 900,
 	bgcolor: 'background.paper',
-	border: '2px solid #000',
-	boxShadow: 24,
+	"border-radius": '25px',
+	"box-shadow": `0 0 10px 0 ${colors.card_shadow_color}`,
 	p: 4,
 };
 
@@ -27,6 +28,7 @@ const Container = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	box-shadow: 0 0 5px ${colors.card_shadow_color},
 `;
 
 
