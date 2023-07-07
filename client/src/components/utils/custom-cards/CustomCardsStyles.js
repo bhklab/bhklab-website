@@ -27,8 +27,12 @@ const StyledTitle = styled.div`
 `;
 
 const StyledDescription = styled.div`
-  font-size: 0.9rem;
+  font-size: 0.90rem;
   margin: 20px 25px;
+
+  @media screen and (min-width: 1700px) {
+    font-size: 0.95rem;
+  }
 `;
 
 const StyledResearchAxisCard = styled(StyledCard)`
@@ -41,7 +45,7 @@ const StyledResearchAxisCard = styled(StyledCard)`
 
   @media screen and (min-width: 1700px) {
     width: 500px;
-    height: 400px;
+    height: 420px;
   }
 `;
 

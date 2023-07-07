@@ -13,7 +13,7 @@ const StyledMissionContainer = styled.section`
         margin: 20px;
         color: ${colors.primary_text_light};
         text-align: center;
-        font-size: 1.05rem;
+        font-size: 1.1rem;
         line-height: 1.6;
     }
 
