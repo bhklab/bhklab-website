@@ -13,7 +13,7 @@ const StyledMissionContainer = styled.section`
         margin: 20px;
         color: ${colors.primary_text_light};
         text-align: center;
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         line-height: 1.6;
     }
 
@@ -89,6 +89,10 @@ const StyledValues = styled.div`
 
     
     @media only screen and (min-width: 768px) {
+        max-width: 80%;
+    }
+
+    @media only screen and (min-width: 1100px) {
         max-width: 60%;
     }
 
@@ -110,8 +114,8 @@ const StyledValues = styled.div`
 
     .core-values-single-list-item {
         width: 300px;
-        height: 260px;
-        padding: 20px;
+        height: 270px;
+        padding: 25px;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -122,6 +126,16 @@ const StyledValues = styled.div`
         img {
             width: 75px;
             height: 75px;
+        }
+
+        h4 {
+            color: ${colors.primary_text_color};
+        }
+
+        p {
+            min-height: 100px;
+            max-height: 100px;
+            width: 90%;
         }
     }
 `;

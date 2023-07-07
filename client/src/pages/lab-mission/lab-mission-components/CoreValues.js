@@ -2,10 +2,10 @@ import React from 'react';
 import { StyledValues } from '../LabMissionStyles';
 
 const coreValuesList = {
-	'Open Science': 'Research transparency, reproducibility, and reusability',
-	Accessible: 'Science must be accessible and beneficial to everyone',
-	Multidisciplinary: 'Our research is fundamentally multidisciplinary and all expertise is valued',
-	Unknown2:
+	Openness: 'Research transparency, reproducibility, and reusability',
+	Accessibility: 'Science must be accessible and beneficial to everyone',
+	Multidisciplinarity: 'Our research is fundamentally multidisciplinary and all expertise is valued',
+	Diversity:
 	<>
 		Recognition and valorization of diverse contributions
 		<a
@@ -29,7 +29,7 @@ const displayCoreValues = (values) => Object.entries(values).map(([key, value]) 
 	<div className="core-values-single-list-item">
 		<img
 			src="/images/Logo/customer.png"
-			alt="artifical-intelligence"
+			alt="customer"
 		/>
 		<h4>
 			{key}
@@ -37,7 +37,6 @@ const displayCoreValues = (values) => Object.entries(values).map(([key, value]) 
 		<p>
 			{value}
 		</p>
-
 	</div>
 ));
 
