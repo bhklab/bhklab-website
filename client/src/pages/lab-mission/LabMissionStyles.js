@@ -81,20 +81,11 @@ const StyledCulture = styled.div`
     }
 `;
 
-const StyledValues = styled.div`
+const StyledCoreValues = styled.div`
     /* margin: 30px; */
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    
-    @media only screen and (min-width: 768px) {
-        max-width: 80%;
-    }
-
-    @media only screen and (min-width: 1100px) {
-        max-width: 60%;
-    }
 
     .core-values-heading {
         font-weight: 500;
@@ -143,6 +134,6 @@ const StyledValues = styled.div`
 export {
 	StyledMissionContainer,
 	StyledMission,
-	StyledValues,
+	StyledCoreValues,
 	StyledCulture,
 };

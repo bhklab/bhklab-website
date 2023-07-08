@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledValues } from '../LabMissionStyles';
+import { StyledCoreValues } from '../LabMissionStyles';
 
 const coreValuesList = {
 	Openness: {
@@ -63,14 +63,14 @@ const displayCoreValues = (values) => Object.entries(values).map(([key, value]) 
  */
 function CoreValues() {
 	return (
-		<StyledValues>
+		<StyledCoreValues>
 			<h2 className="core-values-heading">
 				Core Values
 			</h2>
 			<p className="core-values-list">
 				{displayCoreValues(coreValuesList)}
 			</p>
-		</StyledValues>
+		</StyledCoreValues>
 	);
 }
 
