@@ -19,7 +19,7 @@ const Container = styled.div`
 `;
 
 const StyledImage = styled.div`
-    height: 350px;
+    height: 400px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -52,13 +52,15 @@ const PMCRTTowerImage = styled(StyledImage)`
     background-image: url('images/software/layout-bg.png');
 `;
 
-const TeamImage = styled(StyledImage)`
-    background-image: url('images/social/team_pic.jpg');
-`;
-
 const BHKLabImage = styled(StyledImage)`
 	background-color: #8d99ae;
 	background-image: url('images/software/layout-bg.png');
+	
+`;
+
+const TeamImage = styled(StyledImage)`
+    background-image: url('images/social/team_pic.jpg');
+	height: 500px;
 `;
 
 export {
