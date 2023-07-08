@@ -19,11 +19,15 @@ const Container = styled.div`
 `;
 
 const StyledImage = styled.div`
-    min-height: 500px;
+    height: 350px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+
+	@media screen and (min-height: 900px) {
+		height: 500px;
+	}
 `;
 
 const StyledHome = styled.div`
@@ -36,7 +40,7 @@ const StyledHome = styled.div`
 	}
 	.home-publication-and-presentation-section {
 		padding-top: 70px;
-		height: 900px;
+		/* height: 900px; */
 	}
 `;
 
