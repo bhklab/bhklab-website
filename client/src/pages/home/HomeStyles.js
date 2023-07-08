@@ -38,6 +38,7 @@ const StyledHome = styled.div`
 	.home-component-sub-section > hr {
 		margin: auto;
 	}
+	
 	.home-publication-and-presentation-section {
 		padding-top: 70px;
 		/* height: 900px; */

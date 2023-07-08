@@ -40,8 +40,8 @@ const StyledResearchAxisCard = styled(StyledCard)`
   height: 400px;
   padding: 20px 0;
   border-radius: 10px;
-  box-shadow: 0px 0px 5px ${colors.card_shadow_color};
   text-align: justify;
+  box-shadow: 0px 0px 4px ${colors.card_shadow_color};
 
   @media screen and (min-width: 1700px) {
     width: 500px;

@@ -4,7 +4,7 @@ import { StyledMission } from '../LabMissionStyles';
 const labOverallMission = `
 			Our overarching goal consists of developing cutting-edge computational tools
 			and predictive models to identify new cancer vulnerabilities
-			and improve the precision oncology is delivered to patients`;
+			and improve the precision oncology is delivered to patients.`;
 
 const waysToAchieveMission = [
 	<>

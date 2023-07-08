@@ -27,6 +27,7 @@ const StyledMission = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 30px;
 
     p.overall-mission-content-section {
         @media only screen and (min-width: 768px) {
@@ -50,7 +51,7 @@ const StyledMission = styled.div`
         justify-content: space-between;
         align-items: center;
         border-radius: 10px;
-        box-shadow: 0 0 5px ${colors.card_shadow_color};
+        box-shadow: 0 0 4px ${colors.card_shadow_color};
         
         p {
             font-size: 1rem;
@@ -72,7 +73,6 @@ const StyledMission = styled.div`
 `;
 
 const StyledCulture = styled.div`
-    /* margin: 30px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -82,7 +82,6 @@ const StyledCulture = styled.div`
 `;
 
 const StyledCoreValues = styled.div`
-    /* margin: 30px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -112,7 +111,7 @@ const StyledCoreValues = styled.div`
         justify-content: space-around;
         align-items: center;
         border-radius: 10px;
-        box-shadow: 0 0 5px ${colors.card_shadow_color};
+        box-shadow: 0 0 4px ${colors.card_shadow_color};
 
         img {
             width: 75px;
