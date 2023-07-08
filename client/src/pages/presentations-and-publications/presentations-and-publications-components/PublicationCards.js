@@ -17,7 +17,15 @@ function PresentationCard(props) {
 		image, title, event, url, members, date,
 	} = props.publication;
 	return (
-		<Card sx={{ display: 'flex', margin: '10px 0px', height: '110px' }} className="presentation-card-container">
+		<Card
+			sx={{
+				display: 'flex',
+				margin: '15px 0 0 0',
+				height: '110px',
+				boxShadow: `0 0 4px ${colors.card_shadow_color}`,
+			}}
+			className="presentation-card-container"
+		>
 			{
 				url
 					? (
@@ -86,7 +94,13 @@ function PaperCard(props) {
 		image, title, url, authors, members, releaseDate,
 	} = props.publication;
 	return (
-		<Card sx={{ display: 'flex', marginBottom: '10px', height: '110px' }}>
+		<Card sx={{
+			display: 'flex',
+			margin: '15px 0 0 0',
+			height: '110px',
+			boxShadow: `0 0 4px ${colors.card_shadow_color}`,
+		}}
+		>
 			<div style={{ width: '110px' }}>
 				{
 					url
@@ -111,7 +125,7 @@ function PaperCard(props) {
 			</div>
 			<Box sx={{ display: 'flex', flexDirection: 'column' }}>
 				<CardContent sx={{ flex: '1 0 auto' }}>
-					<Typography component="div" variant="subtitle1" style={{ fontSize: '18px' }}>
+					<Typography component="div" variant="subtitle1" style={{ fontSize: '16px' }}>
 						{
 							url
 								? (
