@@ -46,19 +46,18 @@ function LeftPositionedTimeline({ selectYear }) {
 		selectYear(year);
 	};
 
-	//Adjusting the timeline items and buttons in the timeline component
-	const adjustItems = () =>{
-
+	// Adjusting the timeline items and buttons in the timeline component
+	const adjustItems = () => {
 		// Adding or removing the number of items shown in timeline list
-		if(itemsLoaded === 6){
+		if (itemsLoaded === 6) {
 			setItemsLoaded(itemsLoaded + 3);
-		} else if (itemsLoaded === 9){
+		} else if (itemsLoaded === 9) {
 			setItemsLoaded(itemsLoaded + 2);
 			setItemsButton('show less'); // after all timeline components are rendered change the button's text
-		}else {
+		} else {
 			setItemsLoaded(6);
 			setItemsButton('...'); // when the timeline component is reset change the buttons's text
-		};
+		}
 	};
 
 	/**
@@ -66,9 +65,9 @@ function LeftPositionedTimeline({ selectYear }) {
 	 * @param {Array} years - an array of years for the timeline
 	 * @returns {JSX} - returns the JSX for the timeline
 	 */
+	// eslint-disable-next-line consistent-return, array-callback-return
 	const displayTimeline = (years) => years.map((year, index) => {
-
-		if (index < itemsLoaded){
+		if (index < itemsLoaded) {
 			if (index === itemsLoaded - 1) {
 				return (
 					<TimelineItem
@@ -78,52 +77,49 @@ function LeftPositionedTimeline({ selectYear }) {
 						<TimelineSeparator>
 							<TimelineDot sx={{ backgroundColor: selectedYear === year ? '#039be5' : '#bdbdbd' }} />
 						</TimelineSeparator>
-						<TimelineContent color={ selectedYear === year ? 'primary' : colors.primary_text_color }>
+						<TimelineContent color={selectedYear === year ? 'primary' : colors.primary_text_color}>
 							{year}
 						</TimelineContent>
 					</TimelineItem>
 				);
 			}
 			return (
-				<>
-					<TimelineItem
-						onClick={() => yearAction(year, index)}
-						className="hover-timeline-item static-timeline-item"
-					>
-						<TimelineSeparator>
-							<TimelineDot sx={{ backgroundColor: selectedYear === year ? '#039be5' : '#bdbdbd' }} />
-							<TimelineConnector />
-						</TimelineSeparator>
-						<TimelineContent color={selectedYear === year ? 'primary' : colors.primary_text_color}>
-							{year}
-						</TimelineContent>
-					</TimelineItem>
-				</>
-				
+				<TimelineItem
+					onClick={() => yearAction(year, index)}
+					className="hover-timeline-item static-timeline-item"
+				>
+					<TimelineSeparator>
+						<TimelineDot sx={{ backgroundColor: selectedYear === year ? '#039be5' : '#bdbdbd' }} />
+						<TimelineConnector />
+					</TimelineSeparator>
+					<TimelineContent color={selectedYear === year ? 'primary' : colors.primary_text_color}>
+						{year}
+					</TimelineContent>
+				</TimelineItem>
+
 			);
 		}
-		
 	});
 
 	return (
 		<StyledTimeline>
-			<Timeline position="left" sx={{ height: '650px'}}>
+			<Timeline position="left" sx={{ height: '650px' }}>
 				{
 					displayTimeline(YEARS)
 				}
-			<Button 
-				disableElevation
-				disableRipple
-				sx={{
-					width: itemsLoaded === 11 ?  '100px' : '30px',
-					margin: itemsLoaded === 11 ? '-35px 0 0 0' : '-50px 0 0 20px',
-					fontSize: itemsLoaded === 11 ? '0.63rem' : '2rem',
-					"&.MuiButtonBase-root:hover": {	bgcolor: "transparent" },
-				}} 
-				onClick={() => adjustItems()}
-			>
-				{itemsButton}
-			</Button>
+				<Button
+					disableElevation
+					disableRipple
+					sx={{
+						width: itemsLoaded === 11 ? '100px' : '30px',
+						margin: itemsLoaded === 11 ? '-35px 0 0 0' : '-50px 0 0 20px',
+						fontSize: itemsLoaded === 11 ? '0.63rem' : '2rem',
+						'&.MuiButtonBase-root:hover': {	bgcolor: 'transparent' },
+					}}
+					onClick={() => adjustItems()}
+				>
+					{itemsButton}
+				</Button>
 			</Timeline>
 		</StyledTimeline>
 	);

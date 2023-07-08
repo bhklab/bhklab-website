@@ -1,8 +1,8 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Container from '@mui/material/Container';
-import { CardActions } from '@mui/material';
 import StyledHeading from '../../../styles/StyledHeading';
 import {
 	StyledCard, StyledImage, StyledName, StyledTitle, StyledPeople,
@@ -29,13 +29,15 @@ const PI_BIO = `
 `;
 
 // eslint-disable-next-line react/prop-types
-function MemberHeadShot({ title, description, imageUrl, item }) {
+function MemberHeadShot({
+	title, description, imageUrl, item,
+}) {
 	return (
 		<StyledCard>
 			<StyledImage src={imageUrl} alt={title} PlaceholderSrc="./images/Logo/bhklab-logo.png" />
 			<StyledName>{title}</StyledName>
 			<StyledTitle>{description}</StyledTitle>
-			<BasicModal person={item}/>
+			<BasicModal person={item} />
 		</StyledCard>
 	);
 }
@@ -48,12 +50,12 @@ const displayMember = (item, index) => (
 			param: { member: item },
 		}}
 		> */}
-			<MemberHeadShot
-				description={item.position}
-				title={item.name}
-				imageUrl={`/images/people/${item.image}`}
-				item={item}
-			/>
+		<MemberHeadShot
+			description={item.position}
+			title={item.name}
+			imageUrl={`/images/people/${item.image}`}
+			item={item}
+		/>
 		{/* </Link> */}
 	</div>
 );

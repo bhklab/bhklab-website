@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
-import MemberInDetail from '../../pages/about/lab-members/MemberInDetail';
 import styled from 'styled-components';
+import MemberInDetail from '../../pages/about/lab-members/MemberInDetail';
 import colors from '../../styles/colors';
 
 const boxStyle = {
@@ -13,16 +14,16 @@ const boxStyle = {
 	transform: 'translate(-50%, -50%)',
 	width: 900,
 	bgcolor: 'background.paper',
-	"border-radius": '25px',
-	"box-shadow": `0 0 10px 0 ${colors.card_shadow_color}`,
+	'border-radius': '25px',
+	'box-shadow': `0 0 10px 0 ${colors.card_shadow_color}`,
 	p: 4,
 };
 
 const buttonStyle = {
-	"&.MuiButtonBase-root:hover": {	bgcolor: "transparent" },
+	'&.MuiButtonBase-root:hover': {	bgcolor: 'transparent' },
 	color: '#1e88e5',
 	fontSize: '0.7rem',
-}
+};
 
 const Container = styled.div`
 	display: flex;
@@ -30,7 +31,6 @@ const Container = styled.div`
 	justify-content: center;
 	box-shadow: 0 0 5px ${colors.card_shadow_color},
 `;
-
 
 export default function BasicModal({ person }) {
 	const [open, setOpen] = React.useState(false);
@@ -46,12 +46,12 @@ export default function BasicModal({ person }) {
 				aria-describedby="modal-modal-description"
 			>
 				<Box sx={boxStyle}>
-				<MemberInDetail
-					name={person.name}
-					title={person.title}
-					photo={`/images/people/${person.image}`}
-					bio={person.bio}
-				/>
+					<MemberInDetail
+						name={person.name}
+						title={person.title}
+						photo={`/images/people/${person.image}`}
+						bio={person.bio}
+					/>
 				</Box>
 			</Modal>
 		</Container>
