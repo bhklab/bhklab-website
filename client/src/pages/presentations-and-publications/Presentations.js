@@ -43,8 +43,8 @@ function Presentations() {
 			const presData = PresentationData;
 			// display 2023 data on page load
 			const filter = presData.filter(
-				(pres) => pres.date.substring(0, 10) >= ('2023-00-00')
-				&& pres.date < '2024-00-00',
+				(pres) => pres.date.substring(0, 10) >= ('2022-00-00')
+				&& pres.date < '2023-00-00',
 			);
 			setPresentation(
 				filter.sort((a, b) => new Date(b.date) - new Date(a.date)),

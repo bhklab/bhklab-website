@@ -9,7 +9,6 @@ const StyledNavigation = styled.nav`
   align-items: center;
   position: fixed;
   z-index: 1000;
-  background-color: white;
   box-shadow: 0px 0px 10px ${colors.card_shadow_color};
 `;
 
@@ -29,13 +28,16 @@ const NavLinks = styled.div`
   justify-content: space-evenly;
   align-items: center;
   font-size: 0.9rem;
-  
-  a {
-    color: ${colors.primary_text_color};
-  }
 
   a:hover {
     color: ${colors.link_color};
+  }
+
+  .scrolled-nav{
+    color: ${colors.primary_text_color};
+  }
+  .no-scrolled-nav{
+	color: white;
   }
 
   .header-link {
