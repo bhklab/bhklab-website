@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
-import React from 'react';
+import React, { useState } from 'react';
 import BurgerMenu from './BurgerMenu';
 import { LogoContainer, NavLinks, StyledNavigation } from './StyledNavigation';
+import colors from '../../../styles/colors';
 
 // navigation links
 // note: we could have made an array of names and used them as as the href attribute
@@ -21,31 +22,40 @@ const navigationLinks = [
 
 /**
  *
- * @param {Array} links
- * @returns {React.JSX}
- */
-const renderNavigationLins = (links) => links.map((link) => (link.name === 'Contact'
-	? (
-		<div className={`header-link-${link.linkTo} header-link`}>
-			<Link to={`/${link.linkTo}`}>
-				{link.name}
-			</Link>
-		</div>
-	) : (
-		<div className={`header-link-${link.linkTo} header-link`}>
-			<a href={`#${link.linkTo}`}>
-				{link.name}
-			</a>
-		</div>
-	)));
-
-/**
- *
  * @returns {React.JSX} - navigation react component
  */
 function NavBar() {
+	const [scrolled, setScrolled] = useState(false);
+	const isScrolling = () => {
+		if (window.scrollY > 80) {
+			setScrolled(true);
+		} else {
+			setScrolled(false);
+		}
+	};
+	window.addEventListener('scroll', isScrolling);
+
+	/**
+	*
+	* @param {Array} links
+	* @returns {React.JSX}
+	*/
+	const renderNavigationLins = (links) => links.map((link) => (link.name === 'Contact'
+		? (
+			<div className={`header-link-${link.linkTo} header-link`}>
+				<Link style={{ color: scrolled ? `${colors.primary_text_color}` : 'white' }} to={`/${link.linkTo}`}>
+					{link.name}
+				</Link>
+			</div>
+		) : (
+			<div className={`header-link-${link.linkTo} header-link`}>
+				<a style={{ color: scrolled ? `${colors.primary_text_color}` : 'white' }} href={`#${link.linkTo}`}>
+					{link.name}
+				</a>
+			</div>
+		)));
 	return (
-		<StyledNavigation className="navigation-bar">
+		<StyledNavigation style={{ backgroundColor: scrolled ? 'white' : 'transparent' }}>
 			<LogoContainer>
 				<Link to="/">
 					<img alt="logo" src="/images/Logo/bhklogo.png" />

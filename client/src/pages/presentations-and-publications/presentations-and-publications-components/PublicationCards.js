@@ -2,12 +2,12 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 // import { DateTime } from 'luxon';
 import colors from '../../../styles/colors';
+import { StyledCard, StyledAuthors } from './CardStyles';
 
 const { DateTime } = require('luxon');
 
@@ -17,7 +17,7 @@ function PresentationCard(props) {
 		image, title, event, url, members, date,
 	} = props.publication;
 	return (
-		<Card
+		<StyledCard
 			sx={{
 				display: 'flex',
 				margin: '15px 0 0 0',
@@ -49,7 +49,7 @@ function PresentationCard(props) {
 			}
 			<Box sx={{ display: 'flex', flexDirection: 'column' }}>
 				<CardContent sx={{ flex: '1 0 auto' }}>
-					<Typography component="div" variant="subtitle1">
+					<Typography component="div" variant="subtitle1" style={{ fontSize: '16px', 'line-height': '1.25' }}>
 						{
 							url
 								? (
@@ -62,7 +62,7 @@ function PresentationCard(props) {
 					</Typography>
 					{ date
 							&& (
-								<Typography variant="h7" color="text.secondary" component="div" style={{ fontSize: '12px' }}>
+								<Typography variant="h7" color="text.secondary" component="div" style={{ fontSize: '12px', margin: '5px 0' }}>
 									{DateTime.fromISO(date).toFormat('LLL dd, yyyy')}
 								</Typography>
 							)}
@@ -84,7 +84,7 @@ function PresentationCard(props) {
 					}
 				</CardContent>
 			</Box>
-		</Card>
+		</StyledCard>
 	);
 }
 
@@ -94,7 +94,7 @@ function PaperCard(props) {
 		image, title, url, authors, members, releaseDate,
 	} = props.publication;
 	return (
-		<Card sx={{
+		<StyledCard sx={{
 			display: 'flex',
 			margin: '15px 0 0 0',
 			height: '110px',
@@ -108,7 +108,10 @@ function PaperCard(props) {
 							<a className="link" href={url} target="_blank" rel="noreferrer">
 								<CardMedia
 									component="img"
-									sx={{ width: 110, objectFit: 'cover' }}
+									sx={{
+										width: 110,
+										objectFit: 'cover',
+									}}
 									image={image ? `images/publication/${image}` : 'images/publication/publication-blurry.png'}
 									alt={image ? 'an image of publisher\'s cover' : 'a placeholder image for unavailable publisher cover'}
 								/>
@@ -125,7 +128,7 @@ function PaperCard(props) {
 			</div>
 			<Box sx={{ display: 'flex', flexDirection: 'column' }}>
 				<CardContent sx={{ flex: '1 0 auto' }}>
-					<Typography component="div" variant="subtitle1" style={{ fontSize: '16px' }}>
+					<Typography component="div" variant="subtitle1" style={{ fontSize: '16px', 'line-height': '1.25' }}>
 						{
 							url
 								? (
@@ -138,7 +141,7 @@ function PaperCard(props) {
 					</Typography>
 					{ releaseDate
 					&& (
-						<Typography variant="h7" color="text.secondary" component="div" style={{ fontSize: '12px' }}>
+						<Typography variant="h7" color="text.secondary" component="div" style={{ fontSize: '12px', margin: '5px 0' }}>
 							{releaseDate}
 						</Typography>
 					)}
@@ -153,14 +156,14 @@ function PaperCard(props) {
 					{
 						members
 						&& (
-							<div style={{ color: `${colors.gray_footer}`, fontSize: '12px' }}>
+							<StyledAuthors style={{ color: `${colors.gray_footer}`, fontSize: '12px' }}>
 								{authors}
-							</div>
+							</StyledAuthors>
 						)
 					}
 				</CardContent>
 			</Box>
-		</Card>
+		</StyledCard>
 	);
 }
 

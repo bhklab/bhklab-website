@@ -48,7 +48,7 @@ function Publications() {
 		const getPublications = async () => {
 			// const res = await axios.get('/api/data/publications');
 			const pubData = PublicationData;
-			const filter = pubData.filter((pub) => pub.year === '2023');
+			const filter = pubData.filter((pub) => pub.year === '2022');
 			const sortByYear = filter.sort(
 				(a, b) => b.releaseDate.substring(0, 5) - a.releaseDate.substring(0, 5),
 			);

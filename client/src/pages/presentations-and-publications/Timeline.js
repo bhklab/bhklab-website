@@ -6,26 +6,9 @@ import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 import Button from '@mui/material/Button';
-import styled from 'styled-components';
 import { useState } from 'react';
 import colors from '../../styles/colors';
-
-// styling for timeline
-const StyledTimeline = styled.div`
-	max-width: 150px;
-	min-width: 150px;
-	
-	.static-timeline-item {
-		color: ${colors.primary_text_color};
-	}	
-	.hover-timeline-item:hover {
-		color: ${colors.link_color};
-		cursor: pointer;
-	}
-	.selected-timeline-dot{
-		color: info;
-	}
-`;
+import StyledTimeline from './TimelineStyles';
 
 // timeline years
 const YEARS = ['2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '2015', '2014', '2013'];
@@ -37,7 +20,7 @@ const YEARS = ['2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '
 // TODO: Add props validation
 // eslint-disable-next-line react/prop-types
 function LeftPositionedTimeline({ selectYear }) {
-	const [selectedYear, setSelectedYear] = useState('2023');
+	const [selectedYear, setSelectedYear] = useState('2022');
 	const [itemsLoaded, setItemsLoaded] = useState(6);
 	const [itemsButton, setItemsButton] = useState('...');
 
@@ -103,7 +86,7 @@ function LeftPositionedTimeline({ selectYear }) {
 
 	return (
 		<StyledTimeline>
-			<Timeline position="left" sx={{ height: '650px' }}>
+			<Timeline position="left" sx={{ height: '700px' }}>
 				{
 					displayTimeline(YEARS)
 				}
@@ -112,7 +95,7 @@ function LeftPositionedTimeline({ selectYear }) {
 					disableRipple
 					sx={{
 						width: itemsLoaded === 11 ? '100px' : '30px',
-						margin: itemsLoaded === 11 ? '-35px 0 0 0' : '-50px 0 0 20px',
+						margin: itemsLoaded === 11 ? '-20px 0 0 0' : '-30px 0 0 20px',
 						fontSize: itemsLoaded === 11 ? '0.63rem' : '2rem',
 						'&.MuiButtonBase-root:hover': {	bgcolor: 'transparent' },
 					}}

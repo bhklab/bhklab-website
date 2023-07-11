@@ -16,7 +16,7 @@ const PublicationData = [
 		url: 'https://pubmed.ncbi.nlm.nih.gov/36948414/',
 		publisher: '',
 		releaseDate: '2023 Mar 21',
-		image: 'practical-rad-oncol.png',
+		image: 'prac-rad.jpg',
 		members: [],
 	},
 	{
@@ -26,7 +26,7 @@ const PublicationData = [
 		url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10309070/',
 		publisher: '',
 		releaseDate: '2023 Jun 29',
-		image: 'cancer-research-comm.png',
+		image: 'cancer-res-comm.jpg',
 		members: [],
 	},
 	{
@@ -136,7 +136,7 @@ const PublicationData = [
 		url: 'https://www.nature.com/articles/s41698-020-0122-1',
 		publisher: 'Nature',
 		releaseDate: '2020 Jun 15',
-		image: 'preci-oncol.png',
+		image: 'npj-prec-onc.jpg',
 		members: [],
 	},
 	{
@@ -272,7 +272,7 @@ const PublicationData = [
 	},
 	{
 		title: 'Metabolic Perturbation of Dermal Fibroblasts Regulates Skin Extracellular Matrix Homeostasis and Fibrosis',
-		authors: 'Haibe-Kains B, Cescon DW',
+		authors: 'Zhao X*, Psarianos P, Ghoraie LS, Yip K, Goldstein D, Gilbert R, Witterick I, Pang H, Hussain A, Lee JH, Williams J, Bratman S, Ailles L, Haibe-Kains B, Liu FF',
 		year: '2018',
 		url: 'https://pubmed.ncbi.nlm.nih.gov/32694814/',
 		publisher: 'Nature metabolism',
@@ -503,7 +503,7 @@ const PublicationData = [
 	},
 	{
 		title: 'RamiGO: an R/Bioconductor package providing an AmiGO Visualize interface',
-		authors: 'chröder MS, Gusenleitner D, Quackenbush J, Culhane AC, Haibe-Kains B',
+		authors: 'Schröder MS, Gusenleitner D, Quackenbush J, Culhane AC, Haibe-Kains B',
 		year: '2013',
 		url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3582261/',
 		publisher: 'Sci Rep',
