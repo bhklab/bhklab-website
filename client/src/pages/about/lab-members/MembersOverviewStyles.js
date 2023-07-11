@@ -35,7 +35,7 @@ const StyledName = styled.h2`
 const StyledTitle = styled.p`
     font-size: 12px;
     font-style: italic;
-    color: ${colors.gray_footer};
+    color: ${colors.primary_text_color};
     margin: 10px 10px 0 10px;
     text-align: center;
 `;

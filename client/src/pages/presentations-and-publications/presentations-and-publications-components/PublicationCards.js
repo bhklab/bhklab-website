@@ -156,7 +156,7 @@ function PaperCard(props) {
 					{
 						members
 						&& (
-							<StyledAuthors style={{ color: `${colors.gray_footer}`, fontSize: '12px' }}>
+							<StyledAuthors style={{ color: `${colors.primary_text_color}`, fontSize: '12px' }}>
 								{authors}
 							</StyledAuthors>
 						)
