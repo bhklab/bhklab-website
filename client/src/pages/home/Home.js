@@ -7,6 +7,7 @@ import {
 import Layout from '../../components/utils/Layout';
 import ResearchAxis from '../research-axis/ResearchAxis';
 import LabMission from '../lab-mission/LabMission';
+import Preprints from '../presentations-and-publications/Preprints';
 import Publications from '../presentations-and-publications/Publications';
 import Presentations from '../presentations-and-publications/Presentations';
 import Software from '../web-apps-and-packages/WebAppsAndPackages';
@@ -41,6 +42,12 @@ function Home() {
 						</div>
 						<div id="pmcrt-tower-image-container" className="home-component-sub-section">
 							<PMCRTTowerImage />
+						</div>
+						<div id="preprints" className="home-publication-and-presentation-section">
+							<Preprints />
+						</div>
+						<div className="home-component-sub-section">
+							<hr />
 						</div>
 						<div id="publications" className="home-publication-and-presentation-section">
 							<Publications />

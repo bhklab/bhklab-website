@@ -21,7 +21,7 @@ function PresentationCard(props) {
 			sx={{
 				display: 'flex',
 				margin: '15px 0 0 0',
-				height: '110px',
+				height: '100px',
 				boxShadow: `0 0 4px ${colors.card_shadow_color}`,
 			}}
 			className="presentation-card-container"
@@ -97,11 +97,11 @@ function PaperCard(props) {
 		<StyledCard sx={{
 			display: 'flex',
 			margin: '15px 0 0 0',
-			height: '110px',
+			height: '100px',
 			boxShadow: `0 0 4px ${colors.card_shadow_color}`,
 		}}
 		>
-			<div style={{ width: '110px' }}>
+			<div style={{ width: '100px' }}>
 				{
 					url
 						? (
@@ -109,7 +109,7 @@ function PaperCard(props) {
 								<CardMedia
 									component="img"
 									sx={{
-										width: 110,
+										width: 100,
 										objectFit: 'cover',
 									}}
 									image={image ? `images/publication/${image}` : 'images/publication/publication-blurry.png'}
@@ -166,8 +166,60 @@ function PaperCard(props) {
 		</StyledCard>
 	);
 }
+function PreprintCard(props) {
+	const {
+		image, title, authors, date,
+	} = props.publication;
+	return (
+		<StyledCard sx={{
+			display: 'flex',
+			margin: '15px 0 0 0',
+			height: '100px',
+			boxShadow: `0 0 4px ${colors.card_shadow_color}`,
+		}}
+		>
+			<div style={{ width: '100px' }}>
+				{
+					(
+						<CardMedia
+							component="img"
+							sx={{ width: 100, objectFit: 'cover', border: '1'}}
+							image={image ? `images/publication/${image}` : 'images/publication/publication-blurry.png'}
+							alt={image ? 'an image of publisher\'s cover' : 'a placeholder image for unavailable publisher cover'}
+						/>
+					)
+				}
+			</div>
+			<Box sx={{ display: 'flex', flexDirection: 'column' }}>
+				<CardContent sx={{ flex: '1 0 auto' }}>
+					<Typography component="div" variant="subtitle1" style={{ fontSize: '16px', 'line-height': '1.25' }}>
+						{
+							title
+						}
+
+					</Typography>
+					{ date
+					&& (
+						<Typography variant="h7" color="text.secondary" component="div" style={{ fontSize: '12px', margin: '5px 0' }}>
+							{date}
+						</Typography>
+					)}
+					{
+						authors
+						&& (
+							<StyledAuthors style={{ color: `${colors.gray_footer}`, fontSize: '12px' }}>
+								{authors}
+							</StyledAuthors>
+						)
+					}
+				</CardContent>
+			</Box>
+		</StyledCard>
+	);
+}
 
 export {
 	PresentationCard,
 	PaperCard,
+	PreprintCard,
 };

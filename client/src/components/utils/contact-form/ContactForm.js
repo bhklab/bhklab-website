@@ -121,12 +121,13 @@ function ContactForm() {
 				}}
 				autoComplete="off"
 			>
-				<form onSubmit={handleSubmit}>
+				<form onSubmit={handleSubmit} style={{ width: '100%', textAlign: 'left' }}>
 					<TextField
 						id="outlined-basic"
 						label={<StyledLabel title="Your Name" />}
 						variant="outlined"
 						value={fullName}
+						style={{ width: '50%' }}
 						onChange={(e) => {
 							setFullName(e.target.value);
 						}}
@@ -137,6 +138,7 @@ function ContactForm() {
 						label={<StyledLabel title="Email" />}
 						variant="outlined"
 						value={email}
+						style={{ width: '50%' }}
 						onChange={(e) => {
 							setEmail(e.target.value);
 						}}
@@ -147,13 +149,14 @@ function ContactForm() {
 						label={<StyledLabel title="Subject" />}
 						variant="outlined"
 						value={subject}
+						style={{ width: '50%' }}
 						onChange={(e) => {
 							setSubject(e.target.value);
 						}}
 					/>
 					<MarginBar />
 					<TextField
-						sx={{ marginLeft: '5px', width: '200%' }}
+						sx={{ width: '100%' }}
 						id="outlined-multiline-static"
 						label={<StyledLabel title="Message" />}
 						multiline
