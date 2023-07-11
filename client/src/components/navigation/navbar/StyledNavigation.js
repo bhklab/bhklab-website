@@ -30,16 +30,11 @@ const NavLinks = styled.div`
   font-size: 0.9rem;
 
   a:hover {
-    color: ${colors.link_color};
+    color: ${colors.link_color} !important;
   }
-
-  .scrolled-nav{
-    color: ${colors.primary_text_color};
+  .link-pressed {
+	color: ${colors.link_color} !important;
   }
-  .no-scrolled-nav{
-	color: white;
-  }
-
   .header-link {
     position: relative;
   }

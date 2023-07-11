@@ -26,6 +26,7 @@ const navigationLinks = [
  */
 function NavBar() {
 	const [scrolled, setScrolled] = useState(false);
+	const [pressed, setPressed] = useState('');
 	const isScrolling = () => {
 		if (window.scrollY > 80) {
 			setScrolled(true);
@@ -35,6 +36,10 @@ function NavBar() {
 	};
 	window.addEventListener('scroll', isScrolling);
 
+	const pressedLink = (linkName) => {
+		setPressed(linkName);
+	}
+
 	/**
 	*
 	* @param {Array} links
@@ -43,13 +48,23 @@ function NavBar() {
 	const renderNavigationLins = (links) => links.map((link) => (link.name === 'Contact'
 		? (
 			<div className={`header-link-${link.linkTo} header-link`}>
-				<Link style={{ color: scrolled ? `${colors.primary_text_color}` : 'white' }} to={`/${link.linkTo}`}>
+				<Link
+					className = {pressed === link.name ? "link-pressed" : ""}
+					onClick={() => pressedLink()}
+					style={{ color: scrolled ? `${colors.primary_text_color}` : 'white' }}
+					to={`/${link.linkTo}`}
+				>
 					{link.name}
 				</Link>
 			</div>
 		) : (
 			<div className={`header-link-${link.linkTo} header-link`}>
-				<a style={{ color: scrolled ? `${colors.primary_text_color}` : 'white' }} href={`#${link.linkTo}`}>
+				<a
+					className = {pressed === link.name ? "link-pressed" : ""}
+					onClick={() => pressedLink(link.name)}
+					style={{ color: scrolled ? `${colors.primary_text_color}` : 'white' }}
+					href={`#${link.linkTo}`}
+				>
 					{link.name}
 				</a>
 			</div>
