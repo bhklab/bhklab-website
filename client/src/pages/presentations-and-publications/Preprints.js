@@ -3,7 +3,6 @@ import Container from '@mui/material/Container';
 import PaginatedPublications from './presentations-and-publications-components/PaginatedPublications';
 import { PreprintCard } from './presentations-and-publications-components/PublicationCards';
 import StyledHeading from '../../styles/StyledHeading';
-import LeftPositionedTimeline from './Timeline';
 import DisplayContainer from './PresentationsAndPupblicationsStyles';
 import PreprintData from './pres-and-pub-data/PreprintData';
 
@@ -21,7 +20,7 @@ function Publications() {
 		window.scrollTo(0, 0);
 		const getPreprints = async () => {
 			setPreprints(
-				PreprintData
+				PreprintData,
 			);
 			setReady(true);
 		};

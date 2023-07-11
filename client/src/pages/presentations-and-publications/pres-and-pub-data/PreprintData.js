@@ -38,6 +38,6 @@ const PreprintData = [{
 	doi: '10.1101/2022.10.22.513279',
 	image: 'biorxiv2.png',
 },
-]
+];
 
 export default PreprintData;

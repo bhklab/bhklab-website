@@ -38,7 +38,7 @@ function NavBar() {
 	};
 	window.addEventListener('scroll', isScrolling);
 
-	// set a link on navbar to 'pressed
+	// set a link on navbar to 'pressed'
 	const pressedLink = (linkName) => {
 		setPressed(linkName);
 	};
@@ -103,6 +103,7 @@ function NavBar() {
 					</div>
 				))));
 	};
+	// if on homepage render nav-bar with transparent + scroll attribute
 	if (location.pathname === '/') {
 		return (
 			<StyledNavigation style={{ backgroundColor: scrolled ? 'white' : 'transparent' }}>
@@ -120,6 +121,7 @@ function NavBar() {
 			</StyledNavigation>
 		);
 	}
+	// if not on homepage render nav-bar without transparent + scroll attribute
 	return (
 		<StyledNavigation style={{ backgroundColor: 'white' }}>
 			<LogoContainer>

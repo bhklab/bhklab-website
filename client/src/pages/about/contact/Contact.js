@@ -14,7 +14,7 @@ import StyledHeading from '../../../styles/StyledHeading';
 function Contact() {
 	return (
 		<Layout>
-			<Container sx={{ marginTop: '100px' }}>
+			<Container id="contact" sx={{ marginTop: '100px' }}>
 				<StyledHeading>Contact Us</StyledHeading>
 				<Grid container spacing={1} sx={{ marginBottom: '10px', flexGrow: 1 }}>
 					<Grid item lg={12} container spacing={2}>
@@ -80,11 +80,11 @@ function Contact() {
 					</Grid>
 				</Grid>
 			</Container>
-			{/* <Container>
+			<Container>
 				<MapFrame
 					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.43444669756!2d-79.39085344846093!3d43.65993365990993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34b632b77689%3A0x901c210dff19e5a4!2s101%20College%20St%2C%20Toronto%2C%20ON%20M5G%201L7!5e0!3m2!1sen!2sca!4v1581544280286!5m2!1sen!2sca"
 				/>
-			</Container> */}
+			</Container>
 		</Layout>
 	);
 }
