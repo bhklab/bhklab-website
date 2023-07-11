@@ -4,7 +4,7 @@ import colors from '../../../styles/colors';
 
 const MapFrame = styled.iframe`
   width: 100%;
-  height: 100%;
+  height: 600px;
   border: 0;
 `;
 
@@ -15,11 +15,8 @@ const StyledEmail = styled.a`
   flex-direction: row;
   white-space: nowrap;
   border-radius: 3.5px;
-  color: black;
+  color: ${colors.link_color};
   margin-bottom: 10%;
-  &:hover {
-    color: ${colors.header_deep_blue};
-  }
 `;
 
 const StyledContent = styled.div`
