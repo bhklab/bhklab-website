@@ -32,7 +32,7 @@ const NavLinks = styled.div`
   a:hover {
     color: ${colors.link_color} !important;
   }
-  .contact-link-pressed {
+  .link-pressed {
 	color: ${colors.link_color} !important;
   }
   .header-link {

@@ -83,7 +83,7 @@ function NavBar() {
 				? (
 					<div className={`header-link-${link.linkTo} header-link`}>
 						<Link
-							className="contact-link-pressed"
+							className="link-pressed"
 							onClick={() => pressedLink()}
 							style={{ color: `${colors.primary_text_color}` }}
 							to={`/${link.linkTo}`}
