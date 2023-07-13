@@ -98,7 +98,7 @@ function Packages() {
 		<WebAppsAndPackagesStyles>
 			<div className="component-heading-packages">
 				<h1>
-					Packages
+					Software Packages
 				</h1>
 			</div>
 			<div className="packages-container">
