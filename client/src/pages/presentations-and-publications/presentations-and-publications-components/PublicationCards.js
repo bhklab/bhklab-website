@@ -14,7 +14,7 @@ const { DateTime } = require('luxon');
 // presentation cards
 function PresentationCard(props) {
 	const {
-		image, title, event, url, members, date,
+		image, title, event, url, members, date, location,
 	} = props.publication;
 	return (
 		<StyledCard
@@ -60,9 +60,14 @@ function PresentationCard(props) {
 								: (title || `Event: ${event || ''}`)
 						}
 					</Typography>
+					<Typography component="div" variant="subtitle2" style={{ margin: '5px 0' }}>
+						{event}
+					</Typography>
 					{ date
 							&& (
 								<Typography variant="h7" color="text.secondary" component="div" style={{ fontSize: '12px', margin: '5px 0' }}>
+									{location}
+									{location && (', ')}
 									{DateTime.fromISO(date).toFormat('LLL dd, yyyy')}
 								</Typography>
 							)}
@@ -196,7 +201,7 @@ function PreprintCard(props) {
 					</Typography>
 					{ date
 					&& (
-						<Typography variant="h7" color="text.secondary" component="div" style={{ fontSize: '12px', margin: '5px 0' }}>
+						<Typography variant="h7" component="div" style={{color: `${colors.primary_text_color}`, fontSize: '12px', margin: '5px 0' }}>
 							{date}
 						</Typography>
 					)}

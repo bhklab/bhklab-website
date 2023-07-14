@@ -27,8 +27,27 @@ const waysToAchieveMission = [
 			alt="deep-learning"
 		/>
 		<p>
-			The development of Machine Learning and Artificial
-			Intelligence approaches for biomedical applications
+			The development of
+			{' '}
+			<a 
+				href='https://www.ibm.com/topics/machine-learning'
+				target="_blank"
+				rel="noreferrer"
+			>
+				Machine Learning
+			</a>
+			{' '}
+			and
+			{' '}
+			 <a 
+				href='https://www.ibm.com/topics/artificial-intelligence'
+				target="_blank"
+				rel="noreferrer"
+			>
+				Artificial Intelligence
+			</a>
+			{' '} 
+			approaches for biomedical applications
 		</p>
 	</>,
 	<>
