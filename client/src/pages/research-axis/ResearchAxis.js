@@ -6,7 +6,7 @@ import { ResearchAxisCard } from '../../components/utils/custom-cards/CustomCard
 function ResearchAxis() {
 	return (
 		<StyledSection>
-			<h1> Research Axis </h1>
+			<h1> Research Axes </h1>
 			<div className="container">
 				{
 					Object.entries(researchAxisDescription).map(([key, value]) => (
