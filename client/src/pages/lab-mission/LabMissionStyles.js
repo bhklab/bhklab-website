@@ -35,6 +35,11 @@ const StyledMission = styled.div`
         }
     }
 
+	.highlight-keywords{
+		font-weight: 700;
+		color: ${colors.dark_gray};
+	}
+
     .ways-to-achieve-mission-section {
         display: flex;
         justify-content: center;
@@ -44,7 +49,7 @@ const StyledMission = styled.div`
     }
 
     .ways-to-achieve-mission-single-item {
-        width: 300px;
+        width: 325px;
         padding: 20px 10px;
         display: flex;
         flex-direction: column;
@@ -58,7 +63,7 @@ const StyledMission = styled.div`
         }
 
         :first-of-type, :last-of-type {
-            height: 250px;
+            /* height: 250px; */
         }
 
         @media only screen and (max-width: 1100px) {

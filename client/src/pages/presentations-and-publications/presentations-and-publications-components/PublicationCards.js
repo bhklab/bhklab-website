@@ -161,7 +161,7 @@ function PaperCard(props) {
 					{
 						members
 						&& (
-							<StyledAuthors style={{ color: `${colors.gray_footer}`, fontSize: '12px' }}>
+							<StyledAuthors style={{ color: `${colors.primary_text_color}`, fontSize: '12px' }}>
 								{authors}
 							</StyledAuthors>
 						)
@@ -173,7 +173,7 @@ function PaperCard(props) {
 }
 function PreprintCard(props) {
 	const {
-		image, title, authors, date,
+		image, title, authors, date, doi,
 	} = props.publication;
 	return (
 		<StyledCard sx={{
@@ -193,10 +193,10 @@ function PreprintCard(props) {
 			</div>
 			<Box sx={{ display: 'flex', flexDirection: 'column' }}>
 				<CardContent sx={{ flex: '1 0 auto' }}>
-					<Typography component="div" variant="subtitle1" style={{ fontSize: '16px', 'line-height': '1.25', color: `${colors.primary_text_color}` }}>
-						{
-							title
-						}
+					<Typography component="div" variant="subtitle1" style={{ fontSize: '16px', lineHeight: '1.25', color: colors.link_color }}>
+						<a className="link" href={`https://doi.org/${doi}`} target="_blank" rel="noreferrer">
+							{title}
+						</a>
 
 					</Typography>
 					{ date

@@ -1,10 +1,24 @@
 import React from 'react';
 import { StyledMission } from '../LabMissionStyles';
 
-const labOverallMission = `
-			Our overarching goal consists of developing cutting-edge computational tools
-			and predictive models to identify new cancer vulnerabilities
-			and improve the precision oncology is delivered to patients.`;
+const labOverallMission = () => 
+	<>
+			Our overarching goal consists of developing cutting-edge
+			{' '}
+		<span className='highlight-keywords'>
+				computational tools
+		</span>
+		{' '}
+			and
+		{' '}
+		<span className='highlight-keywords'>
+			predictive models
+		</span>
+		{' '}
+		to identify new cancer vulnerabilities and
+		improve the precision oncology is delivered to patients.
+		
+	</>
 
 const waysToAchieveMission = [
 	<>
@@ -41,8 +55,10 @@ const waysToAchieveMission = [
 				target="_blank"
 				rel="noreferrer"
 			>
-				Open Science principles
+				Open Science
 			</a>
+			{' '}
+			principles
 		</p>
 	</>,
 	<>
@@ -86,13 +102,12 @@ function Mission() {
 				Mission
 			</h1>
 			<p className="overall-mission-content-section">
-				{labOverallMission}
+				{labOverallMission()}
 			</p>
 			<div className="ways-to-achieve-mission-section">
 				{displayWaysToAchieveMission(waysToAchieveMission)}
 			</div>
 		</StyledMission>
-
 	);
 }
 

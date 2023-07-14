@@ -99,7 +99,7 @@ function WebApps() {
 		<WebAppsAndPackagesStyles>
 			<div className="component-heading-web-apps">
 				<h1>
-					Softwares
+					Web-applications
 				</h1>
 			</div>
 			<div className="web-apps-container">
