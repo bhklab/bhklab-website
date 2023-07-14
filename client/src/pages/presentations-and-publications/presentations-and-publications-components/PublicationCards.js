@@ -14,7 +14,7 @@ const { DateTime } = require('luxon');
 // presentation cards
 function PresentationCard(props) {
 	const {
-		image, title, event, url, members, date,
+		image, title, event, url, members, date, location,
 	} = props.publication;
 	return (
 		<StyledCard
@@ -60,9 +60,14 @@ function PresentationCard(props) {
 								: (title || `Event: ${event || ''}`)
 						}
 					</Typography>
+					<Typography component="div" variant="subtitle2" style={{ margin: '5px 0' }}>
+						{event}
+					</Typography>
 					{ date
 							&& (
 								<Typography variant="h7" color="text.secondary" component="div" style={{ fontSize: '12px', margin: '5px 0' }}>
+									{location}
+									{location && (', ')}
 									{DateTime.fromISO(date).toFormat('LLL dd, yyyy')}
 								</Typography>
 							)}
@@ -179,20 +184,16 @@ function PreprintCard(props) {
 		}}
 		>
 			<div style={{ width: '100px' }}>
-				{
-					(
-						<CardMedia
-							component="img"
-							sx={{ width: 100, objectFit: 'cover', border: '1'}}
-							image={image ? `images/publication/${image}` : 'images/publication/publication-blurry.png'}
-							alt={image ? 'an image of publisher\'s cover' : 'a placeholder image for unavailable publisher cover'}
-						/>
-					)
-				}
+				<CardMedia
+					component="img"
+					sx={{ width: 100, objectFit: 'cover', border: '1' }}
+					image={image ? `images/publication/${image}` : 'images/publication/publication-blurry.png'}
+					alt={image ? 'an image of publisher\'s cover' : 'a placeholder image for unavailable publisher cover'}
+				/>
 			</div>
 			<Box sx={{ display: 'flex', flexDirection: 'column' }}>
 				<CardContent sx={{ flex: '1 0 auto' }}>
-					<Typography component="div" variant="subtitle1" style={{ fontSize: '16px', 'line-height': '1.25' }}>
+					<Typography component="div" variant="subtitle1" style={{ fontSize: '16px', 'line-height': '1.25', color: `${colors.primary_text_color}` }}>
 						{
 							title
 						}
