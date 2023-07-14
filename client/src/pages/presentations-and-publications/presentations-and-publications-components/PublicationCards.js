@@ -201,7 +201,7 @@ function PreprintCard(props) {
 					</Typography>
 					{ date
 					&& (
-						<Typography variant="h7" color="text.secondary" component="div" style={{ fontSize: '12px', margin: '5px 0' }}>
+						<Typography variant="h7" component="div" style={{color: `${colors.primary_text_color}`, fontSize: '12px', margin: '5px 0' }}>
 							{date}
 						</Typography>
 					)}
