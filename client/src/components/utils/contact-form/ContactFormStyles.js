@@ -7,13 +7,16 @@ const StyledPIInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: left;
-  height: 60px;
+  height: 80px;
   line-spacing: 20px;
   margin-left: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 16px;
   font-weight: normal;
   text-align: left;
+  @media only screen and (max-width: 550px) {
+	height: 100px;
+  }
 `;
 
 function MarginBar() {

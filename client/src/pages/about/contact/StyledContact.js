@@ -16,16 +16,16 @@ const StyledEmail = styled.a`
   white-space: nowrap;
   border-radius: 3.5px;
   color: ${colors.link_color};
-  margin-bottom: 10%;
 `;
 
 const StyledContent = styled.div`
   width: 100%;
-  color: black;
   display: flex;
   line-height: 20px;
-  font-weight: normal;
+  font-weight: 600;
+  font-size: 13px;
   flex-direction: column;
+  color: ${colors.primary_text_color};
   .icons {
     flex-direction: row;
   }

@@ -28,7 +28,7 @@ const researchAxisDescription = {
 		their surroundings.	This widely used technology generates extensive data, which we aim to
 		utilize for developing new computational models. Our goal is to leverage this data to
 		improve diagnosis, treatment planning, and prediction of therapy response and resistance.`,
-		imagePath: '/images/research/biomarker.png',
+		imagePath: '/images/logo/tomography.png',
 	},
 
 	'Multimodal Data Integration': {
@@ -41,7 +41,7 @@ const researchAxisDescription = {
 		description: `Advancements in technology enable broader use in research and clinical settings, leading to improved
 		sensitivity and accuracy through effective integration. Our main goal is to advance computational modeling methods
 		that leverage the complementary nature of existing and emerging biomedical profiling technologies.`,
-		imagePath: '/images/logo/data-collection.png',
+		imagePath: '/images/logo/data-integration.png',
 	},
 
 	'Software Development': {

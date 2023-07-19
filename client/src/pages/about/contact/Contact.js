@@ -26,7 +26,7 @@ function Contact() {
 							</Box>
 						</Grid>
 						<Grid item lg={6}>
-							<Box id="category-a" sx={{ fontSize: '12px', textTransform: 'uppercase' }}>
+							<Box id="category-a" sx={{ fontSize: '12px', textTransform: 'uppercase', height: '130px' }}>
 								<StyledContent>
 									Soleil Miron, Administrative Assistant
 									{' '}
@@ -47,7 +47,7 @@ function Contact() {
 							</Box>
 						</Grid>
 						<Grid item lg={6}>
-							<Box id="category-b" sx={{ fontSize: '12px', textTransform: 'uppercase' }}>
+							<Box id="category-b" sx={{ fontSize: '12px', textTransform: 'uppercase', height: '130px' }}>
 								<StyledContent>
 									The MaRS Center, TMDT room 11-310
 									<br />
