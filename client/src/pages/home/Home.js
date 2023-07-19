@@ -28,7 +28,7 @@ function Home() {
 						<div id="home" className="microsoft-bhklab-video">
 							<video autoPlay loop muted>
 								{/* <track kind="caption" /> */}
-								<source src="/videos/lab_video.mp4" type="video/mp4" />
+								<source src="/videos/lab_video_V2.mp4" type="video/mp4" />
 							</video>
 						</div>
 						<div id="mission" className="home-component-sub-section">
