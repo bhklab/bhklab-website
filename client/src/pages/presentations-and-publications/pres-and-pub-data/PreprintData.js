@@ -17,7 +17,7 @@ const PreprintData = [{
 {
 	title: 'Med-ImageTools: An open-source Python package for robust data processing pipelines and curating medical imaging data',
 	authors: 'Sejin Kim, Michal Kazmierski, Kevin Qu, Jacob Peoples, Minoru Nakano, Vishwesh Ramanathan, Joseph Marsilla, Mattea Welch, Amber Simpson, Benjamin Haibe-Kains',
-	publisher: 'F1000Res',
+	publisher: 'F1000 Research',
 	date: '2023',
 	doi: '10.12688/f1000research.127142.1',
 	image: 'F1000Research.jpeg',

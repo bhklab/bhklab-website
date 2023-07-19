@@ -1,24 +1,24 @@
 import React from 'react';
 import { StyledMission } from '../LabMissionStyles';
 
-const labOverallMission = () => 
+const labOverallMission = () =>	(
 	<>
-			Our overarching goal consists of developing cutting-edge
-			{' '}
-		<span className='highlight-keywords'>
-				computational tools
+		Our overarching goal consists of developing cutting-edge
+		{' '}
+		<span className="highlight-keywords">
+			computational tools
 		</span>
 		{' '}
-			and
+		and
 		{' '}
-		<span className='highlight-keywords'>
+		<span className="highlight-keywords">
 			predictive models
 		</span>
 		{' '}
 		to identify new cancer vulnerabilities and
 		improve the precision oncology is delivered to patients.
-		
 	</>
+);
 
 const waysToAchieveMission = [
 	<>
@@ -29,8 +29,8 @@ const waysToAchieveMission = [
 		<p>
 			The development of
 			{' '}
-			<a 
-				href='https://www.ibm.com/topics/machine-learning'
+			<a
+				href="https://www.ibm.com/topics/machine-learning"
 				target="_blank"
 				rel="noreferrer"
 			>
@@ -39,14 +39,14 @@ const waysToAchieveMission = [
 			{' '}
 			and
 			{' '}
-			 <a 
-				href='https://www.ibm.com/topics/artificial-intelligence'
+			<a
+				href="https://www.ibm.com/topics/artificial-intelligence"
 				target="_blank"
 				rel="noreferrer"
 			>
 				Artificial Intelligence
 			</a>
-			{' '} 
+			{' '}
 			approaches for biomedical applications
 		</p>
 	</>,
