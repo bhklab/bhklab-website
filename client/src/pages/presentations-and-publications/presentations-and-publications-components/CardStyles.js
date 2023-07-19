@@ -8,7 +8,6 @@ const StyledCard = styled(Card)(() => ({
 
 const StyledAuthors = styled.div`
 	font-weight: 500;
-	margin: 1px 0 0 0;
 `;
 
 export { StyledCard, StyledAuthors };

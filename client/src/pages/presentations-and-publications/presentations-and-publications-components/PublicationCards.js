@@ -60,7 +60,7 @@ function PresentationCard(props) {
 								: (title || `Event: ${event || ''}`)
 						}
 					</Typography>
-					<Typography component="div" variant="subtitle2" style={{ marginTop: '4px' }}>
+					<Typography component="div" variant="subtitle2" style={{ color: `${colors.primary_text_color}` }}>
 						{event}
 					</Typography>
 					{
@@ -158,7 +158,6 @@ function PaperCard(props) {
 						style={{
 							color: `${colors.secondary_text_color}`,
 							'line-height': '1.25',
-							marginTop: '2px',
 						}}
 					>
 						{
@@ -173,7 +172,7 @@ function PaperCard(props) {
 					{
 						members
 						&& (
-							<StyledAuthors style={{ color: `${colors.primary_text_color}`, fontSize: '12px', marginTop: '2px' }}>
+							<StyledAuthors style={{ color: `${colors.primary_text_color}`, fontSize: '12px' }}>
 								{authors}
 							</StyledAuthors>
 						)
@@ -226,7 +225,6 @@ function PreprintCard(props) {
 								style={{
 									color: `${colors.secondary_text_color}`,
 									'line-height': '1.25',
-									marginTop: '2px',
 								}}
 							>
 								{publisher}
