@@ -20,7 +20,7 @@ const YEARS = ['2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '
 // TODO: Add props validation
 // eslint-disable-next-line react/prop-types
 function LeftPositionedTimeline({ selectYear }) {
-	const [selectedYear, setSelectedYear] = useState('2022');
+	const [selectedYear, setSelectedYear] = useState('');
 	const [itemsLoaded, setItemsLoaded] = useState(6);
 	const [itemsButton, setItemsButton] = useState('...');
 

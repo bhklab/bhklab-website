@@ -132,7 +132,7 @@ function PaperCard(props) {
 						) : (
 							<CardMedia
 								component="img"
-								sx={{ width: 110, objectFit: 'cover' }}
+								sx={{ width: 125, objectFit: 'cover' }}
 								image={image ? `images/publication/${image}` : 'images/publication/publication-blurry.png'}
 								alt={image ? 'an image of publisher\'s cover' : 'a placeholder image for unavailable publisher cover'}
 							/>

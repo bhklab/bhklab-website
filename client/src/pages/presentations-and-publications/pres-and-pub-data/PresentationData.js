@@ -9,14 +9,23 @@ const PresentationData = [{
 
 },
 {
-
-	title: 'Challenges in molecular characterization and prediction of Immunotherapy response',
-	event: 'Insights Lab 2022 - Research Camp, Institut Roche',
-	location: 'Paris, France',
-	date: '2022-09-12',
-	url: 'https://docs.google.com/presentation/d/1fC65f1oqUkUeC-TkNrBs-XzS344wMFdSTTibZ9ksTqU/edit?usp=sharing',
+	title: 'Federated Networks: A New Approach To Data Sharing and Analysis',
+	event: 'Deliberative Dialogue Workshop, Cancer Data Strategy & Advanced Analytics. Canadian Institutes for Health Research - Institute for Cancer Research',
+	location: 'Toronto, Canada',
+	date: '2023-06-20',
+	url: 'https://docs.google.com/presentation/d/1DZap7C43jnTNCWNePAWrDvwx7-vr0mdM4TROtFEl2_Y/edit?usp=sharing',
 	format: 'Slides',
-	image: '2022-09-12.png',
+	image: '2023-06-20.png',
+
+},
+{
+	title: 'The (Not-So-)Hard Path To Transparency and Reproducibility in Computational Research, Reproducibility and Replicability for Statistical Translation of Omics Data',
+	event: 'The Joint Statistical Meetings (JSM)',
+	location: 'Toronto, Canada',
+	date: '2023-08-08',
+	url: 'https://docs.google.com/presentation/d/16fu72lg8WgDBC8ffbF8eYozCvA7-jqKw91qwgQAqJk8/edit?usp=sharing',
+	format: 'Slides',
+	image: '2023-08-08.png',
 
 },
 {
@@ -32,6 +41,27 @@ const PresentationData = [{
 },
 {
 
+	title: 'Precision Oncology: Dealing with Noisy Phenotypes in Biomarker Discovery',
+	event: ' Takeda AI/ML Thought Leader Symposium',
+	location: 'Boston, USA',
+	date: '2022-11-15',
+	url: 'https://docs.google.com/presentation/d/1asGmFa-44rwTrlWCMHmQaCc0S7p6PINEBRKkCuBOxLs/edit?usp=sharing',
+	format: 'Slides',
+	image: '2022-11-15.png',
+
+},
+{
+
+	title: 'Challenges in molecular characterization and prediction of Immunotherapy response',
+	event: 'Insights Lab 2022 - Research Camp, Institut Roche',
+	location: 'Paris, France',
+	date: '2022-09-12',
+	url: 'https://docs.google.com/presentation/d/1fC65f1oqUkUeC-TkNrBs-XzS344wMFdSTTibZ9ksTqU/edit?usp=sharing',
+	format: 'Slides',
+	image: '2022-09-12.png',
+
+},
+{
 	title: 'Collaborative Platform and Reproducibility in AI Research. Yonsei Radiation Oncology',
 	event: '100th Anniversary Symposium',
 	location: 'Seoul, Korea',
@@ -43,17 +73,6 @@ const PresentationData = [{
 },
 {
 
-	title: 'The Hard Path To Transparency and Reproducibility in Cancer Bioinformatics',
-	event: 'Science Atlantic Mathematics, Statistics, and Computer Science Conference, St. Francis Xavier University',
-	location: 'Antigonish, Nova Scotia',
-	date: '2021-10-24',
-	url: 'https://docs.google.com/presentation/d/1imtzyXOlfpyd38Na3sZI1FdpTsiwShomuK7mJD2kHs8/edit?usp=sharing',
-	format: 'Slides',
-	image: '2021-10-24.png',
-
-},
-{
-
 	title: 'Biomarker Discovery Using Preclinical Models: Resources, Challenges and Opportunities',
 	event: 'European Laboratory Research & Innovation Group (ELRIG) Drug Discovery 2022',
 	location: 'London, United Kingdom',
@@ -61,17 +80,6 @@ const PresentationData = [{
 	url: 'https://docs.google.com/presentation/d/1lAkgz_ryxRxLQPUJrZE_fnJoM-BsKFY8zyBguLwK4vw/edit?usp=sharing',
 	format: 'Slides',
 	image: '2022-10-05.png',
-
-},
-{
-
-	title: 'Precision Oncology: Dealing with Noisy Phenotypes in Biomarker Discovery',
-	event: ' Takeda AI/ML Thought Leader Symposium',
-	location: 'Boston, USA',
-	date: '2022-11-15',
-	url: 'https://docs.google.com/presentation/d/1asGmFa-44rwTrlWCMHmQaCc0S7p6PINEBRKkCuBOxLs/edit?usp=sharing',
-	format: 'Slides',
-	image: '2022-11-15.png',
 
 },
 {
@@ -133,6 +141,17 @@ const PresentationData = [{
 	url: 'https://docs.google.com/presentation/d/1cIkaarw14cu7C0WKoQ2eotlZYLsrdnTwqP5HE0V3BhU/edit?usp=sharing',
 	format: 'Slides',
 	image: 'Platforms.png',
+},
+{
+
+	title: 'The Hard Path To Transparency and Reproducibility in Cancer Bioinformatics',
+	event: 'Science Atlantic Mathematics, Statistics, and Computer Science Conference, St. Francis Xavier University',
+	location: 'Antigonish, Nova Scotia',
+	date: '2021-10-24',
+	url: 'https://docs.google.com/presentation/d/1imtzyXOlfpyd38Na3sZI1FdpTsiwShomuK7mJD2kHs8/edit?usp=sharing',
+	format: 'Slides',
+	image: '2021-10-24.png',
+
 },
 {
 	title: 'Drug Predictive Computational Evaluations',
@@ -220,16 +239,16 @@ const PresentationData = [{
 	event: 'R/Bioconductor for Pharmacogenomics',
 	location: 'Boston, USA',
 	date: '2017-03-02',
-	url: 'http://bit.ly/2mb5N8C',
+	url: 'https://docs.google.com/presentation/d/1Hx0cJc14jnXsLgicE7f_Do27j_y4lwbQ6SJH_-q-KoI/edit?usp=sharing',
 	format: 'Slides',
 	image: '2017_p4.jpg',
 },
 {
 	title: 'Open data science for biomarker discovery in precision medicine',
-	event: 'Trends and future in data science and bioinformatics, Machine Learning Group Workshop, 2016 July 18, Université Libre de Bruxelles',
+	event: 'Trends and future in data science and bioinformatics, Machine Learning Group Workshop, Université Libre de Bruxelles',
 	location: 'Bruxelles, Belgium',
 	date: '2016-07-18',
-	url: 'http://bit.ly/2j5aiAT',
+	url: 'https://docs.google.com/presentation/d/1OnGVYIrDin2f_YQaBvTK-z9bbXF92AuaU-cPQJN0_jA/edit?usp=sharing',
 	format: 'Slides',
 	image: '2016_p12.jpg',
 },
@@ -238,7 +257,7 @@ const PresentationData = [{
 	event: 'Basel Life Science Week',
 	location: 'Basel, Switzerland',
 	date: '2015-09-23',
-	url: 'http://bit.ly/2s8lfXe',
+	url: 'https://docs.google.com/presentation/d/1Ynb4b4Gzs7-cc-HG5TuqeNnqUTfS9GgoaUd__NpWI3Y/edit#slide=id.g35f391192_00',
 	format: 'Slides',
 	image: '2015_p12.jpg',
 },
@@ -247,7 +266,7 @@ const PresentationData = [{
 	event: 'The 16th MicroArray and Sequencing Quality Control Project, Standardizing Genomics and Bioinformatics for Personalized Medicine',
 	location: 'Shanghai, China',
 	date: '2014-11-08',
-	url: 'http://bit.ly/2sSBAwu',
+	url: 'https://docs.google.com/presentation/d/15HbPnBViio_d_RsWCepBgzVvhNE0mS0rBvV1O3JgHXE/edit?usp=sharing',
 	format: 'Slides',
 	image: '2014_p4.jpg',
 }];

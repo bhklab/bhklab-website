@@ -37,7 +37,7 @@ const StyledDescription = styled.div`
 
 const StyledResearchAxisCard = styled(StyledCard)`
   width: 420px;
-  height: 400px;
+  height: 320px;
   padding: 20px 0;
   border-radius: 10px;
   text-align: justify;

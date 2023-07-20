@@ -19,12 +19,12 @@ function Publications() {
 	const [chosenYear, setChosenYear] = useState('');
 
 	// Used to sort the publication list by month after the specific year has been chosen
-	const sortByMonth = (arr) => {
-		const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-			'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-		return (arr.sort((a, b) => months.indexOf((a.releaseDate).substring(5, 8))
-				- months.indexOf((b.releaseDate).substring(5, 8))));
-	};
+	// const sortByMonth = (arr) => {
+	// 	const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+	// 		'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+	// 	return (arr.sort((a, b) => months.indexOf((a.releaseDate).substring(5, 8))
+	// 			- months.indexOf((b.releaseDate).substring(5, 8))));
+	// };
 
 	const selectYear = async (year) => {
 		// if the year selected isn't already selected: filter for the newly selected year
@@ -35,10 +35,10 @@ function Publications() {
 			const filter = pubData.filter((pub) => pub.year === year);
 			// sort by year (substring extracts the year such as "2022")
 			const sortByYear = filter.sort(
-				(a, b) => b.releaseDate.substring(0, 5) - a.releaseDate.substring(0, 5),
+				(a, b) => new Date(b.releaseDate) - new Date(a.releaseDate),
 			);
 			setPublications(// sort condensed list by month
-				sortByMonth(sortByYear),
+				sortByYear,
 			);
 		}
 	};
@@ -47,13 +47,14 @@ function Publications() {
 		window.scrollTo(0, 0);
 		const getPublications = async () => {
 			// const res = await axios.get('/api/data/publications');
-			const pubData = PublicationData;
-			const filter = pubData.filter((pub) => pub.year === '2022');
-			const sortByYear = filter.sort(
-				(a, b) => b.releaseDate.substring(0, 5) - a.releaseDate.substring(0, 5),
-			);
-			setPublications(// sort condensed list by month
-				sortByMonth(sortByYear),
+			const pubData = [...PublicationData];
+			// display 5 most recent on load
+			for (let i = pubData.length - 1; i >= 5; i -= 1) {
+				pubData.splice(i, 1);
+			}
+			pubData.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
+			setPublications(
+				pubData,
 			);
 			setReady(true);
 		};
