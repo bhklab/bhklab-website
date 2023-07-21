@@ -31,7 +31,7 @@ function SingleMemberInformation() {
 					&& (
 						<StyledMember>
 							<MemberInDetail
-								photo={`/images/people/${image}`}
+								photo={`/images/peopleV2/${image}`}
 								name={name}
 								title={position}
 								bio={bio}

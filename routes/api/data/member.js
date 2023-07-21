@@ -26,7 +26,9 @@ const getAll = async (req, res) => {
                 status: item.status,
                 bio: item.bio,
                 startDate: item.startDate,
-                endDate: item.endDate
+                endDate: item.endDate,
+				twitter: item.twitter,
+				linkedIn: item.linkedIn
             })
         })
     }catch(error){

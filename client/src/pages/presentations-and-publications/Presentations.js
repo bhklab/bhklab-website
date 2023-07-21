@@ -40,15 +40,18 @@ function Presentations() {
 		window.scrollTo(0, 0);
 		const getPresentation = async () => {
 			// const res = await axios.get('/api/data/presentations');
-			const presData = PresentationData;
-			// display 2023 data on page load
-			const filter = presData.filter(
-				(pres) => pres.date.substring(0, 10) >= ('2022-00-00')
-				&& pres.date < '2023-00-00',
+			const presData = [...PresentationData];
+			// display 5 most recent on load
+			for (let i = presData.length - 1; i >= 5; i -= 1) {
+				presData.splice(i, 1);
+			}
+			presData.sort(
+				(a, b) => new Date(b.date) - new Date(a.date),
 			);
 			setPresentation(
-				filter.sort((a, b) => new Date(b.date) - new Date(a.date)),
+				presData,
 			);
+
 			setReady(true);
 		};
 		getPresentation();
