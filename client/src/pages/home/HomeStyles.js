@@ -18,8 +18,12 @@ const Container = styled.div`
 	}
 `;
 
+const StyledLabVideo = styled.div`
+	
+`;
+
 const StyledImage = styled.div`
-    height: 400px;
+    height: 250px;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -72,4 +76,5 @@ export {
 	TeamImage,
 	BHKLabImage,
 	StyledHome,
+	StyledLabVideo,
 };

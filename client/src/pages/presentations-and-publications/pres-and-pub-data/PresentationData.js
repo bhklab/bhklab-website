@@ -9,6 +9,16 @@ const PresentationData = [{
 
 },
 {
+	title: 'Transparency and Reproducibility in Biomarker Discovery for Immunotherapy Response',
+	event: 'Cancer and the immune system: towards new treatments, Bellairs Research Institute of McGill University',
+	location: 'Bridgetown, Barbados',
+	date: '2023-03-08',
+	url: 'https://docs.google.com/presentation/d/18ZOZnH_GjpsyDE4Ms0ZXmi22MJ0yzmY-3ij_wYICSdU/edit?usp=sharing',
+	format: 'Slides',
+	image: '2023-03-08Pt2.png',
+
+},
+{
 	title: 'Federated Networks: A New Approach To Data Sharing and Analysis',
 	event: 'Deliberative Dialogue Workshop, Cancer Data Strategy & Advanced Analytics. Canadian Institutes for Health Research - Institute for Cancer Research',
 	location: 'Toronto, Canada',

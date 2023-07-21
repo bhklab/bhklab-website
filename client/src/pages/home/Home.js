@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
-	Container, PMCRTImage, PMCRTTowerImage, TeamImage, BHKLabImage, StyledHome,
+	Container, PMCRTImage, PMCRTTowerImage, TeamImage, BHKLabImage, StyledHome, StyledLabVideo,
 } from './HomeStyles';
 import Layout from '../../components/utils/Layout';
 import ResearchAxis from '../research-axis/ResearchAxis';
@@ -25,12 +25,12 @@ function Home() {
 			>
 				<Container className="home-component-container">
 					<StyledHome className="home-component">
-						<div id="home" className="microsoft-bhklab-video">
+						<StyledLabVideo id="home">
 							<video autoPlay loop muted>
 								{/* <track kind="caption" /> */}
 								<source src="/videos/lab_video_V2.mp4" type="video/mp4" />
 							</video>
-						</div>
+						</StyledLabVideo>
 						<div id="mission" className="home-component-sub-section">
 							<LabMission />
 						</div>

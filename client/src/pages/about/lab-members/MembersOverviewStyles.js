@@ -12,7 +12,7 @@ const StyledMember = styled.div`
 
 const StyledCard = styled.div`
     width: 245px;
-    height: 330px;
+    height: 360px;
     border-radius: 10px;
     overflow: hidden;
     background-color: ${colors.main};
@@ -39,6 +39,9 @@ const StyledTitle = styled.p`
     margin: 10px 10px 0 10px;
     text-align: center;
 `;
+const StyledSocials = styled.div`
+	text-align: center;
+`;
 
 const StyledPeople = styled.div`
     display: flex;
@@ -56,5 +59,5 @@ const StyledPeople = styled.div`
 `;
 
 export {
-	StyledMember, StyledCard, StyledImage, StyledName, StyledTitle, StyledPeople,
+	StyledMember, StyledCard, StyledImage, StyledName, StyledTitle, StyledPeople, StyledSocials,
 };

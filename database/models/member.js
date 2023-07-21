@@ -16,6 +16,8 @@ const memberSchema = new Schema({
     }],
     image: String,
     display: Boolean,
+	twitter: String,
+	linkedIn: String,
     contactInfo: [{
         emailType: String,
         type: String,

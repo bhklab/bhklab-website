@@ -49,7 +49,7 @@ export default function BasicModal({ person }) {
 					<MemberInDetail
 						name={person.name}
 						title={person.title}
-						photo={`/images/people/${person.image}`}
+						photo={`/images/peopleV2/${person.image}`}
 						bio={person.bio}
 					/>
 				</Box>

@@ -5,7 +5,7 @@ import axios from 'axios';
 import Container from '@mui/material/Container';
 import StyledHeading from '../../../styles/StyledHeading';
 import {
-	StyledCard, StyledImage, StyledName, StyledTitle, StyledPeople,
+	StyledCard, StyledImage, StyledName, StyledTitle, StyledPeople, StyledSocials,
 } from './MembersOverviewStyles';
 import MemberInDetail from './MemberInDetail';
 import BasicModal from '../../../components/utils/Modal';
@@ -30,7 +30,7 @@ const PI_BIO = `
 
 // eslint-disable-next-line react/prop-types
 function MemberHeadShot({
-	title, description, imageUrl, item,
+	title, description, imageUrl, item, linkedIn, twitter,
 }) {
 	return (
 		<StyledCard>
@@ -38,6 +38,28 @@ function MemberHeadShot({
 			<StyledName>{title}</StyledName>
 			<StyledTitle>{description}</StyledTitle>
 			<BasicModal person={item} />
+			<StyledSocials>
+				{twitter
+				&& (
+					<a
+						href={twitter}
+						target="_blank"
+						rel="noreferrer"
+					>
+						<img src="/images/social-media/twitter.png" alt="twitter" style={{ width: '25px' }} />
+					</a>
+				)}
+				{linkedIn
+				&& (
+					<a
+						href={linkedIn}
+						target="_blank"
+						rel="noreferrer"
+					>
+						<img src="/images/social-media/linkedin.png" alt="linkedin" style={{ width: '25px' }} />
+					</a>
+				)}
+			</StyledSocials>
 		</StyledCard>
 	);
 }
@@ -53,8 +75,10 @@ const displayMember = (item, index) => (
 		<MemberHeadShot
 			description={item.position}
 			title={item.name}
-			imageUrl={`/images/people/${item.image}`}
+			imageUrl={`/images/peopleV2/${item.image}`}
 			item={item}
+			twitter={item.twitter}
+			linkedIn={item.linkedIn}
 		/>
 		{/* </Link> */}
 	</div>

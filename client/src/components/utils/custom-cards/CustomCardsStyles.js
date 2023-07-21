@@ -42,11 +42,6 @@ const StyledResearchAxisCard = styled(StyledCard)`
   border-radius: 10px;
   text-align: justify;
   box-shadow: 0px 0px 4px ${colors.card_shadow_color};
-
-  @media screen and (min-width: 1700px) {
-    width: 500px;
-    height: 420px;
-  }
 `;
 
 const StyledResearchAxisTitle = styled(StyledTitle)`
