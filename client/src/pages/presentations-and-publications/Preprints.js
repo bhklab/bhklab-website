@@ -33,7 +33,7 @@ function Publications() {
 					&& (
 						<>
 							<StyledHeading> Preprints </StyledHeading>
-							<DisplayContainer>
+							<DisplayContainer style={{ justifyContent: 'center' }}>
 								<PaginatedPublications
 									customizedContent={customizedContent}
 									publications={preprints}
