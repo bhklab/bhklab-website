@@ -27,7 +27,7 @@ Twitter.propTypes = {
 };
 
 Twitter.defaultProps = {
-	width: 500,
+	width: 400,
 	height: 350,
 };
 

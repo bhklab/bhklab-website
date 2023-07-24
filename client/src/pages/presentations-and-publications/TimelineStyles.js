@@ -4,7 +4,10 @@ import colors from '../../styles/colors';
 // styling for timeline
 const StyledTimeline = styled.div`
 	max-width: 150px;
-	min-width: 150px;
+
+	@media screen and (max-width: 500px) {
+		display: none;
+	}
 	
 	.static-timeline-item {
 		color: ${colors.primary_text_color};

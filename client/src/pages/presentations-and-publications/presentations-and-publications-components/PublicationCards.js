@@ -7,7 +7,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 // import { DateTime } from 'luxon';
 import colors from '../../../styles/colors';
-import { StyledCard, StyledAuthors } from './CardStyles';
+import { StyledCard, StyledAuthors, StyledTitle, StyledEvent, StyledLocation, StyledDate } from './CardStyles';
 
 const { DateTime } = require('luxon');
 
@@ -49,34 +49,28 @@ function PresentationCard(props) {
 			}
 			<Box sx={{ display: 'flex', flexDirection: 'column' }}>
 				<CardContent sx={{ flex: '1 0 auto' }}>
-					<Typography component="div" variant="subtitle1" style={{ color: `${colors.primary_text_color}`, fontSize: '16px', 'line-height': '1.25' }}>
-						{
-							url
-								? (
-									<a className="link" href={url} target="_blank" rel="noreferrer">
-										{title || `Event: ${event || ''}`}
-									</a>
-								)
-								: (title || `Event: ${event || ''}`)
-						}
-					</Typography>
-					<Typography component="div" variant="subtitle2" style={{ color: `${colors.primary_text_color}` }}>
+					<StyledTitle>
+						<a className="link StyledTitle" href={url} target="_blank" rel="noreferrer">
+							{title || `Event: ${event || ''}`}
+						</a>
+					</StyledTitle>
+					<StyledEvent>
 						{event}
-					</Typography>
+					</StyledEvent>
 					{
 						location
 							&& (
-								<Typography component="div" style={{ color: `${colors.primary_text_color}`, fontSize: '12px' }}>
+								<StyledLocation>
 									{location}
-								</Typography>
+								</StyledLocation>
 							)
 					}
 					{
 						date
 							&& (
-								<Typography variant="h7" color="text.secondary" component="div" style={{ color: `${colors.primary_text_light}`, fontSize: '12px', margin: '2px 0' }}>
+								<StyledDate>
 									{DateTime.fromISO(date).toFormat('LLL dd, yyyy')}
-								</Typography>
+								</StyledDate>
 							)
 					}
 					{
@@ -141,25 +135,12 @@ function PaperCard(props) {
 			</div>
 			<Box sx={{ display: 'flex', flexDirection: 'column' }}>
 				<CardContent sx={{ flex: '1 0 auto' }}>
-					<Typography component="div" variant="subtitle1" style={{ fontSize: '16px', 'line-height': '1.25' }}>
-						{
-							url
-								? (
-									<a className="link" href={url} target="_blank" rel="noreferrer">
-										{title}
-									</a>
-								) : { title }
-						}
-
-					</Typography>
-					<Typography
-						component="div"
-						variant="subtitle2"
-						style={{
-							color: `${colors.secondary_text_color}`,
-							'line-height': '1.25',
-						}}
-					>
+					<StyledTitle>
+						<a className="link" href={url} target="_blank" rel="noreferrer">
+							{title}
+						</a>
+					</StyledTitle>
+					<StyledEvent>
 						{
 							publisher
 							&& (
@@ -168,20 +149,20 @@ function PaperCard(props) {
 								</div>
 							)
 						}
-					</Typography>
+					</StyledEvent>
 					{
 						members
 						&& (
-							<StyledAuthors style={{ color: `${colors.primary_text_color}`, fontSize: '12px' }}>
+							<StyledAuthors>
 								{authors}
 							</StyledAuthors>
 						)
 					}
 					{ releaseDate
 					&& (
-						<Typography variant="h7" component="div" style={{ color: `${colors.primary_text_light}`, fontSize: '12px', marginTop: '3px' }}>
+						<StyledDate>
 							{releaseDate}
-						</Typography>
+						</StyledDate>
 					)}
 				</CardContent>
 			</Box>
@@ -210,31 +191,24 @@ function PreprintCard(props) {
 			</div>
 			<Box sx={{ display: 'flex', flexDirection: 'column' }}>
 				<CardContent sx={{ flex: '1 0 auto' }}>
-					<Typography component="div" variant="subtitle1" style={{ fontSize: '16px', lineHeight: '1.25', color: colors.link_color }}>
+					<StyledTitle>
 						<a className="link" href={`https://doi.org/${doi}`} target="_blank" rel="noreferrer">
 							{title}
 						</a>
 
-					</Typography>
+					</StyledTitle>
 					{
 						publisher
 						&& (
-							<Typography
-								component="div"
-								variant="subtitle2"
-								style={{
-									color: `${colors.secondary_text_color}`,
-									'line-height': '1.25',
-								}}
-							>
+							<StyledEvent>
 								{publisher}
-							</Typography>
+							</StyledEvent>
 						)
 					}
 					{
 						authors
 						&& (
-							<StyledAuthors style={{ color: `${colors.gray_footer}`, fontSize: '12px' }}>
+							<StyledAuthors>
 								{authors}
 							</StyledAuthors>
 						)
@@ -242,9 +216,9 @@ function PreprintCard(props) {
 					{
 						date
 						&& (
-							<Typography variant="h7" component="div" style={{ color: `${colors.primary_text_light}`, fontSize: '12px', margin: '4px 0' }}>
+							<StyledDate>
 								{date}
-							</Typography>
+							</StyledDate>
 						)
 					}
 				</CardContent>
