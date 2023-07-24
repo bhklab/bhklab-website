@@ -55,6 +55,11 @@ const SocialMediaAccountWrapper = styled.div`
     @media only screen and (min-width: 1900px) {
         gap: 200px;
     }
+
+	@media only screen and (max-width: 600px) {
+        width: 420px; 
+		justify-content: center;
+    }
 `;
 
 export {

@@ -50,6 +50,10 @@ const StyledPeople = styled.div`
     word-wrap: break-word;
     gap: 40px 30px;
 
+	@media screen and (max-width: 600px) {
+		justify-content: center;
+	}
+
     .pi-photo {
 	    border-radius: 2px;
 	    width: 300px;
