@@ -7,8 +7,8 @@ import StyledHeading from '../../../styles/StyledHeading';
 import {
 	StyledCard, StyledImage, StyledName, StyledTitle, StyledPeople, StyledSocials,
 } from './MembersOverviewStyles';
-import MemberInDetail from './MemberInDetail';
 import BasicModal from '../../../components/utils/Modal';
+import PiInDetail from './PiInDetail';
 // import AuthContext from '../../../hooks/Contexts';
 
 const PI_BIO = `
@@ -155,7 +155,7 @@ function LabMembers() {
 				isLoading
 						&& (
 							<>
-								<MemberInDetail
+								<PiInDetail
 									name="Benjamin Haibe-Kains"
 									title="Principal Investigator"
 									photo="/images/people/bhk.jpg"
