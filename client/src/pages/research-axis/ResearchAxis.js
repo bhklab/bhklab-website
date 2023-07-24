@@ -15,7 +15,6 @@ function ResearchAxis() {
 							title={`${value['research-axis']}`}
 							description={`${value.description}`}
 							image={`${value.imagePath}`}
-							style={{height: '300px'}}
 						/>
 					))
 				}
