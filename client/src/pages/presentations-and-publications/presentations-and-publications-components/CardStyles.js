@@ -25,7 +25,7 @@ const StyledTitle = styled.div`
 `;
 const StyledEvent = styled.div`
 	font-size: 15px;
-	font-weight: 500;
+	font-weight: 600;
 	margin-top: 1px;
 	color: ${colors.primary_text_color};
 	@media screen and (max-width: 600px) {
@@ -42,7 +42,7 @@ const StyledLocation = styled.div`
 const StyledDate = styled.div`
 	font-size: 12px;
 	color: ${colors.primary_text_light};
-	margin: '3px 0'
+	margin: '3px 0';
 	@media screen and (max-width: 600px) {
 		font-size: 9px;
 	}
