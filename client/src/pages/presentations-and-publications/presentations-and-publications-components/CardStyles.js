@@ -16,8 +16,9 @@ const StyledAuthors = styled.div`
 	}
 `;
 const StyledTitle = styled.div`
-	font-size: 18px;
+	font-size: 17px;
 	line-height: 1; 
+	margin-bottom: 5px;
 
 	@media screen and (max-width: 600px) {
 		font-size: 14px;
@@ -25,7 +26,7 @@ const StyledTitle = styled.div`
 `;
 const StyledEvent = styled.div`
 	font-size: 15px;
-	font-weight: 600;
+	font-weight: 500;
 	margin-top: 1px;
 	color: ${colors.primary_text_color};
 	@media screen and (max-width: 600px) {
