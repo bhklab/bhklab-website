@@ -6,6 +6,10 @@ import styled from 'styled-components';
 const LinkedInStyled = styled.div`
 	width: 650px;
 
+	@media screen and (max-width: 1620px) {
+		width: 500px;
+	}
+
 	@media screen and (max-width: 650px) {
 		width: 350px;
 	}

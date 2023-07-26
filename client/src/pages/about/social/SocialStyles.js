@@ -11,7 +11,7 @@ const StyledSocial = styled.div`
 		font-weight: normal;
 		margin-top: 30px;
 	}
-	.date{
+	.date {
 		color: darkred;
 		display: flex;
 		align-items: center;
@@ -43,7 +43,7 @@ const SocialMediaAccountWrapper = styled.div`
     margin-top: 60px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-wrap: wrap;
 	gap: 50px;
 

@@ -6,6 +6,10 @@ import styled from 'styled-components';
 const TwitterStyled = styled.div`
 	width: 650px;
 
+	@media screen and (max-width: 1620px) {
+		width: 500px;
+	}
+
 	@media screen and (max-width: 650px) {
 		width: 350px;
 	}
@@ -25,7 +29,7 @@ function Twitter({ screenName, width, height }) {
 				sourceType="profile"
 				screenName={screenName}
 				options={{ width, height }}
-				// tweetLimit={5}
+			// tweetLimit={5}
 			/>
 		</TwitterStyled>
 	);
