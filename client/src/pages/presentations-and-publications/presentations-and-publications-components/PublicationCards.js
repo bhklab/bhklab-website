@@ -7,7 +7,9 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 // import { DateTime } from 'luxon';
 import colors from '../../../styles/colors';
-import { StyledCard, StyledAuthors, StyledTitle, StyledEvent, StyledLocation, StyledDate } from './CardStyles';
+import {
+	StyledCard, StyledAuthors, StyledTitle, StyledEvent, StyledLocation, StyledDate,
+} from './CardStyles';
 
 const { DateTime } = require('luxon');
 
@@ -59,35 +61,35 @@ function PresentationCard(props) {
 					</StyledEvent>
 					{
 						location
-							&& (
-								<StyledLocation>
-									{location}
-								</StyledLocation>
-							)
+						&& (
+							<StyledLocation>
+								{location}
+							</StyledLocation>
+						)
 					}
 					{
 						date
-							&& (
-								<StyledDate>
-									{DateTime.fromISO(date).toFormat('LLL dd, yyyy')}
-								</StyledDate>
-							)
+						&& (
+							<StyledDate>
+								{DateTime.fromISO(date).toFormat('LLL dd, yyyy')}
+							</StyledDate>
+						)
 					}
 					{
 						members
-							&& (
-								<Typography variant="h7" component="div">
-									{members.map((item) => (
-										<a
-											key={item}
-											href={item.name === 'Benjamin Haibe-Kains'
-												? '/people' : `people/${item.slug}`}
-										>
-											{item.name}
-										</a>
-									))}
-								</Typography>
-							)
+						&& (
+							<Typography variant="h7" component="div">
+								{members.map((item) => (
+									<a
+										key={item}
+										href={item.name === 'Benjamin Haibe-Kains'
+											? '/people' : `people/${item.slug}`}
+									>
+										{item.name}
+									</a>
+								))}
+							</Typography>
+						)
 					}
 				</CardContent>
 			</Box>
@@ -158,12 +160,12 @@ function PaperCard(props) {
 							</StyledAuthors>
 						)
 					}
-					{ releaseDate
-					&& (
-						<StyledDate>
-							{releaseDate}
-						</StyledDate>
-					)}
+					{releaseDate
+						&& (
+							<StyledDate>
+								{releaseDate}
+							</StyledDate>
+						)}
 				</CardContent>
 			</Box>
 		</StyledCard>

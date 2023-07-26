@@ -11,13 +11,15 @@ const StyledAuthors = styled.div`
 	font-weight: 500;
 	color: ${colors.primary_text_color};
 	font-size: 13px;
+	margin-bottom: 2px;
 	@media screen and (max-width: 600px) {
 		font-size: 11px;
 	}
 `;
 const StyledTitle = styled.div`
-	font-size: 18px;
+	font-size: 16px;
 	line-height: 1; 
+	margin-bottom: 5px;
 
 	@media screen and (max-width: 600px) {
 		font-size: 14px;
@@ -25,8 +27,7 @@ const StyledTitle = styled.div`
 `;
 const StyledEvent = styled.div`
 	font-size: 15px;
-	font-weight: 600;
-	margin-top: 1px;
+	margin-bottom: 2px;
 	color: ${colors.primary_text_color};
 	@media screen and (max-width: 600px) {
 		font-size: 12px;
@@ -34,6 +35,7 @@ const StyledEvent = styled.div`
 `;
 const StyledLocation = styled.div`
 	font-size: 12px;
+	margin-bottom: 2px;
 	color: ${colors.primary_text_color};
 	@media screen and (max-width: 600px) {
 		font-size: 10px;
@@ -49,10 +51,5 @@ const StyledDate = styled.div`
 `;
 
 export {
-	StyledCard,
-	StyledAuthors,
-	StyledTitle,
-	StyledEvent,
-	StyledLocation,
-	StyledDate,
+	StyledCard, StyledAuthors, StyledTitle, StyledEvent, StyledLocation, StyledDate,
 };
