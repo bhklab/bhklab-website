@@ -1,6 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
+import styled from 'styled-components';
+
+const TwitterStyled = styled.div`
+	width: 650px;
+
+	@media screen and (max-width: 650px) {
+		width: 350px;
+	}
+`;
 
 /**
  *
@@ -11,12 +20,14 @@ import { TwitterTimelineEmbed } from 'react-twitter-embed';
  */
 function Twitter({ screenName, width, height }) {
 	return (
-		<TwitterTimelineEmbed
-			sourceType="profile"
-			screenName={screenName}
-			options={{ width, height }}
-			// tweetLimit={5}
-		/>
+		<TwitterStyled>
+			<TwitterTimelineEmbed
+				sourceType="profile"
+				screenName={screenName}
+				options={{ width, height }}
+				// tweetLimit={5}
+			/>
+		</TwitterStyled>
 	);
 }
 
@@ -27,8 +38,8 @@ Twitter.propTypes = {
 };
 
 Twitter.defaultProps = {
-	width: 400,
-	height: 350,
+	width: '100%',
+	height: '500px',
 };
 
 export default Twitter;
