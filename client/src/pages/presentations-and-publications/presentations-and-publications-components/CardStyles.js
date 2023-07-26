@@ -46,6 +46,13 @@ const StyledDate = styled.div`
 	@media screen and (max-width: 600px) {
 		font-size: 9px;
 	}
-`
+`;
 
-export { StyledCard, StyledAuthors, StyledTitle, StyledEvent, StyledLocation, StyledDate };
+export {
+	StyledCard,
+	StyledAuthors,
+	StyledTitle,
+	StyledEvent,
+	StyledLocation,
+	StyledDate,
+};

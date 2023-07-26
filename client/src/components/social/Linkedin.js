@@ -1,6 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { LinkedInEmbed } from 'react-social-media-embed';
+import styled from 'styled-components';
+
+const LinkedInStyled = styled.div`
+	width: 650px;
+
+	@media screen and (max-width: 650px) {
+		width: 350px;
+	}
+`;
 
 /**
  *
@@ -11,11 +20,13 @@ import { LinkedInEmbed } from 'react-social-media-embed';
  */
 function Linkedin({ url, width, height }) {
 	return (
-		<LinkedInEmbed
-			url={url}
-			width={width}
-			height={height}
-		/>
+		<LinkedInStyled>
+			<LinkedInEmbed
+				url={url}
+				width={width}
+				height={height}
+			/>
+		</LinkedInStyled>
 	);
 }
 
@@ -26,8 +37,8 @@ Linkedin.propTypes = {
 };
 
 Linkedin.defaultProps = {
-	width: 400,
-	height: 350,
+	width: '100%',
+	height: 410,
 };
 
 export default Linkedin;

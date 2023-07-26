@@ -46,13 +46,9 @@ const StyledSocials = styled.div`
 const StyledPeople = styled.div`
     display: flex;
     flex-flow: row wrap;
-    justify-content: flex-start;
+    justify-content: center;
     word-wrap: break-word;
     gap: 40px 30px;
-
-	@media screen and (max-width: 600px) {
-		justify-content: center;
-	}
 
     .pi-photo {
 	    border-radius: 2px;

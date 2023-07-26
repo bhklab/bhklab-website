@@ -43,22 +43,12 @@ const SocialMediaAccountWrapper = styled.div`
     margin-top: 60px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 50px;
-
-    @media only screen and (min-width: 1600px) {
-        justify-content: center;
-        gap: 100px;
-    }
-
-    @media only screen and (min-width: 1900px) {
-        gap: 200px;
-    }
+	gap: 50px;
 
 	@media only screen and (max-width: 600px) {
-        width: 420px; 
-		justify-content: center;
+		text-align: center;
     }
 `;
 
