@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import {
-	StyledMemberDetailed, StyledInfoDetailed, StyledImageDetailed,
-	StyledNameDetailed, StyledTitleDetailed, StyledBioDetailed,
+	StyledMemberDetailed, StyledInfoDetailed,
+	StyledNameDetailed, StyledTitleDetailed, StyledBioDetailed, StyledPiImageDetailed,
 } from './MembersInDetailStyles';
 
 function PiInDetail({
@@ -10,7 +10,7 @@ function PiInDetail({
 }) {
 	return (
 		<StyledMemberDetailed>
-			<StyledImageDetailed src={photo} alt={title} />
+			<StyledPiImageDetailed src={photo} alt={title} />
 			<StyledInfoDetailed>
 				<StyledNameDetailed>
 					<span>{name}</span>
