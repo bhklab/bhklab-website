@@ -18,6 +18,7 @@ module.exports = {
 	],
 	rules: {
 		indent: ['error', 'tab'],
+		'linebreak-style': ['error', process.platform === 'win32' ? 'windows' : 'unix'],
 		'no-tabs': 0,
 		'react/jsx-indent': [2, 'tab'],
 		'react/jsx-indent-props': [2, 'tab'],

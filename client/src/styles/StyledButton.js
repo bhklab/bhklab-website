@@ -1,14 +1,12 @@
 import styled from 'styled-components';
+import colors from './colors';
 
 const SlideButton = styled.div`
   height : 60px;
-  z-index: 999 !important;
-  top: 48vh;
-  position: fixed;
   display: flex;
   flex-direction: column;
   align-self: center;
-  justify-content: center;
+  color: ${(props) => (props.isActive ? colors.dark_gray : colors.light_gray)};
 `;
 
 export default SlideButton;
