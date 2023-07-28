@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import styled from 'styled-components';
@@ -12,13 +11,14 @@ const BoxStyle = styled.div`
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 900;
+	width: 900px;
 	bgcolor: background.paper;
 	border-radius: 25px;
-	p: 4;
+	padding: 0;
 
 	@media screen and (max-width: 1200px) {
 		box-shadow: 0 0 4px 0 ${colors.card_shadow_color};
+		width: 600px;
 	}
 
 	@media screen and (max-width: 768px) {

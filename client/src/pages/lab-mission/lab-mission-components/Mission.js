@@ -16,7 +16,7 @@ const labOverallMission = () =>	(
 		</span>
 		{' '}
 		to identify new cancer vulnerabilities and
-		improve the precision oncology is delivered to patients.
+		improve the way precision oncology is delivered to patients.
 	</>
 );
 

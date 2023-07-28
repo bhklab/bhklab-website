@@ -2,11 +2,10 @@ import styled from 'styled-components';
 import colors from '../../../styles/colors';
 
 const StyledPositionCard = styled.div`
-  width: 60%;
+  width: 80%;
   padding: 20px 30px 10px 30px;
   margin: 20px 10px;
   display: flex;
-  flex: 1 1 24%;
   flex-direction: column;
   text-align: left;
   line-height: 25px;
