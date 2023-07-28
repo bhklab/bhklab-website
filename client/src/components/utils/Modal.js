@@ -1,23 +1,32 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import styled from 'styled-components';
 import MemberInDetail from '../../pages/about/lab-members/MemberInDetail';
 import colors from '../../styles/colors';
 
-const boxStyle = {
-	position: 'absolute',
-	top: '50%',
-	left: '50%',
-	transform: 'translate(-50%, -50%)',
-	width: 900,
-	bgcolor: 'background.paper',
-	'border-radius': '25px',
-	'box-shadow': `0 0 10px 0 ${colors.card_shadow_color}`,
-	p: 4,
-};
+const BoxStyle = styled.div`
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 900px;
+	bgcolor: background.paper;
+	border-radius: 25px;
+	padding: 0;
+
+	@media screen and (max-width: 1200px) {
+		box-shadow: 0 0 4px 0 ${colors.card_shadow_color};
+		width: 600px;
+	}
+
+	@media screen and (max-width: 768px) {
+		width: 350px;
+	}
+
+
+`;
 
 const buttonStyle = {
 	'&.MuiButtonBase-root:hover': {	bgcolor: 'transparent' },
@@ -45,14 +54,14 @@ export default function BasicModal({ person }) {
 				aria-labelledby="modal-modal-title"
 				aria-describedby="modal-modal-description"
 			>
-				<Box sx={boxStyle}>
+				<BoxStyle>
 					<MemberInDetail
 						name={person.name}
 						title={person.title}
 						photo={`/images/peopleV2/${person.image}`}
 						bio={person.bio}
 					/>
-				</Box>
+				</BoxStyle>
 			</Modal>
 		</Container>
 	);

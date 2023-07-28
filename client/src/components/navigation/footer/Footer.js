@@ -50,14 +50,15 @@ function Footer() {
 		<StyledFooter className="footer-container">
 			<div className="all-links-container">
 				<div className="grouped-links-container">
-					<a href="#research-axis"> Research </a>
-					<a href="#team"> Team </a>
-					<a href="/collaboration"> Collaboration </a>
-				</div>
-				<div className="grouped-links-container">
 					<a href="#publications"> Publications </a>
 					<a href="#presentations"> Presentations </a>
 					<a href="#softwares"> Softwares </a>
+				</div>
+				<div className="grouped-links-container">
+					<a href="#research-axis"> Research </a>
+					<a href="#team"> Team </a>
+					<Link to="/contact"> Contact Us </Link>
+					{/* <a href="/collaboration"> Collaboration </a> */}
 				</div>
 				<div className="grouped-links-container">
 					<a
@@ -67,7 +68,6 @@ function Footer() {
 					>
 						Github
 					</a>
-					<Link to="/contact"> Contact Us </Link>
 					<Link to="/positions"> Join Us </Link>
 				</div>
 			</div>
