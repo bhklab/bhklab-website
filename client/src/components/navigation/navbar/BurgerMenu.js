@@ -20,6 +20,35 @@ const navigationLinks = [
  This component is used in Navbar component (./Navbar)
  */
 function BurgerMenu() {
+	if (window.location.pathname === '/') {
+		return (
+			<BurgerNav>
+				<Menu className="burger-menu" styles={styles} noOverlay right disableAutoFocus isOpen={false}>
+					{
+						navigationLinks.map((link) => (link.name === 'Contact'
+							? (
+								<div className={`header-link-${link.linkTo} header-link`}>
+									<Link
+										to={`/${link.linkTo}`}
+									>
+										{link.name}
+									</Link>
+								</div>
+							) : (
+								<div>
+									<a
+										href={`#${link.linkTo}`}
+									>
+										{link.name}
+									</a>
+								</div>
+							)))
+					}
+				</Menu>
+			</BurgerNav>
+		);
+	}
+
 	return (
 		<BurgerNav>
 			<Menu className="burger-menu" styles={styles} noOverlay right disableAutoFocus isOpen={false}>
@@ -27,16 +56,14 @@ function BurgerMenu() {
 					navigationLinks.map((link) => (link.name === 'Contact'
 						? (
 							<div className={`header-link-${link.linkTo} header-link`}>
-								<Link
-									to={`/${link.linkTo}`}
-								>
-									{link.name}
-								</Link>
+								<a href={window.location.pathname} className="link-pressed">
+									{window.location.pathname[1].toUpperCase() + window.location.pathname.slice(2)}
+								</a>
 							</div>
 						) : (
 							<div>
 								<a
-									href={`#${link.linkTo}`}
+									href={`/#${link.linkTo}`}
 								>
 									{link.name}
 								</a>

@@ -82,21 +82,17 @@ function NavBar() {
 			links.map((link) => (link.name === 'Contact'
 				? (
 					<div className={`header-link-${link.linkTo} header-link`}>
-						<Link
-							className="link-pressed"
-							onClick={() => pressedLink()}
-							style={{ color: `${colors.primary_text_color}` }}
-							to={`/${link.linkTo}`}
-						>
-							{link.name}
-						</Link>
+						<a href={window.location.pathname} className="link-pressed">
+							{/* line below removes the '/' and uppercases the first letter of location path */}
+							{location.pathname[1].toUpperCase() + location.pathname.slice(2)}
+						</a>
 					</div>
 				) : (
 					<div className={`header-link-${link.linkTo} header-link`}>
 						<a
 							onClick={() => pressedLink(link.name)}
 							style={{ color: `${colors.primary_text_color}` }}
-							href={`#${link.linkTo}`}
+							href={`/#${link.linkTo}`}
 						>
 							{link.name}
 						</a>

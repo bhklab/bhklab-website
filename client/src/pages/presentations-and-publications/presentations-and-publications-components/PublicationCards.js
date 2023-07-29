@@ -8,7 +8,12 @@ import Typography from '@mui/material/Typography';
 // import { DateTime } from 'luxon';
 import colors from '../../../styles/colors';
 import {
-	StyledCard, StyledAuthors, StyledTitle, StyledEvent, StyledLocation, StyledDate,
+	StyledCard,
+	StyledAuthors,
+	StyledTitle,
+	StyledEvent,
+	StyledLocation,
+	StyledDate,
 } from './CardStyles';
 
 const { DateTime } = require('luxon');
@@ -20,12 +25,9 @@ function PresentationCard(props) {
 	} = props.publication;
 	return (
 		<StyledCard
-			sx={{
-				display: 'flex',
-				margin: '15px 0 0 0',
-				height: '125px',
-				boxShadow: `0 0 4px ${colors.card_shadow_color}`,
-			}}
+			sx={{	display: 'flex',
+			margin: '15px 0 0 0',
+			boxShadow: `0 0 4px ${colors.card_shadow_color}`,}}
 			className="presentation-card-container"
 		>
 			{
@@ -106,7 +108,6 @@ function PaperCard(props) {
 		<StyledCard sx={{
 			display: 'flex',
 			margin: '15px 0 0 0',
-			height: '125px',
 			boxShadow: `0 0 4px ${colors.card_shadow_color}`,
 		}}
 		>
@@ -179,7 +180,6 @@ function PreprintCard(props) {
 		<StyledCard sx={{
 			display: 'flex',
 			margin: '15px 0 0 0',
-			height: '125px',
 			boxShadow: `0 0 4px ${colors.card_shadow_color}`,
 		}}
 		>

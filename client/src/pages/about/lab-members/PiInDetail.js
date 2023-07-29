@@ -1,18 +1,18 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import {
-	StyledMemberDetailed, StyledInfoDetailed, StyledImageDetailed,
-	StyledNameDetailed, StyledTitleDetailed, StyledBioDetailed,
+	StyledPiInfoDetailed, StyledPiDetailed,
+	StyledPiNameDetailed, StyledTitleDetailed, StyledBioDetailed, StyledPiImageDetailed,
 } from './MembersInDetailStyles';
 
 function PiInDetail({
 	photo, name, title, bio,
 }) {
 	return (
-		<StyledMemberDetailed>
-			<StyledImageDetailed src={photo} alt={title} />
-			<StyledInfoDetailed>
-				<StyledNameDetailed>
+		<StyledPiDetailed>
+			<StyledPiImageDetailed src={photo} alt={title} />
+			<StyledPiInfoDetailed>
+				<StyledPiNameDetailed>
 					<span>{name}</span>
 					<a
 						href="https://twitter.com/bhaibeka"
@@ -28,11 +28,11 @@ function PiInDetail({
 					>
 						<img src="/images/social-media/linkedin.png" alt="linkedin" />
 					</a>
-				</StyledNameDetailed>
+				</StyledPiNameDetailed>
 				<StyledTitleDetailed>{title}</StyledTitleDetailed>
 				<StyledBioDetailed>{bio}</StyledBioDetailed>
-			</StyledInfoDetailed>
-		</StyledMemberDetailed>
+			</StyledPiInfoDetailed>
+		</StyledPiDetailed>
 	);
 }
 

@@ -110,9 +110,12 @@ function ContactForm() {
 	return (
 		<main>
 			<StyledPIInfo>
-				<b>Benjamin Haibe-Kains, Ph.D.</b>
-				Scientist, Princess Margaret Cancer Centre, University Health Network
-				Assistant Professor, Department of Medical Biophysics, University of Toronto
+				<div className="pi-name">Benjamin Haibe-Kains, Ph.D.</div>
+				<div className="pi-position">
+					Senior Scientist, Princess Margaret Cancer Centre, University Health Network
+					<br />
+					Professor, Department of Medical Biophysics, University of Toronto
+				</div>
 			</StyledPIInfo>
 			<Box
 				sx={{
