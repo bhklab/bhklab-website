@@ -26,7 +26,7 @@ function Home() {
 				<Container className="home-component-container">
 					<StyledHome className="home-component">
 						<StyledLabVideo id="home">
-							<video autoPlay loop muted>
+							<video autoPlay loop muted playsInline>
 								{/* <track kind="caption" /> */}
 								<source src="/videos/lab_video_V2.mp4" type="video/mp4" />
 							</video>
