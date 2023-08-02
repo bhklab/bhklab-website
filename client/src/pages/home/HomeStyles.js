@@ -24,13 +24,16 @@ const StyledLabVideo = styled.div`
 
 const StyledImage = styled.div`
     height: 250px;
-    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+	background-attachment: fixed;
 
 	@media screen and (min-height: 900px) {
 		height: 500px;
+	}
+	@media screen and (max-height: 600px) {
+		background-attachment: scroll;
 	}
 `;
 
@@ -65,7 +68,6 @@ const BHKLabImage = styled(StyledImage)`
 
 const TeamImage = styled(StyledImage)`
     background-image: url('images/social/team_pic.jpg');
-	height: 500px;
 `;
 
 export {
