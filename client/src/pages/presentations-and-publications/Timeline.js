@@ -22,7 +22,7 @@ const YEARS = ['2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '
 function LeftPositionedTimeline({ selectYear }) {
 	const [selectedYear, setSelectedYear] = useState('');
 	const [itemsLoaded, setItemsLoaded] = useState(6);
-	const [itemsButton, setItemsButton] = useState('...');
+	const [itemsButton, setItemsButton] = useState('show more');
 
 	const yearAction = (year) => {
 		setSelectedYear(year);
@@ -39,7 +39,7 @@ function LeftPositionedTimeline({ selectYear }) {
 			setItemsButton('show less'); // after all timeline components are rendered change the button's text
 		} else {
 			setItemsLoaded(6);
-			setItemsButton('...'); // when the timeline component is reset change the buttons's text
+			setItemsButton('show more'); // when the timeline component is reset change the buttons's text
 		}
 	};
 
@@ -93,17 +93,36 @@ function LeftPositionedTimeline({ selectYear }) {
 				<Button
 					disableElevation
 					disableRipple
+					className="show-first-button"
 					sx={{
-						width: itemsLoaded === 11 ? '100px' : '30px',
-						margin: itemsLoaded === 11 ? '-20px 0 0 0' : '-30px 0 0 20px',
-						fontSize: itemsLoaded === 11 ? '0.63rem' : '2rem',
+						width: '60px',
+						margin: '0',
+						fontSize: '0.63em',
+						padding: '0px',
 						'&.MuiButtonBase-root:hover': {	bgcolor: 'transparent' },
+						height: '20px',
 					}}
 					onClick={() => adjustItems()}
 				>
 					{itemsButton}
 				</Button>
 			</Timeline>
+			<Button
+				disableElevation
+				disableRipple
+				className="show-second-button"
+				sx={{
+					width: '60px',
+					margin: '0',
+					fontSize: '0.63em',
+					padding: '0px',
+					'&.MuiButtonBase-root:hover': {	bgcolor: 'transparent' },
+					height: '20px',
+				}}
+				onClick={() => adjustItems()}
+			>
+				{itemsButton}
+			</Button>
 		</StyledTimeline>
 	);
 }

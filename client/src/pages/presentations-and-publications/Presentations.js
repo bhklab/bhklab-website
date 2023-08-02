@@ -58,7 +58,7 @@ function Presentations() {
 	}, []);
 
 	return (
-		<Container maxWidth="lg">
+		<Container maxWidth="lg" sx={{ height: '1000px' }}>
 			{ ready
 				&& (
 					<>

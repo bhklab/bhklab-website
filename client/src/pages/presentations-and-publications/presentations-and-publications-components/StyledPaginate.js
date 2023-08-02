@@ -5,6 +5,12 @@ const StyledPaginate = styled.div`
   flex-grow: 1;
   height: 700px;
   max-width: 900px;
+
+	@media screen and (max-width: 650px) {
+		& .MuiCardContent-root{
+			padding: 4px 0 0 4px !important;
+		}
+	}
   
   .pagination-container {
     margin-top: 20px;
