@@ -134,7 +134,7 @@ const WebAppsAndPackagesStyles = styled.div`
       text-align: center;
       width: 250px;
       font-size: 0.9em;
-      margin: 10px 0px 10px 0px;
+      margin: 10px 0;
     }
   }
 `;

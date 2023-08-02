@@ -25,9 +25,11 @@ function PresentationCard(props) {
 	} = props.publication;
 	return (
 		<StyledCard
-			sx={{	display: 'flex',
-			margin: '15px 0 0 0',
-			boxShadow: `0 0 4px ${colors.card_shadow_color}`,}}
+			sx={{
+				display: 'flex',
+				margin: '15px 0 0 0',
+				boxShadow: `0 0 4px ${colors.card_shadow_color}`,
+			}}
 			className="presentation-card-container"
 		>
 			{
@@ -109,6 +111,7 @@ function PaperCard(props) {
 			display: 'flex',
 			margin: '15px 0 0 0',
 			boxShadow: `0 0 4px ${colors.card_shadow_color}`,
+			padding: 0,
 		}}
 		>
 			<div style={{ width: '125px' }}>

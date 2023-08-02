@@ -66,7 +66,7 @@ function Publications() {
 			{ ready
 					&& (
 						<>
-							<StyledHeading> Publications </StyledHeading>
+							<StyledHeading sx={{ marginTop: '0px' }}> Publications </StyledHeading>
 							<DisplayContainer>
 								<LeftPositionedTimeline selectYear={selectYear} />
 								<PaginatedPublications
