@@ -70,6 +70,10 @@ const StyledMission = styled.div`
             height: 300px !important;
         }
 
+		@media only screen and (max-width: 768px) {
+			padding: 30px 10px;
+        }
+
         img {
             width: 75px;
             height: 75px;
@@ -131,6 +135,13 @@ const StyledCoreValues = styled.div`
             min-height: 100px;
             max-height: 100px;
             width: 90%;
+        }
+
+		@media only screen and (max-width: 768px) {
+			p{
+				margin: 0;
+				height: 240px;
+			}
         }
     }
 `;
