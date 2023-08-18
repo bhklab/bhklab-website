@@ -23,7 +23,7 @@ const StyledLabVideo = styled.div`
 `;
 
 const StyledImage = styled.div`
-    height: 250px;
+    height: 400px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -33,7 +33,7 @@ const StyledImage = styled.div`
 		height: 500px;
 	}
 	@media screen and (max-height: 600px) {
-		background-attachment: scroll;
+		background-size: contain;
 	}
 `;
 
@@ -53,17 +53,15 @@ const StyledHome = styled.div`
 `;
 
 const PMCRTImage = styled(StyledImage)`
-    background-image: url('images/software/layout-bg.png');
+    background-image: url('images/parallax-photos/equations.jpg');
 `;
 
 const PMCRTTowerImage = styled(StyledImage)`
-    background-image: url('images/software/layout-bg.png');
+    background-image: url('images/parallax-photos/books.jpg');
 `;
 
 const BHKLabImage = styled(StyledImage)`
-	background-color: #8d99ae;
-	background-image: url('images/software/layout-bg.png');
-	
+	background-image: url('images/parallax-photos/coding(3).jpg');
 `;
 
 const TeamImage = styled(StyledImage)`
