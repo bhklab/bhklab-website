@@ -29,7 +29,7 @@ const StyledImage = styled.div`
     background-size: cover;
 	background-attachment: fixed;
 
-	@media screen and (max-height: 900px) {
+	@media screen and (max-width: 800px) {
 		background-attachment: scroll !important;
 	}
 `;
