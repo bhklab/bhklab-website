@@ -29,11 +29,8 @@ const StyledImage = styled.div`
     background-size: cover;
 	background-attachment: fixed;
 
-	@media screen and (min-height: 900px) {
-		height: 500px;
-	}
-	@media screen and (max-height: 600px) {
-		background-size: contain;
+	@media screen and (max-height: 900px) {
+		background-attachment: scroll !important;
 	}
 `;
 
