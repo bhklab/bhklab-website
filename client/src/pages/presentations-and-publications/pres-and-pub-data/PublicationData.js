@@ -1,7 +1,7 @@
 const PublicationData = [
 	{
 		title: 'The impact of violating the independence assumption in meta-analysis on biomarker discovery',
-		authors: 'Abbas-Aghababazadeh F, Xu W, Haibe-Kains B. Front Genet',
+		authors: 'Abbas-Aghababazadeh F, Xu W, Haibe-Kains B',
 		year: '2023',
 		url: 'https://pubmed.ncbi.nlm.nih.gov/36726714/',
 		publisher: 'Frontiers in Genetics',
