@@ -17,7 +17,6 @@ function Publications() {
 	const [preprints, setPreprints] = useState({});
 
 	useEffect(() => {
-		window.scrollTo(0, 0);
 		const getPreprints = async () => {
 			setPreprints(
 				PreprintData,

@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 // import axios from 'axios';
 import 'primeicons/primeicons.css';
 import Container from '@mui/material/Container';
-// import { motion } from 'framer-motion';
 import { PresentationCard } from './presentations-and-publications-components/PublicationCards';
 import PaginatedPublications from './presentations-and-publications-components/PaginatedPublications';
 import StyledHeading from '../../styles/StyledHeading';
 import LeftPositionedTimeline from './Timeline';
 import DisplayContainer from './PresentationsAndPupblicationsStyles';
 import PresentationData from './pres-and-pub-data/PresentationData';
+import Layout from '../../components/utils/Layout';
 
 const customizedContent = (item, index) => (
 	<PresentationCard key={index} publication={item} />
@@ -37,7 +37,6 @@ function Presentations() {
 		}
 	};
 	useEffect(() => {
-		window.scrollTo(0, 0);
 		const getPresentation = async () => {
 			// const res = await axios.get('/api/data/presentations');
 			const presData = [...PresentationData];
@@ -58,27 +57,29 @@ function Presentations() {
 	}, []);
 
 	return (
-		<Container maxWidth="lg" sx={{ height: '1000px' }}>
-			{ ready
-				&& (
-					<>
-						<StyledHeading
-							noTopMargin
-							className="presentations-heading"
-						>
-							Presentations
-						</StyledHeading>
-						<DisplayContainer className="presentations-container">
-							<LeftPositionedTimeline selectYear={selectYear} />
-							<PaginatedPublications
-								customizedContent={customizedContent}
-								publications={presentations}
-								itemsPerPage={5}
-							/>
-						</DisplayContainer>
-					</>
-				)}
-		</Container>
+		<Layout>
+			<Container maxWidth="lg" sx={{ height: '1000px' }}>
+				{ ready
+					&& (
+						<>
+							<StyledHeading
+								noTopMargin
+								className="presentations-heading"
+							>
+								Presentations
+							</StyledHeading>
+							<DisplayContainer className="presentations-container">
+								<LeftPositionedTimeline selectYear={selectYear} />
+								<PaginatedPublications
+									customizedContent={customizedContent}
+									publications={presentations}
+									itemsPerPage={5}
+								/>
+							</DisplayContainer>
+						</>
+					)}
+			</Container>
+		</Layout>
 	);
 }
 

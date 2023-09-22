@@ -10,8 +10,6 @@ function Research() {
 	const [isLoading, setIsLoadingState] = useState(true);
 	const [researchTeams, setResearchTeamsState] = useState({});
 	useEffect(() => {
-		window.scrollTo(0, 0);
-
 		const getDataset = async () => {
 			const res = await axios.get('/api/data/researches');
 			setResearchTeamsState(res.data.research);

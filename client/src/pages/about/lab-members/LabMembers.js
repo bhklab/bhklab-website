@@ -129,7 +129,6 @@ function LabMembers() {
 	const history = useNavigate();
 
 	useEffect(() => {
-		window.scrollTo(0, 0);
 		const getPeople = async () => {
 			const res = await axios.get('/api/data/members');
 			setPeople(res.data.members.filter((item) => item.display));

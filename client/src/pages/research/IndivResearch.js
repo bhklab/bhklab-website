@@ -12,7 +12,6 @@ function IndivResearch() {
 	const { token } = useParams();
 
 	useEffect(() => {
-		window.scrollTo(0, 0);
 		const getDataset = async () => {
 			const res = await axios.get(`/api/data/researches/${token}`);
 			setResearch(res.data.team);

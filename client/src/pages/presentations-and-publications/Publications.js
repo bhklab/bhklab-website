@@ -44,7 +44,6 @@ function Publications() {
 	};
 
 	useEffect(() => {
-		window.scrollTo(0, 0);
 		const getPublications = async () => {
 			// const res = await axios.get('/api/data/publications');
 			const pubData = [...PublicationData];
