@@ -15,20 +15,16 @@ const getAll = async (req, res) => {
     try{
         // Get lab members in the database
         let res=  await Member.find().lean();
-        res.forEach(item => {
+        res.forEach(member => {
             result.members.push({
-                _id: item._id,
-                name: item.preferredName? item.preferredName : item.name,
-                slug: item.slug,
-                display: item.display,
-                position : item.position,
-                image: item.image,
-                status: item.status,
-                bio: item.bio,
-                startDate: item.startDate,
-                endDate: item.endDate,
-				twitter: item.twitter,
-				linkedIn: item.linkedIn
+                _id: member._id,
+                name: member.preferredName? member.preferredName : member.name,
+                position : member.position,
+                image: member.image,
+                bio: member.bio,
+                startYear: member.startYear,
+				twitter: member.socials.twitter,
+				linkedIn: member.socials.linkedIn
             })
         })
     }catch(error){

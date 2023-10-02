@@ -8,25 +8,7 @@ import {
 	StyledCard, StyledImage, StyledName, StyledTitle, StyledPeople, StyledSocials,
 } from './MembersOverviewStyles';
 import BasicModal from '../../../components/utils/Modal';
-import PiInDetail from './PiInDetail';
 // import AuthContext from '../../../hooks/Contexts';
-
-const PI_BIO = `
-	Trained as a computer scientist, Dr. Benjamin Haibe-Kains earned his PhD in Bioinformatics 
-	at the Université Libre de Bruxelles (Belgium). He was a postdoc in the Quackenbush group at the 
-	Dana-farber Cancer Institute and Harvard School of Public Health (USA). 
-	Dr. Haibe-Kains started his own laboratory at the Institut de Recherches Cliniques de Montréal (Canada) 
-	and he is now Principal Investigator at the Princess Margaret Cancer Centre. 
-	His research focuses on the integration of high-throughput data from 
-	various sources to simultaneously analyze multiple facets of diseases, 
-	with a particular emphasis on cancer. 
-	Dr. Haibe-Kains and his team are using publicly available genomic datasets and data generated 
-	through his collaborations to better understand the biology underlying carcinogenesis 
-	and to develop new predictive models in order to significantly improve disease management. 
-	Dr. Haibe-Kains' main scientific contributions include several prognostic gene signatures 
-	in breast cancer, subtype classification models for ovarian and breast cancers, 
-	as well as genomic predictors of drug response in cancer cell lines.
-`;
 
 // eslint-disable-next-line react/prop-types
 function MemberHeadShot({
@@ -154,12 +136,6 @@ function LabMembers() {
 				isLoading
 						&& (
 							<>
-								<PiInDetail
-									name="Benjamin Haibe-Kains"
-									title="Principal Investigator"
-									photo="/images/peopleV2/bhk.jpg"
-									bio={PI_BIO}
-								/>
 								<StyledHeading>
 									Current Members
 								</StyledHeading>
