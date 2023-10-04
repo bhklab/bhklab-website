@@ -105,9 +105,11 @@ const StyledCoreValues = styled.div`
         align-items: center;
         flex-wrap: wrap;
         gap: 30px;
+		margin-top: 30px;
     
         p {
             font-size: 1rem;
+			margin: 0;
         }
     }
 

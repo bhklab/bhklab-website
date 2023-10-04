@@ -6,8 +6,7 @@ const getAll = async (req, res) => {
         presentations: [],
     };
     try{
-        // Get presentations in the database
-        result.presentations =  await Presentation.find().populate('members').lean();
+        result.presentations =  await Presentation.find().lean();
     }catch(error){
         console.log(error);
     }finally{

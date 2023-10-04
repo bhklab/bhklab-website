@@ -13,8 +13,7 @@ const getAll = async (req, res) => {
         members: [],
     };
     try{
-        // Get lab members in the database
-        let res=  await Member.find().lean();
+        let res = await Member.find().lean();
         res.forEach(member => {
             result.members.push({
                 _id: member._id,

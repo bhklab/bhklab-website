@@ -42,8 +42,8 @@ Twitter.propTypes = {
 };
 
 Twitter.defaultProps = {
-	width: '100%',
-	height: '500px',
+	width: 500,
+	height: 500,
 };
 
 export default Twitter;

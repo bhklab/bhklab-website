@@ -16,7 +16,7 @@ import {
 	StyledDate,
 } from './CardStyles';
 
-const { DateTime } = require('luxon');
+// const { DateTime } = require('luxon');
 
 // presentation cards
 function PresentationCard(props) {
@@ -75,7 +75,8 @@ function PresentationCard(props) {
 						date
 						&& (
 							<StyledDate>
-								{DateTime.fromISO(date).toFormat('LLL dd, yyyy')}
+								{/* {DateTime.fromISO(date).toFormat('LLL dd, yyyy')} */}
+								{date.slice(0, -14)}
 							</StyledDate>
 						)
 					}
@@ -104,7 +105,7 @@ function PresentationCard(props) {
 // publication cards
 function PaperCard(props) {
 	const {
-		image, title, url, authors, members, releaseDate, publisher,
+		image, title, url, authors, date, publisher,
 	} = props.publication;
 	return (
 		<StyledCard sx={{
@@ -160,17 +161,17 @@ function PaperCard(props) {
 						}
 					</StyledEvent>
 					{
-						members
+						authors
 						&& (
 							<StyledAuthors>
 								{authors}
 							</StyledAuthors>
 						)
 					}
-					{releaseDate
+					{date
 						&& (
 							<StyledDate>
-								{releaseDate}
+								{date.slice(0, -14)}
 							</StyledDate>
 						)}
 				</CardContent>

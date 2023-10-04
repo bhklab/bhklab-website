@@ -54,7 +54,7 @@ function NavBar() {
 			return (
 				links.map((link) => (link.name === 'Contact'
 					? (
-						<div className={`header-link-${link.linkTo} header-link`}>
+						<div className={`header-link-${link.linkTo} header-link`} key={link.name}>
 							<Link
 								className={pressed === link.name ? 'link-pressed' : ''}
 								onClick={() => pressedLink()}
@@ -65,7 +65,7 @@ function NavBar() {
 							</Link>
 						</div>
 					) : (
-						<div className={`header-link-${link.linkTo} header-link`}>
+						<div className={`header-link-${link.linkTo} header-link`} key={link.name}>
 							<a
 								className={pressed === link.name ? 'link-pressed' : ''}
 								onClick={() => pressedLink(link.name)}
@@ -81,14 +81,14 @@ function NavBar() {
 		return (
 			links.map((link) => (link.name === 'Contact'
 				? (
-					<div className={`header-link-${link.linkTo} header-link`}>
+					<div className={`header-link-${link.linkTo} header-link`} key={link.name}>
 						<a href={window.location.pathname} className="link-pressed">
 							{/* line below removes the '/' and uppercases the first letter of location path */}
 							{location.pathname[1].toUpperCase() + location.pathname.slice(2)}
 						</a>
 					</div>
 				) : (
-					<div className={`header-link-${link.linkTo} header-link`}>
+					<div className={`header-link-${link.linkTo} header-link`} key={link.name}>
 						<a
 							onClick={() => pressedLink(link.name)}
 							style={{ color: `${colors.primary_text_color}` }}

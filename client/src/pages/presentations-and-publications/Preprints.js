@@ -17,7 +17,6 @@ function Publications() {
 	useEffect(() => {
 		const getPreprints = async () => {
 			const res = await axios.get('/api/data/preprints');
-			console.log(res);
 			setPreprints(res.data.preprints);
 			setReady(true);
 		};
