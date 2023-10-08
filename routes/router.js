@@ -4,9 +4,10 @@ const router = express.Router();
 // paths
 const dataset = require('./api/data/dataset');
 const member = require('./api/data/member');
+const preprint = require('./api/data/preprint')
 const presentation = require('./api/data/presentation');
-const project = require('./api/data/project');
 const publication = require('./api/data/publication');
+const project = require('./api/data/project');
 const social = require('./api/data/social');
 const email = require('./api/mail/sendGrid');
 const positions = require('./api/data/positions');
@@ -26,13 +27,15 @@ router.post('/data/members/deleteOne/:id',auth.verifyToken, member.deleteOne);
 router.get('/data/positions', positions.getAll);
 router.post('/data/positions/deleteOne/:id',auth.verifyToken, positions.deleteOne);
 
+router.get('/data/preprints', preprint.getAll);
+
 router.get('/data/presentations', presentation.getAll);
 router.post('/data/presentations/deleteOne/:id', auth.verifyToken, presentation.deleteOne);
 
-router.get('/data/projects', project.getAll);
-
 router.get('/data/publications', publication.getAll);
 router.post('/data/publications/deleteOne/:id', auth.verifyToken, publication.deleteOne);
+
+router.get('/data/projects', project.getAll);
 
 router.get('/data/researches', research.getAll);
 router.get('/data/researches/:token', research.getOne);

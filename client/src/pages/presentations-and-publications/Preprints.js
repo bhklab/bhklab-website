@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Container from '@mui/material/Container';
+import axios from 'axios';
 import PaginatedPublications from './presentations-and-publications-components/PaginatedPublications';
 import { PreprintCard } from './presentations-and-publications-components/PublicationCards';
 import StyledHeading from '../../styles/StyledHeading';
 import DisplayContainer from './PresentationsAndPupblicationsStyles';
-import PreprintData from './pres-and-pub-data/PreprintData';
-
-// const [selectedYear, setSelectedYear] = useState('')
 
 const customizedContent = (item, index) => (
 	<PreprintCard index={index} publication={item} />
@@ -18,9 +16,8 @@ function Publications() {
 
 	useEffect(() => {
 		const getPreprints = async () => {
-			setPreprints(
-				PreprintData,
-			);
+			const res = await axios.get('/api/data/preprints');
+			setPreprints(res.data.preprints);
 			setReady(true);
 		};
 		getPreprints();

@@ -33,6 +33,7 @@ const renderSocialMediaLinks = (links) => links.map((link) => (
 		href={link.url}
 		target="_blank"
 		rel="noreferrer"
+		key={link.name}
 	>
 		<img
 			src={link['img-src']}

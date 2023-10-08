@@ -105,7 +105,7 @@ function WebApps() {
 			<div className="web-apps-container">
 				{
 					subsetOfWebApps.map((application) => (
-						<div className="single-app-container">
+						<div className="single-app-container" key={application.applicationName}>
 							<div className="app-section">
 								<div className="app-section-link">
 									<a

@@ -27,7 +27,7 @@ function BurgerMenu() {
 					{
 						navigationLinks.map((link) => (link.name === 'Contact'
 							? (
-								<div className={`header-link-${link.linkTo} header-link`}>
+								<div className={`header-link-${link.linkTo} header-link`} key={link.name}>
 									<Link
 										to={`/${link.linkTo}`}
 									>
@@ -35,7 +35,7 @@ function BurgerMenu() {
 									</Link>
 								</div>
 							) : (
-								<div>
+								<div key={link.name}>
 									<a
 										href={`#${link.linkTo}`}
 									>
@@ -55,13 +55,13 @@ function BurgerMenu() {
 				{
 					navigationLinks.map((link) => (link.name === 'Contact'
 						? (
-							<div className={`header-link-${link.linkTo} header-link`}>
+							<div className={`header-link-${link.linkTo} header-link`} key={link.name}>
 								<a href={window.location.pathname} className="link-pressed">
 									{window.location.pathname[1].toUpperCase() + window.location.pathname.slice(2)}
 								</a>
 							</div>
 						) : (
-							<div>
+							<div key={link.name}>
 								<a
 									href={`/#${link.linkTo}`}
 								>

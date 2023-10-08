@@ -6,8 +6,7 @@ const getAll = async (req, res) => {
         publications: [],
     };
     try{
-        // Get publications in the database
-        result.publications =  await Publication.find().populate('projects', 'members').lean();
+        result.publications =  await Publication.find().lean();
     }catch(error){
         console.log(error);
     }finally{

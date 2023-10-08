@@ -41,7 +41,7 @@ Linkedin.propTypes = {
 };
 
 Linkedin.defaultProps = {
-	width: '100%',
+	width: 500,
 	height: 410,
 };
 

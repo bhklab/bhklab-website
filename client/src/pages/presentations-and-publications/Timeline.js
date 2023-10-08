@@ -56,6 +56,7 @@ function LeftPositionedTimeline({ selectYear }) {
 					<TimelineItem
 						onClick={() => yearAction(year, index)}
 						className="hover-timeline-item static-timeline-item"
+						key={year}
 					>
 						<TimelineSeparator>
 							<TimelineDot sx={{ backgroundColor: selectedYear === year ? '#039be5' : '#bdbdbd' }} />
@@ -70,6 +71,7 @@ function LeftPositionedTimeline({ selectYear }) {
 				<TimelineItem
 					onClick={() => yearAction(year, index)}
 					className="hover-timeline-item static-timeline-item"
+					key={year}
 				>
 					<TimelineSeparator>
 						<TimelineDot sx={{ backgroundColor: selectedYear === year ? '#039be5' : '#bdbdbd' }} />
