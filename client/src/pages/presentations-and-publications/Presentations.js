@@ -7,7 +7,6 @@ import PaginatedPublications from './presentations-and-publications-components/P
 import StyledHeading from '../../styles/StyledHeading';
 import LeftPositionedTimeline from './Timeline';
 import DisplayContainer from './PresentationsAndPupblicationsStyles';
-import Layout from '../../components/utils/Layout';
 
 const customizedContent = (item, index) => (
 	<PresentationCard key={index} publication={item} />
@@ -55,29 +54,27 @@ function Presentations() {
 	}, []);
 
 	return (
-		<Layout>
-			<Container maxWidth="lg" sx={{ height: '1000px' }}>
-				{ ready
-					&& (
-						<>
-							<StyledHeading
-								noTopMargin
-								className="presentations-heading"
-							>
-								Presentations
-							</StyledHeading>
-							<DisplayContainer className="presentations-container">
-								<LeftPositionedTimeline selectYear={selectYear} />
-								<PaginatedPublications
-									customizedContent={customizedContent}
-									publications={presentations}
-									itemsPerPage={5}
-								/>
-							</DisplayContainer>
-						</>
-					)}
-			</Container>
-		</Layout>
+		<Container maxWidth="lg" sx={{ height: '1000px' }}>
+			{ ready
+				&& (
+					<>
+						<StyledHeading
+							noTopMargin
+							className="presentations-heading"
+						>
+							Presentations
+						</StyledHeading>
+						<DisplayContainer className="presentations-container">
+							<LeftPositionedTimeline selectYear={selectYear} />
+							<PaginatedPublications
+								customizedContent={customizedContent}
+								publications={presentations}
+								itemsPerPage={5}
+							/>
+						</DisplayContainer>
+					</>
+				)}
+		</Container>
 	);
 }
 
