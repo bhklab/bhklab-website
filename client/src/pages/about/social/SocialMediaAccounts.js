@@ -4,7 +4,7 @@ import Linkedin from '../../../components/social/Linkedin';
 import Twitter from '../../../components/social/Twitter';
 
 const TWITTER_SCREEN_NAME = 'bhklab';
-const LINKEDIN_URL = 'https://www.linkedin.com/embed/feed/update/urn:li:share:7056441339000877057';
+const LINKEDIN_URL = 'https://www.linkedin.com/embed/feed/update/urn:li:share:7085335349119352832';
 
 function SocialMediaAccounts() {
 	return (

@@ -11,7 +11,6 @@ function SingleMemberInformation() {
 	const [member, setMember] = useState({ data: {}, ready: false });
 
 	useEffect(() => {
-		window.scrollTo(0, 0);
 		const getMember = async () => {
 			const res = await axios.get(`/api/data/member/${memberName}`);
 			setMember({ data: res.data.member, ready: true });

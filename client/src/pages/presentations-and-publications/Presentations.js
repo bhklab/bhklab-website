@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import 'primeicons/primeicons.css';
 import Container from '@mui/material/Container';
-// import { motion } from 'framer-motion';
 import { PresentationCard } from './presentations-and-publications-components/PublicationCards';
 import PaginatedPublications from './presentations-and-publications-components/PaginatedPublications';
 import StyledHeading from '../../styles/StyledHeading';
 import LeftPositionedTimeline from './Timeline';
 import DisplayContainer from './PresentationsAndPupblicationsStyles';
-import PresentationData from './pres-and-pub-data/PresentationData';
 
 const customizedContent = (item, index) => (
 	<PresentationCard key={index} publication={item} />
@@ -24,9 +22,8 @@ function Presentations() {
 		// if the year selected isn't already selected: filter for the newly selected year
 		if (chosenYear !== year) {
 			setChosenYear(year);
-			// const res = await axios.get('/api/data/presentations');
-			const presData = PresentationData;
-			const filter = presData.filter(
+			const res = await axios.get('/api/data/presentations');
+			const filter = res.data.presentations.filter(
 				(pres) => pres.date.substring(0, 10) >= (`${year}-00-00`)
 				// eslint-disable-next-line radix
 				&& pres.date < `${((parseInt(year) + 1).toString()).substring(0, 10)}-00-00`,
@@ -37,19 +34,18 @@ function Presentations() {
 		}
 	};
 	useEffect(() => {
-		window.scrollTo(0, 0);
 		const getPresentation = async () => {
-			// const res = await axios.get('/api/data/presentations');
-			const presData = [...PresentationData];
+			const res = await axios.get('/api/data/presentations');
+
 			// display 5 most recent on load
-			for (let i = presData.length - 1; i >= 5; i -= 1) {
-				presData.splice(i, 1);
+			for (let i = res.data.presentations.length - 1; i >= 5; i -= 1) {
+				res.data.presentations.splice(i, 1);
 			}
-			presData.sort(
+			res.data.presentations.sort(
 				(a, b) => new Date(b.date) - new Date(a.date),
 			);
 			setPresentation(
-				presData,
+				res.data.presentations,
 			);
 
 			setReady(true);
@@ -58,7 +54,7 @@ function Presentations() {
 	}, []);
 
 	return (
-		<Container maxWidth="lg">
+		<Container maxWidth="lg" sx={{ height: '1000px' }}>
 			{ ready
 				&& (
 					<>

@@ -9,6 +9,16 @@ const PresentationData = [{
 
 },
 {
+	title: 'Unlock the potential of radiological data for precision oncology: Greater than the sum of its parts',
+	event: '6th MAQC Society Meeting',
+	location: 'Helsinki, Finland',
+	date: '2023-09-11',
+	url: 'https://docs.google.com/presentation/d/1sc7pPBy6dFrrFePXJDF5h_ocCIe5ab8LVuCrilriF-M/edit?usp=sharing',
+	format: 'Slides',
+	image: '2023-09-11.png',
+
+},
+{
 	title: 'Transparency and Reproducibility in Biomarker Discovery for Immunotherapy Response',
 	event: 'Cancer and the immune system: towards new treatments, Bellairs Research Institute of McGill University',
 	location: 'Bridgetown, Barbados',

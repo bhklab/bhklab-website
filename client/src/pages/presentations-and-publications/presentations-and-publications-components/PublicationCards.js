@@ -16,7 +16,7 @@ import {
 	StyledDate,
 } from './CardStyles';
 
-const { DateTime } = require('luxon');
+// const { DateTime } = require('luxon');
 
 // presentation cards
 function PresentationCard(props) {
@@ -25,9 +25,11 @@ function PresentationCard(props) {
 	} = props.publication;
 	return (
 		<StyledCard
-			sx={{	display: 'flex',
-			margin: '15px 0 0 0',
-			boxShadow: `0 0 4px ${colors.card_shadow_color}`,}}
+			sx={{
+				display: 'flex',
+				margin: '15px 0 0 0',
+				boxShadow: `0 0 4px ${colors.card_shadow_color}`,
+			}}
 			className="presentation-card-container"
 		>
 			{
@@ -36,7 +38,7 @@ function PresentationCard(props) {
 						<a className="link" href={url} target="_blank" rel="noreferrer">
 							<CardMedia
 								component="img"
-								sx={{ width: 175, objectFit: 'contain', marginTop: '10px' }}
+								sx={{ width: 150, objectFit: 'contain', marginTop: '10px' }}
 								image={image ? `images/presentations/${image}` : 'images/presentations/presentation-blurry.png'}
 								alt={image ? 'an image of first slide' : 'a placeholder image for unavailable'}
 							/>
@@ -45,7 +47,7 @@ function PresentationCard(props) {
 					: (
 						<CardMedia
 							component="img"
-							sx={{ width: 175, objectFit: 'contain', marginTop: '10px' }}
+							sx={{ width: 150, objectFit: 'contain', marginTop: '10px' }}
 							image={image ? `images/presentations/${image}` : 'images/presentations/presentation-blurry.png'}
 							alt={image ? 'an image of first slide' : 'a placeholder image for unavailable'}
 						/>
@@ -73,7 +75,8 @@ function PresentationCard(props) {
 						date
 						&& (
 							<StyledDate>
-								{DateTime.fromISO(date).toFormat('LLL dd, yyyy')}
+								{/* {DateTime.fromISO(date).toFormat('LLL dd, yyyy')} */}
+								{date.slice(0, -14)}
 							</StyledDate>
 						)
 					}
@@ -102,16 +105,17 @@ function PresentationCard(props) {
 // publication cards
 function PaperCard(props) {
 	const {
-		image, title, url, authors, members, releaseDate, publisher,
+		image, title, url, authors, date, publisher,
 	} = props.publication;
 	return (
 		<StyledCard sx={{
 			display: 'flex',
 			margin: '15px 0 0 0',
 			boxShadow: `0 0 4px ${colors.card_shadow_color}`,
+			padding: 0,
 		}}
 		>
-			<div style={{ width: '125px' }}>
+			<div style={{ width: '125px', height: '125px' }}>
 				{
 					url
 						? (
@@ -129,7 +133,10 @@ function PaperCard(props) {
 						) : (
 							<CardMedia
 								component="img"
-								sx={{ width: 125, objectFit: 'cover' }}
+								sx={{
+									width: 125,
+									objectFit: 'cover',
+								}}
 								image={image ? `images/publication/${image}` : 'images/publication/publication-blurry.png'}
 								alt={image ? 'an image of publisher\'s cover' : 'a placeholder image for unavailable publisher cover'}
 							/>
@@ -154,17 +161,17 @@ function PaperCard(props) {
 						}
 					</StyledEvent>
 					{
-						members
+						authors
 						&& (
 							<StyledAuthors>
 								{authors}
 							</StyledAuthors>
 						)
 					}
-					{releaseDate
+					{date
 						&& (
 							<StyledDate>
-								{releaseDate}
+								{date.slice(0, -14)}
 							</StyledDate>
 						)}
 				</CardContent>
@@ -183,7 +190,7 @@ function PreprintCard(props) {
 			boxShadow: `0 0 4px ${colors.card_shadow_color}`,
 		}}
 		>
-			<div style={{ width: '125px' }}>
+			<div style={{ width: '125px', height: '125px' }}>
 				<CardMedia
 					component="img"
 					sx={{ width: 125, objectFit: 'cover', border: '1' }}

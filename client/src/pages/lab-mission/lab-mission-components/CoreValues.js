@@ -43,7 +43,7 @@ const coreValuesList = {
  * @returns {React.JSX}
  */
 const displayCoreValues = (values) => Object.entries(values).map(([key, value]) => (
-	<div className="core-values-single-list-item">
+	<div className="core-values-single-list-item" key={key}>
 		<img
 			src={value.image}
 			alt={value.altAttribute}
@@ -67,9 +67,9 @@ function CoreValues() {
 			<h2 className="core-values-heading">
 				Core Values
 			</h2>
-			<p className="core-values-list">
+			<div className="core-values-list">
 				{displayCoreValues(coreValuesList)}
-			</p>
+			</div>
 		</StyledCoreValues>
 	);
 }

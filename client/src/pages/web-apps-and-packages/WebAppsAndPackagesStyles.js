@@ -115,19 +115,26 @@ const WebAppsAndPackagesStyles = styled.div`
 
   /* mobile */
   @media only screen and (max-width: 550px) {
+
+	.app-section, 
+  	.package-section {
+		gap: 0;
+	}
+
     .package-title {
       width: 140px;
     }
 
-    .single-app-container {
-      min-width: 250px;
+    .single-app-container,
+	.single-package-container{
+    	min-width: 250px;
     }
 
     .app-section-description, .package-section-description {
       text-align: center;
       width: 250px;
       font-size: 0.9em;
-      margin: 15px 0px 70px 0px;
+      margin: 10px 0;
     }
   }
 `;

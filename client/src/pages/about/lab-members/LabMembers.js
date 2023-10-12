@@ -129,10 +129,9 @@ function LabMembers() {
 	const history = useNavigate();
 
 	useEffect(() => {
-		window.scrollTo(0, 0);
 		const getPeople = async () => {
 			const res = await axios.get('/api/data/members');
-			setPeople(res.data.members.filter((item) => item.display));
+			setPeople(res.data.members);
 			setLoadingState(true);
 		};
 		getPeople();
@@ -158,7 +157,7 @@ function LabMembers() {
 								<PiInDetail
 									name="Benjamin Haibe-Kains"
 									title="Principal Investigator"
-									photo="/images/people/bhk.jpg"
+									photo="/images/peopleV2/bhk.jpg"
 									bio={PI_BIO}
 								/>
 								<StyledHeading>
@@ -171,9 +170,7 @@ function LabMembers() {
 										<>
 											{
 												sortMembers(
-													people
-														.filter((item) => item.status === 'current member')
-														.sort((a, b) => new Date(a.startDate) - new Date(b.startDate)),
+													people.sort((a, b) => new Date(a.startDate) - new Date(b.startDate)),
 												).map((item, i) => (displayMember(item, i, (i !== people.length - 1))))
 											}
 										</>

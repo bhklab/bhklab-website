@@ -4,16 +4,10 @@ const Schema = mongoose.Schema;
 const publicationSchema = new Schema({
     title: String,
     authors: String,
-    year: String,
-    categories: [String],
-    doi: String,
+    year: Number,
     url: String,
-    pmid: String,
     publisher: String,
-    releaseDate: String,
-    rawDate: String,
-    projects: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Project'}],
-    members: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Member'}],
+    date: String,
     image: String,
 });
 

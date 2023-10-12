@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import Container from '@mui/material/Container';
 import PaginatedPublications from './presentations-and-publications-components/PaginatedPublications';
 import { PaperCard } from './presentations-and-publications-components/PublicationCards';
 import StyledHeading from '../../styles/StyledHeading';
 import LeftPositionedTimeline from './Timeline';
 import DisplayContainer from './PresentationsAndPupblicationsStyles';
-import PublicationData from './pres-and-pub-data/PublicationData';
-
-// const [selectedYear, setSelectedYear] = useState('')
 
 const customizedContent = (item, index) => (
 	<PaperCard index={index} publication={item} />
@@ -18,43 +16,34 @@ function Publications() {
 	const [publications, setPublications] = useState({});
 	const [chosenYear, setChosenYear] = useState('');
 
-	// Used to sort the publication list by month after the specific year has been chosen
-	// const sortByMonth = (arr) => {
-	// 	const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-	// 		'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-	// 	return (arr.sort((a, b) => months.indexOf((a.releaseDate).substring(5, 8))
-	// 			- months.indexOf((b.releaseDate).substring(5, 8))));
-	// };
-
 	const selectYear = async (year) => {
 		// if the year selected isn't already selected: filter for the newly selected year
 		if (chosenYear !== year) {
 			setChosenYear(year);
-			// const res = await axios.get('/api/data/publications');
-			const pubData = PublicationData;
-			const filter = pubData.filter((pub) => pub.year === year);
-			// sort by year (substring extracts the year such as "2022")
-			const sortByYear = filter.sort(
-				(a, b) => new Date(b.releaseDate) - new Date(a.releaseDate),
+
+			const res = await axios.get('/api/data/publications');
+			res.data.publications.sort((a, b) => new Date(b.date) - new Date(a.date));
+			const filter = res.data.publications.filter((pub) => pub.year.toString() === year);
+			const sortByYear = filter.sort(// sort condensed list by month
+				(a, b) => new Date(b.date) - new Date(a.date),
 			);
-			setPublications(// sort condensed list by month
+			setPublications(
 				sortByYear,
 			);
 		}
 	};
 
 	useEffect(() => {
-		window.scrollTo(0, 0);
 		const getPublications = async () => {
-			// const res = await axios.get('/api/data/publications');
-			const pubData = [...PublicationData];
+			const res = await axios.get('/api/data/publications');
+			res.data.publications.sort((a, b) => new Date(b.date) - new Date(a.date));
+
 			// display 5 most recent on load
-			for (let i = pubData.length - 1; i >= 5; i -= 1) {
-				pubData.splice(i, 1);
+			for (let i = res.data.publications.length - 1; i >= 5; i -= 1) {
+				res.data.publications.splice(i, 1);
 			}
-			pubData.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
 			setPublications(
-				pubData,
+				res.data.publications,
 			);
 			setReady(true);
 		};
@@ -66,7 +55,7 @@ function Publications() {
 			{ ready
 					&& (
 						<>
-							<StyledHeading> Publications </StyledHeading>
+							<StyledHeading sx={{ marginTop: '0px' }}> Publications </StyledHeading>
 							<DisplayContainer>
 								<LeftPositionedTimeline selectYear={selectYear} />
 								<PaginatedPublications
