@@ -1,14 +1,13 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Container from '@mui/material/Container';
+import Button from '@mui/material/Button';
 import StyledHeading from '../../../styles/StyledHeading';
 import {
 	StyledCard, StyledImage, StyledName, StyledTitle, StyledPeople, StyledSocials,
-} from './MembersOverviewStyles';
+} from '../lab-members/MembersOverviewStyles';
 import BasicModal from '../../../components/utils/Modal';
-// import AuthContext from '../../../hooks/Contexts';
 
 // eslint-disable-next-line react/prop-types
 function MemberHeadShot({
@@ -47,13 +46,8 @@ function MemberHeadShot({
 }
 
 // cunrrently: links to a new page and display the member
-const displayMember = (item, index) => (
+const displayMember = (item, index) => item.image && (
 	<div key={index}>
-		{/* <Link to={{
-			pathname: `/people/${item.slug}`,
-			param: { member: item },
-		}}
-		> */}
 		<MemberHeadShot
 			description={item.position}
 			title={item.name}
@@ -62,7 +56,6 @@ const displayMember = (item, index) => (
 			twitter={item.twitter}
 			linkedIn={item.linkedIn}
 		/>
-		{/* </Link> */}
 	</div>
 );
 
@@ -108,7 +101,19 @@ function LabMembers() {
 	// const { admin } = useContext(AuthContext);
 	const [isLoading, setLoadingState] = useState(false);
 	const [people, setPeople] = useState({});
-	const history = useNavigate();
+	const [itemsLoaded, setItemsLoaded] = useState(12);
+	const [itemsButton, setItemsButton] = useState('show more');
+
+	// Adding or removing the number of items shown in alumni list + changing what the button says
+	const adjustItems = () => {
+		if (itemsLoaded === 12) {
+			setItemsLoaded(people.length);
+			setItemsButton('show less');
+		} else {
+			setItemsLoaded(12);
+			setItemsButton('show more');
+		}
+	};
 
 	useEffect(() => {
 		const getPeople = async () => {
@@ -117,58 +122,53 @@ function LabMembers() {
 			setLoadingState(true);
 		};
 		getPeople();
-	}, []);
-
-	useEffect(() => (() => {
-		if (history.action === 'POP' && history.location.pathname === '/') {
-			// console.log(history);
-			history.replace({
-				pathname: '/',
-				state: {
-				},
-			});
-		}
-	}), [history]);
+	}, [itemsLoaded]);
 
 	return (
-		<Container fixed>
+		<Container sx={{ textAlign: 'center' }}>
 			{
 				isLoading
 						&& (
 							<>
 								<StyledHeading>
-									Current Members
+									Alumni
 								</StyledHeading>
 								<StyledPeople>
 									{
-										people.length
-									&& (
-										<>
-											{
-												sortMembers(
-													people.sort((a, b) => new Date(a.startDate) - new Date(b.startDate)),
-												).map((item, i) => (displayMember(item, i, (i !== people.length - 1))))
-											}
-										</>
-									)
+										people.length && (
+											<>
+												{
+													sortMembers(
+														people.sort((a, b) => new Date(a.startDate) - new Date(b.startDate)),
+													).map((item, i) => {
+														if (i < itemsLoaded) {
+															return displayMember(item, i, (i !== people.length - 1));
+														}
+														return null;
+													})
+												}
+											</>
+										)
 									}
 								</StyledPeople>
-								{/* <StyledHeading>Alumni</StyledHeading>
-								<StyledPeople>
-									{
-										people.length
-									&& (
-										<>
-											{ sortMembers(people.filter((item) => item.status === 'alumni')
-												.sort((a, b) => new Date(b.endDate) - new Date(a.endDate)))
-												.map((item, i) => (displayMember(item, i)))}
-										</>
-									)
-									}
-								</StyledPeople> */}
 							</>
 						)
 			}
+			<Button
+				disableElevation
+				disableRipple
+				sx={{
+					width: '60px',
+					margin: '15px 0 0 0',
+					fontSize: '0.63em',
+					padding: '0px',
+					'&.MuiButtonBase-root:hover': {	bgcolor: 'transparent' },
+					height: '20px',
+				}}
+				onClick={() => adjustItems()}
+			>
+				{itemsButton}
+			</Button>
 		</Container>
 	);
 }

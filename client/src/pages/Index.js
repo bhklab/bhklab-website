@@ -9,6 +9,7 @@ import Contact from './about/contact/Contact';
 import LabMembers from './about/lab-members/LabMembers';
 import Collaboration from './about/collaboration/Collaboration';
 import JoinUs from './about/join/JoinUs';
+import LabAlumni from './about/alumni/LabAlumni';
 
 export {
 	Home,
@@ -20,6 +21,7 @@ export {
 	SingleMemberInformation,
 	Contact,
 	LabMembers,
+	LabAlumni,
 	Collaboration,
 	JoinUs,
 };
