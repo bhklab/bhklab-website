@@ -1,6 +1,11 @@
 # dotenv environment variables file
 .env
 .env.test
+
+# build
 /node_modules
 .DS_Store
 .idea
+
+#packages
+package-lock.json

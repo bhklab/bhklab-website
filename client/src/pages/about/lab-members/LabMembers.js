@@ -170,7 +170,7 @@ function LabMembers() {
 										<>
 											{
 												sortMembers(
-													people.sort((a, b) => new Date(a.startDate) - new Date(b.startDate)),
+													people.sort((a, b) => new Date(a.startYear) - new Date(b.startYear)),
 												).map((item, i) => (displayMember(item, i, (i !== people.length - 1))))
 											}
 										</>

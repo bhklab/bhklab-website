@@ -14,17 +14,24 @@ const getAll = async (req, res) => {
     };
     try{
         let res = await Member.find().lean();
-        res.forEach(member => {
-            result.members.push({
-                _id: member._id,
-                name: member.preferredName? member.preferredName : member.name,
-                position : member.position,
-                image: member.image,
-                bio: member.bio,
-                startYear: member.startYear,
-				twitter: member.socials.twitter,
-				linkedIn: member.socials.linkedIn
-            })
+        result.members.push({
+            _id: member._id,
+            name: member.preferredName? member.preferredName : member.name,
+            position : member.position,
+            supervisor: member.supervisor,
+            bio: member.bio,
+            startYear: member.startYear,
+            acknowledgements: {
+                awards: member.acknowledgements.awards,
+                conferences: member.acknowledgements.conferences,
+                posters: member.acknowledgements.posters,
+                presentations: member.acknowledgements.presentations,
+                publications: member.acknowledgements.publications,
+                otherAccomplishments: member.acknowledgements.otherAccomplishments
+            },
+            twitter: member.socials.twitter,
+            linkedIn: member.socials.linkedIn,
+            image: member.image
         })
     }catch(error){
         console.log(error);

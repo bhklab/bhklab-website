@@ -117,8 +117,9 @@ function LabMembers() {
 
 	useEffect(() => {
 		const getPeople = async () => {
-			const res = await axios.get('/api/data/members');
-			setPeople(res.data.members);
+			const res = await axios.get('/api/data/alumni');
+			console.log(res)
+			setPeople(res.data.alumni);
 			setLoadingState(true);
 		};
 		getPeople();
@@ -139,7 +140,7 @@ function LabMembers() {
 											<>
 												{
 													sortMembers(
-														people.sort((a, b) => new Date(a.startDate) - new Date(b.startDate)),
+														people.sort((a, b) => new Date(a.startAndEndYear) - new Date(b.startAndEndYear)),
 													).map((item, i) => {
 														if (i < itemsLoaded) {
 															return displayMember(item, i, (i !== people.length - 1));
