@@ -39,6 +39,6 @@ const alumniSchema = new Schema({
 },
 { typeKey: '$type' });
 
-const Alumni = mongoose.model('Alumni', alumniSchema);
+const Alumni = mongoose.model('Alumni', alumniSchema, 'alumni');
 module.exports = Alumni;
 

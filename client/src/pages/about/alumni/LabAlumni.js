@@ -5,31 +5,41 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import StyledHeading from '../../../styles/StyledHeading';
 import {
-	StyledCard, StyledImage, StyledName, StyledTitle, StyledPeople, StyledSocials,
+	StyledAlumniCard,
+	StyledImage,
+	StyledName,
+	StyledTitle,
+	StyledIndustry,
+	StyledPeople,
+	StyledSocials,
 } from '../lab-members/MembersOverviewStyles';
-import BasicModal from '../../../components/utils/Modal';
+// import BasicModal from '../../../components/utils/AlumniModal';
 
 // eslint-disable-next-line react/prop-types
 function MemberHeadShot({
-	title, description, imageUrl, item, linkedIn, twitter,
+	title, currentPosition, company, industry, imageUrl, linkedIn,
 }) {
 	return (
-		<StyledCard>
+		<StyledAlumniCard>
 			<StyledImage src={imageUrl} alt={title} PlaceholderSrc="./images/Logo/bhklab-logo.png" />
 			<StyledName>{title}</StyledName>
-			<StyledTitle>{description}</StyledTitle>
-			<BasicModal person={item} />
+			{industry
+			&& (
+				<StyledIndustry>
+					{'Works in '}
+					{industry}
+				</StyledIndustry>
+			)}
+			{currentPosition
+			&& (
+				<StyledTitle>
+					{currentPosition}
+					{' at '}
+					{company}
+				</StyledTitle>
+			)}
+			{/* <BasicModal person={item} /> */}
 			<StyledSocials>
-				{twitter
-				&& (
-					<a
-						href={twitter}
-						target="_blank"
-						rel="noreferrer"
-					>
-						<img src="/images/social-media/twitter.png" alt="twitter" style={{ width: '25px' }} />
-					</a>
-				)}
 				{linkedIn
 				&& (
 					<a
@@ -37,11 +47,20 @@ function MemberHeadShot({
 						target="_blank"
 						rel="noreferrer"
 					>
-						<img src="/images/social-media/linkedin.png" alt="linkedin" style={{ width: '25px' }} />
+						<img
+							src="/images/social-media/linkedin.png"
+							alt="linkedin"
+							style={{
+								width: '25px',
+								position: 'absolute',
+								bottom: '15px',
+								right: '107px',
+							}}
+						/>
 					</a>
 				)}
 			</StyledSocials>
-		</StyledCard>
+		</StyledAlumniCard>
 	);
 }
 
@@ -49,7 +68,9 @@ function MemberHeadShot({
 const displayMember = (item, index) => item.image && (
 	<div key={index}>
 		<MemberHeadShot
-			description={item.position}
+			currentPosition={item.currentPosition.title}
+			company={item.currentPosition.company}
+			industry={item.currentPosition.industry}
 			title={item.name}
 			imageUrl={`/images/peopleV2/${item.image}`}
 			item={item}
@@ -118,7 +139,7 @@ function LabMembers() {
 	useEffect(() => {
 		const getPeople = async () => {
 			const res = await axios.get('/api/data/alumni');
-			console.log(res)
+			console.log(res);
 			setPeople(res.data.alumni);
 			setLoadingState(true);
 		};
@@ -140,10 +161,13 @@ function LabMembers() {
 											<>
 												{
 													sortMembers(
-														people.sort((a, b) => new Date(a.startAndEndYear) - new Date(b.startAndEndYear)),
+														people.sort((a, b) => a.startAndEndYear - b.startAndEndYear),
 													).map((item, i) => {
-														if (i < itemsLoaded) {
-															return displayMember(item, i, (i !== people.length - 1));
+														if (item.currentPosition.company !== '') {
+															if (i < itemsLoaded) {
+																return displayMember(item, i, (i !== people.length - 1));
+															}
+															return null;
 														}
 														return null;
 													})
