@@ -64,15 +64,14 @@ function MemberHeadShot({
 	);
 }
 
-// cunrrently: links to a new page and display the member
-const displayMember = (item, index) => item.image && (
+const displayMember = (item, index) => (
 	<div key={index}>
 		<MemberHeadShot
 			currentPosition={item.currentPosition.title}
 			company={item.currentPosition.company}
 			industry={item.currentPosition.industry}
 			title={item.name}
-			imageUrl={`/images/peopleV2/${item.image}`}
+			imageUrl={item.image ? `/images/peopleV2/${item.image}` : '/images/peopleV2/default_member.png'}
 			item={item}
 			twitter={item.twitter}
 			linkedIn={item.linkedIn}

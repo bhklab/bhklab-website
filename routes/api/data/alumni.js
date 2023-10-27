@@ -10,7 +10,6 @@ const getAll = async (req, res) => {
     console
     try{
         let res = await Alumni.find().lean();
-        console.log(res)
         res.forEach(alumni => {
             result.alumni.push({
                 _id: alumni._id,
