@@ -39,7 +39,7 @@ function PresentationCard(props) {
 							<CardMedia
 								component="img"
 								sx={{ width: 150, objectFit: 'contain', marginTop: '10px' }}
-								image={image ? `images/presentations/${image}` : 'images/presentations/presentation-blurry.png'}
+								image={image ? `https://storage.googleapis.com/caboodle-images/presentations/${image}` : 'https://storage.googleapis.com/caboodle-images/presentations/presentation-blurry.png'}
 								alt={image ? 'an image of first slide' : 'a placeholder image for unavailable'}
 							/>
 						</a>
@@ -48,7 +48,7 @@ function PresentationCard(props) {
 						<CardMedia
 							component="img"
 							sx={{ width: 150, objectFit: 'contain', marginTop: '10px' }}
-							image={image ? `images/presentations/${image}` : 'images/presentations/presentation-blurry.png'}
+							image={image ? `https://storage.googleapis.com/caboodle-images/presentations/${image}` : 'https://storage.googleapis.com/caboodle-images/presentations/presentation-blurry.png'}
 							alt={image ? 'an image of first slide' : 'a placeholder image for unavailable'}
 						/>
 					)
@@ -126,7 +126,7 @@ function PaperCard(props) {
 										width: 125,
 										objectFit: 'cover',
 									}}
-									image={image ? `images/publication/${image}` : 'images/publication/publication-blurry.png'}
+									image={image ? `https://storage.googleapis.com/caboodle-images/publication/${image}` : 'https://storage.googleapis.com/caboodle-images/publication/publication-blurry.png'}
 									alt={image ? 'an image of publisher\'s cover' : 'a placeholder image for unavailable publisher cover'}
 								/>
 							</a>
@@ -137,7 +137,7 @@ function PaperCard(props) {
 									width: 125,
 									objectFit: 'cover',
 								}}
-								image={image ? `images/publication/${image}` : 'images/publication/publication-blurry.png'}
+								image={image ? `https://storage.googleapis.com/caboodle-images/publication/${image}` : 'https://storage.googleapis.com/caboodle-images/publication/publication-blurry.png'}
 								alt={image ? 'an image of publisher\'s cover' : 'a placeholder image for unavailable publisher cover'}
 							/>
 						)
@@ -194,7 +194,7 @@ function PreprintCard(props) {
 				<CardMedia
 					component="img"
 					sx={{ width: 125, objectFit: 'cover', border: '1' }}
-					image={image ? `images/publication/${image}` : 'images/publication/publication-blurry.png'}
+					image={image ? `https://storage.googleapis.com/caboodle-images/publication/${image}` : 'https://storage.googleapis.com/caboodle-images/publication/publication-blurry.png'}
 					alt={image ? 'an image of publisher\'s cover' : 'a placeholder image for unavailable publisher cover'}
 				/>
 			</div>

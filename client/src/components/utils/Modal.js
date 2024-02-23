@@ -58,7 +58,7 @@ export default function BasicModal({ person }) {
 					<MemberInDetail
 						name={person.name}
 						title={person.title}
-						photo={`/images/peopleV2/${person.image}`}
+						photo={`https://storage.googleapis.com/caboodle-images/member-photos/${person.image}`}
 						bio={person.bio}
 					/>
 				</BoxStyle>

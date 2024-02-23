@@ -71,7 +71,7 @@ const displayMember = (item, index) => (
 			company={item.currentPosition.company}
 			industry={item.currentPosition.industry}
 			title={item.name}
-			imageUrl={item.image ? `/images/peopleV2/${item.image}` : '/images/peopleV2/default_member.png'}
+			imageUrl={item.image ? `https://storage.googleapis.com/caboodle-images/member-photos/${item.image}` : 'https://storage.googleapis.com/caboodle-images/member-photos/default_member.png'}
 			item={item}
 			twitter={item.twitter}
 			linkedIn={item.linkedIn}

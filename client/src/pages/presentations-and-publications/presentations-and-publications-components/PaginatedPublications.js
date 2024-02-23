@@ -1,8 +1,5 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
-// import ReactPaginate from 'react-paginate';
-// import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
-// import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import StyledPaginate from './StyledPaginate';
 
 /* ** Commented out code is for pagination if needed again ** */
@@ -40,22 +37,6 @@ function PaginatedPublications({ customizedContent, publications, itemsPerPage }
 	return (
 		<StyledPaginate>
 			<Items currentItems={currentItems} />
-			{/* <div className="pagination-container">
-				<ReactPaginate
-					pageCount={pageCount}
-					onPageChange={handlePageClick}
-					previousLabel={<ArrowBackIosIcon fontSize="20" />}
-					nextLabel={<ArrowForwardIosIcon fontSize="20" />}
-					containerClassName="paginationBttns"
-					previousLinkClassName="previousBttn"
-					nextLinkClassName="nextBttn"
-					disabledClassName="paginationDisabled"
-					activeClassName="paginationActive"
-					breakLabel="..."
-					pageRangeDisplayed={5}
-					renderOnZeroPageCount={null}
-				/>
-			</div> */}
 		</StyledPaginate>
 	);
 }
