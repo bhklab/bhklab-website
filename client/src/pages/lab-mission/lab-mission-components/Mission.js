@@ -23,7 +23,7 @@ const labOverallMission = () =>	(
 const waysToAchieveMission = [
 	<>
 		<img
-			src="/images/Logo/deep-learning.png"
+			src="/images/logo/deep-learning.png"
 			alt="deep-learning"
 		/>
 		<p>
@@ -52,7 +52,7 @@ const waysToAchieveMission = [
 	</>,
 	<>
 		<img
-			src="/images/Logo/fair-research.png"
+			src="/images/logo/fair-research.png"
 			alt="fair-research"
 		/>
 		<p>
@@ -82,7 +82,7 @@ const waysToAchieveMission = [
 	</>,
 	<>
 		<img
-			src="/images/Logo/diversity.png"
+			src="/images/logo/diversity.png"
 			alt="diversity"
 		/>
 		<p>

@@ -21,7 +21,7 @@ function MemberHeadShot({
 }) {
 	return (
 		<StyledAlumniCard>
-			<StyledImage src={imageUrl} alt={title} PlaceholderSrc="./images/Logo/bhklab-logo.png" />
+			<StyledImage src={imageUrl} alt={title} PlaceholderSrc="./images/logo/bhklab-logo.png" />
 			<StyledName>{title}</StyledName>
 			{industry
 			&& (

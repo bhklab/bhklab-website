@@ -105,7 +105,7 @@ function NavBar() {
 			<StyledNavigation style={{ backgroundColor: scrolled ? 'white' : 'transparent' }}>
 				<LogoContainer>
 					<Link to="/">
-						<img alt="logo" src="/images/Logo/bhklogo.png" />
+						<img alt="logo" src="/images/logo/bhklogo.png" />
 					</Link>
 				</LogoContainer>
 				<BurgerMenu />
@@ -122,7 +122,7 @@ function NavBar() {
 		<StyledNavigation style={{ backgroundColor: 'white' }}>
 			<LogoContainer>
 				<Link to="/">
-					<img alt="logo" src="/images/Logo/bhklogo.png" />
+					<img alt="logo" src="/images/logo/bhklogo.png" />
 				</Link>
 			</LogoContainer>
 			<BurgerMenu />

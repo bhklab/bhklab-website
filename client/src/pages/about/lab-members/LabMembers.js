@@ -158,7 +158,7 @@ function LabMembers() {
 								<PiInDetail
 									name="Benjamin Haibe-Kains"
 									title="Principal Investigator"
-									photo="/images/peopleV2/bhk.jpg"
+									photo="https://storage.googleapis.com/caboodle-images/member-photos/bhk.jpg"
 									bio={PI_BIO}
 								/>
 								<StyledHeading>
