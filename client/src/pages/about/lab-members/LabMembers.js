@@ -34,7 +34,7 @@ function MemberHeadShot({
 }) {
 	return (
 		<StyledCard>
-			<StyledImage src={imageUrl} alt={title} PlaceholderSrc="./images/Logo/bhklab-logo.png" />
+			<StyledImage src={imageUrl} alt={title} PlaceholderSrc="./images/logo/bhklab-logo.png" />
 			<StyledName>{title}</StyledName>
 			<StyledTitle>{description}</StyledTitle>
 			<BasicModal person={item} />
