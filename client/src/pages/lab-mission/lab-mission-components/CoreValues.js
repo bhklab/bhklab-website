@@ -3,22 +3,22 @@ import { StyledCoreValues } from '../LabMissionStyles';
 
 const coreValuesList = {
 	Openness: {
-		image: '/images/Logo/customer.png',
+		image: '/images/logo/customer.png',
 		description: 'Research transparency, reproducibility, and reusability',
 		altAttribute: 'reproducibility',
 	},
 	Accessibility: {
-		image: '/images/Logo/accessibility.png',
+		image: '/images/logo/accessibility.png',
 		description: 'Science must be accessible and beneficial to everyone',
 		altAttribute: 'accessibility',
 	},
 	Multidisciplinarity: {
-		image: '/images/Logo/multidisciplinarity.png',
+		image: '/images/logo/multidisciplinarity.png',
 		description: 'Our research is fundamentally multidisciplinary and all expertise is valued',
 		altAttribute: 'multi-disciplinarity',
 	},
 	Diversity: {
-		image: '/images/Logo/diversity-values.png',
+		image: '/images/logo/diversity-values.png',
 		description: (
 			<>
 				Recognition and valorization of diverse contributions
