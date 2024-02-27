@@ -19,6 +19,16 @@ const StyledCard = styled.div`
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 `;
 
+const StyledAlumniCard = styled.div`
+    width: 245px;
+    height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: ${colors.main};
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+`;
+
 const StyledImage = styled.img`
     width: 245px;
     height: 240px;
@@ -36,11 +46,20 @@ const StyledTitle = styled.p`
     font-size: 12px;
     font-style: italic;
     color: ${colors.primary_text_color};
-    margin: 10px 10px 0 10px;
+    margin: 5px 10px 0 10px;
     text-align: center;
 `;
+
+const StyledIndustry = styled.p`
+    font-size: 11px;
+    color: ${colors.primary_text_color};
+    margin: 5px 10px 0 10px;
+    text-align: center;
+`;
+
 const StyledSocials = styled.div`
-	text-align: center;
+    display: flex;
+    justify-content: center;
 `;
 
 const StyledPeople = styled.div`
@@ -59,5 +78,6 @@ const StyledPeople = styled.div`
 `;
 
 export {
-	StyledMember, StyledCard, StyledImage, StyledName, StyledTitle, StyledPeople, StyledSocials,
+	StyledMember, StyledCard, StyledImage, StyledName, StyledTitle,
+	StyledPeople, StyledSocials, StyledAlumniCard, StyledIndustry,
 };

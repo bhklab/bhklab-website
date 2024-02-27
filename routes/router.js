@@ -14,6 +14,7 @@ const positions = require('./api/data/positions');
 const research = require('./api/data/research');
 const auth = require('./api/admin/auth');
 const admin = require('./api/admin/admin');
+const alumni = require('./api/data/alumni')
 
 
 // data routes
@@ -23,6 +24,8 @@ router.post('/data/datasets/deleteOne/:id', auth.verifyToken, dataset.deleteOne)
 router.get('/data/members', member.getAll);
 router.get('/data/member/:token', member.getOne);
 router.post('/data/members/deleteOne/:id',auth.verifyToken, member.deleteOne);
+
+router.get('/data/alumni', alumni.getAll);
 
 router.get('/data/positions', positions.getAll);
 router.post('/data/positions/deleteOne/:id',auth.verifyToken, positions.deleteOne);

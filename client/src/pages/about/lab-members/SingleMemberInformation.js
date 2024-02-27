@@ -30,7 +30,7 @@ function SingleMemberInformation() {
 					&& (
 						<StyledMember>
 							<MemberInDetail
-								photo={`/images/peopleV2/${image}`}
+								photo={`https://storage.googleapis.com/caboodle-images/member-photos/${image}`}
 								name={name}
 								title={position}
 								bio={bio}

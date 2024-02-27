@@ -1,36 +1,45 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Container from '@mui/material/Container';
+import Button from '@mui/material/Button';
 import StyledHeading from '../../../styles/StyledHeading';
 import {
-	StyledCard, StyledImage, StyledName, StyledTitle, StyledPeople, StyledSocials,
-} from './MembersOverviewStyles';
-import BasicModal from '../../../components/utils/Modal';
-// import AuthContext from '../../../hooks/Contexts';
+	StyledAlumniCard,
+	StyledImage,
+	StyledName,
+	StyledTitle,
+	StyledIndustry,
+	StyledPeople,
+	StyledSocials,
+} from '../lab-members/MembersOverviewStyles';
+// import BasicModal from '../../../components/utils/AlumniModal';
 
 // eslint-disable-next-line react/prop-types
 function MemberHeadShot({
-	title, description, imageUrl, item, linkedIn, twitter,
+	title, currentPosition, company, industry, imageUrl, linkedIn,
 }) {
 	return (
-		<StyledCard>
+		<StyledAlumniCard>
 			<StyledImage src={imageUrl} alt={title} PlaceholderSrc="./images/Logo/bhklab-logo.png" />
 			<StyledName>{title}</StyledName>
-			<StyledTitle>{description}</StyledTitle>
-			<BasicModal person={item} />
+			{industry
+			&& (
+				<StyledIndustry>
+					{'Works in '}
+					{industry}
+				</StyledIndustry>
+			)}
+			{currentPosition
+			&& (
+				<StyledTitle>
+					{currentPosition}
+					{' at '}
+					{company}
+				</StyledTitle>
+			)}
+			{/* <BasicModal person={item} /> */}
 			<StyledSocials>
-				{twitter
-				&& (
-					<a
-						href={twitter}
-						target="_blank"
-						rel="noreferrer"
-					>
-						<img src="/images/social-media/twitter.png" alt="twitter" style={{ width: '25px' }} />
-					</a>
-				)}
 				{linkedIn
 				&& (
 					<a
@@ -38,31 +47,35 @@ function MemberHeadShot({
 						target="_blank"
 						rel="noreferrer"
 					>
-						<img src="/images/social-media/linkedin.png" alt="linkedin" style={{ width: '25px' }} />
+						<img
+							src="/images/social-media/linkedin.png"
+							alt="linkedin"
+							style={{
+								width: '25px',
+								position: 'absolute',
+								bottom: '15px',
+								right: '107px',
+							}}
+						/>
 					</a>
 				)}
 			</StyledSocials>
-		</StyledCard>
+		</StyledAlumniCard>
 	);
 }
 
-// cunrrently: links to a new page and display the member
 const displayMember = (item, index) => (
 	<div key={index}>
-		{/* <Link to={{
-			pathname: `/people/${item.slug}`,
-			param: { member: item },
-		}}
-		> */}
 		<MemberHeadShot
-			description={item.position}
+			currentPosition={item.currentPosition.title}
+			company={item.currentPosition.company}
+			industry={item.currentPosition.industry}
 			title={item.name}
-			imageUrl={`/images/peopleV2/${item.image}`}
+			imageUrl={item.image ? `https://storage.googleapis.com/caboodle-images/member-photos/${item.image}` : 'https://storage.googleapis.com/caboodle-images/member-photos/default_member.png'}
 			item={item}
 			twitter={item.twitter}
 			linkedIn={item.linkedIn}
 		/>
-		{/* </Link> */}
 	</div>
 );
 
@@ -108,67 +121,78 @@ function LabMembers() {
 	// const { admin } = useContext(AuthContext);
 	const [isLoading, setLoadingState] = useState(false);
 	const [people, setPeople] = useState({});
-	const history = useNavigate();
+	const [itemsLoaded, setItemsLoaded] = useState(12);
+	const [itemsButton, setItemsButton] = useState('show more');
+
+	// Adding or removing the number of items shown in alumni list + changing what the button says
+	const adjustItems = () => {
+		if (itemsLoaded === 12) {
+			setItemsLoaded(people.length);
+			setItemsButton('show less');
+		} else {
+			setItemsLoaded(12);
+			setItemsButton('show more');
+		}
+	};
 
 	useEffect(() => {
 		const getPeople = async () => {
-			const res = await axios.get('/api/data/members');
-			setPeople(res.data.members);
+			const res = await axios.get('/api/data/alumni');
+			console.log(res);
+			setPeople(res.data.alumni);
 			setLoadingState(true);
 		};
 		getPeople();
-	}, []);
-
-	useEffect(() => (() => {
-		if (history.action === 'POP' && history.location.pathname === '/') {
-			// console.log(history);
-			history.replace({
-				pathname: '/',
-				state: {
-				},
-			});
-		}
-	}), [history]);
+	}, [itemsLoaded]);
 
 	return (
-		<Container fixed>
+		<Container sx={{ textAlign: 'center' }}>
 			{
 				isLoading
 						&& (
 							<>
 								<StyledHeading>
-									Current Members
+									Alumni
 								</StyledHeading>
 								<StyledPeople>
 									{
-										people.length
-									&& (
-										<>
-											{
-												sortMembers(
-													people.sort((a, b) => new Date(a.startDate) - new Date(b.startDate)),
-												).map((item, i) => (displayMember(item, i, (i !== people.length - 1))))
-											}
-										</>
-									)
+										people.length && (
+											<>
+												{
+													sortMembers(
+														people.sort((a, b) => a.startAndEndYear - b.startAndEndYear),
+													).map((item, i) => {
+														if (item.currentPosition.company !== '') {
+															if (i < itemsLoaded) {
+																return displayMember(item, i, (i !== people.length - 1));
+															}
+															return null;
+														}
+														return null;
+													})
+												}
+											</>
+										)
 									}
 								</StyledPeople>
-								{/* <StyledHeading>Alumni</StyledHeading>
-								<StyledPeople>
-									{
-										people.length
-									&& (
-										<>
-											{ sortMembers(people.filter((item) => item.status === 'alumni')
-												.sort((a, b) => new Date(b.endDate) - new Date(a.endDate)))
-												.map((item, i) => (displayMember(item, i)))}
-										</>
-									)
-									}
-								</StyledPeople> */}
 							</>
 						)
 			}
+			<Button
+				disableElevation
+				disableRipple
+				sx={{
+					width: '60px',
+					margin: '15px 0 0 0',
+					fontSize: '0.63em',
+					padding: '0px',
+					'&.MuiButtonBase-root:hover': {	bgcolor: 'transparent' },
+					height: '20px',
+				}}
+				onClick={() => adjustItems()}
+			>
+				{itemsButton}
+			</Button>
 		</Container>
 	);
 }

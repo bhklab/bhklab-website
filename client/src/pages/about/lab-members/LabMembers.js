@@ -75,7 +75,7 @@ const displayMember = (item, index) => (
 		<MemberHeadShot
 			description={item.position}
 			title={item.name}
-			imageUrl={`/images/peopleV2/${item.image}`}
+			imageUrl={`https://storage.googleapis.com/caboodle-images/member-photos/${item.image}`}
 			item={item}
 			twitter={item.twitter}
 			linkedIn={item.linkedIn}
@@ -131,6 +131,7 @@ function LabMembers() {
 	useEffect(() => {
 		const getPeople = async () => {
 			const res = await axios.get('/api/data/members');
+			console.log(res.data.members);
 			setPeople(res.data.members);
 			setLoadingState(true);
 		};
@@ -170,7 +171,7 @@ function LabMembers() {
 										<>
 											{
 												sortMembers(
-													people.sort((a, b) => new Date(a.startDate) - new Date(b.startDate)),
+													people.sort((a, b) => new Date(a.startYear) - new Date(b.startYear)),
 												).map((item, i) => (displayMember(item, i, (i !== people.length - 1))))
 											}
 										</>

@@ -13,6 +13,7 @@ import Presentations from '../presentations-and-publications/Presentations';
 import Software from '../web-apps-and-packages/WebAppsAndPackages';
 import LabMembers from '../about/lab-members/LabMembers';
 import SocialMediaAccounts from '../about/social/SocialMediaAccounts';
+import LabAlumni from '../about/alumni/LabAlumni';
 
 function Home() {
 	return (
@@ -69,6 +70,9 @@ function Home() {
 						</div>
 						<div id="team" className="home-component-sub-section">
 							<LabMembers />
+						</div>
+						<div id="team" className="home-component-sub-section">
+							<LabAlumni />
 						</div>
 						<div id="social-media-accounts" className="home-component-sub-section">
 							<hr />
