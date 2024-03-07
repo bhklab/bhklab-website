@@ -2,7 +2,7 @@ import React from 'react';
 import Container from '@mui/material/Container';
 // import SwipeableViews from 'react-swipeable-views';
 // import Box from '@mui/material/Box';
-import { useTheme } from '@mui/material/styles';
+// import { useTheme } from '@mui/material/styles';
 import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 // import CollaborationPlot from './CollaborationComponents/CollaborationPlot';
@@ -34,16 +34,15 @@ import SlideButton from '../../../styles/StyledButton';
 // }
 
 function Collaboration() {
-	const theme = useTheme();
 	const [value, setValue] = React.useState(0);
 
 	const handleChange = (event, newValue) => {
 		setValue(newValue);
 	};
 
-	const handleChangeIndex = (index) => {
-		setValue(index);
-	};
+	// const handleChangeIndex = (index) => {
+	// 	setValue(index);
+	// };
 
 	return (
 		<Layout>

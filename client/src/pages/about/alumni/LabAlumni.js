@@ -138,7 +138,6 @@ function LabMembers() {
 	useEffect(() => {
 		const getPeople = async () => {
 			const res = await axios.get('/api/data/alumni');
-			console.log(res);
 			setPeople(res.data.alumni);
 			setLoadingState(true);
 		};

@@ -21,83 +21,63 @@ const labOverallMission = () =>	(
 );
 
 const waysToAchieveMission = [
-	<>
-		<img
-			src="/images/logo/deep-learning.png"
-			alt="deep-learning"
-		/>
-		<p>
-			The development of
-			{' '}
-			<a
-				href="https://www.ibm.com/topics/machine-learning"
-				target="_blank"
-				rel="noreferrer"
-			>
-				Machine Learning
-			</a>
-			{' '}
-			and
-			{' '}
-			<a
-				href="https://www.ibm.com/topics/artificial-intelligence"
-				target="_blank"
-				rel="noreferrer"
-			>
-				Artificial Intelligence
-			</a>
-			{' '}
-			approaches for biomedical applications
-		</p>
-	</>,
-	<>
-		<img
-			src="/images/logo/fair-research.png"
-			alt="fair-research"
-		/>
-		<p>
-			The adoption and improvement of findability, accessibility,
-			interoperability, and reusability
-			{' '}
-			<a
-				href="https://www.go-fair.org/fair-principles/"
-				target="_blank"
-				rel="noreferrer"
-			>
-				(FAIR)
-			</a>
-			{' '}
-			and
-			{' '}
-			<a
-				href="https://www.unesco.org/en/open-science/about"
-				target="_blank"
-				rel="noreferrer"
-			>
-				Open Science
-			</a>
-			{' '}
-			principles
-		</p>
-	</>,
-	<>
-		<img
-			src="/images/logo/diversity.png"
-			alt="diversity"
-		/>
-		<p>
-			The training of the next generation following the principles
-			of inclusion, diversity, equity, and accessibility
-			{' '}
-			<a
-				href="https://en.ccunesco.ca/-/media/Files/Unesco/Resources/2021/09/ToolkitIDEA.pdf"
-				target="_blank"
-				rel="noreferrer"
-			>
-				(IDEA)
-			</a>
-		</p>
-	</>,
+	{
+		key: 'deep-learning',
+		content: (
+			<>
+				<img src="/images/logo/deep-learning.png" alt="deep-learning" />
+				<p>
+					The development of
+					{' '}
+					<a href="https://www.ibm.com/topics/machine-learning" target="_blank" rel="noreferrer">
+						Machine Learning
+					</a>
+					{' '}
+					and
+					{' '}
+					<a href="https://www.ibm.com/topics/artificial-intelligence" target="_blank" rel="noreferrer">
+						Artificial Intelligence
+					</a>
+					{' '}
+					approaches for biomedical applications
+				</p>
+			</>
+		),
+	},
+	{
+		key: 'fair-research',
+		content: (
+			<>
+				<img src="/images/logo/fair-research.png" alt="fair-research" />
+				<p>
+					The adoption and improvement of findability, accessibility,
+					interoperability, and reusability
+					{' '}
+					<a href="https://www.go-fair.org/fair-principles/" target="_blank" rel="noreferrer">(FAIR)</a>
+					{' '}
+					and
+					{' '}
+					<a href="https://www.unesco.org/en/open-science/about" target="_blank" rel="noreferrer">Open Science</a>
+					{' '}
+					principles
+				</p>
+			</>
+		),
+	},
+	{
+		key: 'diversity',
+		content: (
+			<>
+				<img src="/images/logo/diversity.png" alt="diversity" />
+				<p>
+					The training of the next generation following the principles
+					of inclusion, diversity, equity, and accessibility
+					{' '}
+					<a href="https://en.ccunesco.ca/-/media/Files/Unesco/Resources/2021/09/ToolkitIDEA.pdf" target="_blank" rel="noreferrer">(IDEA)</a>
+				</p>
+			</>
+		),
+	},
 ];
 
 /**
@@ -105,8 +85,8 @@ const waysToAchieveMission = [
  * @param {Array} mission
  */
 const displayWaysToAchieveMission = (missions) => missions.map((mission) => (
-	<div className="ways-to-achieve-mission-single-item">
-		{mission}
+	<div className="ways-to-achieve-mission-single-item" key={mission.key}>
+		{mission.content}
 	</div>
 ));
 

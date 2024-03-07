@@ -5,7 +5,7 @@ import axios from 'axios';
 import Container from '@mui/material/Container';
 import StyledHeading from '../../../styles/StyledHeading';
 import {
-	StyledCard, StyledImage, StyledName, StyledTitle, StyledPeople, StyledSocials,
+	StyledCard, StyledImage, StyledName, StyledTitle, StyledPeople, StyledSocials, StyledEmail,
 } from './MembersOverviewStyles';
 import BasicModal from '../../../components/utils/Modal';
 import PiInDetail from './PiInDetail';
@@ -30,7 +30,7 @@ const PI_BIO = `
 
 // eslint-disable-next-line react/prop-types
 function MemberHeadShot({
-	title, description, imageUrl, item, linkedIn, twitter,
+	title, description, imageUrl, item, linkedIn, twitter, email,
 }) {
 	return (
 		<StyledCard>
@@ -60,6 +60,9 @@ function MemberHeadShot({
 					</a>
 				)}
 			</StyledSocials>
+			<StyledEmail>
+				{email.toLowerCase()}
+			</StyledEmail>
 		</StyledCard>
 	);
 }
@@ -67,11 +70,6 @@ function MemberHeadShot({
 // cunrrently: links to a new page and display the member
 const displayMember = (item, index) => (
 	<div key={index}>
-		{/* <Link to={{
-			pathname: `/people/${item.slug}`,
-			param: { member: item },
-		}}
-		> */}
 		<MemberHeadShot
 			description={item.position}
 			title={item.name}
@@ -79,8 +77,8 @@ const displayMember = (item, index) => (
 			item={item}
 			twitter={item.twitter}
 			linkedIn={item.linkedIn}
+			email={item.contactInfo.preferredEmail}
 		/>
-		{/* </Link> */}
 	</div>
 );
 
@@ -131,7 +129,6 @@ function LabMembers() {
 	useEffect(() => {
 		const getPeople = async () => {
 			const res = await axios.get('/api/data/members');
-			console.log(res.data.members);
 			setPeople(res.data.members);
 			setLoadingState(true);
 		};
@@ -178,19 +175,6 @@ function LabMembers() {
 									)
 									}
 								</StyledPeople>
-								{/* <StyledHeading>Alumni</StyledHeading>
-								<StyledPeople>
-									{
-										people.length
-									&& (
-										<>
-											{ sortMembers(people.filter((item) => item.status === 'alumni')
-												.sort((a, b) => new Date(b.endDate) - new Date(a.endDate)))
-												.map((item, i) => (displayMember(item, i)))}
-										</>
-									)
-									}
-								</StyledPeople> */}
 							</>
 						)
 			}

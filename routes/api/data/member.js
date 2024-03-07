@@ -17,7 +17,7 @@ const getAll = async (req, res) => {
         res.forEach(member =>{
             result.members.push({
                 _id: member._id,
-                name: member.preferredName? member.preferredName : member.name,
+                name: member.preferredName ? member.preferredName : member.name,
                 position : member.position,
                 supervisor: member.supervisor,
                 bio: member.bio,
@@ -30,6 +30,11 @@ const getAll = async (req, res) => {
                     publications: member.acknowledgements.publications,
                     otherAccomplishments: member.acknowledgements.otherAccomplishments
                 },
+				contactInfo: {
+					uhnOrUofTEmail: member.contactInfo.uhnOrUofTEmail,
+					personalEmail: member.contactInfo.personalEmail,
+					preferredEmail: member.contactInfo.preferredEmail ? member.contactInfo.preferredEmail : member.contactInfo.uhnOrUofTEmail
+				},
                 twitter: member.socials.twitter,
                 linkedIn: member.socials.linkedIn,
                 image: member.image

@@ -8,10 +8,12 @@ const LinkedInStyled = styled.div`
 
 	@media screen and (max-width: 1620px) {
 		width: 500px;
+		overflow: hidden;
 	}
 
 	@media screen and (max-width: 650px) {
-		width: 350px;
+		width: 300px;
+		overflow: hidden;
 	}
 `;
 

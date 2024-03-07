@@ -6,6 +6,10 @@
 /node_modules
 .DS_Store
 .idea
+app.yaml
+serviceKey.json
+.gcloudignore
+Dockerfile
 
 #packages
 package-lock.json

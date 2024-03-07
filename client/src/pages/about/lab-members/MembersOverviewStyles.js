@@ -12,7 +12,7 @@ const StyledMember = styled.div`
 
 const StyledCard = styled.div`
     width: 245px;
-    height: 360px;
+    height: 395px;
     border-radius: 10px;
     overflow: hidden;
     background-color: ${colors.main};
@@ -62,6 +62,13 @@ const StyledSocials = styled.div`
     justify-content: center;
 `;
 
+const StyledEmail = styled.p`
+    font-size: 12px;
+    color: ${colors.primary_text_color};
+    margin: 5px 10px 0 10px;
+    text-align: center;
+`;
+
 const StyledPeople = styled.div`
     display: flex;
     flex-flow: row wrap;
@@ -79,5 +86,5 @@ const StyledPeople = styled.div`
 
 export {
 	StyledMember, StyledCard, StyledImage, StyledName, StyledTitle,
-	StyledPeople, StyledSocials, StyledAlumniCard, StyledIndustry,
+	StyledPeople, StyledSocials, StyledAlumniCard, StyledIndustry, StyledEmail,
 };

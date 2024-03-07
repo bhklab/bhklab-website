@@ -10,6 +10,7 @@ const cors = require('cors');
 const port = process.env.PORT || 2000;
 
 const app = express();
+app.set('trust proxy', true);
 
 app.use(cors());
 app.use(logger('dev'));
@@ -17,7 +18,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, "client/build")));
 
 const router = require('./routes/router.js');
 app.use('/api', router);
