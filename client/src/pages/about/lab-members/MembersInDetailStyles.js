@@ -7,7 +7,7 @@ const StyledMemberDetailed = styled.div`
 	flex-direction: row;
 	background-color: ${colors.white_color};
 	border-radius: 10px;
-	padding: 80px 30px;
+	padding: 20px 20px;
 
 	@media screen and (max-width: 1200px) {
 		flex-direction: column;

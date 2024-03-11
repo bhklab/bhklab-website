@@ -65,6 +65,9 @@ const getOne = async (req, res) => {
                 position : member.position,
                 image: member.image,
                 bio: member.bio,
+				twitter: member.socials.twitter,
+				linkedIn: member.socials.linkedIn,
+				email: member.contactInfo.preferredEmail ? member.contactInfo.preferredEmail : member.contactInfo.uhnOrUofTEmail
             }
         }
     }catch(error){
