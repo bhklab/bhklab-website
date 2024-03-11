@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/media-has-caption */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
 	Container, PMCRTImage, PMCRTTowerImage, TeamImage, BHKLabImage, StyledHome, StyledLabVideo,
@@ -16,6 +16,17 @@ import SocialMediaAccounts from '../about/social/SocialMediaAccounts';
 import LabAlumni from '../about/alumni/LabAlumni';
 
 function Home() {
+	// smooth scroll to selected hashId once the page has been rendered
+	useEffect(() => {
+		const { hash } = window.location;
+		if (hash) {
+			const element = document.querySelector(hash);
+			if (element) {
+				element.scrollIntoView({ behavior: 'smooth' });
+			}
+		}
+	}, []);
+
 	return (
 		<Layout page="home">
 			<motion.nav
