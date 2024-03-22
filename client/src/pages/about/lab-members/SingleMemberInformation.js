@@ -6,7 +6,7 @@ import Layout from '../../../components/utils/Layout';
 import { StyledMember } from './MembersOverviewStyles';
 import {
 	StyledMemberDetailed, StyledInfoDetailed, StyledImageDetailed,
-	StyledNameDetailed, StyledTitleDetailed, StyledBioDetailed,
+	StyledNameDetailed, StyledTitleDetailed, StyledBioDetailed, StyledEmailDetailed,
 } from './MembersInDetailStyles';
 
 function SingleMemberInformation() {
@@ -36,12 +36,19 @@ function SingleMemberInformation() {
 								<StyledImageDetailed src={`https://storage.googleapis.com/caboodle-images/member-photos/${image}`} alt={position} />
 								<StyledInfoDetailed>
 									<StyledNameDetailed>
-										<span>{name}</span>
-										<span>
+										<p>
+											{name}
+										</p>
+									</StyledNameDetailed>
+									<StyledEmailDetailed>
+										<p>
 											(
 											{email}
 											)
-										</span>
+										</p>
+									</StyledEmailDetailed>
+									<StyledTitleDetailed>{position}</StyledTitleDetailed>
+									<div>
 										{twitter && (
 											<a
 												href={twitter}
@@ -60,8 +67,7 @@ function SingleMemberInformation() {
 												<img src="/images/social-media/linkedin.png" alt="linkedin" style={{ width: '30px' }} />
 											</a>
 										)}
-									</StyledNameDetailed>
-									<StyledTitleDetailed>{position}</StyledTitleDetailed>
+									</div>
 									<StyledBioDetailed>{bio}</StyledBioDetailed>
 								</StyledInfoDetailed>
 							</StyledMemberDetailed>

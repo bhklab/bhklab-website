@@ -37,6 +37,7 @@ const getAll = async (req, res) => {
 				},
                 twitter: member.socials.twitter,
                 linkedIn: member.socials.linkedIn,
+				slug: member.slug,
                 image: member.image
             })
         })

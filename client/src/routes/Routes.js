@@ -23,7 +23,7 @@ function PublicRoutes() {
 		admin, setAdmin, loading, checkSession,
 	} = useFindAdmin();
 	return (
-		<Router>
+		<Router scrollRestoration={false}>
 			<AuthContext.Provider value={{
 				admin, setAdmin, loading, checkSession,
 			}}

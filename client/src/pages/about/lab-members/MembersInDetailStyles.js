@@ -63,8 +63,7 @@ const StyledPiInfoDetailed = styled.div`
 `;
 
 const StyledImageDetailed = styled.img`
-		width: 320px;
-		height: 340px;
+		width: 450px;
 		object-fit: cover;
 		border-radius: 10px;
 		overflow: hidden;
@@ -100,7 +99,7 @@ const StyledPiImageDetailed = styled.img`
 
 const StyledNameDetailed = styled.h2`
 	font-weight: bold;
-	font-size: 1.4rem;
+	font-size: 2rem;
 	display: flex;
 	margin-bottom: 5px;
 
@@ -109,6 +108,26 @@ const StyledNameDetailed = styled.h2`
 	}
 	@media screen and (max-width: 1200px) {
 		margin-top: 20px;
+		font-size: 1.2rem;
+		margin-bottom: 0px;
+
+	}
+
+	@media screen and (max-width: 768px) {
+		font-size: 0.8em;
+	}
+`;
+
+const StyledEmailDetailed = styled.h2`
+	font-weight: bold;
+	font-size: 1.4rem;
+	display: flex;
+
+	span {
+		margin-right: 5px;
+	}
+	@media screen and (max-width: 1200px) {
+		margin-top: 5px;
 		font-size: 1.2rem;
 	}
 
@@ -145,6 +164,7 @@ const StyledTitleDetailed = styled.p`
 	font-style: italic;
 	color: ${colors.primary_text_light};
 	font-size: 1.1rem;
+	margin-bottom: 5px;
 
 	@media screen and (max-width: 1200px) {
 		font-size: 1rem;
@@ -156,8 +176,8 @@ const StyledTitleDetailed = styled.p`
 `;
 
 const StyledBioDetailed = styled.div`
-	margin-top: 30px;
-	font-size: 1rem;
+	margin-top: 20px;
+	font-size: 1.2rem;
 	@media screen and (max-width: 1200px) {
 		margin-top: 10px;
 	}
@@ -180,4 +200,5 @@ export {
 	StyledPiDetailed,
 	StyledPiInfoDetailed,
 	StyledPiNameDetailed,
+	StyledEmailDetailed,
 };

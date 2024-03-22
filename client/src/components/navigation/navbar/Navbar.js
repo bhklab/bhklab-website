@@ -4,27 +4,18 @@ import BurgerMenu from './BurgerMenu';
 import { LogoContainer, NavLinks, StyledNavigation } from './StyledNavigation';
 import colors from '../../../styles/colors';
 
-// navigation links
-// note: we could have made an array of names and used them as as the href attribute
-// but maybe we want make the name (hyperlink text) and href attribute value different.
-// another case could have been an object with key value pair of name and linkTo.
-//
 const navigationLinks = [
-	{ name: 'Home', linkTo: 'home' },
-	{ name: 'Mission', linkTo: 'mission' },
-	{ name: 'Research', linkTo: 'research-axis' },
-	{ name: 'Preprints', linkTo: 'preprints' },
-	{ name: 'Publications', linkTo: 'publications' },
-	{ name: 'Presentations', linkTo: 'presentations' },
-	{ name: 'Softwares', linkTo: 'softwares' },
-	{ name: 'Team', linkTo: 'team' },
+	{ name: 'Home', linkTo: '#home' },
+	{ name: 'Mission', linkTo: '#mission' },
+	{ name: 'Research', linkTo: '#research-axis' },
+	{ name: 'Preprints', linkTo: '#preprints' },
+	{ name: 'Publications', linkTo: '#publications' },
+	{ name: 'Presentations', linkTo: '#presentations' },
+	{ name: 'Softwares', linkTo: '#softwares' },
+	{ name: 'Team', linkTo: '#team' },
 	{ name: 'Contact', linkTo: 'contact' },
 ];
 
-/**
- *
- * @returns {React.JSX} - navigation react component
- */
 function NavBar() {
 	const [scrolled, setScrolled] = useState(false);
 	const [pressed, setPressed] = useState('');
@@ -48,56 +39,36 @@ function NavBar() {
 	* @param {Array} links
 	* @returns {React.JSX}
 	*/
-	const renderNavigationLins = (links) => {
+	const renderNavigationLinks = (links) => {
 		// if on homepage render this version of nav-bar
 		if (location.pathname === '/') {
 			return (
-				links.map((link) => (link.name === 'Contact'
-					? (
-						<div className={`header-link-${link.linkTo} header-link`} key={link.name}>
-							<Link
-								className={pressed === link.name ? 'link-pressed' : ''}
-								onClick={() => pressedLink()}
-								style={{ color: scrolled ? `${colors.primary_text_color}` : 'white' }}
-								to={`/${link.linkTo}`}
-							>
-								{link.name}
-							</Link>
-						</div>
-					) : (
-						<div className={`header-link-${link.linkTo} header-link`} key={link.name}>
-							<a
-								className={pressed === link.name ? 'link-pressed' : ''}
-								onClick={() => pressedLink(link.name)}
-								style={{ color: scrolled ? `${colors.primary_text_color}` : 'white' }}
-								href={`#${link.linkTo}`}
-							>
-								{link.name}
-							</a>
-						</div>
-					))));
-		}
-		// if not on homepage render this version of nav-bar
-		return (
-			links.map((link) => (link.name === 'Contact'
-				? (
-					<div className={`header-link-${link.linkTo} header-link`} key={link.name}>
-						<a href={window.location.pathname} className="link-pressed">
-							{/* line below removes the '/' and uppercases the first letter of location path */}
-							{location.pathname[1].toUpperCase() + location.pathname.slice(2)}
-						</a>
-					</div>
-				) : (
+				links.map((link) => (
 					<div className={`header-link-${link.linkTo} header-link`} key={link.name}>
 						<a
+							className={pressed === link.name ? 'link-pressed' : ''}
 							onClick={() => pressedLink(link.name)}
-							style={{ color: `${colors.primary_text_color}` }}
-							href={`/#${link.linkTo}`}
+							style={{ color: scrolled ? `${colors.primary_text_color}` : 'white' }}
+							href={`${link.linkTo}`}
 						>
 							{link.name}
 						</a>
 					</div>
-				))));
+				)));
+		}
+		// if not on homepage render this version of nav-bar
+		return (
+			links.map((link) => (
+				<div className={`header-link-${link.linkTo} header-link`} key={link.name}>
+					<a
+						onClick={() => pressedLink(link.name)}
+						style={{ color: `${colors.primary_text_color}` }}
+						href={`/${link.linkTo}`}
+					>
+						{link.name}
+					</a>
+				</div>
+			)));
 	};
 	// if on homepage render nav-bar with transparent + scroll attribute
 	if (location.pathname === '/') {
@@ -111,7 +82,7 @@ function NavBar() {
 				<BurgerMenu />
 				<NavLinks className="header-links-container">
 					{
-						renderNavigationLins(navigationLinks)
+						renderNavigationLinks(navigationLinks)
 					}
 				</NavLinks>
 			</StyledNavigation>
@@ -128,7 +99,7 @@ function NavBar() {
 			<BurgerMenu />
 			<NavLinks className="header-links-container">
 				{
-					renderNavigationLins(navigationLinks)
+					renderNavigationLinks(navigationLinks)
 				}
 			</NavLinks>
 		</StyledNavigation>

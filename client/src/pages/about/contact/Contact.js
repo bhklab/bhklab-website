@@ -37,8 +37,7 @@ function Contact() {
 										display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center',
 									}}
 									>
-										<StyledEmail href={`mailto:${'smiron@uhnresearch.ca'}`}>
-											{/* <MdOutlineMailOutline size={18} /> */}
+										<StyledEmail href={`mailto:${'soleil.miron@uhn.ca'}`}>
 											Send a message
 											<br />
 										</StyledEmail>

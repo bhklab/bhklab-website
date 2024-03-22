@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import * as React from 'react';
+import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import styled from 'styled-components';
@@ -42,15 +42,18 @@ const Container = styled.div`
 `;
 
 export default function BasicModal({ person }) {
-	const [open, setOpen] = React.useState(false);
-	const handleOpen = () => setOpen(true);
-	const handleClose = () => setOpen(false);
+	const [open, setOpen] = useState(false);
+
 	return (
 		<Container>
-			<Button sx={buttonStyle} onClick={handleOpen}>Learn More</Button>
+			{/* <Button sx={buttonStyle} onClick={() => setOpen(true)}>Learn More</Button> */}
+			<a href={`/people/${person.slug}`}>
+				<Button sx={buttonStyle}>Learn More</Button>
+			</a>
+
 			<Modal
 				open={open}
-				onClose={handleClose}
+				onClose={() => setOpen(false)}
 				aria-labelledby="modal-modal-title"
 				aria-describedby="modal-modal-description"
 			>
