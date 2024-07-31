@@ -1,22 +1,43 @@
 const sgMail = require('@sendgrid/mail');
 
-const sendEmail = async (req, res) =>{
+const sendEmail = async (req, res) => {
     try {
         console.log("REQ.BODY", req.body);
+        
         sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-        await sgMail.send({
-            to: process.env.TO_EMAIL_ADDRESS, // Your email where you'll receive emails
-            from: process.env.FROM_EMAIL_ADDRESS, // your website email address here
-            subject: `${req.body.subject}`,
-            html: `<div>Sent from ${req.body.fullName} (${req.body.email}) through BHKLab Website:<div>${req.body.message}</div></div>`,
-        });
-    } catch (error) {
-        console.log(error);
-        return res.status(error.statusCode || 500).json({ error: error.message });
-    }
-    return res.status(200).json({ error: "" });
-}
 
-module.exports ={
+        const msg = {
+            from: { email: process.env.FROM_EMAIL_ADDRESS, name: "BHK Lab Website Contact Forum" },
+            to: process.env.TO_EMAIL_ADDRESS,
+            subject: `${req.body.subject}`,
+            html: `
+                <div>
+                    <div style="font-weight: 900; font-size: 1.2em;">
+                        The following has been sent from the contact form through the BHK lab website.
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <div><strong>Name:</strong> ${req.body.fullName}</div>
+                        <div><strong>Email:</strong> ${req.body.email}</div>
+                        <div><strong>Message:</strong> ${req.body.message}</div>
+                    </div>
+                </div>`,
+        };
+
+        await sgMail.send(msg);
+
+        return res.status(200).json({ error: "" });
+    } catch (error) {
+        console.error("Error sending email:", error);
+        
+        // Log the full error response if available
+        if (error.response && error.response.body) {
+            console.error(error.response.body);
+        }
+
+        return res.status(error.statusCode || 500).json({ message: error.message });
+    }
+};
+
+module.exports = {
     sendEmail
-}
+};
