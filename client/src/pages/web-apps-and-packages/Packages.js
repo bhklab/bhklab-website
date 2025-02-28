@@ -101,7 +101,7 @@ const packageList = [
 		title: 'readii',
 		link: 'https://pypi.org/project/readii/',
 		image: './images/software/python-logo.png',
-		description: 'A package to extract radiomic features!',
+		description: 'A package to extract radiomic features from DICOM CT images',
 	},
 	{
 		title: 'med-imagetools',
@@ -119,13 +119,13 @@ const packageList = [
 		title: 'pyradiomics-bhklab',
 		link: 'https://pypi.org/project/pyradiomics-bhklab/',
 		image: './images/software/python-logo.png',
-		description: 'Radiomics features library for python',
+		description: 'A package for the extraction of Radiomics features from medical imaging',
 	},
 	{
 		title: 'yarea',
 		link: 'https://pypi.org/project/yarea/',
 		image: './images/software/python-logo.png',
-		description: 'A package to extract radiomic features!',
+		description: 'A package to extract radiomic features from DICOM CT images.',
 	},
 	{
 		title: 'cinet',
