@@ -9,42 +9,12 @@ const mongoose = require("mongoose");
  * @param {*} res
  */
 const getAll = async (req, res) => {
-    let result = {
-        members: [],
-    };
     try{
-        let res = await Member.find().lean();
-        res.forEach(member =>{
-            result.members.push({
-                _id: member._id,
-                name: member.preferredName ? member.preferredName : member.name,
-                position : member.position,
-                supervisor: member.supervisor,
-                bio: member.bio,
-                startYear: member.startYear,
-                acknowledgements: {
-                    awards: member.acknowledgements.awards,
-                    conferences: member.acknowledgements.conferences,
-                    posters: member.acknowledgements.posters,
-                    presentations: member.acknowledgements.presentations,
-                    publications: member.acknowledgements.publications,
-                    otherAccomplishments: member.acknowledgements.otherAccomplishments
-                },
-				contactInfo: {
-					uhnOrUofTEmail: member.contactInfo.uhnOrUofTEmail,
-					personalEmail: member.contactInfo.personalEmail,
-					preferredEmail: member.contactInfo.preferredEmail ? member.contactInfo.preferredEmail : member.contactInfo.uhnOrUofTEmail
-				},
-                twitter: member.socials.twitter,
-                linkedIn: member.socials.linkedIn,
-				slug: member.slug,
-                image: member.image
-            })
-        })
+        const members = await Member.find().lean();
+        console.log(JSON.stringify(members))
+		res.send(JSON.stringify(members));
     }catch(error){
         console.log(error);
-    }finally{
-        res.send(result);
     }
 }
 
@@ -58,24 +28,14 @@ const getOne = async (req, res) => {
         let res =  await Member.find().lean();
         let member = res.filter(item => item.slug === token)[0];
         if ( member ){
-            result.member = {
-                id: member._id,
-                name: member.name,
-                display: member.display,
-                slug: member.slug,
-                position : member.position,
-                image: member.image,
-                bio: member.bio,
-				twitter: member.socials.twitter,
-				linkedIn: member.socials.linkedIn,
-				email: member.contactInfo.preferredEmail ? member.contactInfo.preferredEmail : member.contactInfo.uhnOrUofTEmail
-            }
+			console.log(member);
+			result = JSON.stringify(member);
         }
     }catch(error){
         console.log(error);
-    }finally{
-        res.send(result);
-    }
+    } finally {
+		res.send(result)
+	}
 }
 
 const addOne = async (req, res) => {

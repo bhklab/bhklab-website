@@ -11,56 +11,54 @@ import {
 
 function SingleMemberInformation() {
 	const { name: memberName } = useParams();
-	const [member, setMember] = useState({ data: {}, ready: false });
+	const [member, setMember] = useState({});
+	const [ready, setReady] = useState(false);
 
 	useEffect(() => {
 		const getMember = async () => {
 			const res = await axios.get(`/api/data/member/${memberName}`);
-			setMember({ data: res.data.member, ready: true });
+			setMember(res.data);
+			setReady(true);
 		};
 		getMember();
 	}, [memberName]);
-
-	const {
-		image, position, bio, name, twitter, linkedIn, email,
-	} = member.data;
 
 	return (
 		<Layout>
 			<Container style={{ minHeight: '100vh' }}>
 				{
-					member.ready
+					ready
 					&& (
 						<StyledMember>
 							<StyledMemberDetailed style={{ paddingTop: '150px' }}>
-								<StyledImageDetailed src={`https://storage.googleapis.com/caboodle-images/member-photos/${image}`} alt={position} />
+								<StyledImageDetailed src={`https://storage.googleapis.com/caboodle-images/member-photos/${member.image}`} alt={member.position} />
 								<StyledInfoDetailed>
 									<StyledNameDetailed>
 										<p>
-											{name}
+											{member.name}
 										</p>
 									</StyledNameDetailed>
 									<StyledEmailDetailed>
 										<p>
 											(
-											{email}
+											{member.preferredEmail}
 											)
 										</p>
 									</StyledEmailDetailed>
-									<StyledTitleDetailed>{position}</StyledTitleDetailed>
+									<StyledTitleDetailed>{member.position}</StyledTitleDetailed>
 									<div>
-										{twitter && (
+										{member.socials.twitter && (
 											<a
-												href={twitter}
+												href={member.socials.twitter}
 												target="_blank"
 												rel="noreferrer"
 											>
 												<img src="/images/social-media/twitter.png" alt="twitter" style={{ width: '30px' }} />
 											</a>
 										)}
-										{linkedIn && (
+										{member.socials.linkedIn && (
 											<a
-												href={linkedIn}
+												href={member.socials.linkedIn}
 												target="_blank"
 												rel="noreferrer"
 											>
@@ -68,7 +66,7 @@ function SingleMemberInformation() {
 											</a>
 										)}
 									</div>
-									<StyledBioDetailed>{bio}</StyledBioDetailed>
+									<StyledBioDetailed>{member.bio}</StyledBioDetailed>
 								</StyledInfoDetailed>
 							</StyledMemberDetailed>
 						</StyledMember>

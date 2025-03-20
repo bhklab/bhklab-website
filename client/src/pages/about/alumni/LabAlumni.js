@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import StyledHeading from '../../../styles/StyledHeading';
 import {
 	StyledAlumniCard,
-	StyledImage,
+	StyledImageAlumni,
 	StyledName,
 	StyledTitle,
 	StyledIndustry,
@@ -21,7 +21,7 @@ function MemberHeadShot({
 }) {
 	return (
 		<StyledAlumniCard>
-			<StyledImage src={imageUrl} alt={title} PlaceholderSrc="./images/logo/bhklab-logo.png" />
+			<StyledImageAlumni src={imageUrl} alt={title} PlaceholderSrc="./images/logo/bhklab-logo.png" />
 			<StyledName>{title}</StyledName>
 			{industry
 			&& (

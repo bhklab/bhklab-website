@@ -9,7 +9,6 @@ import {
 } from './MembersOverviewStyles';
 import BasicModal from '../../../components/utils/Modal';
 import PiInDetail from './PiInDetail';
-// import AuthContext from '../../../hooks/Contexts';
 
 const PI_BIO = `
 	Trained as a computer scientist, Dr. Benjamin Haibe-Kains earned his PhD in Bioinformatics 
@@ -34,7 +33,9 @@ function MemberHeadShot({
 }) {
 	return (
 		<StyledCard>
-			<StyledImage src={imageUrl} alt={title} PlaceholderSrc="./images/logo/bhklab-logo.png" />
+			<div style={{ height: '250px', width: '250px' }}>
+				<StyledImage src={imageUrl} alt={title} PlaceholderSrc="./images/logo/bhklab-logo.png" />
+			</div>
 			<StyledName>{title}</StyledName>
 			<StyledTitle>{description}</StyledTitle>
 			<BasicModal person={item} />
@@ -75,9 +76,9 @@ const displayMember = (item, index) => (
 			title={item.name}
 			imageUrl={`https://storage.googleapis.com/caboodle-images/member-photos/${item.image}`}
 			item={item}
-			twitter={item.twitter}
-			linkedIn={item.linkedIn}
-			email={item.contactInfo.preferredEmail}
+			twitter={item.socials.twitter}
+			linkedIn={item.socials.linkedIn}
+			email={item.preferredEmail}
 		/>
 	</div>
 );
@@ -115,6 +116,7 @@ const sortMembers = (people) => {
 		'Research Trainee': 24,
 		'Research Volunteer': 25,
 		Volunteer: 26,
+		Other: 27,
 	};
 	const result = people.sort((a, b) => (order[a.position] - order[b.position]));
 	return result;
@@ -129,7 +131,7 @@ function LabMembers() {
 	useEffect(() => {
 		const getPeople = async () => {
 			const res = await axios.get('/api/data/members');
-			setPeople(res.data.members);
+			setPeople(sortMembers(res.data));
 			setLoadingState(true);
 		};
 		getPeople();
@@ -167,9 +169,7 @@ function LabMembers() {
 									&& (
 										<>
 											{
-												sortMembers(
-													people.sort((a, b) => new Date(a.startYear) - new Date(b.startYear)),
-												).map((item, i) => (displayMember(item, i, (i !== people.length - 1))))
+												people.map((item, i) => (displayMember(item, i, (i !== people.length - 1))))
 											}
 										</>
 									)

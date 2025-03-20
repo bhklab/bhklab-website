@@ -8,6 +8,7 @@ import {
 function MemberInDetail({
 	photo, name, title, bio,
 }) {
+	console.log(name);
 	return (
 		<StyledMemberDetailed>
 			<StyledImageDetailed src={photo} alt={title} />

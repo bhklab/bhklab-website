@@ -30,9 +30,16 @@ const StyledAlumniCard = styled.div`
 `;
 
 const StyledImage = styled.img`
+    width: 100%;
+    height: 100%;
+    object-position: center;
+`;
+
+const StyledImageAlumni = styled.img`
     width: 245px;
     height: 240px;
     object-fit: cover;
+
 `;
 
 const StyledName = styled.h2`
@@ -87,4 +94,5 @@ const StyledPeople = styled.div`
 export {
 	StyledMember, StyledCard, StyledImage, StyledName, StyledTitle,
 	StyledPeople, StyledSocials, StyledAlumniCard, StyledIndustry, StyledEmail,
+	StyledImageAlumni,
 };
