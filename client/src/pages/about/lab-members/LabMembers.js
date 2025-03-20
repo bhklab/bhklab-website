@@ -74,7 +74,7 @@ const displayMember = (item, index) => (
 		<MemberHeadShot
 			description={item.position}
 			title={item.name}
-			imageUrl={`https://storage.googleapis.com/caboodle-images/member-photos/${item.image}`}
+			imageUrl={`https://storage.googleapis.com/caboodle-images/member-photos/${item.image}?v=${new Date().getTime()}`}
 			item={item}
 			twitter={item.socials.twitter}
 			linkedIn={item.socials.linkedIn}
