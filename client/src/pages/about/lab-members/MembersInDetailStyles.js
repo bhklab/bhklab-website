@@ -177,7 +177,7 @@ const StyledTitleDetailed = styled.p`
 
 const StyledBioDetailed = styled.div`
 	margin-top: 20px;
-	font-size: 1.2rem;
+	font-size: 1rem;
 	@media screen and (max-width: 1200px) {
 		margin-top: 10px;
 	}

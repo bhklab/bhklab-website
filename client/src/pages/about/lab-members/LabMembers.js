@@ -11,20 +11,17 @@ import BasicModal from '../../../components/utils/Modal';
 import PiInDetail from './PiInDetail';
 
 const PI_BIO = `
-	Trained as a computer scientist, Dr. Benjamin Haibe-Kains earned his PhD in Bioinformatics 
-	at the Université Libre de Bruxelles (Belgium). He was a postdoc in the Quackenbush group at the 
-	Dana-farber Cancer Institute and Harvard School of Public Health (USA). 
-	Dr. Haibe-Kains started his own laboratory at the Institut de Recherches Cliniques de Montréal (Canada) 
-	and he is now Principal Investigator at the Princess Margaret Cancer Centre. 
-	His research focuses on the integration of high-throughput data from 
-	various sources to simultaneously analyze multiple facets of diseases, 
-	with a particular emphasis on cancer. 
-	Dr. Haibe-Kains and his team are using publicly available genomic datasets and data generated 
-	through his collaborations to better understand the biology underlying carcinogenesis 
-	and to develop new predictive models in order to significantly improve disease management. 
-	Dr. Haibe-Kains' main scientific contributions include several prognostic gene signatures 
-	in breast cancer, subtype classification models for ovarian and breast cancers, 
-	as well as genomic predictors of drug response in cancer cell lines.
+	Dr. Benjamin Haibe-Kains is a Senior Scientist at the Princess Margaret Cancer Centre (PM), 
+	University Health Network, and Professor in the Medical Biophysics Department of the University 
+	of Toronto. Dr. Haibe-Kains earned his PhD in Bioinformatics at the Université Libre de Bruxelles 
+	(Belgium). Supported by a Fulbright Award, he did his postdoctoral fellowship at the Dana-Farber 
+	Cancer Institute and Harvard School of Public Health (USA). He is now the Canada Research Chair 
+	in Computational Pharmacogenomics, the Scientific Director of the Cancer Digital Intelligence 
+	Program at PM, and Head of Data Science of the Structural Genomics Concortium. Dr. Haibe-Kains’ 
+	research focuses on integrating high-throughput data from various sources to jointly analyze multiple 
+	facets of cancer progression and therapy response using machine learning and artificial intelligence 
+	methods. Dr. Haibe-Kains’ team analyzes large-scale chemical, radiological and (pharmaco)genomic 
+	datasets to develop new therapeutics, prognostic and predictive models to improve cancer care.
 `;
 
 // eslint-disable-next-line react/prop-types
