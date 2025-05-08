@@ -4,17 +4,12 @@ import { LinkedInEmbed } from 'react-social-media-embed';
 import styled from 'styled-components';
 
 const LinkedInStyled = styled.div`
-	width: 650px;
-
-	@media screen and (max-width: 1620px) {
-		width: 500px;
-		overflow: hidden;
-	}
-
-	@media screen and (max-width: 650px) {
-		width: 300px;
-		overflow: hidden;
-	}
+	width: 325px;
+	border-top: 0.5px solid #CFD9DE;
+	border-bottom: 0.5px solid #CFD9DE;
+	border-right: 0.5px solid #CFD9DE;
+	border-radius: 1rem;
+	overflow: hidden;
 `;
 
 /**
@@ -43,8 +38,8 @@ Linkedin.propTypes = {
 };
 
 Linkedin.defaultProps = {
-	width: 500,
-	height: 410,
+	width: 325,
+	height: 750,
 };
 
 export default Linkedin;

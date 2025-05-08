@@ -42,14 +42,16 @@ const Container = styled.div`
 const SocialMediaAccountWrapper = styled.div`
     margin-top: 60px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
+	align-items: center;
     flex-wrap: wrap;
 	gap: 50px;
+	
+	.bsky-wrapper{
+		max-width: 325px;
+		height: 750px;
+	}
 
-	@media only screen and (max-width: 600px) {
-		text-align: center;
-    }
 `;
 
 export {
