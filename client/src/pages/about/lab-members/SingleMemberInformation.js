@@ -53,9 +53,27 @@ function SingleMemberInformation() {
 												target="_blank"
 												rel="noreferrer"
 											>
-												<img src="/images/social-media/twitter.png" alt="twitter" style={{ width: '30px' }} />
+												<img src="/images/social-media/x-logo.jpg" alt="twitter" style={{ width: '30px', borderRadius: '5px', padding: '2px' }} />
 											</a>
 										)}
+										{member.socials.bluesky
+											&& (member.socials.bluesky.includes('http') ? (
+												<a
+													href={member.socials.bluesky}
+													target="_blank"
+													rel="noreferrer"
+												>
+													<img src="/images/social-media/bluesky-icon.png" alt="bluesky" style={{ width: '30px', padding: '3px' }} />
+												</a>
+											) : (
+												<a
+													href={`https://bsky.app/profile/${member.socials.bluesky.substring(1, member.socials.bluesky.length)}`}
+													target="_blank"
+													rel="noreferrer"
+												>
+													<img src="/images/social-media/bluesky-icon.png" alt="bluesky" style={{ width: '30px', padding: '3px' }} />
+												</a>
+											))}
 										{member.socials.linkedIn && (
 											<a
 												href={member.socials.linkedIn}

@@ -43,8 +43,8 @@ const StyledImageAlumni = styled.img`
 `;
 
 const StyledName = styled.h2`
-    font-size: 14px;
-    font-weight: normal;
+    font-size: 15px;
+    font-weight: semi-bold;
     margin: 10px 10px;
     text-align: center;
 `;
@@ -52,7 +52,7 @@ const StyledName = styled.h2`
 const StyledTitle = styled.p`
     font-size: 12px;
     font-style: italic;
-    color: ${colors.primary_text_color};
+    color: gray;
     margin: 5px 10px 0 10px;
     text-align: center;
 `;
@@ -67,6 +67,7 @@ const StyledIndustry = styled.p`
 const StyledSocials = styled.div`
     display: flex;
     justify-content: center;
+	align-items: center;
 `;
 
 const StyledEmail = styled.p`

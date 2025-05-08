@@ -26,7 +26,7 @@ const PI_BIO = `
 
 // eslint-disable-next-line react/prop-types
 function MemberHeadShot({
-	title, description, imageUrl, item, linkedIn, twitter, email,
+	title, description, imageUrl, item, linkedIn, twitter, email, bluesky,
 }) {
 	return (
 		<StyledCard>
@@ -38,15 +38,33 @@ function MemberHeadShot({
 			<BasicModal person={item} />
 			<StyledSocials>
 				{twitter
-				&& (
-					<a
-						href={twitter}
-						target="_blank"
-						rel="noreferrer"
-					>
-						<img src="/images/social-media/twitter.png" alt="twitter" style={{ width: '25px' }} />
-					</a>
-				)}
+					&& (
+						<a
+							href={twitter}
+							target="_blank"
+							rel="noreferrer"
+						>
+							<img src="/images/social-media/x-logo.jpg" alt="X" style={{ width: '25px', borderRadius: '5px', padding: '2px' }} />
+						</a>
+					)}
+				{bluesky
+					&& (bluesky.includes('http') ? (
+						<a
+							href={bluesky}
+							target="_blank"
+							rel="noreferrer"
+						>
+							<img src="/images/social-media/bluesky-icon.png" alt="bluesky" style={{ width: '25px', padding: '3px' }} />
+						</a>
+					) : (
+						<a
+							href={`https://bsky.app/profile/${bluesky.substring(1, bluesky.length)}`}
+							target="_blank"
+							rel="noreferrer"
+						>
+							<img src="/images/social-media/bluesky-icon.png" alt="bluesky" style={{ width: '25px', padding: '3px' }} />
+						</a>
+					))}
 				{linkedIn
 				&& (
 					<a
@@ -75,6 +93,7 @@ const displayMember = (item, index) => (
 			item={item}
 			twitter={item.socials.twitter}
 			linkedIn={item.socials.linkedIn}
+			bluesky={item.socials.bluesky}
 			email={item.preferredEmail}
 		/>
 	</div>

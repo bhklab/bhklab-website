@@ -23,9 +23,10 @@ const memberSchema = new Schema({
         personalEmail: String,
         preferredEmail: String
     },
-    Socials: {
+    socials: {
         twitter: String,
         linkedIn: String,
+		bluesky: String
     },
     image: String,
 },
