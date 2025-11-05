@@ -1,0 +1,98 @@
+[
+	{
+		"homelat": 46.2044,
+		"homelon": 6.1432,
+		"city": "Geneva",
+		"country": "Switzerland",
+		"n": 1,
+		"homecontinent": "dummy"
+	},
+	{
+		"homelat": 60.1695,
+		"homelon": 24.9354,
+		"city": "Helsinki",
+		"country": "Finland",
+		"n": 2,
+		"homecontinent": "dummy"
+	},
+	{
+		"homelat": 43.651,
+		"homelon": -79.347,
+		"city": "Toronto",
+		"country": "Canada",
+		"n": 18,
+		"homecontinent": "dummy"
+	},
+	{
+		"homelat": 39.7684,
+		"homelon": -86.1581,
+		"city": "Indianapolis",
+		"country": "United States of America",
+		"n": 1,
+		"homecontinent": "dummy"
+	},
+	{
+		"homelat": 48.8322,
+		"homelon": 2.2411,
+		"city": "Boulogne-Billancourt",
+		"country": "France",
+		"n": 1,
+		"homecontinent": "dummy"
+	},
+	{
+		"homelat": 42.2808,
+		"homelon": -83.743,
+		"city": "Ann Arbor",
+		"country": "United States of America",
+		"n": 1,
+		"homecontinent": "dummy"
+	},
+	{
+		"homelat": 37.7749,
+		"homelon": -122.4194,
+		"city": "San Francisco",
+		"country": "United States of America",
+		"n": 1,
+		"homecontinent": "dummy"
+	},
+	{
+		"homelat": 42.8125,
+		"homelon": -1.6458,
+		"city": "Pamplona",
+		"country": "Spain",
+		"n": 1,
+		"homecontinent": "dummy"
+	},
+	{
+		"homelat": 45.5017,
+		"homelon": -73.5673,
+		"city": "Montreal",
+		"country": "Canada",
+		"n": 1,
+		"homecontinent": "dummy"
+	},
+	{
+		"homelat": 37.4275,
+		"homelon": -122.1697,
+		"city": "Stanford",
+		"country": "United States of America",
+		"n": 1,
+		"homecontinent": "dummy"
+	},
+	{
+		"homelat": 50.6326,
+		"homelon": 5.5797,
+		"city": "Li\u00e8ge",
+		"country": "Belgium",
+		"n": 1,
+		"homecontinent": "dummy"
+	},
+	{
+		"homelat": 42.3736,
+		"homelon": -71.1097,
+		"city": "Cambridge",
+		"country": "United States of America",
+		"n": 2,
+		"homecontinent": "dummy"
+	}
+]
