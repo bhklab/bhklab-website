@@ -17,6 +17,7 @@ import {
 	JoinUs,
 } from '../pages/Index';
 import useFindAdmin from '../hooks/useFindAdmin';
+import SocialsUpload from '../pages/socials/SocialsUpload';
 
 function PublicRoutes() {
 	const {
@@ -40,6 +41,7 @@ function PublicRoutes() {
 					<Route path="/collaboration" element={<Collaboration />} />
 					<Route path="/positions" element={<JoinUs />} />
 					<Route path="/software" element={<Software />} />
+					<Route path="/socials" element={<SocialsUpload />} />
 				</Routes>
 			</AuthContext.Provider>
 		</Router>

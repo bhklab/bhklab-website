@@ -15,6 +15,7 @@ const research = require('./api/data/research');
 const auth = require('./api/admin/auth');
 const admin = require('./api/admin/admin');
 const alumni = require('./api/data/alumni')
+const labsocials = require('./api/data/labsocials')
 
 
 // data routes
@@ -46,6 +47,8 @@ router.post('/data/researches/deleteOne/:id',auth.verifyToken, research.deleteOn
 
 router.get('/data/socials', social.getAll);
 router.post('/data/socials/deleteOne/:id', social.deleteOne);
+
+router.get('/data/lab-socials/links', labsocials.getAll);
 
 router.post('/mail/send', email.sendEmail );
 
