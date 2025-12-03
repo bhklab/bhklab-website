@@ -1,4 +1,14 @@
 const researchAxisDescription = {
+
+	'Artificial Intelligence': {
+		'research-axis': 'Artificial Intelligence',
+		description: `Our aim is to find new weaknesses in cancer and identify markers that predict
+		how cancer cells will respond to drugs. We analyze molecular and pharmacological profiles
+		and combine pre-clinical and clinical data to gain valuable insights for improving cancer understanding
+		and treatment strategies.`,
+		imagePath: '/images/logo/ai.png',
+	},
+
 	Pharmacogenomics: {
 		'research-axis': 'Pharmacogenomics',
 		/* description: `Through the joint analysis of molecular and pharmacological
