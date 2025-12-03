@@ -2,7 +2,7 @@ import React from 'react';
 import { WebAppsAndPackagesStyles } from './WebAppsAndPackagesStyles';
 import getRandomElementsFromArray from '../../utils/getRandomElementsFromArray';
 
-const PACKAGE_DISPLAY_COUNT = 6;
+const PACKAGE_DISPLAY_COUNT = 9;
 
 const packageList = [
 	// Bioconductor/Github packages first
@@ -10,7 +10,7 @@ const packageList = [
 		title: 'CoreGx',
 		link: 'https://bioconductor.org/packages/release/bioc/html/CoreGx.html',
 		image: './images/software/R-logo.png',
-		description: 'Classes and Functions to Serve as the Basis for Other \'Gx\' Packages',
+		description: "Classes and Functions to Serve as the Basis for Other 'Gx' Packages",
 	},
 	{
 		title: 'PharmacoGx',
@@ -95,7 +95,8 @@ const packageList = [
 		title: 'pyKuLGaP',
 		link: 'https://pypi.org/project/pykulgap/',
 		image: './images/software/python-logo.png',
-		description: 'Functions for statistical analysis of treatment response curves in patient derived xenograph (PDX) models of cancer',
+		description:
+			'Functions for statistical analysis of treatment response curves in patient derived xenograph (PDX) models of cancer',
 	},
 	{
 		title: 'readii',
@@ -143,7 +144,8 @@ const packageList = [
 		title: 'pymrmre',
 		link: 'https://pypi.org/project/pymrmre/',
 		image: './images/software/python-logo.png',
-		description: 'A Python package for Parallelized Minimum Redundancy, Maximum Relevance (mRMR) Ensemble Feature selections',
+		description:
+			'A Python package for Parallelized Minimum Redundancy, Maximum Relevance (mRMR) Ensemble Feature selections',
 	},
 ];
 
@@ -153,39 +155,22 @@ function Packages() {
 	return (
 		<WebAppsAndPackagesStyles>
 			<div className="component-heading-packages">
-				<h1>
-					Software Packages
-				</h1>
+				<h1>Software Packages</h1>
 			</div>
 			<div className="packages-container">
-				{
-					subsetPackageList.map((pkg) => (
-						<div className="single-package-container" key={pkg.title}>
-							<div className="package-section">
-								<div className="package-section-link-image">
-									<a
-										target="_blank"
-										href={pkg.link}
-										className="package-title"
-										rel="noreferrer"
-									>
-										{pkg.title}
-									</a>
-									<img
-										className="package-language-image"
-										src={pkg.image}
-										title="Package Logo"
-										alt="Package Logo"
-									/>
-								</div>
-								<div className="package-section-description">
-									{pkg.description}
-								</div>
+				{subsetPackageList.map((pkg) => (
+					<div className="single-package-container" key={pkg.title}>
+						<div className="package-section">
+							<div className="package-section-link-image">
+								<a target="_blank" href={pkg.link} className="package-title" rel="noreferrer">
+									{pkg.title}
+								</a>
+								<img className="package-language-image" src={pkg.image} title="Package Logo" alt="Package Logo" />
 							</div>
-
+							<div className="package-section-description">{pkg.description}</div>
 						</div>
-					))
-				}
+					</div>
+				))}
 			</div>
 		</WebAppsAndPackagesStyles>
 	);

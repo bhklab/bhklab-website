@@ -82,6 +82,10 @@ const WebAppsAndPackagesStyles = styled.div`
     margin-top: 10px;
   }
 
+  .github-logo{
+	width: 30px;
+  }
+
   /* PACKAGE SPECIFIC STYLES */
   .component-heading-packages {
     text-align: center;
