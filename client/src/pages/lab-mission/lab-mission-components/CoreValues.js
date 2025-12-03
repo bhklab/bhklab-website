@@ -64,9 +64,9 @@ const displayCoreValues = (values) => Object.entries(values).map(([key, value]) 
 function CoreValues() {
 	return (
 		<StyledCoreValues>
-			<h2 className="core-values-heading">
+			<h1>
 				Core Values
-			</h2>
+			</h1>
 			<div className="core-values-list">
 				{displayCoreValues(coreValuesList)}
 			</div>

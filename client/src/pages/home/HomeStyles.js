@@ -47,6 +47,10 @@ const StyledHome = styled.div`
 		padding-top: 70px;
 		/* height: 900px; */
 	}
+
+	hr {
+		margin: 20px 0;
+	}
 `;
 
 const PMCRTImage = styled(StyledImage)`

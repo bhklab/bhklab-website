@@ -123,7 +123,7 @@ export const StyledSection = styled.div`
   }
 
   .container {
-    margin: 15px 0;
+    margin: 80px 0;
     display: flex;
     flex-direction: row;
     justify-content: center;
