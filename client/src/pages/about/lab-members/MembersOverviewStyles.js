@@ -68,6 +68,7 @@ const StyledSocials = styled.div`
     display: flex;
     justify-content: center;
 	align-items: center;
+	gap: 4px;
 `;
 
 const StyledEmail = styled.p`

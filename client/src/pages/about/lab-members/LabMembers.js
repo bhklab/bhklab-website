@@ -44,7 +44,7 @@ function MemberHeadShot({
 							target="_blank"
 							rel="noreferrer"
 						>
-							<img src="/images/social-media/x-logo.jpg" alt="X" style={{ width: '25px', borderRadius: '5px', padding: '2px' }} />
+							<img src="/images/social-media/x.png" alt="X" style={{ maxWidth: '20px', borderRadius: '5px' }} />
 						</a>
 					)}
 				{bluesky
@@ -54,7 +54,7 @@ function MemberHeadShot({
 							target="_blank"
 							rel="noreferrer"
 						>
-							<img src="/images/social-media/bluesky-icon.png" alt="bluesky" style={{ width: '25px', padding: '3px' }} />
+							<img src="/images/social-media/bluesky-icon.png" alt="bluesky" style={{ maxWidth: '20px', borderRadius: '5px' }} />
 						</a>
 					) : (
 						<a
@@ -62,7 +62,7 @@ function MemberHeadShot({
 							target="_blank"
 							rel="noreferrer"
 						>
-							<img src="/images/social-media/bluesky-icon.png" alt="bluesky" style={{ width: '25px', padding: '3px' }} />
+							<img src="/images/social-media/bluesky-icon.png" alt="bluesky" style={{ maxWidth: '20px', borderRadius: '5px' }} />
 						</a>
 					))}
 				{linkedIn
@@ -72,7 +72,7 @@ function MemberHeadShot({
 						target="_blank"
 						rel="noreferrer"
 					>
-						<img src="/images/social-media/linkedin.png" alt="linkedin" style={{ width: '25px' }} />
+						<img src="/images/social-media/linkedin-icon.png" alt="linkedin" style={{ maxWidth: '20px', borderRadius: '5px' }} />
 					</a>
 				)}
 			</StyledSocials>

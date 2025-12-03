@@ -15,6 +15,12 @@ const StyledMemberDetailed = styled.div`
 		align-items: center;
 		padding: 0px 30px;
 	}
+
+	.social-container{
+		display: flex;
+		justify-content: start;
+		gap: 4px;
+	}
 `;
 
 const StyledPiDetailed = styled.div`
@@ -157,6 +163,12 @@ const StyledPiNameDetailed = styled.h2`
 
 	@media screen and (max-width: 768px) {
 		font-size: 1em;
+	}
+
+	.social-container{
+		display: flex;
+		justify-content: center;
+		gap: 4px;
 	}
 `;
 

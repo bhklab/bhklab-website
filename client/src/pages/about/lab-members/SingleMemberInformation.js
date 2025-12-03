@@ -46,14 +46,14 @@ function SingleMemberInformation() {
 										</p>
 									</StyledEmailDetailed>
 									<StyledTitleDetailed>{member.position}</StyledTitleDetailed>
-									<div>
+									<div className="social-container">
 										{member.socials.twitter && (
 											<a
 												href={member.socials.twitter}
 												target="_blank"
 												rel="noreferrer"
 											>
-												<img src="/images/social-media/x-logo.jpg" alt="twitter" style={{ width: '30px', borderRadius: '5px', padding: '2px' }} />
+												<img src="/images/social-media/x.png" alt="twitter" style={{ maxWidth: '20px', borderRadius: '5px' }} />
 											</a>
 										)}
 										{member.socials.bluesky
@@ -63,7 +63,7 @@ function SingleMemberInformation() {
 													target="_blank"
 													rel="noreferrer"
 												>
-													<img src="/images/social-media/bluesky-icon.png" alt="bluesky" style={{ width: '30px', padding: '3px' }} />
+													<img src="/images/social-media/bluesky-icon.png" alt="bluesky" style={{ maxWidth: '20px', borderRadius: '5px' }} />
 												</a>
 											) : (
 												<a
@@ -71,7 +71,7 @@ function SingleMemberInformation() {
 													target="_blank"
 													rel="noreferrer"
 												>
-													<img src="/images/social-media/bluesky-icon.png" alt="bluesky" style={{ width: '30px', padding: '3px' }} />
+													<img src="/images/social-media/bluesky-icon.png" alt="bluesky" style={{ maxWidth: '20px', borderRadius: '5px' }} />
 												</a>
 											))}
 										{member.socials.linkedIn && (
@@ -80,7 +80,7 @@ function SingleMemberInformation() {
 												target="_blank"
 												rel="noreferrer"
 											>
-												<img src="/images/social-media/linkedin.png" alt="linkedin" style={{ width: '30px' }} />
+												<img src="/images/social-media/linkedin-icon.png" alt="linkedin" style={{ maxWidth: '20px', borderRadius: '5px' }} />
 											</a>
 										)}
 									</div>

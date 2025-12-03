@@ -38,7 +38,6 @@ function MemberHeadShot({
 					{company}
 				</StyledTitle>
 			)}
-			{/* <BasicModal person={item} /> */}
 			<StyledSocials>
 				{linkedIn
 				&& (
@@ -48,10 +47,10 @@ function MemberHeadShot({
 						rel="noreferrer"
 					>
 						<img
-							src="/images/social-media/linkedin.png"
+							src="/images/social-media/linkedin-icon.png"
 							alt="linkedin"
 							style={{
-								width: '25px',
+								maxWidth: '20px',
 								position: 'absolute',
 								bottom: '15px',
 								right: '107px',
