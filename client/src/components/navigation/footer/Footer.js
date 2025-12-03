@@ -7,19 +7,19 @@ const socialMediaAccounts = [
 	{
 		name: 'github',
 		url: 'https://github.com/bhklab',
-		'img-src': '/images/social-media/github.png',
+		'img-src': '/images/social-media/github-icon.png',
 		'alt-text': 'github',
 	},
 	{
 		name: 'twitter',
 		url: 'https://twitter.com/bhklab',
-		'img-src': '/images/social-media/twitter.png',
+		'img-src': '/images/social-media/x.png',
 		'alt-text': 'twitter',
 	},
 	{
 		name: 'linkedin',
 		url: 'https://www.linkedin.com/in/bhklab/',
-		'img-src': '/images/social-media/linkedin.png',
+		'img-src': '/images/social-media/linkedin-icon.png',
 		'alt-text': 'linkedin',
 	},
 ];

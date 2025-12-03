@@ -41,13 +41,9 @@ const StyledFooter = styled.footer`
 		display: flex;
         justify-content: center;
         align-items: center;
-
-        .footer-text {
-            margin-left: 4px;
-        }
+		gap: 6px;
 
         img {
-            max-height: 24px;
             max-width: 24px;
         }
 	}
