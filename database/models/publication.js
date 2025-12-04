@@ -9,6 +9,7 @@ const publicationSchema = new Schema({
     publisher: String,
     date: String,
     image: String,
+	doi: String,
 });
 
 const Publication = mongoose.model('Publication', publicationSchema);
