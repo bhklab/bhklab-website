@@ -2,7 +2,13 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
-	Container, PMCRTImage, PMCRTTowerImage, TeamImage, BHKLabImage, StyledHome, StyledLabVideo,
+	Container,
+	PMCRTImage,
+	PMCRTTowerImage,
+	TeamImage,
+	BHKLabImage,
+	StyledHome,
+	StyledLabVideo,
 } from './HomeStyles';
 import Layout from '../../components/utils/Layout';
 import ResearchAxis from '../research-axis/ResearchAxis';
@@ -47,39 +53,31 @@ function Home() {
 						<div id="mission" className="home-component-sub-section">
 							<LabMission />
 						</div>
-						<div id="pmcrt-image-container" className="home-component-sub-section">
-							<PMCRTImage />
-						</div>
+						<PMCRTImage />
 						<div id="research-axis" className="home-component-sub-section">
 							<ResearchAxis />
 						</div>
-						<div id="pmcrt-tower-image-container" className="home-component-sub-section">
-							<PMCRTTowerImage />
-						</div>
+						<PMCRTTowerImage />
 						<div id="preprints" className="home-publication-and-presentation-section">
 							<Preprints />
 						</div>
-						<div className="home-component-sub-section">
+						<div className="divider">
 							<hr />
 						</div>
 						<div id="publications" className="home-publication-and-presentation-section">
 							<Publications />
 						</div>
-						<div className="home-component-sub-section">
+						<div className="divider">
 							<hr />
 						</div>
 						<div id="presentations" className="home-publication-and-presentation-section">
 							<Presentations />
 						</div>
-						<div id="bhklab-logo-image-container" className="home-component-sub-section">
-							<BHKLabImage />
-						</div>
+						<BHKLabImage />
 						<div id="softwares" className="home-component-sub-section">
 							<Software />
 						</div>
-						<div id="team-image-container" className="home-component-sub-section">
-							<TeamImage />
-						</div>
+						<TeamImage />
 						<div id="team" className="home-component-sub-section">
 							<LabMembers />
 						</div>

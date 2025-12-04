@@ -11,6 +11,9 @@ module.exports = {
 	},
 	plugins: ['react'],
 	rules: {
+		'max-len': 'off',
+		'object-curly-newline': 'off',
+		'operator-linebreak': 'off',
 		'implicit-arrow-linebreak': 'off',
 		'array-callback-return': 'off',
 		'consistent-return': 'off',
