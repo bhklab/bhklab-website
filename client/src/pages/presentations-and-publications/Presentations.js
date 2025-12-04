@@ -8,9 +8,7 @@ import StyledHeading from '../../styles/StyledHeading';
 import LeftPositionedTimeline from './Timeline';
 import DisplayContainer from './PresentationsAndPupblicationsStyles';
 
-const customizedContent = (item, index) => (
-	<PresentationCard key={index} publication={item} />
-);
+const customizedContent = (item, index) => <PresentationCard key={index} publication={item} />;
 
 function Presentations() {
 	const [ready, setReady] = useState(false);
@@ -24,13 +22,12 @@ function Presentations() {
 			setChosenYear(year);
 			const res = await axios.get('/api/data/presentations');
 			const filter = res.data.presentations.filter(
-				(pres) => pres.date.substring(0, 10) >= (`${year}-00-00`)
-				// eslint-disable-next-line radix
-				&& pres.date < `${((parseInt(year) + 1).toString()).substring(0, 10)}-00-00`,
+				(pres) =>
+					pres.date.substring(0, 10) >= `${year}-00-00` &&
+					// eslint-disable-next-line radix
+					pres.date < `${(parseInt(year) + 1).toString().substring(0, 10)}-00-00`,
 			);
-			setPresentation(
-				filter.sort((a, b) => new Date(b.date) - new Date(a.date)),
-			);
+			setPresentation(filter.sort((a, b) => new Date(b.date) - new Date(a.date)));
 		}
 	};
 	useEffect(() => {
@@ -41,12 +38,8 @@ function Presentations() {
 			for (let i = res.data.presentations.length - 1; i >= 5; i -= 1) {
 				res.data.presentations.splice(i, 1);
 			}
-			res.data.presentations.sort(
-				(a, b) => new Date(b.date) - new Date(a.date),
-			);
-			setPresentation(
-				res.data.presentations,
-			);
+			res.data.presentations.sort((a, b) => new Date(b.date) - new Date(a.date));
+			setPresentation(res.data.presentations);
 
 			setReady(true);
 		};
@@ -54,26 +47,22 @@ function Presentations() {
 	}, []);
 
 	return (
-		<Container maxWidth="lg" sx={{ height: '1000px' }}>
-			{ ready
-				&& (
-					<>
-						<StyledHeading
-							noTopMargin
-							className="presentations-heading"
-						>
-							Presentations
-						</StyledHeading>
-						<DisplayContainer className="presentations-container">
-							<LeftPositionedTimeline selectYear={selectYear} />
-							<PaginatedPublications
-								customizedContent={customizedContent}
-								publications={presentations}
-								itemsPerPage={5}
-							/>
-						</DisplayContainer>
-					</>
-				)}
+		<Container maxWidth="lg">
+			{ready && (
+				<>
+					<StyledHeading noTopMargin className="presentations-heading">
+						Presentations
+					</StyledHeading>
+					<DisplayContainer className="presentations-container">
+						<LeftPositionedTimeline selectYear={selectYear} />
+						<PaginatedPublications
+							customizedContent={customizedContent}
+							publications={presentations}
+							itemsPerPage={5}
+						/>
+					</DisplayContainer>
+				</>
+			)}
 		</Container>
 	);
 }

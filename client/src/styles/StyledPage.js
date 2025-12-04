@@ -125,7 +125,7 @@ export const StyledSection = styled.div`
 		flex-direction: row;
 		justify-content: center;
 		flex-wrap: wrap;
-		gap: 20px;
+		gap: 30px;
 
 		@media screen and (min-width: 1780px) {
 			width: 90%;
