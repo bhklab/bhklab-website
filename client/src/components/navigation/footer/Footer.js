@@ -28,19 +28,12 @@ const socialMediaAccounts = [
  *
  * @param {Array} links - an array of links to be rendered
  */
-const renderSocialMediaLinks = (links) => links.map((link) => (
-	<a
-		href={link.url}
-		target="_blank"
-		rel="noreferrer"
-		key={link.name}
-	>
-		<img
-			src={link['img-src']}
-			alt={link['alt-text']}
-		/>
-	</a>
-));
+const renderSocialMediaLinks = (links) =>
+	links.map((link) => (
+		<a href={link.url} target="_blank" rel="noreferrer" key={link.name}>
+			<img src={link['img-src']} alt={link['alt-text']} />
+		</a>
+	));
 
 /**
  *
@@ -62,23 +55,15 @@ function Footer() {
 					{/* <a href="/collaboration"> Collaboration </a> */}
 				</div>
 				<div className="grouped-links-container">
-					<a
-						href="https://github.com/bhklab"
-						target="_blank"
-						rel="noreferrer"
-					>
+					<a href="https://github.com/bhklab" target="_blank" rel="noreferrer">
 						Github
 					</a>
 					<Link to="/positions"> Join Us </Link>
 				</div>
 			</div>
 			<div className="footer-social-media-links">
-				{
-					renderSocialMediaLinks(socialMediaAccounts)
-				}
-				<span className="footer-text">
-					BHKLab ©2023
-				</span>
+				{renderSocialMediaLinks(socialMediaAccounts)}
+				<span className="footer-text">BHKLab ©2026</span>
 			</div>
 		</StyledFooter>
 	);

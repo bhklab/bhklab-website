@@ -11,6 +11,9 @@ module.exports = {
 	},
 	plugins: ['react'],
 	rules: {
+		'implicit-arrow-linebreak': 'off',
+		'array-callback-return': 'off',
+		'consistent-return': 'off',
 		indent: ['error', 'tab'],
 		'linebreak-style': ['error', process.platform === 'win32' ? 'windows' : 'unix'],
 		'no-tabs': 0,
