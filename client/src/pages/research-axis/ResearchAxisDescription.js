@@ -1,7 +1,7 @@
 const researchAxisDescription = {
 	'Artificial Intelligence': {
 		'research-axis': 'Artificial Intelligence',
-		description: `The team aims to improve disease understanding and precision
+		description: `Our team aims to improve disease understanding and precision
 		medicine by employing artificial intelligence and machine learning methods to analyze
 		genomics, imaging, and clinical data.`,
 		imagePath: '/images/logo/ai.png',
@@ -16,7 +16,7 @@ const researchAxisDescription = {
 		that can enhance our understanding of cancer and optimize treatment strategies.`, */
 
 		// Chat-gpt condensed below:
-		description: `Our aim is to find new weaknesses in cancer and identify markers that predict
+		description: `We attempt to find new weaknesses in cancer and identify markers that predict
 		how cancer cells will respond to drugs. We analyze molecular and pharmacological profiles
 		and combine pre-clinical and clinical data to gain valuable insights for improving cancer understanding
 		and treatment strategies.`,

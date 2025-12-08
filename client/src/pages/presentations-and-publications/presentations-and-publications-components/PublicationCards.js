@@ -133,12 +133,11 @@ function PaperCard(props) {
 							href={`https://www.pmscience.ca/publication/${encodeURIComponent(doi)}`}
 							target="_blank"
 							rel="noreferrer"
-							style={{ width: '22px', height: '22px' }}
 						>
 							<img
 								src="/images/logo/science-portal-logo.svg"
 								alt="science portal"
-								style={{ width: '22px', height: '22px' }}
+								style={{ width: '20px', height: '20px' }}
 							/>
 						</a>
 					)}
