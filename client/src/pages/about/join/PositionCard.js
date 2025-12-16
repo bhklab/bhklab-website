@@ -10,10 +10,7 @@ import StyledPositionCard from './StyledPositionCard';
 function StyledContent({ title, content }) {
 	return (
 		<>
-			<div className="subtitle">
-				{title}
-				:
-			</div>
+			<div className="subtitle">{title}:</div>
 			<Markup content={content} />
 		</>
 	);
@@ -25,15 +22,7 @@ function StyledContent({ title, content }) {
  * */
 function StyledPosition({ position }) {
 	const { admin } = useContext(AuthContext);
-	const {
-		_id,
-		title,
-		description,
-		responsibilities,
-		reqQualifications,
-		prefQualifications,
-		apply,
-	} = position;
+	const { _id, title, description, responsibilities, reqQualifications, prefQualifications, apply } = position;
 	const [display, setDisplay] = useState(false);
 	return (
 		<StyledPositionCard>
@@ -43,21 +32,18 @@ function StyledPosition({ position }) {
 			{display && (
 				<>
 					{responsibilities && <StyledContent title="Responsibilities" content={responsibilities} />}
-					{reqQualifications && (<StyledContent title="Required qualifications" content={reqQualifications} />)}
-					{prefQualifications && (<StyledContent title="Preferred qualifications" content={prefQualifications} />)}
-					{apply && (<StyledContent title="How to apply" content={apply} />)}
+					{reqQualifications && <StyledContent title="Required qualifications" content={reqQualifications} />}
+					{prefQualifications && <StyledContent title="Preferred qualifications" content={prefQualifications} />}
+					{apply && <StyledContent title="How to apply" content={apply} />}
 				</>
 			)}
-			{
-				(responsibilities || reqQualifications || prefQualifications || apply)
-				&& (
-					<div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-						<IconButton onClick={() => setDisplay(!display)} aria-label="show more">
-							{display ? <ExpandLess /> : <ExpandMore />}
-						</IconButton>
-					</div>
-				)
-			}
+			{(responsibilities || reqQualifications || prefQualifications || apply) && (
+				<div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+					<IconButton onClick={() => setDisplay(!display)} aria-label="show more">
+						{display ? <ExpandLess /> : <ExpandMore />}
+					</IconButton>
+				</div>
+			)}
 		</StyledPositionCard>
 	);
 }

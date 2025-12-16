@@ -5,11 +5,8 @@ import Box from '@mui/material/Box';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-// import { DateTime } from 'luxon';
 import colors from '../../../styles/colors';
 import { StyledCard, StyledAuthors, StyledTitle, StyledEvent, StyledLocation, StyledDate } from './CardStyles';
-
-// const { DateTime } = require('luxon');
 
 // presentation cards
 function PresentationCard(props) {
