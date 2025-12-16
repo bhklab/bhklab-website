@@ -7,15 +7,16 @@ const sendEmail = async (req, res) => {
         sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
         const msg = {
-            from: { email: process.env.FROM_EMAIL_ADDRESS, name: "BHK Lab Website Contact Form" },
+            from: { email: process.env.FROM_EMAIL_ADDRESS, name: "BHK Lab Contact Form" },
             to: process.env.TO_EMAIL_ADDRESS,
-            subject: `${req.body.subject}`,
+            subject: req.body.subject,
             html: `
                 <div>
                     <div style="font-weight: 900; font-size: 1.2em;">
                         The following has been sent from the contact form through the BHK lab website.
                     </div>
                     <div style="margin-top: 10px;">
+					    <div><strong>Subject:</strong> ${req.body.subject}</div>
                         <div><strong>Name:</strong> ${req.body.fullName}</div>
                         <div><strong>Email:</strong> ${req.body.email}</div>
                         <div><strong>Message:</strong> ${req.body.message}</div>
