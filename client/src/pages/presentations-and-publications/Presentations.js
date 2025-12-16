@@ -33,12 +33,11 @@ function Presentations() {
 	useEffect(() => {
 		const getPresentation = async () => {
 			const res = await axios.get('/api/data/presentations');
-
+			res.data.presentations.sort((a, b) => new Date(b.date) - new Date(a.date));
 			// display 5 most recent on load
 			for (let i = res.data.presentations.length - 1; i >= 5; i -= 1) {
 				res.data.presentations.splice(i, 1);
 			}
-			res.data.presentations.sort((a, b) => new Date(b.date) - new Date(a.date));
 			setPresentation(res.data.presentations);
 
 			setReady(true);
