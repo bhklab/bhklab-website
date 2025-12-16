@@ -10,7 +10,9 @@ import StyledPositionCard from './StyledPositionCard';
 function StyledContent({ title, content }) {
 	return (
 		<>
+			{/* eslint-disable react/jsx-one-expression-per-line */}
 			<div className="subtitle">{title}:</div>
+			{/* eslint-disable react/jsx-one-expression-per-line */}
 			<Markup content={content} />
 		</>
 	);
