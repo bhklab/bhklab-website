@@ -6,33 +6,23 @@ import StyledPaginate from './StyledPaginate';
 
 function Items({ currentItems }) {
 	return (
-		currentItems && currentItems.map((item) => (
+		currentItems &&
+		currentItems.map((item) => (
 			// eslint-disable-next-line no-underscore-dangle
-			<div key={item.props.publication.title}>
-				{item}
-			</div>
+			<div key={item.props.publication.title}>{item}</div>
 		))
 	);
 }
 
 function PaginatedPublications({ customizedContent, publications, itemsPerPage }) {
 	const [currentItems, setCurrentItems] = useState(null);
-	// const [pageCount, setPageCount] = useState(0);
 	const [itemOffset] = useState(0);
 
 	useEffect(() => {
 		const endOffset = itemOffset + itemsPerPage;
-		setCurrentItems(
-			publications
-				.map((item, index) => (customizedContent(item, index))).slice(itemOffset, endOffset),
-		);
+		setCurrentItems(publications.map((item, index) => customizedContent(item, index)).slice(itemOffset, endOffset));
 		// setPageCount(Math.ceil(publications.length / itemsPerPage));
 	}, [itemsPerPage, publications]);
-
-	// const handlePageClick = (event) => {
-	// 	const newOffset = (event.selected * itemsPerPage) % publications.length;
-	// 	setItemOffset(newOffset);
-	// };
 
 	return (
 		<StyledPaginate>
