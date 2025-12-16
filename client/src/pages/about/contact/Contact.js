@@ -5,7 +5,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import Container from '@mui/material/Container';
 import { Grid } from '@mui/material';
 import ContactForm from '../../../components/utils/contact-form/ContactForm';
-import { StyledIcons, StyledContent, StyledEmail, MapFrame, Box } from './StyledContact';
+import { StyledIcons, StyledContent, MapFrame, Box } from './StyledContact';
 import Layout from '../../../components/utils/Layout';
 import StyledHeading from '../../../styles/StyledHeading';
 
