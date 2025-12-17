@@ -16,22 +16,18 @@ import {
 // import BasicModal from '../../../components/utils/AlumniModal';
 
 // eslint-disable-next-line react/prop-types
-function MemberHeadShot({
-	title, currentPosition, company, industry, imageUrl, linkedIn,
-}) {
+function MemberHeadShot({ title, currentPosition, company, industry, imageUrl, linkedIn }) {
 	return (
 		<StyledAlumniCard>
 			<StyledImageAlumni src={imageUrl} alt={title} PlaceholderSrc="./images/logo/bhklab-logo.png" />
 			<StyledName>{title}</StyledName>
-			{industry
-			&& (
+			{industry && (
 				<StyledIndustry>
 					{'Works in '}
 					{industry}
 				</StyledIndustry>
 			)}
-			{currentPosition
-			&& (
+			{currentPosition && (
 				<StyledTitle>
 					{currentPosition}
 					{' at '}
@@ -39,13 +35,8 @@ function MemberHeadShot({
 				</StyledTitle>
 			)}
 			<StyledSocials>
-				{linkedIn
-				&& (
-					<a
-						href={linkedIn}
-						target="_blank"
-						rel="noreferrer"
-					>
+				{linkedIn && (
+					<a href={linkedIn} target="_blank" rel="noreferrer">
 						<img
 							src="/images/social-media/linkedin-icon.png"
 							alt="linkedin"
@@ -70,7 +61,11 @@ const displayMember = (item, index) => (
 			company={item.currentPosition.company}
 			industry={item.currentPosition.industry}
 			title={item.name}
-			imageUrl={item.image ? `https://storage.googleapis.com/caboodle-images/member-photos/${item.image}` : 'https://storage.googleapis.com/caboodle-images/member-photos/default_member.png'}
+			imageUrl={
+				item.image
+					? `https://storage.googleapis.com/caboodle-images/member-photos/${item.image}`
+					: 'https://storage.googleapis.com/caboodle-images/member-photos/default_member.png'
+			}
 			item={item}
 			twitter={item.twitter}
 			linkedIn={item.linkedIn}
@@ -112,7 +107,6 @@ const sortMembers = (people) => {
 		'Research Volunteer': 25,
 		Volunteer: 26,
 	};
-	const result = people.sort((a, b) => (order[a.position] - order[b.position]));
 	return result;
 };
 
@@ -137,7 +131,11 @@ function LabMembers() {
 	useEffect(() => {
 		const getPeople = async () => {
 			const res = await axios.get('/api/data/alumni');
-			setPeople(res.data.alumni);
+
+			const sortedMembers = res.data.alumni.sort((a, b) =>
+				a.name.trim().split(' ').at(-1).localeCompare(b.name.trim().split(' ').at(-1)),
+			);
+			setPeople(sortedMembers);
 			setLoadingState(true);
 		};
 		getPeople();
@@ -145,37 +143,26 @@ function LabMembers() {
 
 	return (
 		<Container sx={{ textAlign: 'center' }}>
-			{
-				isLoading
-						&& (
+			{isLoading && (
+				<>
+					<StyledHeading>Alumni</StyledHeading>
+					<StyledPeople>
+						{people.length && (
 							<>
-								<StyledHeading>
-									Alumni
-								</StyledHeading>
-								<StyledPeople>
-									{
-										people.length && (
-											<>
-												{
-													sortMembers(
-														people.sort((a, b) => a.startAndEndYear - b.startAndEndYear),
-													).map((item, i) => {
-														if (item.currentPosition.company !== '') {
-															if (i < itemsLoaded) {
-																return displayMember(item, i, (i !== people.length - 1));
-															}
-															return null;
-														}
-														return null;
-													})
-												}
-											</>
-										)
+								{people.map((item, i) => {
+									if (item.currentPosition.company !== '') {
+										if (i < itemsLoaded) {
+											return displayMember(item, i, i !== people.length - 1);
+										}
+										return null;
 									}
-								</StyledPeople>
+									return null;
+								})}
 							</>
-						)
-			}
+						)}
+					</StyledPeople>
+				</>
+			)}
 			<Button
 				disableElevation
 				disableRipple
@@ -184,7 +171,7 @@ function LabMembers() {
 					margin: '15px 0 0 0',
 					fontSize: '0.63em',
 					padding: '0px',
-					'&.MuiButtonBase-root:hover': {	bgcolor: 'transparent' },
+					'&.MuiButtonBase-root:hover': { bgcolor: 'transparent' },
 					height: '20px',
 				}}
 				onClick={() => adjustItems()}
