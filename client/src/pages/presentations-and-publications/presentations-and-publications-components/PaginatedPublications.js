@@ -21,7 +21,6 @@ function PaginatedPublications({ customizedContent, publications, itemsPerPage }
 	useEffect(() => {
 		const endOffset = itemOffset + itemsPerPage;
 		setCurrentItems(publications.map((item, index) => customizedContent(item, index)).slice(itemOffset, endOffset));
-		// setPageCount(Math.ceil(publications.length / itemsPerPage));
 	}, [itemsPerPage, publications]);
 
 	return (

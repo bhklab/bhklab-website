@@ -13,37 +13,27 @@ const customizedContent = (item, index) => <PresentationCard key={index} publica
 function Presentations() {
 	const [ready, setReady] = useState(false);
 	const [presentations, setPresentation] = useState({});
-	const [chosenYear, setChosenYear] = useState('');
+	const [chosenYear, setChosenYear] = useState('2025');
 
-	// Setting publications object array to only contain publications of selected year
-	const selectYear = async (year) => {
-		// if the year selected isn't already selected: filter for the newly selected year
-		if (chosenYear !== year) {
-			setChosenYear(year);
-			const res = await axios.get('/api/data/presentations');
-			const filter = res.data.presentations.filter(
-				(pres) =>
-					pres.date.substring(0, 10) >= `${year}-00-00` &&
-					// eslint-disable-next-line radix
-					pres.date < `${(parseInt(year) + 1).toString().substring(0, 10)}-00-00`,
-			);
-			setPresentation(filter.sort((a, b) => new Date(b.date) - new Date(a.date)));
-		}
-	};
 	useEffect(() => {
-		const getPresentation = async () => {
+		const getPresentations = async () => {
 			const res = await axios.get('/api/data/presentations');
 			res.data.presentations.sort((a, b) => new Date(b.date) - new Date(a.date));
-			// display 5 most recent on load
-			for (let i = res.data.presentations.length - 1; i >= 5; i -= 1) {
-				res.data.presentations.splice(i, 1);
-			}
-			setPresentation(res.data.presentations);
-
+			const filter = res.data.presentations.filter(
+				(pres) =>
+					pres.date.substring(0, 10) >= `${chosenYear}-00-00` &&
+					// eslint-disable-next-line radix
+					pres.date < `${(parseInt(chosenYear) + 1).toString().substring(0, 10)}-00-00`,
+			);
+			const sortByYear = filter.sort(
+				// sort condensed list by month
+				(a, b) => new Date(b.date) - new Date(a.date),
+			);
+			setPresentation(sortByYear);
 			setReady(true);
 		};
-		getPresentation();
-	}, []);
+		getPresentations();
+	}, [chosenYear]);
 
 	return (
 		<Container maxWidth="lg">
@@ -53,7 +43,7 @@ function Presentations() {
 						Presentations
 					</StyledHeading>
 					<DisplayContainer className="presentations-container">
-						<LeftPositionedTimeline selectYear={selectYear} />
+						<LeftPositionedTimeline setChosenYear={setChosenYear} chosenYear={chosenYear} />
 						<PaginatedPublications
 							customizedContent={customizedContent}
 							publications={presentations}

@@ -19,15 +19,9 @@ const YEARS = ['2025', '2024', '2023', '2022', '2021', '2020', '2019', '2018', '
  */
 // TODO: Add props validation
 // eslint-disable-next-line react/prop-types
-function LeftPositionedTimeline({ selectYear }) {
-	const [selectedYear, setSelectedYear] = useState('');
+function LeftPositionedTimeline({ chosenYear, setChosenYear }) {
 	const [itemsLoaded, setItemsLoaded] = useState(6);
 	const [itemsButton, setItemsButton] = useState('show more');
-
-	const yearAction = (year) => {
-		setSelectedYear(year);
-		selectYear(year);
-	};
 
 	// Adjusting the timeline items and buttons in the timeline component
 	const adjustItems = () => {
@@ -55,14 +49,14 @@ function LeftPositionedTimeline({ selectYear }) {
 				if (index === itemsLoaded - 1) {
 					return (
 						<TimelineItem
-							onClick={() => yearAction(year, index)}
+							onClick={() => setChosenYear(year)}
 							className="hover-timeline-item static-timeline-item"
 							key={year}
 						>
 							<TimelineSeparator>
-								<TimelineDot sx={{ backgroundColor: selectedYear === year ? '#039be5' : '#bdbdbd' }} />
+								<TimelineDot sx={{ backgroundColor: chosenYear === year ? '#039be5' : '#bdbdbd' }} />
 							</TimelineSeparator>
-							<TimelineContent color={selectedYear === year ? 'primary' : colors.primary_text_color}>
+							<TimelineContent color={chosenYear === year ? 'primary' : colors.primary_text_color}>
 								{year}
 							</TimelineContent>
 						</TimelineItem>
@@ -70,15 +64,15 @@ function LeftPositionedTimeline({ selectYear }) {
 				}
 				return (
 					<TimelineItem
-						onClick={() => yearAction(year, index)}
+						onClick={() => setChosenYear(YEARS[index])}
 						className="hover-timeline-item static-timeline-item"
 						key={year}
 					>
 						<TimelineSeparator>
-							<TimelineDot sx={{ backgroundColor: selectedYear === year ? '#039be5' : '#bdbdbd' }} />
+							<TimelineDot sx={{ backgroundColor: chosenYear === year ? '#039be5' : '#bdbdbd' }} />
 							<TimelineConnector />
 						</TimelineSeparator>
-						<TimelineContent color={selectedYear === year ? 'primary' : colors.primary_text_color}>
+						<TimelineContent color={chosenYear === year ? 'primary' : colors.primary_text_color}>
 							{year}
 						</TimelineContent>
 					</TimelineItem>
