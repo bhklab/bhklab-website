@@ -58,14 +58,15 @@ function Home() {
 							<ResearchAxis />
 						</div>
 						<PMCRTTowerImage />
-						<div id="preprints" className="home-publication-and-presentation-section">
-							<Preprints />
+
+						<div id="publications" className="home-publication-and-presentation-section">
+							<Publications />
 						</div>
 						<div className="divider">
 							<hr />
 						</div>
-						<div id="publications" className="home-publication-and-presentation-section">
-							<Publications />
+						<div id="preprints" className="home-publication-and-presentation-section">
+							<Preprints />
 						</div>
 						<div className="divider">
 							<hr />
