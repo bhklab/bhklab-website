@@ -14,7 +14,6 @@ const mapToObj = (arr) => {
 	arr.forEach((item) => {
 		obj[item.platform] = item;
 	});
-	console.log(obj);
 	return obj;
 };
 function SocialMediaAccounts() {
