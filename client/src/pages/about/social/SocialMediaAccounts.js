@@ -7,8 +7,6 @@ import 'bsky-react-post/theme.css';
 import { SocialMediaAccountWrapper } from './SocialStyles';
 import Linkedin from '../../../components/social/Linkedin';
 
-const LINKEDIN_URL = 'https://www.linkedin.com/embed/feed/update/urn:li:activity:7323789913194127361';
-
 const mapToObj = (arr) => {
 	const obj = {};
 	arr.forEach((item) => {

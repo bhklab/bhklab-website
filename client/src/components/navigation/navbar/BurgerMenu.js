@@ -12,6 +12,7 @@ const navigationLinks = [
 	{ name: 'Presentations', linkTo: 'presentations' },
 	{ name: 'Softwares', linkTo: 'softwares' },
 	{ name: 'Team', linkTo: 'team' },
+	{ name: 'Socials', linkTo: 'social-media-accounts' },
 	{ name: 'Contact', linkTo: 'contact' },
 ];
 
