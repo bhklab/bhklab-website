@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import { XEmbed } from 'react-social-media-embed';
 import { Post } from 'bsky-react-post';
 // eslint-disable-next-line
@@ -8,20 +9,41 @@ import Linkedin from '../../../components/social/Linkedin';
 
 const LINKEDIN_URL = 'https://www.linkedin.com/embed/feed/update/urn:li:activity:7323789913194127361';
 
+const mapToObj = (arr) => {
+	const obj = {};
+	arr.forEach((item) => {
+		obj[item.platform] = item;
+	});
+	console.log(obj);
+	return obj;
+};
 function SocialMediaAccounts() {
+	const [isLoading, setLoadingState] = useState(false);
+	const [accounts, setAccounts] = useState({});
+
+	useEffect(() => {
+		const fetchSocialMediaAccounts = async () => {
+			const response = await axios.get('/api/data/socials');
+			setAccounts(mapToObj(response.data));
+			setLoadingState(true);
+		};
+		fetchSocialMediaAccounts();
+	}, []);
+
 	return (
-		<SocialMediaAccountWrapper>
-			{/* https://bsky-react-post.rhinobase.io/playground */}
+		isLoading && Object.keys(accounts).length &&
+		(<SocialMediaAccountWrapper>
 			<div className="bsky-wrapper">
-				<Post did="bhklab.bsky.social" id="3lo4zccmuws23" />
+				<Post did={accounts.bluesky.credentials} id={accounts.bluesky.id} />
 			</div>
 			<div className="twitter-wrapper">
-				<XEmbed url="https://x.com/bhklab/status/1918020524396998729" width={325} />
+				<XEmbed url={accounts.twitter.url} width={325} />
 			</div>
 			<div className="linkedin-wrapper">
-				<Linkedin url={LINKEDIN_URL} />
+				<Linkedin url={accounts.linkedin.url} />
 			</div>
 		</SocialMediaAccountWrapper>
+		)
 	);
 }
 

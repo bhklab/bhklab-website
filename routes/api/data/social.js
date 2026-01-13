@@ -2,16 +2,16 @@ const Social = require('../../../database/models/social');
 const mongoose = require("mongoose");
 
 const getAll = async (req, res) => {
-    let result = {
-        socials: [],
-    };
+    let socials = [];
     try{
         // Get socials in the database
-        result.socials =  await Social.find().lean();
+        socials =  await Social.find().lean();
+        console.log(socials)
+        ;
     }catch(error){
         console.log(error);
     }finally{
-        res.send(result);
+        res.send(socials);
     }
 }
 

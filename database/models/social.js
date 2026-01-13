@@ -2,9 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const socialSchema = new Schema({
-    text: String,
-    date: String,
-    image: String
+    platform: String,
+    url: String,
+    credentials: String,
+    id: String
 });
 
 const Social = mongoose.model('Social', socialSchema);
