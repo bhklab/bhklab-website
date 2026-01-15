@@ -32,7 +32,7 @@ function SocialMediaAccounts() {
 		Object.keys(accounts).length && (
 			<SocialMediaAccountWrapper>
 				<div className="bsky-wrapper">
-					<Post did={accounts.bluesky.credentials} id={accounts.bluesky.id} mode="light" />
+					<Post did={accounts.bluesky.credentials} id={accounts.bluesky.id} />
 				</div>
 				<div className="twitter-wrapper">
 					<XEmbed url={accounts.twitter.url} width={325} />
