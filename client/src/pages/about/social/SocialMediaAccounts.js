@@ -28,18 +28,19 @@ function SocialMediaAccounts() {
 	}, []);
 
 	return (
-		isLoading && Object.keys(accounts).length &&
-		(<SocialMediaAccountWrapper>
-			<div className="bsky-wrapper">
-				<Post did={accounts.bluesky.credentials} id={accounts.bluesky.id} />
-			</div>
-			<div className="twitter-wrapper">
-				<XEmbed url={accounts.twitter.url} width={325} />
-			</div>
-			<div className="linkedin-wrapper">
-				<Linkedin url={accounts.linkedin.url} />
-			</div>
-		</SocialMediaAccountWrapper>
+		isLoading &&
+		Object.keys(accounts).length && (
+			<SocialMediaAccountWrapper>
+				<div className="bsky-wrapper">
+					<Post did={accounts.bluesky.credentials} id={accounts.bluesky.id} />
+				</div>
+				<div className="twitter-wrapper">
+					<XEmbed url={accounts.twitter.url} width={325} />
+				</div>
+				<div className="linkedin-wrapper">
+					<Linkedin url={accounts.linkedin.url} />
+				</div>
+			</SocialMediaAccountWrapper>
 		)
 	);
 }
