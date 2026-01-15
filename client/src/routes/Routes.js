@@ -15,18 +15,21 @@ import {
 	LabMembers,
 	Collaboration,
 	JoinUs,
+	SocialMediaAccounts,
 } from '../pages/Index';
 import useFindAdmin from '../hooks/useFindAdmin';
 
 function PublicRoutes() {
-	const {
-		admin, setAdmin, loading, checkSession,
-	} = useFindAdmin();
+	const { admin, setAdmin, loading, checkSession } = useFindAdmin();
 	return (
 		<Router scrollRestoration={false}>
-			<AuthContext.Provider value={{
-				admin, setAdmin, loading, checkSession,
-			}}
+			<AuthContext.Provider
+				value={{
+					admin,
+					setAdmin,
+					loading,
+					checkSession,
+				}}
 			>
 				<Routes>
 					<Route path="/" element={<Home />} />
@@ -40,6 +43,7 @@ function PublicRoutes() {
 					<Route path="/collaboration" element={<Collaboration />} />
 					<Route path="/positions" element={<JoinUs />} />
 					<Route path="/software" element={<Software />} />
+					<Route path="/socials" element={<SocialMediaAccounts />} />
 				</Routes>
 			</AuthContext.Provider>
 		</Router>
