@@ -3,7 +3,7 @@ import axios from 'axios';
 import Layout from '../../components/utils/Layout';
 import { Container, Heading, Form, FormGroup, Label, Input, Button, Message } from './UpdateStyles';
 
-const SocialsUpdate = () => {
+function SocialsUpdate() {
 	const [socials, setSocials] = useState({
 		twitter: '',
 		linkedin: '',
@@ -87,6 +87,6 @@ const SocialsUpdate = () => {
 			</Container>
 		</Layout>
 	);
-};
+}
 
 export default SocialsUpdate;

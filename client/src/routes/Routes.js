@@ -16,19 +16,21 @@ import {
 	Collaboration,
 	JoinUs,
 	SocialMediaAccounts,
-	SocialsUpdate
+	SocialsUpdate,
 } from '../pages/Index';
 import useFindAdmin from '../hooks/useFindAdmin';
 
 function PublicRoutes() {
-	const {
-		admin, setAdmin, loading, checkSession,
-	} = useFindAdmin();
+	const { admin, setAdmin, loading, checkSession } = useFindAdmin();
 	return (
 		<Router scrollRestoration={false}>
-			<AuthContext.Provider value={{
-				admin, setAdmin, loading, checkSession,
-			}}
+			<AuthContext.Provider
+				value={{
+					admin,
+					setAdmin,
+					loading,
+					checkSession,
+				}}
 			>
 				<Routes>
 					<Route path="/" element={<Home />} />
