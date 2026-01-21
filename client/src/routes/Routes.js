@@ -16,7 +16,6 @@ import {
 	Collaboration,
 	JoinUs,
 	SocialMediaAccounts,
-	SocialsUpdate,
 } from '../pages/Index';
 import useFindAdmin from '../hooks/useFindAdmin';
 

@@ -4,10 +4,7 @@ const mongoose = require("mongoose");
 const getAll = async (req, res) => {
     let socials = [];
     try{
-        // Get socials in the database
         socials =  await Social.find().lean();
-        console.log(socials)
-        ;
     }catch(error){
         console.log(error);
     }finally{

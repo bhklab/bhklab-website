@@ -11,7 +11,6 @@ const mongoose = require("mongoose");
 const getAll = async (req, res) => {
     try{
         const members = await Member.find().lean();
-        console.log(JSON.stringify(members))
 		res.send(JSON.stringify(members));
     }catch(error){
         console.log(error);
@@ -28,7 +27,6 @@ const getOne = async (req, res) => {
         let res =  await Member.find().lean();
         let member = res.filter(item => item.slug === token)[0];
         if ( member ){
-			console.log(member);
 			result = JSON.stringify(member);
         }
     }catch(error){
