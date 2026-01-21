@@ -11,7 +11,24 @@ import colors from '../../styles/colors';
 import StyledTimeline from './TimelineStyles';
 
 // timeline years
-const YEARS = ['2025', '2024', '2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '2015', '2014', '2013'];
+const YEARS = [
+	'2025',
+	'2024',
+	'2023',
+	'2022',
+	'2021',
+	'2020',
+	'2019',
+	'2018',
+	'2017',
+	'2016',
+	'2015',
+	'2014',
+	'2013',
+	'2012',
+	'2011',
+	'2010',
+];
 
 /**
  *
@@ -27,9 +44,11 @@ function LeftPositionedTimeline({ chosenYear, setChosenYear }) {
 	const adjustItems = () => {
 		// Adding or removing the number of items shown in timeline list
 		if (itemsLoaded === 6) {
-			setItemsLoaded(itemsLoaded + 3);
+			setItemsLoaded(9);
 		} else if (itemsLoaded === 9) {
-			setItemsLoaded(itemsLoaded + 2);
+			setItemsLoaded(11);
+		} else if (itemsLoaded === 11) {
+			setItemsLoaded(YEARS.length);
 			setItemsButton('show less'); // after all timeline components are rendered change the button's text
 		} else {
 			setItemsLoaded(6);
