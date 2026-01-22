@@ -8,7 +8,7 @@ function Items({ currentItems }) {
 		currentItems &&
 		currentItems.map((item) => (
 			// eslint-disable-next-line no-underscore-dangle
-			<div key={item.props.publication.title}>{item}</div>
+			<div key={item.props.publication._id}>{item}</div>
 		))
 	);
 }
@@ -40,7 +40,9 @@ function PaginatedPublications({ customizedContent, publications, itemsPerPage }
 
 	return (
 		<StyledPaginate>
-			<Items currentItems={currentItems} />
+			<div className="items-container">
+				<Items currentItems={currentItems} />
+			</div>
 			<div className="pagination-container">
 				<ReactPaginate
 					breakLabel="..."
