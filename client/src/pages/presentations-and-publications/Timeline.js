@@ -12,6 +12,7 @@ import StyledTimeline from './TimelineStyles';
 
 // timeline years
 const YEARS = [
+	'2026',
 	'2025',
 	'2024',
 	'2023',
