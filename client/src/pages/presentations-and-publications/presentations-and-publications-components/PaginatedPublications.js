@@ -40,9 +40,7 @@ function PaginatedPublications({ customizedContent, publications, itemsPerPage }
 
 	return (
 		<StyledPaginate>
-			<div className="items-container">
-				<Items currentItems={currentItems} />
-			</div>
+			<Items currentItems={currentItems} />
 			<div className="pagination-container">
 				<ReactPaginate
 					breakLabel="..."

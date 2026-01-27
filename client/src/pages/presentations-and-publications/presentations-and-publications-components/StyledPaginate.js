@@ -8,12 +8,6 @@ const StyledPaginate = styled.div`
 	max-width: 900px;
 	height: 800px;
 
-	/* This container will take up the available vertical space */
-	.items-container {
-		flex: 1 1 auto;
-		min-height: 0; /* IMPORTANT: allows proper scrolling inside flex layouts */
-		overflow-y: auto;
-	}
 	/* Paginator always stays at bottom */
 	.pagination-container {
 		flex-shrink: 0;
