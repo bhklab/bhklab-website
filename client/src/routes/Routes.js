@@ -16,6 +16,7 @@ import {
 	Collaboration,
 	JoinUs,
 	SocialMediaAccounts,
+	SocialsUpdate,
 } from '../pages/Index';
 import useFindAdmin from '../hooks/useFindAdmin';
 
@@ -44,6 +45,7 @@ function PublicRoutes() {
 					<Route path="/positions" element={<JoinUs />} />
 					<Route path="/software" element={<Software />} />
 					<Route path="/socials" element={<SocialMediaAccounts />} />
+					<Route path="/socialsupdate" element={<SocialsUpdate />} />
 				</Routes>
 			</AuthContext.Provider>
 		</Router>

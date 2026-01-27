@@ -11,6 +11,7 @@ import Collaboration from './about/collaboration/Collaboration';
 import JoinUs from './about/join/JoinUs';
 import LabAlumni from './about/alumni/LabAlumni';
 import SocialMediaAccounts from './about/social/SocialMediaAccounts';
+import SocialsUpdate from './socialsupdate/SocialsUpdate';
 
 export {
 	Home,
@@ -26,4 +27,5 @@ export {
 	Collaboration,
 	JoinUs,
 	SocialMediaAccounts,
+	SocialsUpdate,
 };
