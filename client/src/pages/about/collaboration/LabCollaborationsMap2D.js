@@ -1,8 +1,10 @@
-// src/components/LabCollaborationsGlobe3D.jsx
+// src/components/LabCollaborationsMap2D.jsx
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import Globe from 'react-globe.gl';
+import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from 'react-simple-maps';
 import { scaleSqrt } from 'd3-scale';
 import { collaborationsRaw } from './data/collaborationsData';
+
+const GEO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
 
 const STATUS_COLORS = {
     Completed: '#10b981',
@@ -120,9 +122,13 @@ function Badge({ children }) {
     );
 }
 
-export default function LabCollaborationsGlobe3D() {
-    const globeRef = useRef(null);
-    const globeWrapRef = useRef(null);
+export default function LabCollaborationsMap2D({ className = '', height = 560 }) {
+    const mapWrapRef = useRef(null);
+
+    const [mapSize, setMapSize] = useState({
+        width: 1000,
+        height: typeof height === 'number' ? height : 560
+    });
 
     const records = useMemo(() => collaborationsRaw.map((row, i) => normalizeRecord(row, i)), []);
 
@@ -136,10 +142,11 @@ export default function LabCollaborationsGlobe3D() {
     const [typeFilter, setTypeFilter] = useState('All');
     const [selectedCityKey, setSelectedCityKey] = useState(null);
 
-    const [isPopupOpen, setIsPopupOpen] = useState(false);
-    const [autoRotate, setAutoRotate] = useState(true);
+    const [zoom, setZoom] = useState(1);
+    const [center, setCenter] = useState([0, 15]);
 
-    const [globeSize, setGlobeSize] = useState({ width: 1000, height: 620 });
+    const [tooltip, setTooltip] = useState(null); // {x,y,city,country,count}
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
 
     useEffect(() => {
         function onKeyDown(e) {
@@ -149,15 +156,17 @@ export default function LabCollaborationsGlobe3D() {
         return () => window.removeEventListener('keydown', onKeyDown);
     }, []);
 
+    // Container-aware sizing for embedding inside any div
     useEffect(() => {
-        if (!globeWrapRef.current) return;
-
-        const el = globeWrapRef.current;
+        if (!mapWrapRef.current) return;
+        const el = mapWrapRef.current;
 
         const updateSize = () => {
             const width = Math.max(320, el.clientWidth || 1000);
-            const height = Math.max(420, Math.min(760, Math.round(width * 0.62)));
-            setGlobeSize({ width, height });
+            const nextHeight =
+                typeof height === 'number' ? height : Math.max(420, Math.min(760, Math.round(width * 0.58)));
+
+            setMapSize({ width, height: nextHeight });
         };
 
         updateSize();
@@ -174,23 +183,7 @@ export default function LabCollaborationsGlobe3D() {
             if (ro) ro.disconnect();
             else window.removeEventListener('resize', updateSize);
         };
-    }, []);
-
-    useEffect(() => {
-        const globe = globeRef.current;
-        if (!globe) return;
-
-        const controls = globe.controls();
-        if (!controls) return;
-
-        controls.enablePan = false;
-        controls.enableDamping = true;
-        controls.dampingFactor = 0.08;
-        controls.minDistance = 120;
-        controls.maxDistance = 550;
-        controls.autoRotate = autoRotate;
-        controls.autoRotateSpeed = 0.35;
-    }, [autoRotate, globeSize]);
+    }, [height]);
 
     const filteredRecords = useMemo(() => {
         const q = search.toLowerCase().trim();
@@ -232,6 +225,13 @@ export default function LabCollaborationsGlobe3D() {
         return cityGroups.find(c => c.key === selectedCityKey) || cityGroups[0];
     }, [cityGroups, selectedCityKey]);
 
+    // Bigger visible markers + easier click target
+    const bubbleScale = useMemo(() => {
+        const max = Math.max(1, ...cityGroups.map(c => c.count));
+        // Increased size range for easier clicking
+        return scaleSqrt().domain([1, max]).range([9, 28]);
+    }, [cityGroups]);
+
     const totals = useMemo(() => {
         const countries = new Set(filteredRecords.map(r => r.country));
         const cities = new Set(filteredRecords.filter(r => r.hasCoordinates).map(r => `${r.city}|${r.country}`));
@@ -245,82 +245,35 @@ export default function LabCollaborationsGlobe3D() {
         };
     }, [filteredRecords]);
 
-    const globePoints = useMemo(() => {
-        if (!cityGroups.length) return [];
-
-        const maxCount = Math.max(1, ...cityGroups.map(c => c.count));
-        const radiusScale = scaleSqrt().domain([1, maxCount]).range([0.26, 0.85]);
-        const altitudeScale = scaleSqrt().domain([1, maxCount]).range([0.02, 0.11]);
-
-        return cityGroups.map(city => ({
-            ...city,
-            color: STATUS_COLORS[city.dominantStatus] || STATUS_COLORS.Unknown,
-            pointRadius: radiusScale(city.count),
-            pointAltitude: altitudeScale(city.count)
-        }));
-    }, [cityGroups]);
-
-    const zoomByFactor = factor => {
-        const globe = globeRef.current;
-        if (!globe) return;
-
-        const pov = globe.pointOfView();
-        const currentAlt = Number.isFinite(pov?.altitude) ? pov.altitude : 2.1;
-        const nextAlt = Math.max(0.7, Math.min(4.2, currentAlt * factor));
-
-        globe.pointOfView({ lat: pov?.lat ?? 20, lng: pov?.lng ?? 0, altitude: nextAlt }, 500);
-    };
-
-    const resetView = () => {
-        const globe = globeRef.current;
-        if (!globe) return;
-        globe.pointOfView({ lat: 20, lng: 0, altitude: 2.1 }, 900);
-
-        const controls = globe.controls();
-        if (controls) {
-            controls.autoRotate = autoRotate;
-        }
-    };
-
     const focusCity = city => {
-        const globe = globeRef.current;
-        if (!globe || !city) return;
-        globe.pointOfView({ lat: city.latitude, lng: city.longitude, altitude: 1.45 }, 1000);
+        if (!city) return;
+        setCenter([city.longitude, city.latitude]);
+        setZoom(2.1);
     };
 
-    const pointLabelHtml = city => {
-        const statuses = Object.entries(city.statusCounts || {})
-            .map(([k, v]) => `${k}: ${v}`)
-            .join(' • ');
-
-        return `
-      <div style="
-        background: rgba(255,255,255,0.96);
-        color: #0f172a;
-        border: 1px solid #e2e8f0;
-        border-radius: 12px;
-        padding: 8px 10px;
-        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-        font-size: 12px;
-        box-shadow: 0 8px 24px rgba(15,23,42,0.12);
-        max-width: 240px;
-      ">
-        <div style="font-weight: 700; margin-bottom: 2px;">
-          ${city.city}, ${city.country}
-        </div>
-        <div style="color: #475569;">
-          ${city.count} collaboration${city.count > 1 ? 's' : ''}
-        </div>
-        <div style="margin-top: 4px; color: #64748b;">
-          ${statuses}
-        </div>
-      </div>
-    `;
-    };
+    const mapScale = useMemo(() => {
+        // Keep the globe-ish world projection size responsive inside the embed container
+        return Math.max(120, Math.min(235, mapSize.width * 0.15));
+    }, [mapSize.width]);
 
     return (
-        <div className="min-h-screen bg-slate-50 p-4 md:p-6">
-            {/* Popup modal */}
+        <div className={`w-full bg-slate-50 p-4 md:p-6 ${className}`}>
+            {/* Hover tooltip */}
+            {tooltip && (
+                <div
+                    className="fixed z-40 pointer-events-none rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs shadow-lg"
+                    style={{ left: tooltip.x + 10, top: tooltip.y + 10 }}
+                >
+                    <div className="font-semibold text-slate-900">
+                        {tooltip.city}, {tooltip.country}
+                    </div>
+                    <div className="text-slate-600">
+                        {tooltip.count} collaboration{tooltip.count > 1 ? 's' : ''}
+                    </div>
+                </div>
+            )}
+
+            {/* City popup modal */}
             {isPopupOpen && selectedCity && (
                 <div
                     className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 p-4"
@@ -429,16 +382,16 @@ export default function LabCollaborationsGlobe3D() {
                 </div>
             )}
 
-            <div className="mx-auto max-w-7xl space-y-4">
+            <div className="w-full space-y-4">
                 {/* Header + Filters */}
                 <div className="rounded-3xl border border-slate-200 bg-white p-4 shadow-sm">
                     <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
                         <div>
                             <h1 className="text-2xl font-semibold text-slate-900">
-                                Global Lab Collaborations Globe (3D)
+                                Global Lab Collaborations Map (2D)
                             </h1>
                             <p className="mt-1 text-sm text-slate-600">
-                                Drag to rotate the globe, scroll to zoom, and click a city marker for full details.
+                                Click a city bubble to open a popup with all collaborations.
                             </p>
                         </div>
 
@@ -480,39 +433,36 @@ export default function LabCollaborationsGlobe3D() {
                         <Badge>{totals.collaborations} collaborations</Badge>
                         <Badge>{totals.cities} cities</Badge>
                         <Badge>{totals.countries} countries</Badge>
-                        <Badge>Marker size = # collaborations in city</Badge>
+                        <Badge>Bigger markers enabled</Badge>
                         {totals.unplaced > 0 && <Badge>{totals.unplaced} missing coordinates</Badge>}
                     </div>
                 </div>
 
-                {/* Globe */}
+                {/* Map */}
                 <div className="rounded-3xl border border-slate-200 bg-white p-4 shadow-sm">
                     <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
                         <p className="text-sm text-slate-600">
-                            Hover markers for quick counts. Click a marker to open the city popup.
+                            Hover for quick counts. Click a bubble for the full city collaboration list.
                         </p>
 
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex gap-2">
                             <button
-                                onClick={() => zoomByFactor(0.82)}
+                                onClick={() => setZoom(z => Math.min(6, +(z * 1.25).toFixed(2)))}
                                 className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm"
                             >
                                 Zoom in
                             </button>
                             <button
-                                onClick={() => zoomByFactor(1.22)}
+                                onClick={() => setZoom(z => Math.max(1, +(z / 1.25).toFixed(2)))}
                                 className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm"
                             >
                                 Zoom out
                             </button>
                             <button
-                                onClick={() => setAutoRotate(v => !v)}
-                                className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm"
-                            >
-                                {autoRotate ? 'Pause rotation' : 'Auto-rotate'}
-                            </button>
-                            <button
-                                onClick={resetView}
+                                onClick={() => {
+                                    setCenter([0, 15]);
+                                    setZoom(1);
+                                }}
                                 className="rounded-lg border border-slate-300 px-3 py-1.5 text-sm"
                             >
                                 Reset
@@ -521,51 +471,171 @@ export default function LabCollaborationsGlobe3D() {
                     </div>
 
                     <div
-                        ref={globeWrapRef}
-                        className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-950"
-                        style={{ minHeight: 420 }}
+                        ref={mapWrapRef}
+                        className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50"
+                        style={{ minHeight: Math.max(360, mapSize.height) }}
                     >
-                        <Globe
-                            ref={globeRef}
-                            width={globeSize.width}
-                            height={globeSize.height}
-                            backgroundColor="rgba(0,0,0,0)"
-                            globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
-                            bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
-                            atmosphereColor="#93c5fd"
-                            atmosphereAltitude={0.16}
-                            showAtmosphere={true}
-                            pointsData={globePoints}
-                            pointsMerge={false}
-                            pointLat="latitude"
-                            pointLng="longitude"
-                            pointColor="color"
-                            pointRadius="pointRadius"
-                            pointAltitude="pointAltitude"
-                            pointResolution={16}
-                            pointLabel={pointLabelHtml}
-                            onPointClick={point => {
-                                setSelectedCityKey(point.key);
-                                setIsPopupOpen(true);
-                                setAutoRotate(false);
-                                setTimeout(() => focusCity(point), 0);
-                            }}
-                            onGlobeReady={() => {
-                                const globe = globeRef.current;
-                                if (!globe) return;
-                                globe.pointOfView({ lat: 20, lng: 0, altitude: 2.1 }, 0);
-                                const controls = globe.controls();
-                                if (controls) {
-                                    controls.enablePan = false;
-                                    controls.enableDamping = true;
-                                    controls.dampingFactor = 0.08;
-                                    controls.autoRotate = autoRotate;
-                                    controls.autoRotateSpeed = 0.35;
-                                    controls.minDistance = 120;
-                                    controls.maxDistance = 550;
-                                }
-                            }}
-                        />
+                        <ComposableMap
+                            projection="geoMercator"
+                            projectionConfig={{ scale: mapScale }}
+                            width={mapSize.width}
+                            height={mapSize.height}
+                            style={{ width: '100%', height: '100%' }}
+                        >
+                            <ZoomableGroup
+                                center={center}
+                                zoom={zoom}
+                                onMoveEnd={({ coordinates, zoom: nextZoom }) => {
+                                    setCenter(coordinates);
+                                    setZoom(nextZoom);
+                                }}
+                            >
+                                <Geographies geography={GEO_URL}>
+                                    {({ geographies }) =>
+                                        geographies.map(geo => (
+                                            <Geography
+                                                key={geo.rsmKey}
+                                                geography={geo}
+                                                style={{
+                                                    default: {
+                                                        fill: '#e2e8f0',
+                                                        stroke: '#cbd5e1',
+                                                        strokeWidth: 0.5,
+                                                        outline: 'none'
+                                                    },
+                                                    hover: {
+                                                        fill: '#dbeafe',
+                                                        stroke: '#93c5fd',
+                                                        strokeWidth: 0.6,
+                                                        outline: 'none'
+                                                    },
+                                                    pressed: {
+                                                        fill: '#bfdbfe',
+                                                        outline: 'none'
+                                                    }
+                                                }}
+                                            />
+                                        ))
+                                    }
+                                </Geographies>
+
+                                {cityGroups.map(city => {
+                                    const r = bubbleScale(city.count);
+                                    const color = STATUS_COLORS[city.dominantStatus] || STATUS_COLORS.Unknown;
+                                    const isSelected = selectedCity?.key === city.key;
+
+                                    return (
+                                        <Marker key={city.key} coordinates={[city.longitude, city.latitude]}>
+                                            <g
+                                                role="button"
+                                                tabIndex={0}
+                                                className="cursor-pointer"
+                                                onClick={() => {
+                                                    setSelectedCityKey(city.key);
+                                                    setIsPopupOpen(true);
+                                                    focusCity(city);
+                                                }}
+                                                onKeyDown={e => {
+                                                    if (e.key === 'Enter' || e.key === ' ') {
+                                                        setSelectedCityKey(city.key);
+                                                        setIsPopupOpen(true);
+                                                        focusCity(city);
+                                                    }
+                                                }}
+                                                onMouseEnter={e =>
+                                                    setTooltip({
+                                                        x: e.clientX,
+                                                        y: e.clientY,
+                                                        city: city.city,
+                                                        country: city.country,
+                                                        count: city.count
+                                                    })
+                                                }
+                                                onMouseMove={e =>
+                                                    setTooltip(t => (t ? { ...t, x: e.clientX, y: e.clientY } : t))
+                                                }
+                                                onMouseLeave={() => setTooltip(null)}
+                                            >
+                                                {/* Invisible/near-invisible larger hit area for easy clicking */}
+                                                <circle r={r + 12} fill="rgba(15,23,42,0.01)" stroke="none" />
+
+                                                {/* Soft outer ring */}
+                                                <circle r={r + 5} fill="rgba(15,23,42,0.08)" />
+
+                                                {/* Main marker */}
+                                                <circle
+                                                    r={r}
+                                                    fill={color}
+                                                    fillOpacity={0.9}
+                                                    stroke={isSelected ? '#0f172a' : '#fff'}
+                                                    strokeWidth={isSelected ? 2.5 : 1.5}
+                                                />
+
+                                                {/* Count label */}
+                                                <text
+                                                    y={4}
+                                                    textAnchor="middle"
+                                                    style={{
+                                                        fill: 'white',
+                                                        fontSize: Math.max(10, Math.min(14, r * 0.55)),
+                                                        fontWeight: 700,
+                                                        pointerEvents: 'none',
+                                                        userSelect: 'none'
+                                                    }}
+                                                >
+                                                    {city.count}
+                                                </text>
+                                            </g>
+                                        </Marker>
+                                    );
+                                })}
+                            </ZoomableGroup>
+                        </ComposableMap>
+                    </div>
+                </div>
+
+                {/* Optional quick city list */}
+                <div className="rounded-3xl border border-slate-200 bg-white p-4 shadow-sm">
+                    <h3 className="text-sm font-semibold text-slate-900">Top cities (filtered)</h3>
+                    <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                        {cityGroups.slice(0, 12).map(city => (
+                            <button
+                                key={city.key}
+                                onClick={() => {
+                                    setSelectedCityKey(city.key);
+                                    focusCity(city);
+                                    setIsPopupOpen(true);
+                                }}
+                                className={`rounded-2xl border p-3 text-left transition ${
+                                    selectedCity?.key === city.key
+                                        ? 'border-slate-900 bg-slate-900 text-white'
+                                        : 'border-slate-200 bg-white hover:bg-slate-50'
+                                }`}
+                            >
+                                <div className="flex items-center justify-between gap-2">
+                                    <div className="min-w-0">
+                                        <div className="truncate text-sm font-semibold">{city.city}</div>
+                                        <div
+                                            className={`truncate text-xs ${
+                                                selectedCity?.key === city.key ? 'text-slate-300' : 'text-slate-500'
+                                            }`}
+                                        >
+                                            {city.country}
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-center gap-2">
+                                        <span
+                                            className="inline-block h-3 w-3 rounded-full"
+                                            style={{
+                                                background: STATUS_COLORS[city.dominantStatus] || STATUS_COLORS.Unknown
+                                            }}
+                                        />
+                                        <span className="text-sm font-semibold">{city.count}</span>
+                                    </div>
+                                </div>
+                            </button>
+                        ))}
                     </div>
                 </div>
             </div>

@@ -78,9 +78,9 @@ function Home() {
                         <div id="presentations" className="home-publication-and-presentation-section">
                             <Presentations />
                         </div>
-                        {/* <div id="collaborations" className="home-publication-and-presentation-section">
+                        <div id="collaborations" className="home-publication-and-presentation-section">
                             <Collaboration />
-                        </div> */}
+                        </div>
                         <div id="bhklab-logo-image-container" className="home-component-sub-section">
                             <BHKLabImage />
                         </div>
