@@ -6,7 +6,7 @@ const Collaboration = () => {
 	return (
 		<>
 			<StyledHeading>Collaborations</StyledHeading>
-			<LabCollaborationsMap2DEmbed height={520} detailsHeight={360} />
+			<LabCollaborationsMap2DEmbed height={600} detailsHeight={600} />
 		</>
 	);
 };

@@ -2,7 +2,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from 'react-simple-maps';
 import { scaleSqrt } from 'd3-scale';
-import { collaborationsRaw } from '../data/collaborationData';
+import axios from 'axios';
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
 
@@ -69,24 +69,31 @@ function normalizeRecord(row, index) {
 	const fallback = FALLBACK_COORDS[`${city}|${country}`];
 
 	const lat = Number.isFinite(Number(row.latitude)) ? Number(row.latitude) : (fallback?.latitude ?? null);
-
 	const lon = Number.isFinite(Number(row.longitude)) ? Number(row.longitude) : (fallback?.longitude ?? null);
 
 	return {
-		id: row?._id?.$oid || `row-${index}`,
-		mainCollab: clean(row['main-collab']),
-		otherCollabs: maybe(row['other-collabs']),
+		// supports Mongo object id OR plain string id
+		id: row?._id?.$oid || row?._id || `row-${index}`,
+
+		// supports both schemas
+		mainCollab: clean(row.maincollab ?? row['main-collab']),
+		otherCollabs: maybe(row.othercollabs ?? row['other-collabs']),
+
 		organization: clean(row.organization),
 		country,
 		city,
-		startYear: Number(row['start-year']) || null,
+
+		startYear: Number(row.startyear ?? row['start-year']) || null,
 		type: normalizeType(row.type),
+
 		project: clean(row.project),
 		contact: maybe(row.contact),
 		members: maybe(row.members),
 		role: maybe(row.role),
+
 		status: normalizeStatus(row.status),
 		outputs: maybe(row.outputs),
+
 		latitude: lat,
 		longitude: lon,
 		hasCoordinates: Number.isFinite(lat) && Number.isFinite(lon),
@@ -150,11 +157,11 @@ export default function LabCollaborationsMap2DEmbed({
 	className = '',
 	height = 520,
 	detailsHeight = 360, // fixed-height panel below the map
-	data = collaborationsRaw,
 	showControls = true,
 }) {
 	const mapWrapRef = useRef(null);
 	const tooltipRafRef = useRef(null);
+	const [data, setData] = useState(null);
 
 	const [mapSize, setMapSize] = useState({
 		width: 1000,
@@ -167,6 +174,60 @@ export default function LabCollaborationsMap2DEmbed({
 	const [selectedCityKey, setSelectedCityKey] = useState(null);
 	const [tooltip, setTooltip] = useState(null); // { x, y, city, country, count }
 	const [isDraggingMap, setIsDraggingMap] = useState(false);
+
+	const [isLoading, setIsLoading] = useState(true);
+	const [loadError, setLoadError] = useState(null);
+
+	useEffect(() => {
+		let isMounted = true;
+		const controller = new AbortController();
+
+		const fetchCollaborations = async () => {
+			try {
+				setIsLoading(true);
+				setLoadError(null);
+
+				const response = await axios.get('/api/data/collaborations', {
+					signal: controller.signal,
+				});
+
+				// supports:
+				// 1) array response -> response.data = [...]
+				// 2) wrapped -> response.data.collaborations or response.data.data
+				const payload = response?.data;
+				const rows = Array.isArray(payload)
+					? payload
+					: Array.isArray(payload?.collaborations)
+						? payload.collaborations
+						: Array.isArray(payload?.data)
+							? payload.data
+							: [];
+
+				if (isMounted) {
+					console.log('Fetched collaborations data:', rows);
+					setData(rows);
+				}
+			} catch (err) {
+				// axios cancellation
+				if (err?.name === 'CanceledError' || err?.code === 'ERR_CANCELED') return;
+
+				console.error('Failed to fetch collaborations:', err);
+				if (isMounted) {
+					setLoadError(err?.message || 'Failed to load collaborations');
+					setData([]);
+				}
+			} finally {
+				if (isMounted) setIsLoading(false);
+			}
+		};
+
+		fetchCollaborations();
+
+		return () => {
+			isMounted = false;
+			controller.abort();
+		};
+	}, []);
 
 	const records = useMemo(() => (Array.isArray(data) ? data : []).map((row, i) => normalizeRecord(row, i)), [data]);
 
@@ -203,7 +264,7 @@ export default function LabCollaborationsMap2DEmbed({
 		};
 	}, []);
 
-	// Container-aware sizing
+	// Container-aware sizing (width-driven). Height is controlled by prop and fixed below.
 	useEffect(() => {
 		if (!mapWrapRef.current) return;
 		const el = mapWrapRef.current;
@@ -230,6 +291,10 @@ export default function LabCollaborationsMap2DEmbed({
 			else window.removeEventListener('resize', updateSize);
 		};
 	}, [height]);
+
+	const resolvedMapHeight = Math.max(360, typeof height === 'number' ? height : mapSize.height);
+
+	const resolvedDetailsHeight = typeof detailsHeight === 'number' ? Math.max(260, detailsHeight) : 360;
 
 	const mapScale = useMemo(() => {
 		return Math.max(120, Math.min(235, mapSize.width * 0.15));
@@ -267,357 +332,382 @@ export default function LabCollaborationsMap2DEmbed({
 	const tooltipWidth = Math.min(220, Math.max(140, mapSize.width - 16));
 
 	return (
-		<div
-			className={`w-full max-w-full overflow-x-hidden ${className}`}
-			style={{ minWidth: 0, maxWidth: '100%', overflowX: 'clip' }}
-		>
-			<div className="space-y-4" style={CLAMP_CONTAINER_STYLE}>
-				{/* Map */}
-				<div className="min-w-0 max-w-full" style={CLAMP_CONTAINER_STYLE}>
-					<div
-						className="relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 max-w-full"
-						ref={mapWrapRef}
-						style={{
-							...CLAMP_CONTAINER_STYLE,
-							minHeight: Math.max(360, mapSize.height),
-							touchAction: 'none',
-							WebkitUserSelect: 'none',
-							userSelect: 'none',
-							WebkitTapHighlightColor: 'transparent',
-						}}
-					>
-						{/* Zoom controls */}
-						{showControls && (
-							<div className="absolute right-3 top-3 z-10 flex gap-2">
-								<button
-									onClick={() => setZoom((z) => Math.min(6, +(z * 1.25).toFixed(2)))}
-									className="rounded-lg border border-slate-300 bg-white/95 px-3 py-1.5 text-sm shadow-sm hover:bg-white"
-									type="button"
-								>
-									+
-								</button>
-								<button
-									onClick={() => setZoom((z) => Math.max(1, +(z / 1.25).toFixed(2)))}
-									className="rounded-lg border border-slate-300 bg-white/95 px-3 py-1.5 text-sm shadow-sm hover:bg-white"
-									type="button"
-								>
-									−
-								</button>
-								<button
-									onClick={resetView}
-									className="rounded-lg border border-slate-300 bg-white/95 px-3 py-1.5 text-sm shadow-sm hover:bg-white"
-									type="button"
-								>
-									Reset
-								</button>
-							</div>
-						)}
-
-						{/* Small corner stats */}
-						<div className="pointer-events-none absolute left-3 top-3 z-10 flex max-w-[80%] flex-wrap gap-2">
-							<span className="rounded-full border border-white/70 bg-white/90 px-2.5 py-1 text-xs text-slate-700 shadow-sm">
-								{totals.collaborations} collaborations
-							</span>
-							<span className="rounded-full border border-white/70 bg-white/90 px-2.5 py-1 text-xs text-slate-700 shadow-sm">
-								{totals.cities} cities
-							</span>
-							<span className="rounded-full border border-white/70 bg-white/90 px-2.5 py-1 text-xs text-slate-700 shadow-sm">
-								{totals.countries} countries
-							</span>
-							{totals.unplaced > 0 && (
-								<span className="rounded-full border border-white/70 bg-white/90 px-2.5 py-1 text-xs text-slate-700 shadow-sm">
-									{totals.unplaced} missing coordinates
-								</span>
-							)}
-						</div>
-
-						<ComposableMap
-							projection="geoMercator"
-							projectionConfig={{ scale: mapScale }}
-							width={mapSize.width}
-							height={mapSize.height}
-							style={{ width: '100%', height: '100%', display: 'block' }}
-						>
-							<ZoomableGroup
-								center={center}
-								zoom={zoom}
-								onMoveStart={() => {
-									setIsDraggingMap(true);
-									setTooltip(null);
-								}}
-								onMoveEnd={({ coordinates, zoom: nextZoom }) => {
-									setCenter(coordinates);
-									setZoom(nextZoom);
-									setIsDraggingMap(false);
-								}}
-							>
-								<Geographies geography={GEO_URL}>
-									{({ geographies }) =>
-										geographies.map((geo) => (
-											<Geography
-												key={geo.rsmKey}
-												geography={geo}
-												tabIndex={-1}
-												focusable="false"
-												aria-hidden="true"
-												pointerEvents="none"
-												style={{
-													default: {
-														fill: '#e2e8f0',
-														stroke: '#cbd5e1',
-														strokeWidth: 0.5,
-														outline: 'none',
-														pointerEvents: 'none',
-														cursor: 'default',
-														userSelect: 'none',
-													},
-													hover: {
-														fill: '#e2e8f0',
-														stroke: '#cbd5e1',
-														strokeWidth: 0.5,
-														outline: 'none',
-														pointerEvents: 'none',
-													},
-													pressed: {
-														fill: '#e2e8f0',
-														outline: 'none',
-														pointerEvents: 'none',
-													},
-												}}
-											/>
-										))
-									}
-								</Geographies>
-
-								{cityGroups.map((city) => {
-									const r = bubbleScale(city.count);
-									const color = STATUS_COLORS[city.dominantStatus] || STATUS_COLORS.Unknown;
-									const isSelected = selectedCity?.key === city.key;
-
-									return (
-										<Marker key={city.key} coordinates={[city.longitude, city.latitude]}>
-											<g
-												role="button"
-												tabIndex={0}
-												className="cursor-pointer"
-												onMouseDown={(e) => e.preventDefault()}
-												onClick={() => {
-													setSelectedCityKey(city.key);
-													focusCity(city);
-												}}
-												onKeyDown={(e) => {
-													if (e.key === 'Enter' || e.key === ' ') {
-														e.preventDefault();
-														setSelectedCityKey(city.key);
-														focusCity(city);
-													}
-												}}
-												onMouseEnter={(e) => updateTooltipFromEvent(e, city)}
-												onMouseMove={(e) => updateTooltipFromEvent(e, city)}
-												onMouseLeave={() => setTooltip(null)}
-											>
-												{/* Larger invisible hit target */}
-												<circle r={r + 14} fill="rgba(15,23,42,0.01)" stroke="none" />
-
-												{/* Soft ring */}
-												<circle r={r + 6} fill="rgba(15,23,42,0.08)" />
-
-												{/* Marker */}
-												<circle
-													r={r}
-													fill={color}
-													fillOpacity={0.92}
-													stroke={isSelected ? '#0f172a' : '#ffffff'}
-													strokeWidth={isSelected ? 2.5 : 1.5}
-												/>
-
-												{/* Count */}
-												<text
-													y={4}
-													textAnchor="middle"
-													style={{
-														fill: 'white',
-														fontSize: Math.max(10, Math.min(14, r * 0.55)),
-														fontWeight: 700,
-														pointerEvents: 'none',
-														userSelect: 'none',
-													}}
-												>
-													{city.count}
-												</text>
-											</g>
-										</Marker>
-									);
-								})}
-							</ZoomableGroup>
-						</ComposableMap>
-					</div>
-				</div>
-
-				{/* Fixed-height details panel BELOW map */}
-				<div className="min-w-0 max-w-full" style={CLAMP_CONTAINER_STYLE}>
-					<div
-						className="flex min-h-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white max-w-full"
-						style={{
-							height: typeof detailsHeight === 'number' ? detailsHeight : 360,
-							minWidth: 0,
-							maxWidth: '100%',
-							width: '100%',
-						}}
-					>
-						<div className="shrink-0 min-w-0 border-b border-slate-200 p-4" style={CLAMP_CONTAINER_STYLE}>
-							<h3
-								className="text-base font-semibold text-slate-900"
-								style={{ ...SAFE_WRAP_STYLE, ...CLAMP_CONTAINER_STYLE }}
-							>
-								{selectedCity ? `${selectedCity.city}, ${selectedCity.country}` : 'Select a city'}
-							</h3>
-
-							<p className="mt-1 text-sm text-slate-600" style={{ ...SAFE_WRAP_STYLE, ...CLAMP_CONTAINER_STYLE }}>
-								{selectedCity
-									? `${selectedCity.count} collaboration${
-											selectedCity.count > 1 ? 's' : ''
-										} • ${selectedCity.minYear}–${selectedCity.maxYear}`
-									: 'Click a map marker to view collaboration details below.'}
-							</p>
-
-							{selectedCity && (
-								<div className="mt-2 flex min-w-0 flex-wrap gap-1.5" style={CLAMP_CONTAINER_STYLE}>
-									{selectedCity.types.map((t) => (
-										<Badge key={t}>{t}</Badge>
-									))}
-								</div>
-							)}
-						</div>
-
-						{/* Scrollable content area */}
+		!isLoading && (
+			<div
+				className={`w-full max-w-full overflow-x-hidden ${className}`}
+				style={{ minWidth: 0, maxWidth: '100%', overflowX: 'clip' }}
+			>
+				{/* Two independent fixed-height rows: map + data panel */}
+				<div
+					style={{
+						...CLAMP_CONTAINER_STYLE,
+						display: 'grid',
+						gridTemplateRows: `${resolvedMapHeight}px minmax(0, ${resolvedDetailsHeight}px)`,
+						rowGap: 16,
+						minWidth: 0,
+						minHeight: 0,
+						maxWidth: '100%',
+						width: '100%',
+						overflow: 'hidden',
+					}}
+				>
+					{/* MAP ROW (non-scrollable) */}
+					<div className="min-w-0 max-w-full" style={CLAMP_CONTAINER_STYLE}>
 						<div
-							className="min-h-0 flex-1 overflow-y-auto p-4"
+							className="relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 max-w-full"
+							ref={mapWrapRef}
+							onWheelCapture={(e) => {
+								// Prevent wheel from scrolling page while over the map
+								e.preventDefault();
+								e.stopPropagation();
+							}}
 							style={{
-								overflowY: 'auto',
-								overflowX: 'hidden',
-								minWidth: 0,
-								maxWidth: '100%',
-								width: '100%',
+								...CLAMP_CONTAINER_STYLE,
+								height: resolvedMapHeight,
+								minHeight: 0,
+								maxHeight: resolvedMapHeight,
+								overflow: 'hidden',
+								touchAction: 'none',
+								WebkitUserSelect: 'none',
+								userSelect: 'none',
+								WebkitTapHighlightColor: 'transparent',
 								overscrollBehavior: 'contain',
 							}}
 						>
-							{!selectedCity ? (
-								<div className="rounded-xl border border-dashed border-slate-300 p-4 text-sm text-slate-600">
-									This panel is fixed-height and scrollable. Click a city marker on the map to populate it with
-									collaboration details.
+							{/* Zoom controls */}
+							{showControls && (
+								<div className="absolute right-3 top-3 z-10 flex gap-2">
+									<button
+										onClick={() => setZoom((z) => Math.min(6, +(z * 1.25).toFixed(2)))}
+										className="rounded-lg border border-slate-300 bg-white/95 px-3 py-1.5 text-sm shadow-sm hover:bg-white"
+										type="button"
+									>
+										+
+									</button>
+									<button
+										onClick={() => setZoom((z) => Math.max(1, +(z / 1.25).toFixed(2)))}
+										className="rounded-lg border border-slate-300 bg-white/95 px-3 py-1.5 text-sm shadow-sm hover:bg-white"
+										type="button"
+									>
+										−
+									</button>
+									<button
+										onClick={resetView}
+										className="rounded-lg border border-slate-300 bg-white/95 px-3 py-1.5 text-sm shadow-sm hover:bg-white"
+										type="button"
+									>
+										Reset
+									</button>
 								</div>
-							) : (
-								<>
-									<div className="mb-3 flex min-w-0 flex-wrap gap-2 text-xs" style={CLAMP_CONTAINER_STYLE}>
-										<Badge>{selectedCity.count} collaborations</Badge>
-										{Object.entries(selectedCity.statusCounts).map(([status, count]) => (
-											<Badge key={status}>
-												{status}: {count}
-											</Badge>
-										))}
-									</div>
+							)}
 
-									<div className="space-y-3" style={CLAMP_CONTAINER_STYLE}>
-										{selectedCity.collaborations
-											.slice()
-											.sort((a, b) => (b.startYear || 0) - (a.startYear || 0))
-											.map((c) => (
-												<div
-													key={c.id}
-													className="overflow-hidden rounded-2xl border border-slate-200 p-3"
-													style={CLAMP_CONTAINER_STYLE}
+							{/* Small corner stats */}
+							<div className="pointer-events-none absolute left-3 top-3 z-10 flex max-w-[80%] flex-wrap gap-2">
+								<span className="rounded-full border border-white/70 bg-white/90 px-2.5 py-1 text-xs text-slate-700 shadow-sm">
+									{totals.collaborations} collaborations
+								</span>
+								<span className="rounded-full border border-white/70 bg-white/90 px-2.5 py-1 text-xs text-slate-700 shadow-sm">
+									{totals.cities} cities
+								</span>
+								<span className="rounded-full border border-white/70 bg-white/90 px-2.5 py-1 text-xs text-slate-700 shadow-sm">
+									{totals.countries} countries
+								</span>
+								{totals.unplaced > 0 && (
+									<span className="rounded-full border border-white/70 bg-white/90 px-2.5 py-1 text-xs text-slate-700 shadow-sm">
+										{totals.unplaced} missing coordinates
+									</span>
+								)}
+							</div>
+
+							<ComposableMap
+								projection="geoMercator"
+								projectionConfig={{ scale: mapScale }}
+								width={mapSize.width}
+								height={resolvedMapHeight}
+								style={{ width: '100%', height: '100%', display: 'block' }}
+							>
+								<ZoomableGroup
+									center={center}
+									zoom={zoom}
+									onMoveStart={() => {
+										setIsDraggingMap(true);
+										setTooltip(null);
+									}}
+									onMoveEnd={({ coordinates, zoom: nextZoom }) => {
+										setCenter(coordinates);
+										setZoom(nextZoom);
+										setIsDraggingMap(false);
+									}}
+								>
+									<Geographies geography={GEO_URL}>
+										{({ geographies }) =>
+											geographies.map((geo) => (
+												<Geography
+													key={geo.rsmKey}
+													geography={geo}
+													tabIndex={-1}
+													focusable="false"
+													aria-hidden="true"
+													pointerEvents="none"
+													style={{
+														default: {
+															fill: '#e2e8f0',
+															stroke: '#cbd5e1',
+															strokeWidth: 0.5,
+															outline: 'none',
+															pointerEvents: 'none',
+															cursor: 'default',
+															userSelect: 'none',
+														},
+														hover: {
+															fill: '#e2e8f0',
+															stroke: '#cbd5e1',
+															strokeWidth: 0.5,
+															outline: 'none',
+															pointerEvents: 'none',
+														},
+														pressed: {
+															fill: '#e2e8f0',
+															outline: 'none',
+															pointerEvents: 'none',
+														},
+													}}
+												/>
+											))
+										}
+									</Geographies>
+
+									{cityGroups.map((city) => {
+										const r = bubbleScale(city.count);
+										const color = STATUS_COLORS[city.dominantStatus] || STATUS_COLORS.Unknown;
+										const isSelected = selectedCity?.key === city.key;
+
+										return (
+											<Marker key={city.key} coordinates={[city.longitude, city.latitude]}>
+												<g
+													role="button"
+													tabIndex={0}
+													className="cursor-pointer"
+													onMouseDown={(e) => e.preventDefault()}
+													onClick={() => {
+														setSelectedCityKey(city.key);
+														focusCity(city);
+													}}
+													onKeyDown={(e) => {
+														if (e.key === 'Enter' || e.key === ' ') {
+															e.preventDefault();
+															setSelectedCityKey(city.key);
+															focusCity(city);
+														}
+													}}
+													onMouseEnter={(e) => updateTooltipFromEvent(e, city)}
+													onMouseMove={(e) => updateTooltipFromEvent(e, city)}
+													onMouseLeave={() => setTooltip(null)}
 												>
-													{/* Robust header row: grid instead of flex */}
-													<div
-														className="grid items-start gap-2"
+													{/* Larger invisible hit target */}
+													<circle r={r + 14} fill="rgba(15,23,42,0.01)" stroke="none" />
+
+													{/* Soft ring */}
+													<circle r={r + 6} fill="rgba(15,23,42,0.08)" />
+
+													{/* Marker */}
+													<circle
+														r={r}
+														fill={color}
+														fillOpacity={0.92}
+														stroke={isSelected ? '#0f172a' : '#ffffff'}
+														strokeWidth={isSelected ? 2.5 : 1.5}
+													/>
+
+													{/* Count */}
+													<text
+														y={4}
+														textAnchor="middle"
 														style={{
-															gridTemplateColumns: 'minmax(0,1fr) auto',
-															minWidth: 0,
-															maxWidth: '100%',
-															width: '100%',
+															fill: 'white',
+															fontSize: Math.max(10, Math.min(14, r * 0.55)),
+															fontWeight: 700,
+															pointerEvents: 'none',
+															userSelect: 'none',
 														}}
 													>
-														<div className="min-w-0" style={CLAMP_CONTAINER_STYLE}>
-															<div className="text-sm font-semibold text-slate-900" style={SAFE_WRAP_STYLE}>
-																{c.project || 'Untitled project'}
-															</div>
+														{city.count}
+													</text>
+												</g>
+											</Marker>
+										);
+									})}
+								</ZoomableGroup>
+							</ComposableMap>
+						</div>
+					</div>
 
-															<div className="text-xs text-slate-600" style={SAFE_WRAP_STYLE}>
-																{c.organization || 'Unknown org'} • {c.startYear || 'N/A'}
-															</div>
-														</div>
+					{/* DETAILS ROW (fixed-height container; only inner content scrolls) */}
+					<div
+						className="min-w-0 max-w-full"
+						style={{
+							...CLAMP_CONTAINER_STYLE,
+							minHeight: 0,
+							maxHeight: resolvedDetailsHeight,
+							overflow: 'hidden',
+						}}
+					>
+						<div
+							className="flex min-h-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white max-w-full"
+							style={{
+								height: '100%', // fill the fixed grid row
+								minHeight: 0,
+								maxHeight: '100%',
+								minWidth: 0,
+								maxWidth: '100%',
+								width: '100%',
+								overflow: 'hidden',
+							}}
+						>
+							<div className="shrink-0 min-w-0 border-b border-slate-200 p-4" style={CLAMP_CONTAINER_STYLE}>
+								<h3
+									className="text-base font-semibold text-slate-900"
+									style={{ ...SAFE_WRAP_STYLE, ...CLAMP_CONTAINER_STYLE }}
+								>
+									{selectedCity ? `${selectedCity.city}, ${selectedCity.country}` : 'Select a city'}
+								</h3>
 
-														<span
-															className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium text-white"
+								<p className="mt-1 text-sm text-slate-600" style={{ ...SAFE_WRAP_STYLE, ...CLAMP_CONTAINER_STYLE }}>
+									{selectedCity
+										? `${selectedCity.count} collaboration${
+												selectedCity.count > 1 ? 's' : ''
+											} • ${selectedCity.minYear}–${selectedCity.maxYear}`
+										: 'Click a map marker to view collaboration details below.'}
+								</p>
+
+								{selectedCity && (
+									<div className="mt-2 flex min-w-0 flex-wrap gap-1.5" style={CLAMP_CONTAINER_STYLE}>
+										{selectedCity.types.map((t) => (
+											<Badge key={t}>{t}</Badge>
+										))}
+									</div>
+								)}
+							</div>
+
+							{/* Only scrollable area */}
+							<div
+								className="min-h-0 flex-1 overflow-y-auto p-4"
+								style={{
+									flex: '1 1 0%',
+									minHeight: 0,
+									maxHeight: '100%',
+									overflowY: 'auto',
+									overflowX: 'hidden',
+									minWidth: 0,
+									maxWidth: '100%',
+									width: '100%',
+									overscrollBehaviorY: 'contain',
+									overscrollBehaviorX: 'none',
+									WebkitOverflowScrolling: 'touch',
+									scrollbarGutter: 'stable',
+								}}
+							>
+								{!selectedCity ? (
+									<div className="rounded-xl border border-dashed border-slate-300 p-4 text-sm text-slate-600">
+										This panel is fixed-height and scrollable. Click a city marker on the map to populate it with
+										collaboration details.
+									</div>
+								) : (
+									<>
+										<div className="mb-3 flex min-w-0 flex-wrap gap-2 text-xs" style={CLAMP_CONTAINER_STYLE}>
+											<Badge>{selectedCity.count} collaborations</Badge>
+											{Object.entries(selectedCity.statusCounts).map(([status, count]) => (
+												<Badge key={status}>
+													{status}: {count}
+												</Badge>
+											))}
+										</div>
+
+										<div className="space-y-3" style={CLAMP_CONTAINER_STYLE}>
+											{selectedCity.collaborations
+												.slice()
+												.sort((a, b) => (b.startYear || 0) - (a.startYear || 0))
+												.map((c) => (
+													<div
+														key={c.id}
+														className="overflow-hidden rounded-2xl border border-slate-200 p-3"
+														style={CLAMP_CONTAINER_STYLE}
+													>
+														{/* Robust header row: grid instead of flex */}
+														<div
+															className="grid items-start gap-2"
 															style={{
-																background: STATUS_COLORS[c.status] || STATUS_COLORS.Unknown,
+																gridTemplateColumns: 'minmax(0,1fr) auto',
+																minWidth: 0,
 																maxWidth: '100%',
-																whiteSpace: 'nowrap',
+																width: '100%',
 															}}
 														>
-															{c.status}
-														</span>
-													</div>
+															<div className="min-w-0" style={CLAMP_CONTAINER_STYLE}>
+																<div className="text-sm font-semibold text-slate-900" style={SAFE_WRAP_STYLE}>
+																	{c.project || 'Untitled project'}
+																</div>
 
-													<div
-														className="mt-2 min-w-0 space-y-1 text-xs text-slate-700"
-														style={{ ...SAFE_WRAP_STYLE, ...CLAMP_CONTAINER_STYLE }}
-													>
-														{c.type && (
-															<p style={SAFE_WRAP_STYLE}>
-																<span className="font-medium">Type:</span> {c.type}
-															</p>
-														)}
-														{c.mainCollab && (
-															<p style={SAFE_WRAP_STYLE}>
-																<span className="font-medium">Main collaborator:</span> {c.mainCollab}
-															</p>
-														)}
-														{c.otherCollabs && (
-															<p style={NUCLEAR_WRAP_STYLE}>
-																<span className="font-medium">Other collaborators:</span> {c.otherCollabs}
-															</p>
-														)}
-														{c.contact && (
-															<p style={SAFE_WRAP_STYLE}>
-																<span className="font-medium">Contact:</span> {c.contact}
-															</p>
-														)}
-														{c.members && (
-															<p style={NUCLEAR_WRAP_STYLE}>
-																<span className="font-medium">Members:</span> {c.members}
-															</p>
-														)}
-														{c.role && (
-															<p style={NUCLEAR_WRAP_STYLE}>
-																<span className="font-medium">Role:</span> {c.role}
-															</p>
-														)}
-														{c.outputs && (
-															<p style={NUCLEAR_WRAP_STYLE}>
-																<span className="font-medium">Outputs:</span> {c.outputs}
-															</p>
-														)}
-													</div>
-												</div>
-											))}
-									</div>
-								</>
-							)}
-						</div>
+																<div className="text-xs text-slate-600" style={SAFE_WRAP_STYLE}>
+																	{c.organization || 'Unknown org'} • {c.startYear || 'N/A'}
+																</div>
+															</div>
 
-						<div className="shrink-0 min-w-0 border-t border-slate-200 px-4 py-3 text-xs text-slate-600">
-							<div className="flex flex-wrap gap-2" style={SAFE_WRAP_STYLE}>
-								<span>{totals.collaborations} collaborations</span>
-								<span>•</span>
-								<span>{totals.cities} cities</span>
-								<span>•</span>
-								<span>{totals.countries} countries</span>
-								{totals.unplaced > 0 && (
-									<>
-										<span>•</span>
-										<span>{totals.unplaced} missing coordinates</span>
+															<span
+																className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium text-white"
+																style={{
+																	background: STATUS_COLORS[c.status] || STATUS_COLORS.Unknown,
+																	maxWidth: '100%',
+																	whiteSpace: 'nowrap',
+																}}
+															>
+																{c.status}
+															</span>
+														</div>
+
+														<div
+															className="mt-2 min-w-0 space-y-1 text-xs text-slate-700"
+															style={{ ...SAFE_WRAP_STYLE, ...CLAMP_CONTAINER_STYLE }}
+														>
+															{c.type && (
+																<p style={SAFE_WRAP_STYLE}>
+																	<span className="font-medium">Type:</span> {c.type}
+																</p>
+															)}
+															{c.mainCollab && (
+																<p style={SAFE_WRAP_STYLE}>
+																	<span className="font-medium">Main collaborator:</span> {c.mainCollab}
+																</p>
+															)}
+															{c.otherCollabs && (
+																<p style={NUCLEAR_WRAP_STYLE}>
+																	<span className="font-medium">Other collaborators:</span> {c.otherCollabs}
+																</p>
+															)}
+															{c.contact && (
+																<p style={SAFE_WRAP_STYLE}>
+																	<span className="font-medium">Contact:</span> {c.contact}
+																</p>
+															)}
+															{c.members && (
+																<p style={NUCLEAR_WRAP_STYLE}>
+																	<span className="font-medium">Members:</span> {c.members}
+																</p>
+															)}
+															{c.role && (
+																<p style={NUCLEAR_WRAP_STYLE}>
+																	<span className="font-medium">Role:</span> {c.role}
+																</p>
+															)}
+															{c.outputs && (
+																<p style={NUCLEAR_WRAP_STYLE}>
+																	<span className="font-medium">Outputs:</span> {c.outputs}
+																</p>
+															)}
+														</div>
+													</div>
+												))}
+										</div>
 									</>
 								)}
 							</div>
@@ -625,6 +715,6 @@ export default function LabCollaborationsMap2DEmbed({
 					</div>
 				</div>
 			</div>
-		</div>
+		)
 	);
 }
