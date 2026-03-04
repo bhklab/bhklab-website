@@ -75,10 +75,11 @@ function Home() {
 						<div id="presentations" className="home-publication-and-presentation-section">
 							<Presentations />
 						</div>
+						<div className="divider">
+							<hr />
+						</div>
 						<div id="collaborations" className="home-component-sub-section">
-							<div className="map-embed-shell">
-								<Collaboration />
-							</div>
+							<Collaboration />
 						</div>
 						<BHKLabImage />
 						<div id="softwares" className="home-component-sub-section">

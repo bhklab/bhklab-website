@@ -3,9 +3,10 @@ const Schema = mongoose.Schema;
 
 const collaborationSchema = new Schema({
   maincollab: String,
-  othercollab: String,
+  othercollabs: String,
   organization: String,
   country: String,
+  city: String,
   startyear: String,
   type: String,
   project: String,
@@ -14,6 +15,8 @@ const collaborationSchema = new Schema({
   role: String,
   status: String,
   outputs: String,
+  latitude: Number,
+  longitude: Number,
 });
 
 const Collaboration = mongoose.model("Collaboration", collaborationSchema);
