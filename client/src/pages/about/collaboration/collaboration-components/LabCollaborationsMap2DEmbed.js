@@ -6,9 +6,11 @@ import axios from 'axios';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
+import ButtonGroup from '@mui/material/ButtonGroup';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import CardActionArea from '@mui/material/CardActionArea';
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
 
@@ -285,6 +287,7 @@ export default function LabCollaborationsMap2DEmbed({
 	const resolvedMapHeight = Math.max(360, typeof height === 'number' ? height : mapSize.height);
 
 	const resolvedDetailsHeight = typeof detailsHeight === 'number' ? Math.max(260, detailsHeight) : 360;
+	const [selectedCard, setSelectedCard] = React.useState(0);
 
 	const mapScale = useMemo(() => {
 		return Math.max(120, Math.min(235, mapSize.width * 0.15));
@@ -345,6 +348,8 @@ export default function LabCollaborationsMap2DEmbed({
 							minHeight: 0,
 							maxHeight: resolvedMapHeight,
 							overflow: 'hidden',
+							paddingBottom: 100,
+							boxSizing: 'border-box',
 							touchAction: 'none',
 							WebkitUserSelect: 'none',
 							userSelect: 'none',
@@ -353,29 +358,22 @@ export default function LabCollaborationsMap2DEmbed({
 						}}
 					>
 						{showControls && (
-							<div className="absolute right-3 top-3 z-10 flex gap-2">
-								<button
-									onClick={() => setZoom((z) => Math.min(6, +(z * 1.25).toFixed(2)))}
-									className="rounded-lg border border-slate-300 bg-white/95 px-3 py-1.5 text-sm shadow-sm hover:bg-white"
-									type="button"
-								>
-									+
-								</button>
-								<button
-									onClick={() => setZoom((z) => Math.max(1, +(z / 1.25).toFixed(2)))}
-									className="rounded-lg border border-slate-300 bg-white/95 px-3 py-1.5 text-sm shadow-sm hover:bg-white"
-									type="button"
-								>
-									−
-								</button>
-								<button
-									onClick={resetView}
-									className="rounded-lg border border-slate-300 bg-white/95 px-3 py-1.5 text-sm shadow-sm hover:bg-white"
-									type="button"
-								>
-									Reset
-								</button>
-							</div>
+							<Box
+								sx={{
+									display: 'flex',
+									flexDirection: 'column',
+									alignItems: 'left',
+									'& > *': {
+										m: 1,
+									},
+								}}
+							>
+								<ButtonGroup variant="outlined" aria-label="Small button group" size="small">
+									<Button onClick={() => setZoom((z) => Math.min(6, +(z * 1.25).toFixed(2)))}>+</Button>
+									<Button onClick={() => setZoom((z) => Math.max(1, +(z / 1.25).toFixed(2)))}>−</Button>
+									<Button onClick={resetView}>Reset</Button>
+								</ButtonGroup>
+							</Box>
 						)}
 
 						<div className="pointer-events-none absolute left-3 top-3 z-10 flex max-w-[80%] flex-wrap gap-2">
@@ -389,7 +387,7 @@ export default function LabCollaborationsMap2DEmbed({
 							</span>
 							<span className="rounded-full border border-white/70 bg-white/90 px-2.5 py-1 text-xs text-slate-700 shadow-sm">
 								{totals.countries}
-								countries
+								countries {''}
 							</span>
 							{totals.unplaced > 0 && (
 								<span className="rounded-full border border-white/70 bg-white/90 px-2.5 py-1 text-xs text-slate-700 shadow-sm">
@@ -404,7 +402,14 @@ export default function LabCollaborationsMap2DEmbed({
 							projectionConfig={{ scale: mapScale }}
 							width={mapSize.width}
 							height={resolvedMapHeight}
-							style={{ width: '100%', height: '100%', display: 'block' }}
+							style={{
+								width: '70%',
+								height: '100%',
+								display: 'block',
+								margin: '0 auto',
+								border: '2px solid rgba(6, 97, 201, 0.35)', // light blue
+								borderRadius: '16px',
+							}}
 						>
 							<ZoomableGroup
 								center={center}
@@ -515,6 +520,9 @@ export default function LabCollaborationsMap2DEmbed({
 						minHeight: 0,
 						maxHeight: resolvedDetailsHeight,
 						overflow: 'hidden',
+						width: '100%',
+
+						paddingRight: 100,
 					}}
 				>
 					<div
@@ -531,14 +539,16 @@ export default function LabCollaborationsMap2DEmbed({
 							gridTemplateRows: 'auto minmax(0, 1fr)',
 						}}
 					>
-						<div className="min-w-0 border-b border-slate-200 p-4" style={CLAMP_CONTAINER_STYLE}>
+						<div
+							className="min-w-0 border-b border-slate-200 p-4"
+							style={{ ...CLAMP_CONTAINER_STYLE, ...{ paddingLeft: 10 } }}
+						>
 							<h3
 								className="text-base font-semibold text-slate-900"
 								style={{ ...SAFE_WRAP_STYLE, ...CLAMP_CONTAINER_STYLE }}
 							>
 								{selectedCity ? `${selectedCity.city}, ${selectedCity.country}` : 'Select a city'}
 							</h3>
-
 							<p className="mt-1 text-sm text-slate-600" style={{ ...SAFE_WRAP_STYLE, ...CLAMP_CONTAINER_STYLE }}>
 								{selectedCity
 									? `${selectedCity.count} collaboration${
@@ -546,6 +556,17 @@ export default function LabCollaborationsMap2DEmbed({
 										} • ${selectedCity.minYear}–${selectedCity.maxYear}`
 									: 'Click a map marker to view collaboration details below.'}
 							</p>
+
+							{selectedCity && (
+								<div className="mb-3 flex min-w-0 flex-wrap gap-2 text-xs" style={CLAMP_CONTAINER_STYLE}>
+									{Object.entries(selectedCity.statusCounts).map(([status, count]) => (
+										<Badge key={status}>
+											{status}:{count}
+											<br></br>
+										</Badge>
+									))}
+								</div>
+							)}
 						</div>
 
 						{/* ONLY SCROLLABLE AREA */}
@@ -584,18 +605,6 @@ export default function LabCollaborationsMap2DEmbed({
 									</div>
 								) : (
 									<>
-										<div className="mb-3 flex min-w-0 flex-wrap gap-2 text-xs" style={CLAMP_CONTAINER_STYLE}>
-											<Badge>
-												{selectedCity.count}
-												collaborations
-											</Badge>
-											{Object.entries(selectedCity.statusCounts).map(([status, count]) => (
-												<Badge key={status}>
-													{status}:{count}
-												</Badge>
-											))}
-										</div>
-
 										<div className="space-y-3" style={CLAMP_CONTAINER_STYLE}>
 											{selectedCity.collaborations
 												.slice()
@@ -616,40 +625,53 @@ export default function LabCollaborationsMap2DEmbed({
 															}}
 														>
 															<Card
+																key={c.id}
 																sx={{
 																	minWidth: 275,
 																	border: 'black',
 																	borderWidth: 1,
 																	borderStyle: 'solid',
 																	backgroundColor: '#ffffffff',
+																	boxShadow: '10px 10px 5px grey',
 																}}
 															>
-																<CardContent>
-																	<Typography gutterBottom sx={{ color: 'text.PRIMARY', fontSize: 14 }}>
-																		<span
-																			className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium text-white"
-																			style={{
-																				background: STATUS_COLORS[c.status] || STATUS_COLORS.Unknown,
-																				maxWidth: '100%',
-																				whiteSpace: 'nowrap',
-																			}}
-																		>
-																			{c.status}
-																		</span>
-																	</Typography>
-																	<Typography variant="h5" component="div">
-																		{c.project}
-																	</Typography>
-																	<Typography sx={{ color: 'text.secondary', mb: 1.5 }}>{c.role}</Typography>
-																	<Typography variant="body2">
-																		well meaning and kindly.
-																		<br />
-																		{'"a benevolent smile"'}
-																	</Typography>
-																</CardContent>
-																<CardActions>
-																	<Button size="small">Learn More</Button>
-																</CardActions>
+																<CardActionArea
+																	onClick={() => setSelectedCard(c.id)}
+																	data-active={selectedCard === c.id ? '' : undefined}
+																	sx={{
+																		height: '100%',
+																		'&[data-active]': {
+																			backgroundColor: 'action.selected',
+																			'&:hover': {
+																				backgroundColor: 'action.selectedHover',
+																			},
+																		},
+																	}}
+																>
+																	<CardContent>
+																		<Typography gutterBottom sx={{ color: 'text.PRIMARY', fontSize: 14 }}>
+																			<span
+																				className="inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium text-white"
+																				style={{
+																					background: STATUS_COLORS[c.status] || STATUS_COLORS.Unknown,
+																					maxWidth: '100%',
+																					whiteSpace: 'nowrap',
+																				}}
+																			>
+																				{c.status}
+																			</span>
+																		</Typography>
+																		<Typography variant="h5" component="div">
+																			{c.project}
+																		</Typography>
+																		<Typography sx={{ color: 'text.secondary', mb: 1.5 }}>{c.role}</Typography>
+																		<Typography variant="body2">
+																			Main Collaborator: {c.mainCollab}
+																			<br />
+																			Organization: {c.organization}
+																		</Typography>
+																	</CardContent>
+																</CardActionArea>
 															</Card>
 														</div>
 														<br></br>

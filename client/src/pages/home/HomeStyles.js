@@ -34,16 +34,17 @@ const StyledImage = styled.div`
 
 const StyledHome = styled.div`
 	.home-component-sub-section {
-		padding-top: 70px;
+		padding-top: 50px;
 	}
 
-	.home-component-sub-section > hr {
-		margin: auto;
+	.divider {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 
 	.home-publication-and-presentation-section {
-		padding-top: 70px;
-		/* height: 900px; */
+		padding: 70px 0;
 	}
 `;
 
