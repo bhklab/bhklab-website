@@ -4,9 +4,11 @@ import Container from '@mui/material/Container';
 
 import StyledHeading from '../../../styles/StyledHeading';
 import StyledCollabs from './CollaborationStyles';
+import ForceDirectedGraph from './collaboration-components/ForceDirectedGraph';
 
 import CollaborationsMap from './collaboration-components/CollaborationsMap';
 import CityCollaborationsDetails from './collaboration-components/CityCollaborationsDetails';
+import { set } from 'mongoose';
 
 const FALLBACK_COORDS = {
 	'Toronto|Canada': { latitude: 43.651, longitude: -79.347 },
@@ -106,10 +108,90 @@ function groupByCity(records) {
 	});
 }
 
+function createAdjacencyList(records) {
+	const adjacency = new Map();
+	adjacency.set('BHK', new Set());
+	const displays = new Map();
+	displays.set('BHK', { color: '#ff0000ff', symbol: 'star', size: 200 }); // BHK node in red
+	console.log('Creating adjacency list from records:', records);
+	records.forEach((r) => {
+		const main = r.maincollab;
+		const others = r.othercollabs !== 'NA' ? r.othercollabs.split(',').map((s) => s.trim()) : [];
+		const members = r.members !== 'NA' ? r.members.split(',').map((s) => s.trim()) : [];
+		const contact = r.contact !== 'NA' ? r.contact.split(',').map((s) => s.trim()) : [];
+
+		if (members.length > 0) {
+			for (const member of members) {
+				if (!adjacency.has(member)) adjacency.set(member, new Set());
+				adjacency.get('BHK').add(member);
+				adjacency.get(member).add('BHK');
+				adjacency.get(member).add(main);
+				displays.set(member, { color: '#15d9bb', symbol: 'cross', size: 100 }); // Collaborators in teal
+
+				if (!adjacency.has(main)) adjacency.set(main, new Set());
+				adjacency.get(main).add(member);
+				displays.set(main, { color: '#0021f7ff', symbol: 'diamond', size: 160 }); // Main collaborator in blue
+				others.forEach((other) => {
+					if (other) {
+						adjacency.get(main).add(other);
+						if (!adjacency.has(other)) adjacency.set(other, new Set());
+						adjacency.get(other).add(main);
+						if (!displays.has(other)) displays.set(other, { color: '#ed08d2ff', symbol: 'wye', size: 120 }); // Other collaborators in magenta
+					}
+				});
+			}
+		} else {
+			for (const contactPerson of contact) {
+				if (!adjacency.has(contactPerson)) adjacency.set(contactPerson, new Set());
+				adjacency.get('BHK').add(contactPerson);
+				adjacency.get(contactPerson).add('BHK');
+				adjacency.get(contactPerson).add(main);
+				displays.set(contactPerson, { color: '#15d9bb', symbol: 'cross', size: 100 });
+				if (!adjacency.has(main)) adjacency.set(main, new Set());
+				adjacency.get(main).add(contactPerson);
+				displays.set(main, { color: '#0021f7ff', symbol: 'diamond', size: 160 });
+				others.forEach((other) => {
+					if (other) {
+						adjacency.get(main).add(other);
+						if (!adjacency.has(other)) adjacency.set(other, new Set());
+						adjacency.get(other).add(main);
+						if (!displays.has(other)) displays.set(other, { color: '#ed08d2ff', symbol: 'wye', size: 120 });
+					}
+				});
+			}
+		}
+	});
+	//iterate through displays map and convert to object
+	const nodeObjArray = [];
+	for (const [key, value] of displays.entries()) {
+		nodeObjArray.push({ id: key, color: value.color, shape: value.symbol, size: value.size });
+	}
+	const links = [];
+	const seen = new Map(); // To track seen pairs and avoid duplicates
+	for (const [node, nei] of adjacency) {
+		for (const neighbor of nei) {
+			if ((seen.has(node) && seen.get(node).has(neighbor)) || (seen.has(neighbor) && seen.get(neighbor).has(node)))
+				continue; // Skip if this pair has already been processed
+			links.push({ source: node, target: neighbor });
+			if (!seen.has(node)) seen.set(node, new Set());
+			if (!seen.has(neighbor)) seen.set(neighbor, new Set());
+			seen.get(node).add(neighbor);
+			seen.get(neighbor).add(node);
+		}
+	}
+	const data = {
+		nodes: nodeObjArray,
+		links,
+	};
+	console.log(data);
+	return data;
+}
+
 const Collaboration = () => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [loadError, setLoadError] = useState(null);
 	const [rows, setRows] = useState([]);
+	const [graphData, setGraphData] = useState({ nodes: [], links: [] });
 
 	const [selectedCityKey, setSelectedCityKey] = useState(null);
 
@@ -133,7 +215,11 @@ const Collaboration = () => {
 							? payload.data
 							: [];
 
-				if (isMounted) setRows(data);
+				if (isMounted) {
+					setRows(data);
+					const info = createAdjacencyList(data);
+					setGraphData(info);
+				}
 			} catch (err) {
 				if (err?.name === 'CanceledError' || err?.code === 'ERR_CANCELED') return;
 
@@ -206,6 +292,10 @@ const Collaboration = () => {
 							position: 'relative',
 						}}
 					>
+						<div style={{ position: 'relative', zIndex: 3 }}>
+							<ForceDirectedGraph graph={graphData} width={900} height={1000} options={{}} />
+						</div>
+
 						<div style={{ position: 'relative', zIndex: 2 }}>
 							<CollaborationsMap
 								height={700}
