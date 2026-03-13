@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import axios from 'axios';
 import Container from '@mui/material/Container';
 
@@ -8,7 +8,9 @@ import ForceDirectedGraph from './collaboration-components/ForceDirectedGraph';
 
 import CollaborationsMap from './collaboration-components/CollaborationsMap';
 import CityCollaborationsDetails from './collaboration-components/CityCollaborationsDetails';
-import { set } from 'mongoose';
+
+import CheckIcon from '@mui/icons-material/Check';
+import ToggleButton from '@mui/material/ToggleButton';
 
 const FALLBACK_COORDS = {
 	'Toronto|Canada': { latitude: 43.651, longitude: -79.347 },
@@ -108,70 +110,18 @@ function groupByCity(records) {
 	});
 }
 
-function createAdjacencyList(records) {
-	const adjacency = new Map();
-	adjacency.set('BHK', new Set());
-	const displays = new Map();
-	displays.set('BHK', { color: '#ff0000ff', symbol: 'star', size: 200 }); // BHK node in red
-	console.log('Creating adjacency list from records:', records);
-	records.forEach((r) => {
-		const main = r.maincollab;
-		const others = r.othercollabs !== 'NA' ? r.othercollabs.split(',').map((s) => s.trim()) : [];
-		const members = r.members !== 'NA' ? r.members.split(',').map((s) => s.trim()) : [];
-		const contact = r.contact !== 'NA' ? r.contact.split(',').map((s) => s.trim()) : [];
-
-		if (members.length > 0) {
-			for (const member of members) {
-				if (!adjacency.has(member)) adjacency.set(member, new Set());
-				adjacency.get('BHK').add(member);
-				adjacency.get(member).add('BHK');
-				adjacency.get(member).add(main);
-				displays.set(member, { color: '#15d9bb', symbol: 'cross', size: 100 }); // Collaborators in teal
-
-				if (!adjacency.has(main)) adjacency.set(main, new Set());
-				adjacency.get(main).add(member);
-				displays.set(main, { color: '#0021f7ff', symbol: 'diamond', size: 160 }); // Main collaborator in blue
-				others.forEach((other) => {
-					if (other) {
-						adjacency.get(main).add(other);
-						if (!adjacency.has(other)) adjacency.set(other, new Set());
-						adjacency.get(other).add(main);
-						if (!displays.has(other)) displays.set(other, { color: '#ed08d2ff', symbol: 'wye', size: 120 }); // Other collaborators in magenta
-					}
-				});
-			}
-		} else {
-			for (const contactPerson of contact) {
-				if (!adjacency.has(contactPerson)) adjacency.set(contactPerson, new Set());
-				adjacency.get('BHK').add(contactPerson);
-				adjacency.get(contactPerson).add('BHK');
-				adjacency.get(contactPerson).add(main);
-				displays.set(contactPerson, { color: '#15d9bb', symbol: 'cross', size: 100 });
-				if (!adjacency.has(main)) adjacency.set(main, new Set());
-				adjacency.get(main).add(contactPerson);
-				displays.set(main, { color: '#0021f7ff', symbol: 'diamond', size: 160 });
-				others.forEach((other) => {
-					if (other) {
-						adjacency.get(main).add(other);
-						if (!adjacency.has(other)) adjacency.set(other, new Set());
-						adjacency.get(other).add(main);
-						if (!displays.has(other)) displays.set(other, { color: '#ed08d2ff', symbol: 'wye', size: 120 });
-					}
-				});
-			}
-		}
-	});
-	//iterate through displays map and convert to object
+function helper_createNodesAndLinks(adjacency, displays) {
 	const nodeObjArray = [];
 	for (const [key, value] of displays.entries()) {
-		nodeObjArray.push({ id: key, color: value.color, shape: value.symbol, size: value.size });
+		if (adjacency.has(key)) nodeObjArray.push({ id: key, color: value.color, shape: value.symbol, size: value.size });
 	}
+
 	const links = [];
-	const seen = new Map(); // To track seen pairs and avoid duplicates
+	const seen = new Map();
 	for (const [node, nei] of adjacency) {
 		for (const neighbor of nei) {
 			if ((seen.has(node) && seen.get(node).has(neighbor)) || (seen.has(neighbor) && seen.get(neighbor).has(node)))
-				continue; // Skip if this pair has already been processed
+				continue;
 			links.push({ source: node, target: neighbor });
 			if (!seen.has(node)) seen.set(node, new Set());
 			if (!seen.has(neighbor)) seen.set(neighbor, new Set());
@@ -179,18 +129,85 @@ function createAdjacencyList(records) {
 			seen.get(neighbor).add(node);
 		}
 	}
-	const data = {
-		nodes: nodeObjArray,
-		links,
-	};
-	console.log(data);
-	return data;
+
+	return { nodes: nodeObjArray, links };
+}
+
+function createAdjacencyList(records) {
+	const adjacency = new Map();
+	adjacency.set('BHK', new Set());
+
+	const adjacencyReduced = new Map();
+	adjacencyReduced.set('BHK', new Set());
+
+	const displays = new Map();
+	displays.set('BHK', { color: '#079ee9ff', symbol: 'person', size: 1000 });
+
+	records.forEach((r) => {
+		// NOTE: your API objects use maincollab/othercollabs — keep this as-is
+		const main = r.maincollab;
+		const others = r.othercollabs !== 'NA' ? r.othercollabs.split(',').map((s) => s.trim()) : [];
+		const members = r.members !== 'NA' ? r.members.split(',').map((s) => s.trim()) : [];
+		const contact = r.contact !== 'NA' ? r.contact.split(',').map((s) => s.trim()) : [];
+
+		const mergedcontacts = new Set([...(members || []), ...(contact || [])]);
+		mergedcontacts.delete('BHK');
+		const membersandcontacts = [...mergedcontacts];
+
+		// Reduced graph: only connect BHK to main collaborators
+		adjacencyReduced.get('BHK').add(main);
+		if (!adjacencyReduced.has(main)) adjacencyReduced.set(main, new Set());
+		adjacencyReduced.get(main).add('BHK');
+
+		for (const member of membersandcontacts) {
+			if (!adjacency.has(member)) adjacency.set(member, new Set());
+
+			adjacency.get('BHK').add(member);
+			adjacency.get(member).add('BHK');
+
+			adjacency.get(member).add(main);
+			displays.set(member, { color: '#15d9bb', symbol: 'cross', size: 100 });
+
+			if (!adjacency.has(main)) adjacency.set(main, new Set());
+			adjacency.get(main).add(member);
+
+			displays.set(main, { color: '#0021f7ff', symbol: 'diamond', size: 160 });
+
+			others.forEach((other) => {
+				if (!other) return;
+
+				adjacency.get(main).add(other);
+				if (!adjacency.has(other)) adjacency.set(other, new Set());
+				adjacency.get(other).add(main);
+
+				// Reduced graph: only connect main collaborators to other collaborators
+				adjacencyReduced.get(main).add(other);
+				if (!adjacencyReduced.has(other)) adjacencyReduced.set(other, new Set());
+				adjacencyReduced.get(other).add(main);
+
+				if (!displays.has(other)) displays.set(other, { color: '#ed08d2ff', symbol: 'wye', size: 120 });
+			});
+		}
+	});
+
+	const nodesLinksMain = helper_createNodesAndLinks(adjacency, displays);
+	const nodesLinksReduced = helper_createNodesAndLinks(adjacencyReduced, displays);
+
+	return { regular: nodesLinksMain, reduced: nodesLinksReduced };
 }
 
 const Collaboration = () => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [loadError, setLoadError] = useState(null);
 	const [rows, setRows] = useState([]);
+
+	// ✅ store BOTH graphs in a ref so they persist across renders
+	const graphsRef = useRef(null);
+
+	// ✅ toggle state
+	const [reducedGraphData, setReducedGraphData] = useState(true);
+
+	// ✅ current graph data to render
 	const [graphData, setGraphData] = useState({ nodes: [], links: [] });
 
 	const [selectedCityKey, setSelectedCityKey] = useState(null);
@@ -215,11 +232,16 @@ const Collaboration = () => {
 							? payload.data
 							: [];
 
-				if (isMounted) {
-					setRows(data);
-					const info = createAdjacencyList(data);
-					setGraphData(info);
-				}
+				if (!isMounted) return;
+
+				setRows(data);
+
+				// ✅ build both graphs once and store
+				const bothGraphs = createAdjacencyList(data);
+				graphsRef.current = bothGraphs;
+
+				// ✅ set initial graph to match toggle
+				setGraphData(reducedGraphData ? bothGraphs.reduced : bothGraphs.regular);
 			} catch (err) {
 				if (err?.name === 'CanceledError' || err?.code === 'ERR_CANCELED') return;
 
@@ -227,6 +249,7 @@ const Collaboration = () => {
 				if (isMounted) {
 					setLoadError(err?.message || 'Failed to load collaborations');
 					setRows([]);
+					setGraphData({ nodes: [], links: [] });
 				}
 			} finally {
 				if (isMounted) setIsLoading(false);
@@ -239,7 +262,16 @@ const Collaboration = () => {
 			isMounted = false;
 			controller.abort();
 		};
+		// include reducedGraphData only if you want initial fetch to respect it;
+		// otherwise leave it out and rely on the toggle effect below.
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
+
+	// ✅ when toggle changes, swap graphData from ref
+	useEffect(() => {
+		if (!graphsRef.current) return;
+		setGraphData(reducedGraphData ? graphsRef.current.reduced : graphsRef.current.regular);
+	}, [reducedGraphData]);
 
 	const records = useMemo(() => (Array.isArray(rows) ? rows : []).map((r, i) => normalizeRecord(r, i)), [rows]);
 
@@ -268,18 +300,16 @@ const Collaboration = () => {
 
 			<StyledCollabs
 				className="map-embed-shell"
-				// Key: prevent parent clipping/overlap with next section
 				style={{
 					width: '100%',
 					maxWidth: '100%',
 					minWidth: 0,
 					height: 'auto',
 					overflow: 'visible',
-					paddingBottom: 48, // ensures next home section doesn’t overlap
+					paddingBottom: 48,
 				}}
 			>
 				{isLoading && <div style={{ padding: 12 }}>Loading collaborations...</div>}
-
 				{loadError && !isLoading && <div style={{ padding: 12 }}>Failed to load: {loadError}</div>}
 
 				{!isLoading && !loadError && (
@@ -288,12 +318,23 @@ const Collaboration = () => {
 							width: '100%',
 							display: 'flex',
 							flexDirection: 'column',
-							gap: 24, // ✅ real spacing between map + details
+							gap: 24,
 							position: 'relative',
 						}}
 					>
-						<div style={{ position: 'relative', zIndex: 3 }}>
-							<ForceDirectedGraph graph={graphData} width={900} height={1000} options={{}} />
+						<div style={{ zIndex: 3 }}>
+							<ToggleButton
+								value="reduced"
+								selected={reducedGraphData}
+								onChange={() => setReducedGraphData((prev) => !prev)}
+								sx={{ mb: 2 }}
+							>
+								<CheckIcon />
+								<span style={{ marginLeft: 8 }}>{reducedGraphData ? 'Reduced graph' : 'Full graph'}</span>
+							</ToggleButton>
+
+							{/* ✅ key forces D3 graph to remount when toggled (important for many D3 wrappers) */}
+							<ForceDirectedGraph graph={graphData} width={1000} height={1000} options={{}} />
 						</div>
 
 						<div style={{ position: 'relative', zIndex: 2 }}>
@@ -302,7 +343,7 @@ const Collaboration = () => {
 								cityGroups={cityGroups}
 								selectedCityKey={selectedCityKey}
 								onSelectCityKey={setSelectedCityKey}
-								showControls={true}
+								showControls
 							/>
 						</div>
 

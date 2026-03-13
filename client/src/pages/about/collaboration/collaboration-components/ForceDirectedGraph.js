@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { ForceGraph } from '../lib/ForceGraph'; // adjust export to match what you pasted
+import { ForceGraph } from '../lib/ForceGraph';
 
 export default function ForceDirectedGraph({
 	graph, // { nodes: [...], links: [...] }
@@ -10,32 +10,41 @@ export default function ForceDirectedGraph({
 	const hostRef = useRef(null);
 
 	useEffect(() => {
-		if (!hostRef.current) return;
+		const host = hostRef.current; // ✅ capture once
+		if (!host) return;
+		if (!graph || !Array.isArray(graph.nodes) || !Array.isArray(graph.links)) return;
 
 		// Clear previous render
-		hostRef.current.innerHTML = '';
+		host.innerHTML = '';
 
-		// Create the SVG/Canvas element
+		// Create the SVG element
 		const el = ForceGraph(graph, {
 			width,
 			height,
-			nodeColor: (d) => d.color,
 
-			nodeStrength: -250, // more negative = more repulsion
-			linkDistance: 110, // longer links = more spacing
-			collidePadding: 8, // more space between circles
-			nodeSymbol: (d) => d.shape, // "circle"|"square"|...
-			nodeSymbolSize: (d) => d.size, // area in px^2 (optional)
+			// defaults (caller can override via options below)
+			nodeColor: (d) => d.color,
+			nodeStrength: -250,
+			linkDistance: 110,
+			collidePadding: 8,
+			nodeSymbol: (d) => d.shape,
+			nodeSymbolSize: (d) => d.size,
+
+			...options,
 		});
 
 		// Append to DOM
-		hostRef.current.appendChild(el);
+		host.appendChild(el);
 
-		// Cleanup on unmount or rerender
+		// Cleanup on rerender/unmount
 		return () => {
-			// If the notebook’s ForceGraph exposes a simulation or cleanup, call it here.
-			// Many Observable versions stop the simulation on element removal.
-			hostRef.current.innerHTML = '';
+			// ✅ stop simulation if present (prevents leaks / background ticks)
+			if (el && el.simulation && typeof el.simulation.stop === 'function') {
+				el.simulation.stop();
+			}
+
+			// ✅ host is the captured element; safe even if ref becomes null
+			if (host) host.innerHTML = '';
 		};
 	}, [graph, width, height, options]);
 

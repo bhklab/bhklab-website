@@ -19,10 +19,10 @@ export function ForceGraph(
 		// per-node color option (if provided, overrides nodeGroup color)
 		nodeColor, // (d) => "#RRGGBB" or "rgba(...)"
 
-		// ✅ NEW: per-node shape options
-		// nodeSymbol can return one of: "circle" | "square" | "triangle" | "diamond" | "cross" | "star" | "wye"
+		// per-node shape options
+		// "circle" | "square" | "triangle" | "diamond" | "cross" | "star" | "wye" | "person"
 		nodeSymbol = () => 'circle',
-		// nodeSymbolSize is the d3 symbol "size" (area in px^2). If omitted, derived from nodeRadius.
+		// symbol "size" (area in px^2). If omitted, derived from nodeRadius.
 		nodeSymbolSize,
 
 		// label options
@@ -41,9 +41,15 @@ export function ForceGraph(
 
 		// spacing options
 		linkDistance = 70,
-		collidePadding = 6,
+		collidePadding = 15,
 		collideStrength = 1,
 		collideIterations = 2,
+
+		// bounding / confinement options
+		constrain = true, // keep nodes inside the visible width/height box
+		constrainPadding = 2, // extra padding from edges
+		constrainDamping = 0.6, // damp velocity when hitting walls (reduces jitter)
+		constrainKeepLabelsInBounds = true, // ONLY affects edge clamping (NOT collision)
 
 		colors = d3.schemeTableau10,
 		width = 640,
@@ -70,6 +76,8 @@ export function ForceGraph(
 	const Sym = nodeSymbol == null ? null : d3.map(nodes, nodeSymbol);
 	const SymSize = nodeSymbolSize == null ? null : d3.map(nodes, nodeSymbolSize);
 
+	const keepLabelsInBounds = Boolean(constrainKeepLabelsInBounds && Lab);
+
 	// Replace the input nodes and links with mutable objects for the simulation.
 	nodes = d3.map(nodes, (_, i) => ({ id: N[i] }));
 	links = d3.map(links, (_, i) => ({ source: LS[i], target: LT[i] }));
@@ -91,7 +99,18 @@ export function ForceGraph(
 		wye: d3.symbolWye,
 	};
 
+	// Head + shoulders silhouette (simple) in a 24x24 box.
+	// We'll translate(-12,-12) after scaling to center it at (x,y).
+	const PERSON_PATH =
+		'M12 12.2c2.54 0 4.6-2.06 4.6-4.6S14.54 3 12 3 7.4 5.06 7.4 7.6s2.06 4.6 4.6 4.6z' +
+		'M4.8 21c0-3.3 3.5-5.8 7.2-5.8s7.2 2.5 7.2 5.8v0.8H4.8V21z';
+
 	const symGen = d3.symbol();
+
+	function isPerson(i) {
+		const v = Sym ? Sym[i] : 'circle';
+		return typeof v === 'string' && v.toLowerCase() === 'person';
+	}
 
 	function getSymbolType(i) {
 		const v = Sym ? Sym[i] : 'circle';
@@ -104,34 +123,126 @@ export function ForceGraph(
 	}
 
 	function getRadiusFromInputs(i) {
-		// If user supplied a radius function, prefer it.
 		if (R) {
 			const r = Number(R[i]);
 			if (Number.isFinite(r) && r > 0) return r;
 		}
-		// Otherwise use numeric nodeRadius if provided.
 		if (typeof nodeRadius === 'number' && Number.isFinite(nodeRadius) && nodeRadius > 0) return nodeRadius;
-
-		// fallback
 		return 5;
 	}
 
 	function getSymbolSize(i) {
-		// If nodeSymbolSize accessor is provided, use it when valid.
 		if (SymSize) {
 			const s = Number(SymSize[i]);
 			if (Number.isFinite(s) && s > 0) return s;
 		}
-
-		// Otherwise derive from radius: size ≈ area of circle with radius r
 		const r = getRadiusFromInputs(i);
 		return Math.PI * r * r;
 	}
 
 	function getSymbolRadiusApprox(i) {
-		// Approx radius based on symbol size (area); good for collision + label offset
 		const s = getSymbolSize(i);
 		return Math.sqrt(s / Math.PI);
+	}
+
+	// PERSON_PATH is 24x24 (area 576). Scale so its area roughly matches getSymbolSize(i).
+	function personScale(i) {
+		const s = getSymbolSize(i);
+		const baseArea = 24 * 24;
+		return Math.sqrt(s / baseArea);
+	}
+
+	function visualRadius(i) {
+		return isPerson(i) ? 12 * personScale(i) : getSymbolRadiusApprox(i);
+	}
+
+	function nodePathD(i) {
+		return isPerson(i) ? PERSON_PATH : symGen.type(getSymbolType(i)).size(getSymbolSize(i))();
+	}
+
+	// ✅ Label bounds estimation (ONLY used for edge confinement)
+	// We do NOT use this for collision between nodes.
+	const LABEL_CHAR_WIDTH = 0.6;
+
+	function labelText(i) {
+		if (!Lab) return '';
+		const t = Lab[i];
+		return t == null ? '' : String(t);
+	}
+
+	function labelHalfWidth(i) {
+		const t = labelText(i);
+		if (!t) return 0;
+		return (t.length * labelFontSize * LABEL_CHAR_WIDTH) / 2;
+	}
+
+	function labelBottomExtent(i) {
+		// label baseline is placed at y + visualRadius + labelOffset
+		// add font height buffer so it stays inside bottom edge
+		return visualRadius(i) + labelOffset + labelFontSize + 4;
+	}
+
+	function effectiveHalfWidthForBounds(i) {
+		// keep label inside left/right edges when enabled
+		return keepLabelsInBounds ? Math.max(visualRadius(i), labelHalfWidth(i)) : visualRadius(i);
+	}
+
+	// ✅ bounding helpers (viewBox is centered at 0,0)
+	const halfW = width / 2;
+	const halfH = height / 2;
+
+	function clamp(v, min, max) {
+		return v < min ? min : v > max ? max : v;
+	}
+
+	function clampNodePosition(d) {
+		const i = d.index ?? 0;
+
+		// left/right must consider label width if enabled
+		const halfX = effectiveHalfWidthForBounds(i) + constrainPadding;
+
+		// top bound only needs node radius
+		const topR = visualRadius(i) + constrainPadding;
+
+		// bottom bound considers label height if enabled
+		const bottomR = (keepLabelsInBounds ? labelBottomExtent(i) : visualRadius(i)) + constrainPadding;
+
+		const minX = -halfW + halfX;
+		const maxX = halfW - halfX;
+		const minY = -halfH + topR;
+		const maxY = halfH - bottomR;
+
+		if (maxX <= minX || maxY <= minY) {
+			d.x = 0;
+			d.y = 0;
+			d.vx *= 0.2;
+			d.vy *= 0.2;
+			return;
+		}
+
+		const px = d.x;
+		const py = d.y;
+
+		d.x = clamp(d.x, minX, maxX);
+		d.y = clamp(d.y, minY, maxY);
+
+		if (d.x !== px) d.vx *= constrainDamping;
+		if (d.y !== py) d.vy *= constrainDamping;
+	}
+
+	function clampPointForIndex(i, x, y) {
+		const halfX = effectiveHalfWidthForBounds(i) + constrainPadding;
+		const topR = visualRadius(i) + constrainPadding;
+		const bottomR = (keepLabelsInBounds ? labelBottomExtent(i) : visualRadius(i)) + constrainPadding;
+
+		const minX = -halfW + halfX;
+		const maxX = halfW - halfX;
+		const minY = -halfH + topR;
+		const maxY = halfH - bottomR;
+
+		if (maxX <= minX || maxY <= minY) return { x: 0, y: 0 };
+
+		return { x: clamp(x, minX, maxX), y: clamp(y, minY, maxY) };
 	}
 
 	// Construct the forces.
@@ -141,13 +252,12 @@ export function ForceGraph(
 	if (nodeStrength !== undefined) forceNode.strength(nodeStrength);
 	if (linkStrength !== undefined) forceLink.strength(linkStrength);
 
-	// spread nodes by increasing link distance
 	if (linkDistance !== undefined) forceLink.distance(linkDistance);
 
-	// collision force prevents overlap (uses symbol size/radius approximation)
+	// ✅ Collision is ONLY node radius-based (label NOT included)
 	const forceCollide = d3
 		.forceCollide()
-		.radius(({ index: i }) => getSymbolRadiusApprox(i) + collidePadding)
+		.radius(({ index: i }) => visualRadius(i) + collidePadding)
 		.strength(collideStrength)
 		.iterations(collideIterations);
 
@@ -163,7 +273,7 @@ export function ForceGraph(
 		.create('svg')
 		.attr('width', width)
 		.attr('height', height)
-		.attr('viewBox', [-width / 2, -height / 2, width, height])
+		.attr('viewBox', [-halfW, -halfH, width, height])
 		.attr('style', 'max-width: 100%; height: auto; height: intrinsic;');
 
 	const link = svg
@@ -176,7 +286,7 @@ export function ForceGraph(
 		.data(links)
 		.join('line');
 
-	// ✅ Nodes as symbols (paths), so each node can have a different shape
+	// Nodes as paths, so each node can have a different shape (including "person")
 	const node = svg
 		.append('g')
 		.attr('fill', nodeFill)
@@ -186,7 +296,7 @@ export function ForceGraph(
 		.selectAll('path')
 		.data(nodes)
 		.join('path')
-		.attr('d', ({ index: i }) => symGen.type(getSymbolType(i)).size(getSymbolSize(i))())
+		.attr('d', ({ index: i }) => nodePathD(i))
 		.call(drag(simulation));
 
 	if (W) link.attr('stroke-width', ({ index: i }) => W[i]);
@@ -222,17 +332,27 @@ export function ForceGraph(
 	}
 
 	function ticked() {
+		// clamp nodes first so everything (links/labels) draws in-bounds
+		if (constrain) {
+			for (const d of nodes) clampNodePosition(d);
+		}
+
 		link
 			.attr('x1', (d) => d.source.x)
 			.attr('y1', (d) => d.source.y)
 			.attr('x2', (d) => d.target.x)
 			.attr('y2', (d) => d.target.y);
 
-		// ✅ paths need transform translate (not cx/cy)
-		node.attr('transform', (d) => `translate(${d.x},${d.y})`);
+		node.attr('transform', ({ x, y, index: i }) => {
+			if (isPerson(i)) {
+				const k = personScale(i);
+				return `translate(${x},${y}) scale(${k}) translate(-12,-12)`;
+			}
+			return `translate(${x},${y})`;
+		});
 
 		if (labels) {
-			labels.attr('x', (d) => d.x).attr('y', ({ index: i, y }) => y + getSymbolRadiusApprox(i) + labelOffset);
+			labels.attr('x', (d) => d.x).attr('y', ({ index: i, y }) => y + visualRadius(i) + labelOffset);
 		}
 	}
 
@@ -244,8 +364,19 @@ export function ForceGraph(
 		}
 
 		function dragged(event) {
-			event.subject.fx = event.x;
-			event.subject.fy = event.y;
+			const i = event.subject.index ?? 0;
+
+			let x = event.x;
+			let y = event.y;
+
+			if (constrain) {
+				const p = clampPointForIndex(i, x, y);
+				x = p.x;
+				y = p.y;
+			}
+
+			event.subject.fx = x;
+			event.subject.fy = y;
 		}
 
 		function dragended(event) {
