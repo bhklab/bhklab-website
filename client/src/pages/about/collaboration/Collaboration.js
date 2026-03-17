@@ -11,6 +11,7 @@ import CityCollaborationsDetails from './collaboration-components/CityCollaborat
 
 import CheckIcon from '@mui/icons-material/Check';
 import ToggleButton from '@mui/material/ToggleButton';
+import { count } from 'd3';
 
 const FALLBACK_COORDS = {
 	'Toronto|Canada': { latitude: 43.651, longitude: -79.347 },
@@ -119,10 +120,10 @@ function helper_createNodesAndLinks(adjacency, displays) {
 	const links = [];
 	const seen = new Map();
 	for (const [node, nei] of adjacency) {
-		for (const neighbor of nei) {
+		for (const [neighbor, weight] of nei) {
 			if ((seen.has(node) && seen.get(node).has(neighbor)) || (seen.has(neighbor) && seen.get(neighbor).has(node)))
 				continue;
-			links.push({ source: node, target: neighbor });
+			links.push({ source: node, target: neighbor, count: weight });
 			if (!seen.has(node)) seen.set(node, new Set());
 			if (!seen.has(neighbor)) seen.set(neighbor, new Set());
 			seen.get(node).add(neighbor);
@@ -130,15 +131,15 @@ function helper_createNodesAndLinks(adjacency, displays) {
 		}
 	}
 
-	return { nodes: nodeObjArray, links };
+	return { nodes: nodeObjArray, links: links };
 }
 
 function createAdjacencyList(records) {
 	const adjacency = new Map();
-	adjacency.set('BHK', new Set());
+	adjacency.set('BHK', new Map());
 
 	const adjacencyReduced = new Map();
-	adjacencyReduced.set('BHK', new Set());
+	adjacencyReduced.set('BHK', new Map());
 
 	const displays = new Map();
 	displays.set('BHK', { color: '#079ee9ff', symbol: 'person', size: 1000 });
@@ -155,39 +156,41 @@ function createAdjacencyList(records) {
 		const membersandcontacts = [...mergedcontacts];
 
 		// Reduced graph: only connect BHK to main collaborators
-		adjacencyReduced.get('BHK').add(main);
-		if (!adjacencyReduced.has(main)) adjacencyReduced.set(main, new Set());
-		adjacencyReduced.get(main).add('BHK');
+		if (!adjacencyReduced.get('BHK').has(main)) adjacencyReduced.get('BHK').set(main, 0);
+		adjacencyReduced.get('BHK').set(main, adjacencyReduced.get('BHK').get(main) + 1);
+		if (!adjacencyReduced.has(main)) adjacencyReduced.set(main, new Map([['BHK', 0]]));
+		adjacencyReduced.get(main).set('BHK', adjacencyReduced.get(main).get('BHK') + 1);
 
 		for (const member of membersandcontacts) {
-			if (!adjacency.has(member)) adjacency.set(member, new Set());
+			if (!adjacency.has(member)) adjacency.set(member, new Map());
 
-			adjacency.get('BHK').add(member);
-			adjacency.get(member).add('BHK');
+			adjacency.get('BHK').set(member, (adjacency.get('BHK').get(member) || 0) + 1);
+			adjacency.get(member).set('BHK', (adjacency.get(member).get('BHK') || 0) + 1);
 
-			adjacency.get(member).add(main);
+			adjacency.get(member).set(main, (adjacency.get(member).get(main) || 0) + 1);
 			displays.set(member, { color: '#15d9bb', symbol: 'cross', size: 100 });
 
-			if (!adjacency.has(main)) adjacency.set(main, new Set());
-			adjacency.get(main).add(member);
-
+			if (!adjacency.has(main)) adjacency.set(main, new Map());
+			adjacency.get(main).set(member, (adjacency.get(main).get(member) || 0) + 1);
 			displays.set(main, { color: '#0021f7ff', symbol: 'diamond', size: 160 });
-
-			others.forEach((other) => {
-				if (!other) return;
-
-				adjacency.get(main).add(other);
-				if (!adjacency.has(other)) adjacency.set(other, new Set());
-				adjacency.get(other).add(main);
-
-				// Reduced graph: only connect main collaborators to other collaborators
-				adjacencyReduced.get(main).add(other);
-				if (!adjacencyReduced.has(other)) adjacencyReduced.set(other, new Set());
-				adjacencyReduced.get(other).add(main);
-
-				if (!displays.has(other)) displays.set(other, { color: '#ed08d2ff', symbol: 'wye', size: 120 });
-			});
 		}
+
+		others.forEach((other) => {
+			if (!other) return;
+
+			adjacency.get(main).set(other, (adjacency.get(main).get(other) || 0) + 1);
+			if (!adjacency.has(other)) adjacency.set(other, new Map());
+			adjacency.get(other).set(main, (adjacency.get(other).get(main) || 0) + 1);
+
+			// Reduced graph: only connect main collaborators to other collaborators
+			if (!adjacencyReduced.get(main).has(other)) adjacencyReduced.get(main).set(other, 0);
+			adjacencyReduced.get(main).set(other, adjacencyReduced.get(main).get(other) + 1);
+			if (!adjacencyReduced.has(other)) adjacencyReduced.set(other, new Map());
+			if (!adjacencyReduced.get(other).has(main)) adjacencyReduced.get(other).set(main, 0);
+			adjacencyReduced.get(other).set(main, adjacencyReduced.get(other).get(main) + 1);
+
+			if (!displays.has(other)) displays.set(other, { color: '#ed08d2ff', symbol: 'wye', size: 120 });
+		});
 	});
 
 	const nodesLinksMain = helper_createNodesAndLinks(adjacency, displays);

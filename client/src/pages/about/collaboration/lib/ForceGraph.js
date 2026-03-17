@@ -35,7 +35,7 @@ export function ForceGraph(
 		linkTarget = ({ target }) => target,
 		linkStroke = '#999',
 		linkStrokeOpacity = 0.6,
-		linkStrokeWidth = 1.5,
+		linkStrokeWidth = 3.5,
 		linkStrokeLinecap = 'round',
 		linkStrength,
 
@@ -78,9 +78,18 @@ export function ForceGraph(
 
 	const keepLabelsInBounds = Boolean(constrainKeepLabelsInBounds && Lab);
 
+	// ✅ NEW: preserve per-link metadata (e.g., count) before links are replaced
+	const LinkCount = d3.map(links, (d) => d?.count ?? 1);
+
 	// Replace the input nodes and links with mutable objects for the simulation.
 	nodes = d3.map(nodes, (_, i) => ({ id: N[i] }));
-	links = d3.map(links, (_, i) => ({ source: LS[i], target: LT[i] }));
+
+	// ✅ UPDATED: keep count on the mutable links
+	links = d3.map(links, (_, i) => ({
+		source: LS[i],
+		target: LT[i],
+		count: LinkCount[i],
+	}));
 
 	// Compute default domains.
 	if (G && nodeGroups === undefined) nodeGroups = d3.sort(G);
@@ -285,6 +294,12 @@ export function ForceGraph(
 		.selectAll('line')
 		.data(links)
 		.join('line');
+
+	// ✅ NEW: hover tooltip for edge weight (count)
+	link.append('title').text((d) => {
+		const c = d?.count ?? 1;
+		return `${c} collaboration${c === 1 ? '' : 's'}`;
+	});
 
 	// Nodes as paths, so each node can have a different shape (including "person")
 	const node = svg
