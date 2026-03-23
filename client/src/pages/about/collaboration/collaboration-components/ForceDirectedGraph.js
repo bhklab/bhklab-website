@@ -48,5 +48,15 @@ export default function ForceDirectedGraph({
 		};
 	}, [graph, width, height, options]);
 
-	return <div ref={hostRef} style={{ width, height }} />;
+	return (
+		<div
+			ref={hostRef}
+			style={{
+				width: '100%', // ✅ responsive width
+				height, // ✅ fixed px height from computed dims
+				maxWidth: '100%',
+				overflow: 'hidden',
+			}}
+		/>
+	);
 }
