@@ -10,6 +10,7 @@ const navigationLinks = [
 	{ name: 'Publications', linkTo: 'publications' },
 	{ name: 'Preprints', linkTo: 'preprints' },
 	{ name: 'Presentations', linkTo: 'presentations' },
+	{ name: 'Collaborations', linkTo: 'collaborations' },
 	{ name: 'Softwares', linkTo: 'softwares' },
 	{ name: 'Team', linkTo: 'team' },
 	{ name: 'Socials', linkTo: 'social-media-accounts' },
