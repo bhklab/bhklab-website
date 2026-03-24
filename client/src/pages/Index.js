@@ -10,6 +10,8 @@ import LabMembers from './about/lab-members/LabMembers';
 import Collaboration from './about/collaboration/Collaboration';
 import JoinUs from './about/join/JoinUs';
 import LabAlumni from './about/alumni/LabAlumni';
+import SocialMediaAccounts from './about/social/SocialMediaAccounts';
+import SocialsUpdate from './socialsupdate/SocialsUpdate';
 
 export {
 	Home,
@@ -24,4 +26,6 @@ export {
 	LabAlumni,
 	Collaboration,
 	JoinUs,
+	SocialMediaAccounts,
+	SocialsUpdate,
 };

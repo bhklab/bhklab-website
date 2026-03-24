@@ -20,6 +20,7 @@ import Software from '../web-apps-and-packages/WebAppsAndPackages';
 import LabMembers from '../about/lab-members/LabMembers';
 import SocialMediaAccounts from '../about/social/SocialMediaAccounts';
 import LabAlumni from '../about/alumni/LabAlumni';
+import Collaboration from '../about/collaboration/Collaboration';
 
 function Home() {
 	// smooth scroll to selected hashId once the page has been rendered
@@ -73,6 +74,12 @@ function Home() {
 						</div>
 						<div id="presentations" className="home-publication-and-presentation-section">
 							<Presentations />
+						</div>
+						<div className="divider">
+							<hr />
+						</div>
+						<div id="collaborations" className="home-component-sub-section">
+							<Collaboration />
 						</div>
 						<BHKLabImage />
 						<div id="softwares" className="home-component-sub-section">

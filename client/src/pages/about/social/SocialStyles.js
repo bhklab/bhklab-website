@@ -33,29 +33,24 @@ const StyledSocial = styled.div`
 `;
 
 const Container = styled.div`
-  width: 80%;
-  margin: 0px 20px;
-  display: flex;
-  flex-direction: column;
+	width: 80%;
+	margin: 0px 20px;
+	display: flex;
+	flex-direction: column;
 `;
 
 const SocialMediaAccountWrapper = styled.div`
-    margin-top: 60px;
-    display: flex;
-    justify-content: center;
+	margin-top: 60px;
+	display: flex;
+	justify-content: center;
 	align-items: center;
-    flex-wrap: wrap;
+	flex-wrap: wrap;
 	gap: 50px;
-	
-	.bsky-wrapper{
-		max-width: 325px;
-		height: 750px;
-	}
 
+	.bsky-wrapper {
+		max-width: 325px;
+		max-height: 750px;
+	}
 `;
 
-export {
-	Container,
-	StyledSocial,
-	SocialMediaAccountWrapper,
-};
+export { Container, StyledSocial, SocialMediaAccountWrapper };

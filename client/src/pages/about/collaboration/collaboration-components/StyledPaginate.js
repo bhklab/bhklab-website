@@ -1,19 +1,23 @@
+import colors from '../../../../styles/colors';
 import styled from 'styled-components';
-import colors from '../../../styles/colors';
 
 const StyledPaginate = styled.div`
 	display: flex;
 	flex-direction: column;
-	flex-grow: 1;
+	flex-grow: 0;
+	width: 100%;
 	max-width: 900px;
-	height: 800px;
 
-	/* Paginator always stays at bottom */
+	/* ✅ let it grow as tall as it needs */
+	height: auto;
+	min-height: 0;
+	overflow: visible;
+
+	/* Pagination naturally sits under content */
 	.pagination-container {
-		flex-shrink: 0;
-		margin-top: auto;
-		padding-top: 20px; /* keeps your existing spacing */
+		margin-top: 20px;
 	}
+
 	@media screen and (max-width: 650px) {
 		& .MuiCardContent-root {
 			padding: 4px 0 0 4px !important;

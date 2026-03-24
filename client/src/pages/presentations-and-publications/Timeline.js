@@ -11,7 +11,25 @@ import colors from '../../styles/colors';
 import StyledTimeline from './TimelineStyles';
 
 // timeline years
-const YEARS = ['2025', '2024', '2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '2015', '2014', '2013'];
+const YEARS = [
+	'2026',
+	'2025',
+	'2024',
+	'2023',
+	'2022',
+	'2021',
+	'2020',
+	'2019',
+	'2018',
+	'2017',
+	'2016',
+	'2015',
+	'2014',
+	'2013',
+	'2012',
+	'2011',
+	'2010',
+];
 
 /**
  *
@@ -20,19 +38,20 @@ const YEARS = ['2025', '2024', '2023', '2022', '2021', '2020', '2019', '2018', '
 // TODO: Add props validation
 // eslint-disable-next-line react/prop-types
 function LeftPositionedTimeline({ chosenYear, setChosenYear }) {
-	const [itemsLoaded, setItemsLoaded] = useState(6);
+	const defaultItemsLoaded = 11;
+	const [itemsLoaded, setItemsLoaded] = useState(defaultItemsLoaded);
 	const [itemsButton, setItemsButton] = useState('show more');
 
 	// Adjusting the timeline items and buttons in the timeline component
 	const adjustItems = () => {
 		// Adding or removing the number of items shown in timeline list
-		if (itemsLoaded === 6) {
-			setItemsLoaded(itemsLoaded + 3);
-		} else if (itemsLoaded === 9) {
+		if (itemsLoaded === defaultItemsLoaded) {
 			setItemsLoaded(itemsLoaded + 2);
+		} else if (itemsLoaded === 13) {
+			setItemsLoaded(YEARS.length);
 			setItemsButton('show less'); // after all timeline components are rendered change the button's text
 		} else {
-			setItemsLoaded(6);
+			setItemsLoaded(defaultItemsLoaded);
 			setItemsButton('show more'); // when the timeline component is reset change the buttons's text
 		}
 	};
@@ -64,7 +83,7 @@ function LeftPositionedTimeline({ chosenYear, setChosenYear }) {
 				}
 				return (
 					<TimelineItem
-						onClick={() => setChosenYear(YEARS[index])}
+						onClick={() => setChosenYear(year)}
 						className="hover-timeline-item static-timeline-item"
 						key={year}
 					>
@@ -82,7 +101,19 @@ function LeftPositionedTimeline({ chosenYear, setChosenYear }) {
 
 	return (
 		<StyledTimeline>
-			<Timeline position="left" sx={{ height: '700px' }}>
+			<Timeline
+				position="left"
+				sx={{
+					height: '800px',
+					'& .MuiTimelineConnector-root': {
+						margin: 0,
+						flexGrow: 1,
+						width: '2px',
+						position: 'relative',
+						left: '0.9px', // only if you still want this
+					},
+				}}
+			>
 				{displayTimeline(YEARS)}
 				<Button
 					disableElevation

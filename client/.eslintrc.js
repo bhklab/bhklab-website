@@ -24,5 +24,7 @@ module.exports = {
 		'react/jsx-indent-props': [2, 'tab'],
 		'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
 		'react/prop-types': 'off',
+		'no-confusing-arrow': 'off',
+		'function-paren-newline': 'off',
 	},
 };
