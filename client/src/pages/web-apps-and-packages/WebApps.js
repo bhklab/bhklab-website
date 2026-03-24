@@ -60,7 +60,7 @@ const listWebApps = [
 		imgSrc: `${imgDirectory}pharmacodb-logo-new-dark.png`,
 		imgAltAttribute: 'pharmacodb',
 		appURL: 'https://pharmacodb.ca/',
-		githubURL: 'https://github.com/bhklab/ORCESTRA',
+		githubURL: 'https://github.com/bhklab/PharmacoDB-JS',
 		appDescription: 'Mine pharmacogenomic profiles of cancer cell lines treated with single agent',
 	},
 	{
@@ -68,7 +68,7 @@ const listWebApps = [
 		imgSrc: `${imgDirectory}synergx-logo.png`,
 		imgAltAttribute: 'synergxdb',
 		appURL: 'https://www.synergxdb.ca/',
-		githubURL: 'https://github.com/bhklab/PharmacoDB-JS',
+		githubURL: 'https://github.com/bhklab/SYNERGxDB',
 		appDescription: 'Explore synergistic drug combinations in cancer cell lines',
 	},
 	{
