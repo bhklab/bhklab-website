@@ -12,7 +12,7 @@ const customizedContent = (item, index) => <PaperCard index={index} publication=
 function Publications() {
 	const [ready, setReady] = useState(false);
 	const [publications, setPublications] = useState({});
-	const [chosenYear, setChosenYear] = useState('2025');
+	const [chosenYear, setChosenYear] = useState('2026');
 
 	useEffect(() => {
 		const getPublications = async () => {
