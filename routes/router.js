@@ -74,8 +74,8 @@ router.get("/data/collaborations", collaborations.getAll);
 router.post("/mail/send", email.sendEmail);
 
 // admin authentication and management
-// router.post("/admin/login", admin.submit);
-// router.get("/admin/logout", auth.verifyToken, admin.logout);
-// router.get("/admin/session", auth.verifyToken, admin.getSession);
+//router.post("/admin/login", admin.submit);
+//router.get("/admin/logout", auth.verifyToken, admin.logout);
+//router.get("/admin/session", auth.verifyToken, admin.getSession);
 
 module.exports = router;

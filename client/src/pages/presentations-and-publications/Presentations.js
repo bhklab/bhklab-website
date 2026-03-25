@@ -13,7 +13,7 @@ const customizedContent = (item, index) => <PresentationCard key={index} publica
 function Presentations() {
 	const [ready, setReady] = useState(false);
 	const [presentations, setPresentation] = useState({});
-	const [chosenYear, setChosenYear] = useState('2025');
+	const [chosenYear, setChosenYear] = useState('2026');
 
 	useEffect(() => {
 		const getPresentations = async () => {
