@@ -1,11 +1,6 @@
 import React from 'react';
 import * as d3 from 'd3';
 
-// Same “person” head+shoulders path you used in ForceGraph (24x24 viewBox)
-const PERSON_PATH =
-	'M12 12.2c2.54 0 4.6-2.06 4.6-4.6S14.54 3 12 3 7.4 5.06 7.4 7.6s2.06 4.6 4.6 4.6z' +
-	'M4.8 21c0-3.3 3.5-5.8 7.2-5.8s7.2 2.5 7.2 5.8v0.8H4.8V21z';
-
 const SYMBOL_TYPES = {
 	circle: d3.symbolCircle,
 	square: d3.symbolSquare,
@@ -21,7 +16,13 @@ function LegendSymbol({ shape, color = '#334155', size = 18 }) {
 	if (shape === 'person') {
 		return (
 			<svg style={{ width: size, height: size, display: 'block' }} viewBox="0 0 24 24" aria-hidden="true">
-				<path d={PERSON_PATH} fill={color} />
+				<path
+					d={
+						'M12 12.2c2.54 0 4.6-2.06 4.6-4.6S14.54 3 12 3 7.4 5.06 7.4 7.6s2.06 4.6 4.6 4.6z' +
+						'M4.8 21c0-3.3 3.5-5.8 7.2-5.8s7.2 2.5 7.2 5.8v0.8H4.8V21z'
+					}
+					fill={color}
+				/>
 			</svg>
 		);
 	}

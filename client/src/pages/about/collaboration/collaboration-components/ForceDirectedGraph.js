@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { ForceGraph } from '../lib/ForceGraph';
+import ForceGraph from '../lib/ForceGraph';
 
 export default function ForceDirectedGraph({
 	graph, // { nodes: [...], links: [...] }

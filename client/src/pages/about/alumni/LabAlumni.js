@@ -73,42 +73,42 @@ const displayMember = (item, index) => (
 	</div>
 );
 
-const sortMembers = (people) => {
-	const order = {
-		'Postdoctoral Fellow': 0,
-		'Postdoctoral Research Fellow': 1,
-		'Visiting Postdoctoral Fellow': 2,
-		'Collaborative Scientific Associate': 3,
-		'Scientific Associate': 4,
-		'Research Associate': 5,
-		'PhD Student': 6,
-		'Visiting PhD Student': 7,
-		'MSc Student': 8,
-		'Medical Oncology Fellow': 9,
-		'Project Manager': 10,
-		'Project Manager/Research Associate': 10,
-		'Project Coordinator': 11,
-		'Program Coordinator (CBMP)': 12,
-		'Software Developer': 13,
-		'Research Analyst': 14,
-		'Bioinformatics Analyst': 15,
-		'Research Student': 16,
-		'Undergraduate Student': 17,
-		'Rotation Student': 18,
-		'Visiting Student': 19,
-		'Research Intern': 20,
-		'Research Student Intern': 21,
-		'Undergrad Research Intern': 21,
-		Intern: 22,
-		'Co-op Student': 22,
-		'Summer Student': 23,
-		'Undergraduate Summer Student': 23,
-		'Research Trainee': 24,
-		'Research Volunteer': 25,
-		Volunteer: 26,
-	};
-	return result;
-};
+// const sortMembers = (people) => {
+// 	const order = {
+// 		'Postdoctoral Fellow': 0,
+// 		'Postdoctoral Research Fellow': 1,
+// 		'Visiting Postdoctoral Fellow': 2,
+// 		'Collaborative Scientific Associate': 3,
+// 		'Scientific Associate': 4,
+// 		'Research Associate': 5,
+// 		'PhD Student': 6,
+// 		'Visiting PhD Student': 7,
+// 		'MSc Student': 8,
+// 		'Medical Oncology Fellow': 9,
+// 		'Project Manager': 10,
+// 		'Project Manager/Research Associate': 10,
+// 		'Project Coordinator': 11,
+// 		'Program Coordinator (CBMP)': 12,
+// 		'Software Developer': 13,
+// 		'Research Analyst': 14,
+// 		'Bioinformatics Analyst': 15,
+// 		'Research Student': 16,
+// 		'Undergraduate Student': 17,
+// 		'Rotation Student': 18,
+// 		'Visiting Student': 19,
+// 		'Research Intern': 20,
+// 		'Research Student Intern': 21,
+// 		'Undergrad Research Intern': 21,
+// 		Intern: 22,
+// 		'Co-op Student': 22,
+// 		'Summer Student': 23,
+// 		'Undergraduate Summer Student': 23,
+// 		'Research Trainee': 24,
+// 		'Research Volunteer': 25,
+// 		Volunteer: 26,
+// 	};
+// 	return result;
+// };
 
 function LabMembers() {
 	// const { admin } = useContext(AuthContext);

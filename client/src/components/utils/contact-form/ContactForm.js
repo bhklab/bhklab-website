@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
@@ -16,9 +15,7 @@ function StyledLabel(props) {
 		<div>
 			<label>
 				{title}
-				<span style={{ color: 'red' }}>
-					*
-				</span>
+				<span style={{ color: 'red' }}>*</span>
 			</label>
 		</div>
 	);

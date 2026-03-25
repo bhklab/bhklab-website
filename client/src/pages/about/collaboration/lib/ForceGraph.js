@@ -2,8 +2,8 @@ import * as d3 from 'd3';
 // Copyright 2021-2024 Observable, Inc.
 // Released under the ISC license.
 // https://observablehq.com/@d3/force-directed-graph
-export function ForceGraph(
-	{ nodes, links },
+export default function ForceGraph(
+	{ nodes: inputNodes, links: inputLinks },
 	{
 		nodeId = (d) => d.id,
 		nodeGroup,
@@ -57,45 +57,110 @@ export function ForceGraph(
 		invalidation,
 	} = {},
 ) {
+	function intern(value) {
+		return value !== null && typeof value === 'object' ? value.valueOf() : value;
+	}
+
+	function ticked() {
+		// clamp nodes first so everything (links/labels) draws in-bounds
+		if (constrain) {
+			nodes.forEach((d) => {
+				clampNodePosition(d);
+			});
+		}
+
+		link
+			.attr('x1', (d) => d.source.x)
+			.attr('y1', (d) => d.source.y)
+			.attr('x2', (d) => d.target.x)
+			.attr('y2', (d) => d.target.y);
+
+		node.attr('transform', ({ x, y, index: i }) => {
+			if (isPerson(i)) {
+				const k = personScale(i);
+				return `translate(${x},${y}) scale(${k}) translate(-12,-12)`;
+			}
+			return `translate(${x},${y})`;
+		});
+
+		if (labels) {
+			labels.attr('x', (d) => d.x).attr('y', ({ index: i, y }) => y + visualRadius(i) + labelOffset);
+		}
+	}
+
+	function drag(sim) {
+		function dragstarted(event) {
+			if (!event.active) sim.alphaTarget(0.3).restart();
+			const subject = event.subject;
+			subject.fx = subject.x;
+			subject.fy = subject.y;
+		}
+
+		function dragged(event) {
+			const subject = event.subject;
+			const i = subject.index ?? 0;
+
+			let { x, y } = event;
+
+			if (constrain) {
+				const p = clampPointForIndex(i, x, y);
+				x = p.x;
+				y = p.y;
+			}
+
+			subject.fx = x;
+			subject.fy = y;
+		}
+
+		function dragended(event) {
+			if (!event.active) sim.alphaTarget(0);
+			const subject = event.subject;
+			subject.fx = null;
+			subject.fy = null;
+		}
+
+		return d3.drag().on('start', dragstarted).on('drag', dragged).on('end', dragended);
+	}
+
 	// Compute values.
-	const N = d3.map(nodes, nodeId).map(intern);
-	const R = typeof nodeRadius !== 'function' ? null : d3.map(nodes, nodeRadius);
-	const LS = d3.map(links, linkSource).map(intern);
-	const LT = d3.map(links, linkTarget).map(intern);
+	const N = d3.map(inputNodes, nodeId).map(intern);
+	const R = typeof nodeRadius !== 'function' ? null : d3.map(inputNodes, nodeRadius);
+	const LS = d3.map(inputLinks, linkSource).map(intern);
+	const LT = d3.map(inputLinks, linkTarget).map(intern);
 
-	if (nodeTitle === undefined) nodeTitle = (_, i) => N[i];
-	const T = nodeTitle == null ? null : d3.map(nodes, nodeTitle);
+	const resolvedNodeTitle = nodeTitle === undefined ? (_, i) => N[i] : nodeTitle;
+	const T = resolvedNodeTitle == null ? null : d3.map(inputNodes, resolvedNodeTitle);
 
-	const G = nodeGroup == null ? null : d3.map(nodes, nodeGroup).map(intern);
-	const W = typeof linkStrokeWidth !== 'function' ? null : d3.map(links, linkStrokeWidth);
-	const L = typeof linkStroke !== 'function' ? null : d3.map(links, linkStroke);
+	const G = nodeGroup == null ? null : d3.map(inputNodes, nodeGroup).map(intern);
+	const W = typeof linkStrokeWidth !== 'function' ? null : d3.map(inputLinks, linkStrokeWidth);
+	const L = typeof linkStroke !== 'function' ? null : d3.map(inputLinks, linkStroke);
 
 	// compute labels, per-node colors, and per-node symbols BEFORE nodes are replaced
-	const Lab = nodeLabel == null ? null : d3.map(nodes, nodeLabel);
-	const C = nodeColor == null ? null : d3.map(nodes, nodeColor);
-	const Sym = nodeSymbol == null ? null : d3.map(nodes, nodeSymbol);
-	const SymSize = nodeSymbolSize == null ? null : d3.map(nodes, nodeSymbolSize);
+	const Lab = nodeLabel == null ? null : d3.map(inputNodes, nodeLabel);
+	const C = nodeColor == null ? null : d3.map(inputNodes, nodeColor);
+	const Sym = nodeSymbol == null ? null : d3.map(inputNodes, nodeSymbol);
+	const SymSize = nodeSymbolSize == null ? null : d3.map(inputNodes, nodeSymbolSize);
 
 	const keepLabelsInBounds = Boolean(constrainKeepLabelsInBounds && Lab);
 
 	// ✅ NEW: preserve per-link metadata (e.g., count) before links are replaced
-	const LinkCount = d3.map(links, (d) => d?.count ?? 1);
+	const LinkCount = d3.map(inputLinks, (d) => d?.count ?? 1);
 
 	// Replace the input nodes and links with mutable objects for the simulation.
-	nodes = d3.map(nodes, (_, i) => ({ id: N[i] }));
+	const nodes = d3.map(inputNodes, (_, i) => ({ id: N[i] }));
 
 	// ✅ UPDATED: keep count on the mutable links
-	links = d3.map(links, (_, i) => ({
+	const links = d3.map(inputLinks, (_, i) => ({
 		source: LS[i],
 		target: LT[i],
 		count: LinkCount[i],
 	}));
 
 	// Compute default domains.
-	if (G && nodeGroups === undefined) nodeGroups = d3.sort(G);
+	const resolvedNodeGroups = G && nodeGroups === undefined ? d3.sort(G) : nodeGroups;
 
 	// Construct the scales.
-	const color = nodeGroup == null ? null : d3.scaleOrdinal(nodeGroups, colors);
+	const color = nodeGroup == null ? null : d3.scaleOrdinal(resolvedNodeGroups, colors);
 
 	// --- Symbol helpers ---
 	const SYMBOLS = {
@@ -205,7 +270,8 @@ export function ForceGraph(
 	}
 
 	function clampNodePosition(d) {
-		const i = d.index ?? 0;
+		const nodeDatum = d;
+		const i = nodeDatum.index ?? 0;
 
 		// left/right must consider label width if enabled
 		const halfX = effectiveHalfWidthForBounds(i) + constrainPadding;
@@ -222,21 +288,20 @@ export function ForceGraph(
 		const maxY = halfH - bottomR;
 
 		if (maxX <= minX || maxY <= minY) {
-			d.x = 0;
-			d.y = 0;
-			d.vx *= 0.2;
-			d.vy *= 0.2;
+			nodeDatum.x = 0;
+			nodeDatum.y = 0;
+			nodeDatum.vx *= 0.2;
+			nodeDatum.vy *= 0.2;
 			return;
 		}
 
-		const px = d.x;
-		const py = d.y;
+		const { x: px, y: py } = nodeDatum;
 
-		d.x = clamp(d.x, minX, maxX);
-		d.y = clamp(d.y, minY, maxY);
+		nodeDatum.x = clamp(nodeDatum.x, minX, maxX);
+		nodeDatum.y = clamp(nodeDatum.y, minY, maxY);
 
-		if (d.x !== px) d.vx *= constrainDamping;
-		if (d.y !== py) d.vy *= constrainDamping;
+		if (nodeDatum.x !== px) nodeDatum.vx *= constrainDamping;
+		if (nodeDatum.y !== py) nodeDatum.vy *= constrainDamping;
 	}
 
 	function clampPointForIndex(i, x, y) {
@@ -318,8 +383,11 @@ export function ForceGraph(
 	if (L) link.attr('stroke', ({ index: i }) => L[i]);
 
 	// fill priority: nodeColor (C) > nodeGroup color (G) > nodeFill
-	if (C) node.attr('fill', ({ index: i }) => C[i] || nodeFill);
-	else if (G) node.attr('fill', ({ index: i }) => color(G[i]));
+	if (C) {
+		node.attr('fill', ({ index: i }) => C[i] || nodeFill);
+	} else if (G) {
+		node.attr('fill', ({ index: i }) => color(G[i]));
+	}
 
 	if (T) node.append('title').text(({ index: i }) => T[i]);
 
@@ -341,67 +409,6 @@ export function ForceGraph(
 					.attr('dy', '0.35em');
 
 	if (invalidation != null) invalidation.then(() => simulation.stop());
-
-	function intern(value) {
-		return value !== null && typeof value === 'object' ? value.valueOf() : value;
-	}
-
-	function ticked() {
-		// clamp nodes first so everything (links/labels) draws in-bounds
-		if (constrain) {
-			for (const d of nodes) clampNodePosition(d);
-		}
-
-		link
-			.attr('x1', (d) => d.source.x)
-			.attr('y1', (d) => d.source.y)
-			.attr('x2', (d) => d.target.x)
-			.attr('y2', (d) => d.target.y);
-
-		node.attr('transform', ({ x, y, index: i }) => {
-			if (isPerson(i)) {
-				const k = personScale(i);
-				return `translate(${x},${y}) scale(${k}) translate(-12,-12)`;
-			}
-			return `translate(${x},${y})`;
-		});
-
-		if (labels) {
-			labels.attr('x', (d) => d.x).attr('y', ({ index: i, y }) => y + visualRadius(i) + labelOffset);
-		}
-	}
-
-	function drag(simulation) {
-		function dragstarted(event) {
-			if (!event.active) simulation.alphaTarget(0.3).restart();
-			event.subject.fx = event.subject.x;
-			event.subject.fy = event.subject.y;
-		}
-
-		function dragged(event) {
-			const i = event.subject.index ?? 0;
-
-			let x = event.x;
-			let y = event.y;
-
-			if (constrain) {
-				const p = clampPointForIndex(i, x, y);
-				x = p.x;
-				y = p.y;
-			}
-
-			event.subject.fx = x;
-			event.subject.fy = y;
-		}
-
-		function dragended(event) {
-			if (!event.active) simulation.alphaTarget(0);
-			event.subject.fx = null;
-			event.subject.fy = null;
-		}
-
-		return d3.drag().on('start', dragstarted).on('drag', dragged).on('end', dragended);
-	}
 
 	return Object.assign(svg.node(), { scales: { color }, simulation });
 }
