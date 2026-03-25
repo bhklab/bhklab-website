@@ -25,9 +25,9 @@ app.use('/api', router);
 // build to serve static files.
 app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.get('/*', (req, res) => {
-    res.sendFile('index.html', { root: './client/build' });
-});
+// app.get('/*', (req, res) => {
+//     res.sendFile('index.html', { root: './client/build' });
+// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
