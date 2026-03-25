@@ -1,15 +1,9 @@
 const mongoose = require('mongoose');
 const connection = connect();
 
-
 function connect() {
-    var options = {
-        keepAlive: true,
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    };
     mongoose.set("strictQuery", false);
-    mongoose.connect(process.env.MONGODB_URL, options);
+    mongoose.connect(process.env.MONGODB_URL);
     return mongoose.connection;
 }
 

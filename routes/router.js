@@ -13,7 +13,7 @@ const email = require("./api/mail/sendGrid");
 const positions = require("./api/data/positions");
 const research = require("./api/data/research");
 const auth = require("./api/admin/auth");
-const admin = require("./api/admin/admin");
+// const admin = require("./api/admin/admin");
 const alumni = require("./api/data/alumni");
 const socialsupdate = require("./api/data/socialsUpdate");
 const collaborations = require("./api/data/collaborations");
@@ -74,8 +74,8 @@ router.get("/data/collaborations", collaborations.getAll);
 router.post("/mail/send", email.sendEmail);
 
 // admin authentication and management
-router.post("/admin/login", admin.submit);
-router.get("/admin/logout", auth.verifyToken, admin.logout);
-router.get("/admin/session", auth.verifyToken, admin.getSession);
+// router.post("/admin/login", admin.submit);
+// router.get("/admin/logout", auth.verifyToken, admin.logout);
+// router.get("/admin/session", auth.verifyToken, admin.getSession);
 
 module.exports = router;
