@@ -13,16 +13,14 @@ const SYMBOL_TYPES = {
 	diamond: d3.symbolDiamond,
 	cross: d3.symbolCross,
 	star: d3.symbolStar,
-	wye: d3.symbolWye, // ✅ real d3 wye
+	wye: d3.symbolWye,
 };
 
 function LegendSymbol({ shape, color = '#334155', size = 18 }) {
-	const common = { width: size, height: size, style: { display: 'block' } };
-
 	// Custom “person”
 	if (shape === 'person') {
 		return (
-			<svg {...common} viewBox="0 0 24 24" aria-hidden="true">
+			<svg style={{ width: size, height: size, display: 'block' }} viewBox="0 0 24 24" aria-hidden="true">
 				<path d={PERSON_PATH} fill={color} />
 			</svg>
 		);
@@ -38,7 +36,7 @@ function LegendSymbol({ shape, color = '#334155', size = 18 }) {
 	const d = d3.symbol().type(type).size(area)();
 
 	return (
-		<svg {...common} viewBox="-12 -12 24 24" aria-hidden="true">
+		<svg style={{ width: size, height: size, display: 'block' }} viewBox="-12 -12 24 24" aria-hidden="true">
 			<path d={d} fill={color} />
 		</svg>
 	);
@@ -54,9 +52,7 @@ export default function ForceGraphLegend({ items }) {
 				flexWrap: 'wrap',
 				gap: 12,
 				alignItems: 'center',
-				padding: '10px 12px',
-				border: '1px solid rgba(148,163,184,0.35)',
-				borderRadius: 12,
+				padding: '20px 0px',
 				background: 'rgba(255,255,255,0.7)',
 				backdropFilter: 'blur(6px)',
 			}}

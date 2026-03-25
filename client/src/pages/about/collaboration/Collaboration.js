@@ -1,116 +1,11 @@
 import React, { useEffect, useRef, useState, useMemo } from 'react';
 import axios from 'axios';
 import Container from '@mui/material/Container';
-import CheckIcon from '@mui/icons-material/Check';
-import ToggleButton from '@mui/material/ToggleButton';
 import StyledHeading from '../../../styles/StyledHeading';
 import StyledCollabs from './CollaborationStyles';
 import ForceDirectedGraph from './collaboration-components/ForceDirectedGraph';
 import ForceGraphLegend from './collaboration-components/ForceGraphLegend';
 
-/*
-import CollaborationsMap from './collaboration-components/CollaborationsMap';
-import CityCollaborationsDetails from './collaboration-components/CityCollaborationsDetails';
-import { count } from 'd3';
-
-const FALLBACK_COORDS = {
-	'Toronto|Canada': { latitude: 43.651, longitude: -79.347 },
-};
-
-function clean(v) {
-	if (v === null || v === undefined) return '';
-	return String(v).trim();
-}
-
-function maybe(v) {
-	const s = clean(v);
-	if (!s || s.toUpperCase() === 'NA') return null;
-	return s;
-}
-
-function normalizeStatus(raw) {
-	const s = clean(raw).toLowerCase();
-	if (s.includes('completed')) return 'Completed';
-	if (s.includes('ongoing')) return 'Ongoing';
-	if (s.includes('not started')) return 'Not started';
-	return 'Unknown';
-}
-
-function normalizeType(raw) {
-	return clean(raw).replace(/\s+/g, ' ').trim() || 'Unknown';
-}
-
-function normalizeRecord(row, index) {
-	const city = clean(row.city || row.City || 'Unknown');
-	const country = clean(row.country || 'Unknown');
-	const fallback = FALLBACK_COORDS[`${city}|${country}`];
-
-	const lat = Number.isFinite(Number(row.latitude)) ? Number(row.latitude) : (fallback?.latitude ?? null);
-	const lon = Number.isFinite(Number(row.longitude)) ? Number(row.longitude) : (fallback?.longitude ?? null);
-
-	return {
-		id: row?._id?.$oid || row?._id || `row-${index}`,
-		mainCollab: clean(row.maincollab ?? row['main-collab']),
-		otherCollabs: maybe(row.othercollabs ?? row['other-collabs']),
-		organization: clean(row.organization),
-		country,
-		city,
-		startYear: Number(row.startyear ?? row['start-year']) || null,
-		type: normalizeType(row.type),
-		project: clean(row.project),
-		contact: maybe(row.contact),
-		members: maybe(row.members),
-		role: maybe(row.role),
-		status: normalizeStatus(row.status),
-		outputs: maybe(row.outputs),
-		latitude: lat,
-		longitude: lon,
-		hasCoordinates: Number.isFinite(lat) && Number.isFinite(lon),
-	};
-}
-
-function groupByCity(records) {
-	const map = new Map();
-
-	records.forEach((r) => {
-		if (!r.hasCoordinates) return;
-
-		const key = `${r.city}|${r.country}|${r.latitude}|${r.longitude}`;
-		if (!map.has(key)) {
-			map.set(key, {
-				key,
-				city: r.city,
-				country: r.country,
-				latitude: r.latitude,
-				longitude: r.longitude,
-				collaborations: [],
-			});
-		}
-		map.get(key).collaborations.push(r);
-	});
-
-	return Array.from(map.values()).map((group) => {
-		const statusCounts = group.collaborations.reduce((acc, c) => {
-			acc[c.status] = (acc[c.status] || 0) + 1;
-			return acc;
-		}, {});
-
-		const dominantStatus = Object.entries(statusCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || 'Unknown';
-
-		const years = group.collaborations.map((c) => c.startYear).filter((y) => Number.isFinite(y));
-
-		return {
-			...group,
-			count: group.collaborations.length,
-			statusCounts,
-			dominantStatus,
-			types: [...new Set(group.collaborations.map((c) => c.type))].sort(),
-			minYear: years.length ? Math.min(...years) : null,
-			maxYear: years.length ? Math.max(...years) : null,
-		};
-	});
-}
-*/
 const legendItems = [
 	{ shape: 'person', label: 'Benjamin Haibe-Kains', color: '#079ee9ff' },
 	{ shape: 'diamond', label: 'Main collaborator', color: '#0021f7ff' },
@@ -210,15 +105,12 @@ function createAdjacencyList(records) {
 function Collaboration() {
 	const [isLoading, setIsLoading] = useState(true);
 	const [loadError, setLoadError] = useState(null);
-	/*
-	const [rows, setRows] = useState([]);
-	const [selectedCityKey, setSelectedCityKey] = useState(null);
-	*/
+
 	// store BOTH graphs in a ref so they persist across renders
 	const graphsRef = useRef(null);
 
 	// toggle state
-	const [reducedGraphData, setReducedGraphData] = useState(true);
+	const [fullPlot, setFullPlot] = useState(false);
 
 	// current graph data to render
 	const [graphData, setGraphData] = useState({ nodes: [], links: [] });
@@ -316,7 +208,7 @@ function Collaboration() {
 				graphsRef.current = bothGraphs;
 
 				// set initial graph to match toggle
-				setGraphData(reducedGraphData ? bothGraphs.reduced : bothGraphs.regular);
+				setGraphData(fullPlot ? bothGraphs.regular : bothGraphs.reduced);
 			} catch (err) {
 				if (err?.name === 'CanceledError' || err?.code === 'ERR_CANCELED') return;
 
@@ -343,8 +235,8 @@ function Collaboration() {
 	// when toggle changes, swap graphData from ref
 	useEffect(() => {
 		if (!graphsRef.current) return;
-		setGraphData(reducedGraphData ? graphsRef.current.reduced : graphsRef.current.regular);
-	}, [reducedGraphData]);
+		setGraphData(fullPlot ? graphsRef.current.regular : graphsRef.current.reduced);
+	}, [fullPlot]);
 	/*
 	const records = useMemo(() => (Array.isArray(rows) ? rows : []).map((r, i) => normalizeRecord(r, i)), [rows]);
 
@@ -369,9 +261,8 @@ function Collaboration() {
 	*/
 
 	return (
-		<Container maxWidth={false} sx={{ maxWidth: 1400, mx: 'auto' }}>
+		<Container maxWidth="lg" sx={{ mx: 'auto' }}>
 			<StyledHeading>Collaborations</StyledHeading>
-
 			<StyledCollabs
 				className="map-embed-shell"
 				style={{
@@ -379,7 +270,6 @@ function Collaboration() {
 					maxWidth: '100%',
 					minWidth: 0,
 					height: 'auto',
-					overflow: 'visible',
 					paddingBottom: 48,
 				}}
 			>
@@ -396,18 +286,20 @@ function Collaboration() {
 							position: 'relative',
 						}}
 					>
-						<div style={{ zIndex: 3 }}>
-							<ToggleButton
-								value="reduced"
-								selected={reducedGraphData}
-								onChange={() => setReducedGraphData((prev) => !prev)}
-								sx={{ mb: 2 }}
-							>
-								<CheckIcon />
-								<span style={{ marginLeft: 8 }}>{reducedGraphData ? 'Reduced graph' : 'Full graph'}</span>
-							</ToggleButton>
-
-							<ForceGraphLegend items={legendItems} />
+						<div style={{ zIndex: 3, display: 'flex', flexDirection: 'column', gap: '20px' }}>
+							<div style={{ display: 'flex', flexDirection: 'column' }}>
+								<div style={{ display: 'flex', alignItems: 'center ', gap: '10px' }}>
+									<span style={{ fontWeight: '700', fontSize: '14px' }}>Detailed View</span>
+									<button
+										type="button"
+										onClick={() => setFullPlot((prev) => !prev)}
+										className={`plot-toggle ${fullPlot ? 'plot-toggle--on' : 'plot-toggle--off'}`}
+									>
+										<span className={`plot-toggle__knob ${fullPlot ? 'plot-toggle__knob--right' : ''}`} />
+									</button>
+								</div>
+								<ForceGraphLegend items={legendItems} />
+							</div>
 
 							{/* ✅ key forces D3 graph to remount when toggled (important for many D3 wrappers) */}
 							{/* ✅ This wrapper provides the measured width for the graph */}

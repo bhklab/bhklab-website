@@ -11,8 +11,7 @@ const StyledPaginate = styled.div`
 	/* Paginator always stays at bottom */
 	.pagination-container {
 		flex-shrink: 0;
-		margin-top: auto;
-		padding-top: 20px; /* keeps your existing spacing */
+		padding-top: 20px;
 	}
 	@media screen and (max-width: 650px) {
 		& .MuiCardContent-root {

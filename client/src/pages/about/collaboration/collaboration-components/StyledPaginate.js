@@ -13,11 +13,6 @@ const StyledPaginate = styled.div`
 	min-height: 0;
 	overflow: visible;
 
-	/* Pagination naturally sits under content */
-	.pagination-container {
-		margin-top: 20px;
-	}
-
 	@media screen and (max-width: 650px) {
 		& .MuiCardContent-root {
 			padding: 4px 0 0 4px !important;

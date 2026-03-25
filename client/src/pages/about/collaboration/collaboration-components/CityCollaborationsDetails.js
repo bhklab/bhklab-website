@@ -134,8 +134,6 @@ export default function CityCollaborationsDetails({ selectedCity, itemsPerPage =
 						: 'Click a city marker to load collaborations.'}
 				</Typography>
 			</div>
-
-			{/* ✅ Auto-height list (no internal scroll). Prevents stretching and cutoffs. */}
 			<div
 				style={{
 					display: 'grid',
