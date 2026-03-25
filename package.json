@@ -1,35 +1,33 @@
 {
-  "name": "bhklab-website",
-  "version": "0.0.0",
-  "description": "BHKLAB-web backend",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
-    "devstart": "nodemon app.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "nodemonConfig": {
-    "ignore": [
-      "client/*"
-    ]
-  },
-  "dependencies": {
-    "@sendgrid/mail": "^7.7.0",
-    "body-parser": "^1.20.1",
-    "cookie-parser": "^1.4.6",
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.1",
-    "express": "^4.18.1",
-    "express-session": "^1.17.3",
-    "http-errors": "^2.0.0",
-    "mongoose": "^6.5.2",
-    "morgan": "^1.10.0",
-    "npm": "^9.6.0",
-    "bcrypt": "^5.1.0",
-    "jsonwebtoken": "^9.0.0",
-    "nodemon": "^2.0.7"
-  }
+	"name": "bhklab-website",
+	"version": "0.0.0",
+	"description": "BHKLAB-web backend",
+	"main": "app.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node app.js",
+		"devstart": "nodemon app.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"nodemonConfig": {
+		"ignore": [
+			"client/*"
+		]
+	},
+	"dependencies": {
+		"@sendgrid/mail": "^8.1.6",
+		"body-parser": "^2.2.2",
+		"cookie-parser": "^1.4.6",
+		"cors": "^2.8.5",
+		"dotenv": "^17.3.1",
+		"express": "^5.2.1",
+		"http-errors": "^2.0.0",
+		"jsonwebtoken": "^9.0.0",
+		"mongoose": "^9.3.2",
+		"morgan": "^1.10.0",
+		"nodemon": "^3.1.14",
+		"npm": "^11.12.0"
+	}
 }
