@@ -1,10 +1,17 @@
-import React, { useEffect, useRef, useState, useMemo } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import axios from 'axios';
 import Container from '@mui/material/Container';
+
 import StyledHeading from '../../../styles/StyledHeading';
 import StyledCollabs from './CollaborationStyles';
+
 import ForceDirectedGraph from './collaboration-components/ForceDirectedGraph';
 import ForceGraphLegend from './collaboration-components/ForceGraphLegend';
+
+// ✅ NEW: publications map + details
+import PublicationsCountryMap from './collaboration-components/PublicationsCountryMap';
+import CountryPublicationsDetails from './collaboration-components/CountryPublicationsDetails';
+import { image } from 'd3-fetch';
 
 const legendItems = [
 	{ shape: 'person', label: 'Benjamin Haibe-Kains', color: '#079ee9ff' },
@@ -102,24 +109,92 @@ function createAdjacencyList(records) {
 	return { regular: nodesLinksMain, reduced: nodesLinksReduced };
 }
 
+// ✅ NEW: normalize country keys for matching map geographies <-> credits keys
+function normalizeCountryKey(name) {
+	const raw = String(name || '').trim();
+	if (!raw) return '';
+
+	const lower = raw.toLowerCase().trim();
+
+	// common aliases
+	if (['usa', 'u.s.a', 'u.s.a.', 'united states', 'united states of america'].includes(lower))
+		return 'united states of america';
+	if (['uk', 'u.k', 'u.k.', 'united kingdom', 'great britain'].includes(lower)) return 'united kingdom';
+
+	return lower
+		.replace(/&/g, 'and')
+		.replace(/[^a-z0-9 ]/g, '')
+		.replace(/\s+/g, ' ')
+		.trim();
+}
+
+// ✅ NEW: build per-country publication groups from publications[].credits
+function buildCountryGroupsFromPublications(publications) {
+	const byCountry = new Map();
+
+	(publications || []).forEach((pub) => {
+		const credits = pub?.credits && typeof pub.credits === 'object' ? pub.credits : null;
+		if (!credits) return;
+
+		Object.entries(credits).forEach(([countryName, people]) => {
+			const key = normalizeCountryKey(countryName);
+			if (!key) return;
+
+			if (!byCountry.has(key)) {
+				byCountry.set(key, {
+					key,
+					country: String(countryName),
+					publications: [],
+				});
+			}
+
+			const collaborators = Array.isArray(people) ? people.filter(Boolean).map(String) : [];
+
+			byCountry.get(key).publications.push({
+				// unique per country (same pub can appear in multiple countries)
+				id: `${String(pub._id)}-${key}`,
+				pubId: String(pub._id),
+				country: String(countryName),
+
+				title: pub?.title ? String(pub.title) : '',
+				url: pub?.url ? String(pub.url) : '',
+				year: pub?.year ?? null,
+				authors: pub?.authors ? String(pub.authors) : '',
+				publisher: pub?.publisher ? String(pub.publisher) : '',
+				doi: pub?.doi ? String(pub.doi) : '',
+				date: pub?.date ? String(pub.date) : '',
+				image: pub?.image ? String(pub.image) : '',
+
+				// ✅ only collaborators from THIS country
+				collaborators,
+			});
+		});
+	});
+
+	const groups = Array.from(byCountry.values()).map((g) => ({
+		...g,
+		count: g.publications.length,
+	}));
+
+	// Sort by # pubs, then name
+	groups.sort((a, b) => b.count - a.count || a.country.localeCompare(b.country));
+
+	return groups;
+}
+
 function Collaboration() {
+	// -------------------- FORCE GRAPH (collaborations endpoint) --------------------
 	const [isLoading, setIsLoading] = useState(true);
 	const [loadError, setLoadError] = useState(null);
 
-	// store BOTH graphs in a ref so they persist across renders
 	const graphsRef = useRef(null);
-
-	// toggle state
 	const [fullPlot, setFullPlot] = useState(false);
-
-	// current graph data to render
 	const [graphData, setGraphData] = useState({ nodes: [], links: [] });
 
-	// responsive sizing
+	// responsive sizing for graph
 	const graphShellRef = useRef(null);
 	const [graphDims, setGraphDims] = useState({ width: 900, height: 700 });
 
-	// memo options (avoid re-render loop from options={{}})
 	const graphOptions = useMemo(
 		() => ({
 			// keep your defaults here if you want
@@ -135,23 +210,18 @@ function Collaboration() {
 		if (!el) return;
 
 		const update = () => {
-			// Use getBoundingClientRect for more reliable measurement than clientWidth in some layouts.
 			const rect = el.getBoundingClientRect();
 			const w = Math.max(280, rect.width || 0);
 
-			// Bigger on desktop (up to 1400), fill whatever width the container provides
 			const width = Math.min(1400, w);
 
-			// Taller on mobile, larger overall on desktop
 			let height;
 			if (w < 600) {
-				// phones: a bit longer (taller)
+				// phones: taller (more room for labels + spacing)
 				height = Math.round(width * 1.85);
 			} else if (w < 1024) {
-				// tablets: moderately tall
 				height = Math.round(width * 0.95);
 			} else {
-				// desktop: bigger + reasonably tall
 				height = Math.round(width * 0.72);
 			}
 
@@ -190,31 +260,21 @@ function Collaboration() {
 				const payload = response?.data;
 
 				let data = [];
-
-				if (Array.isArray(payload)) {
-					data = payload;
-				} else if (Array.isArray(payload?.collaborations)) {
-					data = payload.collaborations;
-				} else if (Array.isArray(payload?.data)) {
-					data = payload.data;
-				}
+				if (Array.isArray(payload)) data = payload;
+				else if (Array.isArray(payload?.collaborations)) data = payload.collaborations;
+				else if (Array.isArray(payload?.data)) data = payload.data;
 
 				if (!isMounted) return;
 
-				// setRows(data);
-
-				// build both graphs once and store
 				const bothGraphs = createAdjacencyList(data);
 				graphsRef.current = bothGraphs;
 
-				// set initial graph to match toggle
 				setGraphData(fullPlot ? bothGraphs.regular : bothGraphs.reduced);
 			} catch (err) {
 				if (err?.name === 'CanceledError' || err?.code === 'ERR_CANCELED') return;
 
 				if (isMounted) {
 					setLoadError(err?.message || 'Failed to load collaborations');
-					// setRows([]);
 					setGraphData({ nodes: [], links: [] });
 				}
 			} finally {
@@ -228,41 +288,81 @@ function Collaboration() {
 			isMounted = false;
 			controller.abort();
 		};
-		// include reducedGraphData only if you want initial fetch to respect it;
-		// otherwise leave it out and rely on the toggle effect below.
 	}, []);
 
-	// when toggle changes, swap graphData from ref
 	useEffect(() => {
 		if (!graphsRef.current) return;
 		setGraphData(fullPlot ? graphsRef.current.regular : graphsRef.current.reduced);
 	}, [fullPlot]);
-	/*
-	const records = useMemo(() => (Array.isArray(rows) ? rows : []).map((r, i) => normalizeRecord(r, i)), [rows]);
 
-	const cityGroups = useMemo(
-		() => groupByCity(records).sort((a, b) => b.count - a.count || a.city.localeCompare(b.city)),
-		[records],
-	);
+	// -------------------- PUBLICATIONS MAP (publications endpoint) --------------------
+	const [pubLoading, setPubLoading] = useState(true);
+	const [pubError, setPubError] = useState(null);
+	const [countryGroups, setCountryGroups] = useState([]);
+	const [selectedCountryKey, setSelectedCountryKey] = useState(null);
 
 	useEffect(() => {
-		if (!cityGroups.length) return;
+		let isMounted = true;
+		const controller = new AbortController();
 
-		if (selectedCityKey && cityGroups.some((g) => g.key === selectedCityKey)) return;
+		const fetchPublications = async () => {
+			try {
+				setPubLoading(true);
+				setPubError(null);
 
-		const toronto = cityGroups.find((g) => g.city === 'Toronto' && g.country === 'Canada');
-		setSelectedCityKey(toronto?.key || cityGroups[0].key);
-	}, [cityGroups, selectedCityKey]);
+				const res = await axios.get('/api/data/publications', { signal: controller.signal });
+				const payload = res?.data;
 
-	const selectedCity = useMemo(
-		() => cityGroups.find((g) => g.key === selectedCityKey) || null,
-		[cityGroups, selectedCityKey],
+				// supports:
+				// 1) payload.publications
+				// 2) payload.data
+				// 3) payload is the array
+				let publications = [];
+				if (Array.isArray(payload)) publications = payload;
+				else if (Array.isArray(payload?.publications)) publications = payload.publications;
+				else if (Array.isArray(payload?.data)) publications = payload.data;
+
+				if (!isMounted) return;
+
+				const groups = buildCountryGroupsFromPublications(publications);
+				setCountryGroups(groups);
+			} catch (err) {
+				if (err?.name === 'CanceledError' || err?.code === 'ERR_CANCELED') return;
+				if (isMounted) setPubError(err?.message || 'Failed to load publications');
+			} finally {
+				if (isMounted) setPubLoading(false);
+			}
+		};
+
+		fetchPublications();
+
+		return () => {
+			isMounted = false;
+			controller.abort();
+		};
+	}, []);
+
+	// default selection: Canada if present, else first available
+	useEffect(() => {
+		if (!countryGroups.length) return;
+
+		if (selectedCountryKey && countryGroups.some((g) => g.key === selectedCountryKey)) return;
+
+		const canadaKey = normalizeCountryKey('Canada');
+		const canada = countryGroups.find((g) => g.key === canadaKey);
+
+		setSelectedCountryKey(canada ? canada.key : countryGroups[0].key);
+	}, [countryGroups, selectedCountryKey]);
+
+	const selectedCountry = useMemo(
+		() => countryGroups.find((g) => g.key === selectedCountryKey) || null,
+		[countryGroups, selectedCountryKey],
 	);
-	*/
 
 	return (
 		<Container maxWidth="lg" sx={{ mx: 'auto' }}>
 			<StyledHeading>Collaborations</StyledHeading>
+
 			<StyledCollabs
 				className="map-embed-shell"
 				style={{
@@ -278,6 +378,7 @@ function Collaboration() {
 
 				{!isLoading && !loadError && (
 					<div
+						className="collabs-stack"
 						style={{
 							width: '100%',
 							display: 'flex',
@@ -286,9 +387,10 @@ function Collaboration() {
 							position: 'relative',
 						}}
 					>
+						{/* ---------------- GRAPH ---------------- */}
 						<div style={{ zIndex: 3, display: 'flex', flexDirection: 'column', gap: '20px' }}>
 							<div style={{ display: 'flex', flexDirection: 'column' }}>
-								<div style={{ display: 'flex', alignItems: 'center ', gap: '10px' }}>
+								<div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
 									<span style={{ fontWeight: '700', fontSize: '14px' }}>Detailed View</span>
 									<button
 										type="button"
@@ -301,8 +403,6 @@ function Collaboration() {
 								<ForceGraphLegend items={legendItems} />
 							</div>
 
-							{/* ✅ key forces D3 graph to remount when toggled (important for many D3 wrappers) */}
-							{/* ✅ This wrapper provides the measured width for the graph */}
 							<div
 								ref={graphShellRef}
 								style={{
@@ -320,21 +420,31 @@ function Collaboration() {
 							</div>
 						</div>
 
-						{/*
-						<div style={{ position: 'relative', zIndex: 2 }}>
-							<CollaborationsMap
-								height={700}
-								cityGroups={cityGroups}
-								selectedCityKey={selectedCityKey}
-								onSelectCityKey={setSelectedCityKey}
-								showControls
-							/>
+						{/* ---------------- MAP (publications by country) ---------------- */}
+						<div className="collabs-map" style={{ zIndex: 2 }}>
+							{pubLoading && <div style={{ padding: 12 }}>Loading publications map...</div>}
+							{pubError && !pubLoading && (
+								<div style={{ padding: 12 }}>{`Failed to load publications: ${String(pubError)}`}</div>
+							)}
+
+							{!pubLoading && !pubError && (
+								<PublicationsCountryMap
+									countryGroups={countryGroups}
+									selectedCountryKey={selectedCountryKey}
+									onSelectCountryKey={setSelectedCountryKey}
+									// you can tweak these if you want
+									height={620}
+									showControls
+								/>
+							)}
 						</div>
 
-						<div style={{ position: 'relative', zIndex: 1 }}>
-							<CityCollaborationsDetails selectedCity={selectedCity} itemsPerPage={5} />
+						{/* ---------------- DETAILS (publications for selected country) ---------------- */}
+						<div className="collabs-details" style={{ zIndex: 1 }}>
+							{!pubLoading && !pubError && (
+								<CountryPublicationsDetails selectedCountry={selectedCountry} itemsPerPage={5} />
+							)}
 						</div>
-						*/}
 					</div>
 				)}
 			</StyledCollabs>
