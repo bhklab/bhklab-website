@@ -1,3 +1,4 @@
+// src/components/.../Collaboration.jsx
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import axios from 'axios';
 import Container from '@mui/material/Container';
@@ -8,10 +9,9 @@ import StyledCollabs from './CollaborationStyles';
 import ForceDirectedGraph from './collaboration-components/ForceDirectedGraph';
 import ForceGraphLegend from './collaboration-components/ForceGraphLegend';
 
-// ✅ NEW: publications map + details
+// ✅ publications map + details
 import PublicationsCountryMap from './collaboration-components/PublicationsCountryMap';
 import CountryPublicationsDetails from './collaboration-components/CountryPublicationsDetails';
-import { image } from 'd3-fetch';
 
 const legendItems = [
 	{ shape: 'person', label: 'Benjamin Haibe-Kains', color: '#079ee9ff' },
@@ -55,7 +55,6 @@ function createAdjacencyList(records) {
 	displays.set('BHK', { color: '#079ee9ff', symbol: 'person', size: 1000 });
 
 	records.forEach((r) => {
-		// NOTE: your API objects use maincollab/othercollabs — keep this as-is
 		const main = r.maincollab;
 		const others = r.othercollabs !== 'NA' ? r.othercollabs.split(',').map((s) => s.trim()) : [];
 		const members = r.members !== 'NA' ? r.members.split(',').map((s) => s.trim()) : [];
@@ -109,7 +108,7 @@ function createAdjacencyList(records) {
 	return { regular: nodesLinksMain, reduced: nodesLinksReduced };
 }
 
-// ✅ NEW: normalize country keys for matching map geographies <-> credits keys
+// ✅ normalize country keys for matching map geographies <-> credits keys
 function normalizeCountryKey(name) {
 	const raw = String(name || '').trim();
 	if (!raw) return '';
@@ -128,7 +127,7 @@ function normalizeCountryKey(name) {
 		.trim();
 }
 
-// ✅ NEW: build per-country publication groups from publications[].credits
+// ✅ build per-country publication groups from publications[].credits
 function buildCountryGroupsFromPublications(publications) {
 	const byCountry = new Map();
 
@@ -151,7 +150,6 @@ function buildCountryGroupsFromPublications(publications) {
 			const collaborators = Array.isArray(people) ? people.filter(Boolean).map(String) : [];
 
 			byCountry.get(key).publications.push({
-				// unique per country (same pub can appear in multiple countries)
 				id: `${String(pub._id)}-${key}`,
 				pubId: String(pub._id),
 				country: String(countryName),
@@ -165,7 +163,6 @@ function buildCountryGroupsFromPublications(publications) {
 				date: pub?.date ? String(pub.date) : '',
 				image: pub?.image ? String(pub.image) : '',
 
-				// ✅ only collaborators from THIS country
 				collaborators,
 			});
 		});
@@ -176,9 +173,7 @@ function buildCountryGroupsFromPublications(publications) {
 		count: g.publications.length,
 	}));
 
-	// Sort by # pubs, then name
 	groups.sort((a, b) => b.count - a.count || a.country.localeCompare(b.country));
-
 	return groups;
 }
 
@@ -186,6 +181,9 @@ function Collaboration() {
 	// -------------------- FORCE GRAPH (collaborations endpoint) --------------------
 	const [isLoading, setIsLoading] = useState(true);
 	const [loadError, setLoadError] = useState(null);
+
+	// ✅ View toggle: true = MAP, false = GRAPH
+	const [showMap, setShowMap] = useState(true);
 
 	const graphsRef = useRef(null);
 	const [fullPlot, setFullPlot] = useState(false);
@@ -195,15 +193,11 @@ function Collaboration() {
 	const graphShellRef = useRef(null);
 	const [graphDims, setGraphDims] = useState({ width: 900, height: 700 });
 
-	const graphOptions = useMemo(
-		() => ({
-			// keep your defaults here if you want
-		}),
-		[],
-	);
+	const graphOptions = useMemo(() => ({}), []);
 
 	useEffect(() => {
-		// Don't attach observers until the graph is actually rendered.
+		// Only measure when the GRAPH view is visible
+		if (showMap) return;
 		if (isLoading || loadError) return;
 
 		const el = graphShellRef.current;
@@ -216,14 +210,9 @@ function Collaboration() {
 			const width = Math.min(1400, w);
 
 			let height;
-			if (w < 600) {
-				// phones: taller (more room for labels + spacing)
-				height = Math.round(width * 1.85);
-			} else if (w < 1024) {
-				height = Math.round(width * 0.95);
-			} else {
-				height = Math.round(width * 0.72);
-			}
+			if (w < 600) height = Math.round(width * 1.95);
+			else if (w < 1024) height = Math.round(width * 0.9);
+			else height = Math.round(width * 0.72);
 
 			setGraphDims({
 				width: Math.max(280, width),
@@ -245,7 +234,7 @@ function Collaboration() {
 			if (ro) ro.disconnect();
 			else window.removeEventListener('resize', update);
 		};
-	}, [isLoading, loadError]);
+	}, [showMap, isLoading, loadError]);
 
 	useEffect(() => {
 		let isMounted = true;
@@ -301,6 +290,52 @@ function Collaboration() {
 	const [countryGroups, setCountryGroups] = useState([]);
 	const [selectedCountryKey, setSelectedCountryKey] = useState(null);
 
+	// ✅ responsive sizing for MAP
+	const mapShellRef = useRef(null);
+	const [mapHeight, setMapHeight] = useState(620);
+
+	useEffect(() => {
+		// Only measure when the MAP view is visible
+		if (!showMap) return;
+		if (pubLoading || pubError) return;
+
+		const el = mapShellRef.current;
+		if (!el) return;
+
+		const update = () => {
+			const rect = el.getBoundingClientRect();
+			const w = Math.max(280, rect.width || 0);
+
+			// Height behavior:
+			// - Mobile: taller
+			// - Tablet: moderate
+			// - Desktop: classic map aspect (~0.55-0.6)
+			let h;
+			if (w < 600)
+				h = Math.round(w * 0.88); // phones: longer/taller
+			else if (w < 1024)
+				h = Math.round(w * 0.68); // tablets
+			else h = Math.round(w * 0.58); // desktop
+
+			setMapHeight(Math.max(420, Math.min(900, h)));
+		};
+
+		update();
+
+		let ro;
+		if (typeof ResizeObserver !== 'undefined') {
+			ro = new ResizeObserver(() => update());
+			ro.observe(el);
+		} else {
+			window.addEventListener('resize', update);
+		}
+
+		return () => {
+			if (ro) ro.disconnect();
+			else window.removeEventListener('resize', update);
+		};
+	}, [showMap, pubLoading, pubError]);
+
 	useEffect(() => {
 		let isMounted = true;
 		const controller = new AbortController();
@@ -313,10 +348,6 @@ function Collaboration() {
 				const res = await axios.get('/api/data/publications', { signal: controller.signal });
 				const payload = res?.data;
 
-				// supports:
-				// 1) payload.publications
-				// 2) payload.data
-				// 3) payload is the array
 				let publications = [];
 				if (Array.isArray(payload)) publications = payload;
 				else if (Array.isArray(payload?.publications)) publications = payload.publications;
@@ -375,6 +406,25 @@ function Collaboration() {
 			>
 				{isLoading && <div style={{ padding: 12 }}>Loading collaborations...</div>}
 				{loadError && !isLoading && <div style={{ padding: 12 }}>{`Failed to load: ${String(loadError)}`}</div>}
+				{!isLoading && !loadError && (
+					<div className="view-toggle-row">
+						<span className="view-toggle-title">World Collaborations</span>
+						<div className="view-toggle-control">
+							<span className="view-toggle-label">Map</span>
+							<button
+								type="button"
+								onClick={() => setShowMap((prev) => !prev)}
+								// ✅ green/ON = Graph (matches your Detailed View toggle behavior)
+								className={`map-toggle ${showMap ? 'map-toggle--off' : 'map-toggle--on'}`}
+								aria-label="Toggle between Map and Graph view"
+								aria-pressed={!showMap}
+							>
+								<span className={`map-toggle__knob ${showMap ? '' : 'map-toggle__knob--right'}`} />
+							</button>
+							<span className="view-toggle-label">Graph</span>
+						</div>
+					</div>
+				)}
 
 				{!isLoading && !loadError && (
 					<div
@@ -387,64 +437,79 @@ function Collaboration() {
 							position: 'relative',
 						}}
 					>
-						{/* ---------------- GRAPH ---------------- */}
-						<div style={{ zIndex: 3, display: 'flex', flexDirection: 'column', gap: '20px' }}>
-							<div style={{ display: 'flex', flexDirection: 'column' }}>
-								<div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-									<span style={{ fontWeight: '700', fontSize: '14px' }}>Detailed View</span>
-									<button
-										type="button"
-										onClick={() => setFullPlot((prev) => !prev)}
-										className={`plot-toggle ${fullPlot ? 'plot-toggle--on' : 'plot-toggle--off'}`}
+						{!showMap ? (
+							<>
+								{/* ---------------- GRAPH ---------------- */}
+								<div style={{ zIndex: 3, display: 'flex', flexDirection: 'column', gap: 20 }}>
+									<div style={{ display: 'flex', flexDirection: 'column' }}>
+										<div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+											<span style={{ fontWeight: 700, fontSize: 14 }}>Detailed View</span>
+											<button
+												type="button"
+												onClick={() => setFullPlot((prev) => !prev)}
+												className={`plot-toggle ${fullPlot ? 'plot-toggle--on' : 'plot-toggle--off'}`}
+												aria-label="Toggle reduced/full graph"
+											>
+												<span className={`plot-toggle__knob ${fullPlot ? 'plot-toggle__knob--right' : ''}`} />
+											</button>
+										</div>
+										<ForceGraphLegend items={legendItems} />
+									</div>
+
+									<div
+										ref={graphShellRef}
+										style={{
+											width: '100%',
+											minWidth: 0,
+											maxWidth: '100%',
+										}}
 									>
-										<span className={`plot-toggle__knob ${fullPlot ? 'plot-toggle__knob--right' : ''}`} />
-									</button>
+										<ForceDirectedGraph
+											graph={graphData}
+											width={graphDims.width}
+											height={graphDims.height}
+											options={graphOptions}
+										/>
+									</div>
 								</div>
-								<ForceGraphLegend items={legendItems} />
-							</div>
+							</>
+						) : (
+							<>
+								{/* ---------------- MAP (publications by country) ---------------- */}
+								<div className="collabs-map" style={{ zIndex: 2 }}>
+									{pubLoading && <div style={{ padding: 12 }}>Loading publications map...</div>}
+									{pubError && !pubLoading && (
+										<div style={{ padding: 12 }}>{`Failed to load publications: ${String(pubError)}`}</div>
+									)}
 
-							<div
-								ref={graphShellRef}
-								style={{
-									width: '100%',
-									minWidth: 0,
-									maxWidth: '100%',
-								}}
-							>
-								<ForceDirectedGraph
-									graph={graphData}
-									width={graphDims.width}
-									height={graphDims.height}
-									options={graphOptions}
-								/>
-							</div>
-						</div>
+									{!pubLoading && !pubError && (
+										<div
+											ref={mapShellRef}
+											style={{
+												width: '100%',
+												minWidth: 0,
+												maxWidth: '100%',
+											}}
+										>
+											<PublicationsCountryMap
+												countryGroups={countryGroups}
+												selectedCountryKey={selectedCountryKey}
+												onSelectCountryKey={setSelectedCountryKey}
+												height={mapHeight}
+												showControls
+											/>
+										</div>
+									)}
+								</div>
 
-						{/* ---------------- MAP (publications by country) ---------------- */}
-						<div className="collabs-map" style={{ zIndex: 2 }}>
-							{pubLoading && <div style={{ padding: 12 }}>Loading publications map...</div>}
-							{pubError && !pubLoading && (
-								<div style={{ padding: 12 }}>{`Failed to load publications: ${String(pubError)}`}</div>
-							)}
-
-							{!pubLoading && !pubError && (
-								<PublicationsCountryMap
-									countryGroups={countryGroups}
-									selectedCountryKey={selectedCountryKey}
-									onSelectCountryKey={setSelectedCountryKey}
-									// you can tweak these if you want
-									height={620}
-									showControls
-								/>
-							)}
-						</div>
-
-						{/* ---------------- DETAILS (publications for selected country) ---------------- */}
-						<div className="collabs-details" style={{ zIndex: 1 }}>
-							{!pubLoading && !pubError && (
-								<CountryPublicationsDetails selectedCountry={selectedCountry} itemsPerPage={5} />
-							)}
-						</div>
+								{/* ---------------- DETAILS ---------------- */}
+								<div className="collabs-details" style={{ zIndex: 1 }}>
+									{!pubLoading && !pubError && (
+										<CountryPublicationsDetails selectedCountry={selectedCountry} itemsPerPage={5} />
+									)}
+								</div>
+							</>
+						)}
 					</div>
 				)}
 			</StyledCollabs>

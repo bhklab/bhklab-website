@@ -96,7 +96,7 @@ function PublicationCard({ publication, countryName }) {
 
 				{/* ✅ Core Collaborations (country-specific credits) */}
 				<StyledLocation>
-					<b>{`Core Collaborations (${countryName})`}</b>: {coreCollabs}
+					<b>{`Core Collaborators`}</b>: {coreCollabs}
 				</StyledLocation>
 
 				{date && <StyledDate>{formatDate(date)}</StyledDate>}

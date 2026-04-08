@@ -184,13 +184,20 @@ export default function PublicationsCountryMap({
 						<Geographies geography={GEO_URL}>
 							{({ geographies }) =>
 								geographies.map((geo) => {
-									const name = geo?.properties?.name || '';
+									const name = geo?.properties?.name || geo?.properties?.NAME || '';
 									const key = resolveKeyForGeo(name);
 									const hasData = Boolean(key);
+
+									const group = key ? groupsByKey.get(key) : null;
+									const count = group?.publications?.length ?? group?.count ?? 0;
 
 									const isSelected = key && selectedCountryKey === key;
 
 									const fill = isSelected ? '#60a5fa' : hasData ? '#cfe3ff' : '#e2e8f0';
+
+									const tooltipText = hasData
+										? `${name || 'Unknown'} — ${count} publication${count === 1 ? '' : 's'}`
+										: `${name || 'Unknown'}`;
 
 									return (
 										<Geography
@@ -225,7 +232,10 @@ export default function PublicationsCountryMap({
 													outline: 'none',
 												},
 											}}
-										/>
+										>
+											{/* ✅ Native SVG tooltip */}
+											<title>{tooltipText}</title>
+										</Geography>
 									);
 								})
 							}
