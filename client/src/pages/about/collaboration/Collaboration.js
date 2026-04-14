@@ -11,7 +11,6 @@ import ForceGraphLegend from './collaboration-components/ForceGraphLegend';
 
 // ✅ publications map + details
 import PublicationsCountryMap from './collaboration-components/PublicationsCountryMap';
-import CountryPublicationsDetails from './collaboration-components/CountryPublicationsDetails';
 
 const legendItems = [
 	{ shape: 'person', label: 'Benjamin Haibe-Kains', color: '#079ee9ff' },
@@ -144,10 +143,17 @@ function buildCountryGroupsFromPublications(publications) {
 					key,
 					country: String(countryName),
 					publications: [],
+					unique_authors: new Set(),
 				});
 			}
 
 			const collaborators = Array.isArray(people) ? people.filter(Boolean).map(String) : [];
+			collaborators.forEach((c) => {
+				const separated = c.split(' ');
+				const first_name = separated[0].toLowerCase() || c;
+				const last_name = separated.length > 1 ? separated[separated.length - 1].toLowerCase() : '';
+				byCountry.get(key).unique_authors.add(`${first_name} ${last_name}`);
+			});
 
 			byCountry.get(key).publications.push({
 				id: `${String(pub._id)}-${key}`,
@@ -174,6 +180,7 @@ function buildCountryGroupsFromPublications(publications) {
 	}));
 
 	groups.sort((a, b) => b.count - a.count || a.country.localeCompare(b.country));
+	console.log(groups);
 	return groups;
 }
 
@@ -499,13 +506,6 @@ function Collaboration() {
 												showControls
 											/>
 										</div>
-									)}
-								</div>
-
-								{/* ---------------- DETAILS ---------------- */}
-								<div className="collabs-details" style={{ zIndex: 1 }}>
-									{!pubLoading && !pubError && (
-										<CountryPublicationsDetails selectedCountry={selectedCountry} itemsPerPage={5} />
 									)}
 								</div>
 							</>

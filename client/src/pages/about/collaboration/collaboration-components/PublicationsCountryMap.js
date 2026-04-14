@@ -190,13 +190,14 @@ export default function PublicationsCountryMap({
 
 									const group = key ? groupsByKey.get(key) : null;
 									const count = group?.publications?.length ?? group?.count ?? 0;
+									const unique_authors = group?.unique_authors?.size ?? 0;
 
 									const isSelected = key && selectedCountryKey === key;
 
 									const fill = isSelected ? '#60a5fa' : hasData ? '#cfe3ff' : '#e2e8f0';
 
 									const tooltipText = hasData
-										? `${name || 'Unknown'} — ${count} publication${count === 1 ? '' : 's'}`
+										? `${name || 'Unknown'} — ${count} publication${count === 1 ? '' : 's'} (${unique_authors} unique author${unique_authors === 1 ? '' : 's'})`
 										: `${name || 'Unknown'}`;
 
 									return (
