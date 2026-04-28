@@ -52,11 +52,12 @@ const StyledCollabs = styled.div`
 	/* ---------------- Toggle rows (Map/Graph + Detailed View) ---------------- */
 	.view-toggle-row {
 		display: flex;
-		align-items: center;
+		align-items: flex-start;
 		justify-content: space-between;
 		gap: 12px;
 		padding: 6px 0 18px 0;
 		flex-wrap: wrap;
+		position: relative;
 	}
 
 	.view-toggle-title {
@@ -68,6 +69,12 @@ const StyledCollabs = styled.div`
 		display: inline-flex;
 		align-items: center;
 		gap: 10px;
+
+		/* desktop: move only Map / toggle / Graph lower */
+		position: absolute;
+		right: 0;
+		top: 40px;
+		z-index: 20;
 	}
 
 	.view-toggle-label {
@@ -76,6 +83,19 @@ const StyledCollabs = styled.div`
 		opacity: 0.9;
 	}
 
+	/* mobile: put it back into normal flow so it doesn't overlap */
+	@media (max-width: 600px) {
+		.view-toggle-row {
+			flex-direction: column;
+			align-items: flex-start;
+			padding-bottom: 18px;
+		}
+
+		.view-toggle-control {
+			position: static;
+			margin-top: 8px;
+		}
+	}
 	/* ---------------- Shared flip-switch (plot-toggle + map-toggle) ---------------- */
 	.plot-toggle,
 	.map-toggle {
@@ -126,10 +146,11 @@ const StyledCollabs = styled.div`
 	.plot-toggle__knob,
 	.map-toggle__knob {
 		display: inline-block;
+		flex-shrink: 0;
 
-		/* knob size */
 		height: 22px;
 		width: 22px;
+		min-width: 22px;
 
 		border-radius: 9999px;
 		background-color: #ffffff;

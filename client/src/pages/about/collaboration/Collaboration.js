@@ -415,19 +415,21 @@ function Collaboration() {
 				{loadError && !isLoading && <div style={{ padding: 12 }}>{`Failed to load: ${String(loadError)}`}</div>}
 				{!isLoading && !loadError && (
 					<div className="view-toggle-row">
-						<span className="view-toggle-title">World Collaborations</span>
+						<span className="view-toggle-title">{showMap ? 'World Publication Map' : 'Collaboration Graph'}</span>
+
 						<div className="view-toggle-control">
 							<span className="view-toggle-label">Map</span>
+
 							<button
 								type="button"
 								onClick={() => setShowMap((prev) => !prev)}
-								// ✅ green/ON = Graph (matches your Detailed View toggle behavior)
 								className={`map-toggle ${showMap ? 'map-toggle--off' : 'map-toggle--on'}`}
 								aria-label="Toggle between Map and Graph view"
 								aria-pressed={!showMap}
 							>
 								<span className={`map-toggle__knob ${showMap ? '' : 'map-toggle__knob--right'}`} />
 							</button>
+
 							<span className="view-toggle-label">Graph</span>
 						</div>
 					</div>
