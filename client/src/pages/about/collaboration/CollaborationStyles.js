@@ -103,8 +103,8 @@ const StyledCollabs = styled.div`
 		display: inline-flex;
 
 		/* ✅ larger size so it matches your other toggle visually */
-		height: 28px;
-		width: 56px;
+		height: 20px;
+		width: 36px;
 
 		cursor: pointer;
 		border-radius: 9999px;
@@ -148,9 +148,8 @@ const StyledCollabs = styled.div`
 		display: inline-block;
 		flex-shrink: 0;
 
-		height: 22px;
-		width: 22px;
-		min-width: 22px;
+		height: 14px;
+		min-width: 14px;
 
 		border-radius: 9999px;
 		background-color: #ffffff;
@@ -163,7 +162,7 @@ const StyledCollabs = styled.div`
 	/* travel = width(56) - knob(22) - padding*2(6) = 28px */
 	.plot-toggle__knob--right,
 	.map-toggle__knob--right {
-		transform: translateX(28px);
+		transform: translateX(16px);
 	}
 
 	/* existing structure helper */
