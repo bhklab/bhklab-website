@@ -2,222 +2,192 @@ import styled from 'styled-components';
 import colors from '../../../styles/colors';
 
 const StyledNavigation = styled.nav`
-  height: 70px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  z-index: 1000;
-  box-shadow: 0px 0px 10px ${colors.card_shadow_color};
+	height: 70px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: fixed;
+	z-index: 1000;
+	box-shadow: 0px 0px 10px ${colors.card_shadow_color};
+	padding: 0 clamp(16px, 5vw, 80px);
+	box-sizing: border-box;
 `;
 
 const LogoContainer = styled.div`
-  margin-left: 5vw;
-  padding: 5px;
-  width: 20vw;
-  & img {
-    height: 50px;
-  }
+	padding: 5px;
+	flex: 0 0 auto;
+
+	& img {
+		height: 50px;
+		display: block;
+	}
 `;
 
 const NavLinks = styled.div`
-  width: 70vw;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  font-size: 0.9rem;
+	flex: 1;
+	min-width: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	gap: clamp(10px, 1.3vw, 26px);
+	font-size: clamp(0.72rem, 0.85vw, 0.95rem);
+	white-space: nowrap;
 
-  a:hover {
-    color: ${colors.link_color} !important;
-  }
-  .link-pressed {
-	color: ${colors.link_color} !important;
-  }
-  .header-link {
-    position: relative;
-  }
+	a {
+		text-decoration: none;
+	}
 
-  .dropbtn {
-    color: ${colors.primary_text_color};
-  }
+	a:hover {
+		color: ${colors.link_color} !important;
+	}
 
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    /* margin-top: 5px; */
-    border-radius: 1px;
-    box-shadow: 0px 5px 5px 0px ${colors.card_shadow_color};
-    z-index: 999;
-  }  
+	.link-pressed {
+		color: ${colors.link_color} !important;
+	}
 
-  .dropdown-content a {
-    display: block;
-    color: ${colors.primary_text_color};
-    padding: 12px 16px;
-    text-decoration: none;
-    background-color: ${colors.white_color};
-    -webkit-transition: color 0.2s ease-out;
-    -moz-transition: color 0.2s ease-out;
-    -o-transition: color 0.2s ease-out;
-    transition: color 0.2s ease-out;
-  }
+	.header-link {
+		position: relative;
+		flex: 0 0 auto;
+	}
 
-  .dropdown-content a:hover {
-    color: ${colors.link_color};
-  }
+	.dropbtn {
+		color: ${colors.primary_text_color};
+	}
 
-  .header-link:hover, .dropbtn:hover {
-   .dropdown-content {
-    display: block;
-   }
-  }
-  
-  @media only screen and (max-width: 1000px) {
-    display: none;
-  }
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		border-radius: 1px;
+		box-shadow: 0px 5px 5px 0px ${colors.card_shadow_color};
+		z-index: 999;
+	}
 
-  @media only screen and (min-width: 1200px) {
-    width: 55vw;
-  }
+	.dropdown-content a {
+		display: block;
+		color: ${colors.primary_text_color};
+		padding: 12px 16px;
+		text-decoration: none;
+		background-color: ${colors.white_color};
+		transition: color 0.2s ease-out;
+	}
 
-  @media only screen and (min-width: 1600px) {
-    width: 50vw;
-  }
+	.dropdown-content a:hover {
+		color: ${colors.link_color};
+	}
 
-  @media only screen and (min-width: 1950px) {
-    width: 35vw;
-    font-size: 1.05rem;
-  }
+	.header-link:hover,
+	.dropbtn:hover {
+		.dropdown-content {
+			display: block;
+		}
+	}
 
-  
+	@media only screen and (max-width: 1023px) {
+		display: none;
+	}
 `;
 
 const BurgerNav = styled.div`
-  position: fixed;
-  right: 0;
-  top: 0;
-  margin-right: 15vw;
-  /*react-burger-nav style*/
+	position: fixed;
+	right: 0;
+	top: 0;
 
-  /* Position and sizing of burger button */
+	.burger-menu {
+		box-shadow: 0px 0px 10px ${colors.card_shadow_color};
+	}
 
-  .burger-menu {
-    box-shadow: 0px 0px 10px ${colors.card_shadow_color};
-  }
+	.bm-burger-button {
+		position: fixed;
+		width: 36px;
+		height: 30px;
+		top: 20px;
+		right: clamp(16px, 5vw, 80px);
+	}
 
-  .bm-burger-button {
-    position: fixed;
-    width: 36px;
-    height: 30px;
-    top: 15px;
-    right: 15vw;
-  }
+	.bm-burger-bars {
+		background: ${colors.primary_text_color};
+	}
 
-  /* Color/shape of burger icon bars */
+	.bm-burger-bars-hover {
+		background: ${colors.dark_gray};
+	}
 
-  .bm-burger-bars {
-    background: ${colors.primary_text_color};
-  }
+	.bm-cross-button {
+		margin: 20px;
+	}
 
-  /* Color/shape of burger icon bars on hover*/
+	.bm-cross {
+		background: ${colors.dark_gray};
+		height: 20px !important;
+	}
 
-  .bm-burger-bars-hover {
-    background: ${colors.dark_gray};
-  }
+	.bm-menu-wrap {
+		position: fixed;
+		height: 100%;
+	}
 
-  /* Position and sizing of clickable cross button */
+	.bm-menu {
+		background: ${colors.white_color};
+		padding: 30px 10px 20px 10px;
+		font-size: 12px;
 
-  .bm-cross-button {
-    margin: 20px;
-  }
+		nav {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
 
-  /* Color/shape of close button cross */
+			a {
+				margin-bottom: 15px;
+				color: ${colors.primary_text_color};
+			}
 
-  .bm-cross {
-    background: ${colors.dark_gray};
-    height: 20px !important;
-  }
+			a:hover {
+				color: ${colors.link_color};
+			}
 
-  /*
-  Sidebar wrapper styles
-  Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
-  */
+			button {
+				text-align: center;
+			}
 
-  .bm-menu-wrap {
-    position: fixed;
-    height: 100%;
-  }
+			.status {
+				display: flex;
+			}
+		}
+	}
 
-  /* General sidebar styles */
+	.bm-morph-shape {
+		fill: ${colors.primary_text_color};
+	}
 
-  .bm-menu {
-    background: ${colors.white_color};
-    padding: 30px 10px 20px 10px;
-    font-size: 12px;
+	.bm-item-list {
+		margin-top: 50px;
+		padding: 20px;
+	}
 
-    nav {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+	.bm-item {
+		padding: 5px 0;
+	}
 
-      a {
-        margin-bottom: 15px;
-        color: ${colors.primary_text_color};
-      }
+	.bm-overlay {
+	}
 
-      a:hover {
-        color: ${colors.link_color};
-      }
+	@media only screen and (min-width: 1024px) {
+		display: none;
 
-      button {
-        text-align: center;
-      }
+		.bm-burger-button {
+			display: none;
+		}
 
-      .status {
-        display: flex;
-      }
-    }
-  }
+		.bm-menu {
+			display: none;
+		}
 
-  /* Morph shape necessary with bubble or elastic */
-  .bm-morph-shape {
-    fill: ${colors.primary_text_color};
-  }
-
-  /* Wrapper for item list */
-
-  .bm-item-list {
-    margin-top: 50px;
-    padding: 20px;
-  }
-
-  /* Individual item */
-
-  .bm-item {
-    /* text-align: left; */
-    padding: 5px 0;
-  }
-
-  /* Styling of overlay */
-  .bm-overlay {
-  }
-
-  @media only screen and (min-width: 1001px) {
-    display: none;
-    .bm-burger-button {
-      display: none;
-    }
-
-    .bm-menu {
-      display: none;
-    }
-
-    .bm-cross {
-      display: none;
-    }
-  }
+		.bm-cross {
+			display: none;
+		}
+	}
 `;
 
 const styles = {
@@ -225,8 +195,8 @@ const styles = {
 		position: 'fixed',
 		width: '27px',
 		height: '20px',
-		right: '10vw',
-		top: '15px',
+		right: 'clamp(16px, 5vw, 80px)',
+		top: '25px',
 	},
 	bmBurgerBars: {
 		background: `${colors.bmBurgerBars}`,
@@ -258,10 +228,4 @@ const styles = {
 	},
 };
 
-export {
-	BurgerNav,
-	styles,
-	StyledNavigation,
-	NavLinks,
-	LogoContainer,
-};
+export { BurgerNav, styles, StyledNavigation, NavLinks, LogoContainer };
