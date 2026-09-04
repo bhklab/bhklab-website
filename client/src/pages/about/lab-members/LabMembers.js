@@ -5,19 +5,25 @@ import axios from 'axios';
 import Container from '@mui/material/Container';
 import StyledHeading from '../../../styles/StyledHeading';
 import {
-	StyledCard, StyledImage, StyledName, StyledTitle, StyledPeople, StyledSocials, StyledEmail,
+	StyledCard,
+	StyledImage,
+	StyledName,
+	StyledTitle,
+	StyledPeople,
+	StyledSocials,
+	StyledEmail,
 } from './MembersOverviewStyles';
 import BasicModal from '../../../components/utils/Modal';
 import PiInDetail from './PiInDetail';
 
 const PI_BIO = `
-	Dr. Benjamin Haibe-Kains is a Senior Scientist at the Princess Margaret Cancer Centre (PM), 
-	University Health Network, and Professor in the Medical Biophysics Department of the University 
-	of Toronto. Dr. Haibe-Kains earned his PhD in Bioinformatics at the Université Libre de Bruxelles 
+	Dr. Benjamin Haibe-Kains is the Executive AI Scientific Director at University Health Network, 
+	a Senior Scientist at Princess Margaret Cancer Centre (UHN), and a Professor in the Department of Medical Biophysics at the University of Toronto. 
+	Dr. Haibe-Kains earned his PhD in Bioinformatics at the Université Libre de Bruxelles 
 	(Belgium). Supported by a Fulbright Award, he did his postdoctoral fellowship at the Dana-Farber 
 	Cancer Institute and Harvard School of Public Health (USA). He is now the Canada Research Chair 
 	in Computational Pharmacogenomics, the Scientific Director of the Cancer Digital Intelligence 
-	Program at PM, and Head of Data Science of the Structural Genomics Concortium. Dr. Haibe-Kains’ 
+	Program at PM, and Head of Data Science of the Structural Genomics Consortium. Dr. Haibe-Kains’ 
 	research focuses on integrating high-throughput data from various sources to jointly analyze multiple 
 	facets of cancer progression and therapy response using machine learning and artificial intelligence 
 	methods. Dr. Haibe-Kains’ team analyzes large-scale chemical, radiological and (pharmaco)genomic 
@@ -25,9 +31,7 @@ const PI_BIO = `
 `;
 
 // eslint-disable-next-line react/prop-types
-function MemberHeadShot({
-	title, description, imageUrl, item, linkedIn, twitter, email, bluesky,
-}) {
+function MemberHeadShot({ title, description, imageUrl, item, linkedIn, twitter, email, bluesky }) {
 	return (
 		<StyledCard>
 			<div style={{ height: '250px', width: '250px' }}>
@@ -37,24 +41,19 @@ function MemberHeadShot({
 			<StyledTitle>{description}</StyledTitle>
 			<BasicModal person={item} />
 			<StyledSocials>
-				{twitter
-					&& (
-						<a
-							href={twitter}
-							target="_blank"
-							rel="noreferrer"
-						>
-							<img src="/images/social-media/x.png" alt="X" style={{ maxWidth: '20px', borderRadius: '5px' }} />
-						</a>
-					)}
-				{bluesky
-					&& (bluesky.includes('http') ? (
-						<a
-							href={bluesky}
-							target="_blank"
-							rel="noreferrer"
-						>
-							<img src="/images/social-media/bluesky-icon.png" alt="bluesky" style={{ maxWidth: '20px', borderRadius: '5px' }} />
+				{twitter && (
+					<a href={twitter} target="_blank" rel="noreferrer">
+						<img src="/images/social-media/x.png" alt="X" style={{ maxWidth: '20px', borderRadius: '5px' }} />
+					</a>
+				)}
+				{bluesky &&
+					(bluesky.includes('http') ? (
+						<a href={bluesky} target="_blank" rel="noreferrer">
+							<img
+								src="/images/social-media/bluesky-icon.png"
+								alt="bluesky"
+								style={{ maxWidth: '20px', borderRadius: '5px' }}
+							/>
 						</a>
 					) : (
 						<a
@@ -62,23 +61,24 @@ function MemberHeadShot({
 							target="_blank"
 							rel="noreferrer"
 						>
-							<img src="/images/social-media/bluesky-icon.png" alt="bluesky" style={{ maxWidth: '20px', borderRadius: '5px' }} />
+							<img
+								src="/images/social-media/bluesky-icon.png"
+								alt="bluesky"
+								style={{ maxWidth: '20px', borderRadius: '5px' }}
+							/>
 						</a>
 					))}
-				{linkedIn
-				&& (
-					<a
-						href={linkedIn}
-						target="_blank"
-						rel="noreferrer"
-					>
-						<img src="/images/social-media/linkedin-icon.png" alt="linkedin" style={{ maxWidth: '20px', borderRadius: '5px' }} />
+				{linkedIn && (
+					<a href={linkedIn} target="_blank" rel="noreferrer">
+						<img
+							src="/images/social-media/linkedin-icon.png"
+							alt="linkedin"
+							style={{ maxWidth: '20px', borderRadius: '5px' }}
+						/>
 					</a>
 				)}
 			</StyledSocials>
-			<StyledEmail>
-				{email.toLowerCase()}
-			</StyledEmail>
+			<StyledEmail>{email.toLowerCase()}</StyledEmail>
 		</StyledCard>
 	);
 }
@@ -134,7 +134,7 @@ const sortMembers = (people) => {
 		Volunteer: 26,
 		Other: 27,
 	};
-	const result = people.sort((a, b) => (order[a.position] - order[b.position]));
+	const result = people.sort((a, b) => order[a.position] - order[b.position]);
 	return result;
 };
 
@@ -153,47 +153,35 @@ function LabMembers() {
 		getPeople();
 	}, []);
 
-	useEffect(() => (() => {
-		if (history.action === 'POP' && history.location.pathname === '/') {
-			// console.log(history);
-			history.replace({
-				pathname: '/',
-				state: {
-				},
-			});
-		}
-	}), [history]);
+	useEffect(
+		() => () => {
+			if (history.action === 'POP' && history.location.pathname === '/') {
+				// console.log(history);
+				history.replace({
+					pathname: '/',
+					state: {},
+				});
+			}
+		},
+		[history],
+	);
 
 	return (
 		<Container fixed>
-			{
-				isLoading
-						&& (
-							<>
-								<PiInDetail
-									name="Benjamin Haibe-Kains"
-									title="Principal Investigator"
-									photo="https://storage.googleapis.com/caboodle-images/member-photos/bhk.jpg"
-									bio={PI_BIO}
-								/>
-								<StyledHeading>
-									Current Members
-								</StyledHeading>
-								<StyledPeople>
-									{
-										people.length
-									&& (
-										<>
-											{
-												people.map((item, i) => (displayMember(item, i, (i !== people.length - 1))))
-											}
-										</>
-									)
-									}
-								</StyledPeople>
-							</>
-						)
-			}
+			{isLoading && (
+				<>
+					<PiInDetail
+						name="Benjamin Haibe-Kains"
+						title="Principal Investigator"
+						photo="https://storage.googleapis.com/caboodle-images/member-photos/bhk.jpg"
+						bio={PI_BIO}
+					/>
+					<StyledHeading>Current Members</StyledHeading>
+					<StyledPeople>
+						{people.length && <>{people.map((item, i) => displayMember(item, i, i !== people.length - 1))}</>}
+					</StyledPeople>
+				</>
+			)}
 		</Container>
 	);
 }
