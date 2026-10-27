@@ -1,219 +1,278 @@
-// industryGroups.js
+const normalize = (value) =>
+	String(value || '')
+		.trim()
+		.toLowerCase();
 
 export const INDUSTRY_GROUPS = [
 	{
-		value: "all",
-		label: "All Alumni",
-		shortLabel: "All",
-		icon: "pi pi-th-large",
-		color: "#2563eb",
-		background: "#eff6ff",
+		key: 'all',
+		label: 'All',
+		fullLabel: 'All Alumni',
+		icon: 'pi pi-users',
 	},
 	{
-		value: "health",
-		label: "Healthcare & Life Sciences",
-		shortLabel: "Health & Life Sciences",
-		icon: "pi pi-heart-fill",
-		color: "#7c3aed",
-		background: "#f5f3ff",
+		key: 'health',
+		label: 'Health & Life Sciences',
+		fullLabel: 'Health & Life Sciences',
+		icon: 'pi pi-heart',
 	},
 	{
-		value: "technology",
-		label: "Software & Technology",
-		shortLabel: "Technology",
-		icon: "pi pi-desktop",
-		color: "#0284c7",
-		background: "#f0f9ff",
+		key: 'technology',
+		label: 'Technology & Software',
+		fullLabel: 'Technology & Software',
+		icon: 'pi pi-desktop',
 	},
 	{
-		value: "research",
-		label: "Higher Education & Research",
-		shortLabel: "Academia & Research",
-		icon: "pi pi-graduation-cap",
-		color: "#059669",
-		background: "#ecfdf5",
+		key: 'academia',
+		label: 'Academia & Research',
+		fullLabel: 'Academia & Research',
+		icon: 'pi pi-book',
 	},
 	{
-		value: "professional",
-		label: "Business & Professional Services",
-		shortLabel: "Business & Professional",
-		icon: "pi pi-briefcase",
-		color: "#d97706",
-		background: "#fffbeb",
-	},
-	{
-		value: "other",
-		label: "Other / Not Categorized",
-		shortLabel: "Other",
-		icon: "pi pi-ellipsis-h",
-		color: "#64748b",
-		background: "#f8fafc",
+		key: 'professional',
+		label: 'Business & Professional',
+		fullLabel: 'Business & Professional Services',
+		icon: 'pi pi-briefcase',
 	},
 ];
 
 const RAW_INDUSTRY_GROUPS = {
-	// Healthcare & Life Sciences
-	"hospitals and health care": "health",
-	"hospital & health care": "health",
-	"biotechnology research": "health",
-	biotechnology: "health",
-	"pharmaceutical manufacturing": "health",
-	"medical practices": "health",
-	"mental health care": "health",
-	"medical and diagnostic laboratories": "health",
+	health: new Set([
+		'Hospitals and Health Care',
+		'Hospital & Health Care',
+		'Biotechnology Research',
+		'Biotechnology',
+		'Pharmaceutical Manufacturing',
+		'Medical Practices',
+		'Mental Health Care',
+		'Medical and Diagnostic Laboratories',
+	]),
 
-	// Software & Technology
-	"software development": "technology",
-	"computer software": "technology",
-	"technology, information and internet": "technology",
-	"it services and it consulting": "technology",
-	internet: "technology",
+	technology: new Set([
+		'Software Development',
+		'Computer Software',
+		'Technology, Information and Internet',
+		'Technology, Information and Media',
+		'IT Services and IT Consulting',
+		'Internet',
+		'Telecommunications',
+		'Entertainment Providers',
+	]),
 
-	// Higher Education & Research
-	"higher education": "research",
-	"research services": "research",
-	research: "research",
+	academia: new Set(['Higher Education', 'Research Services', 'Research']),
 
-	// Business & Professional Services
-	"financial services": "professional",
-	"law practice": "professional",
-	"government administration": "professional",
-	"market research": "professional",
-	"advertising services": "professional",
-	"services for renewable energy": "professional",
-	"spectator sports": "professional",
+	professional: new Set([
+		'Financial Services',
+		'Law Practice',
+		'Government Administration',
+		'Market Research',
+		'Advertising Services',
+		'Services for Renewable Energy',
+		'Spectator Sports',
+		'Farming',
+	]),
 };
 
-const FALLBACK_RULES = [
-	{
-		value: "health",
-		terms: [
-			"hospital",
-			"health",
-			"cancer",
-			"clinic",
-			"medical",
-			"medicine",
-			"pharma",
-			"biotech",
-			"dental",
-			"genentech",
-			"uhn",
-			"university health network",
-			"princess margaret",
-		],
-	},
-	{
-		value: "professional",
-		terms: [
-			"rbc",
-			"bank",
-			"financial",
-			"finance",
-			"law",
-			"legal",
-			"consulting",
-			"consultant",
-			"government",
-			"market research",
-			"advertising",
-			"renewable energy",
-			"sports",
-		],
-	},
-	{
-		value: "research",
-		terms: [
-			"university",
-			"college",
-			"harvard",
-			"mcgill",
-			"professor",
-			"faculty",
-			"phd",
-			"doctoral",
-			"postdoctoral",
-			"graduate student",
-			"masters student",
-			"master's student",
-		],
-	},
-	{
-		value: "technology",
-		terms: [
-			"huawei",
-			"software",
-			"technology",
-			"developer",
-			"engineer",
-			"machine learning",
-			"data scientist",
-			"artificial intelligence",
-			" ai ",
-		],
-	},
+const HEALTH_COMPANY_TERMS = [
+	'hospital',
+	'health',
+	'medical',
+	'medicine',
+	'cancer',
+	'biotech',
+	'pharma',
+	'genentech',
+	'roche',
+	'natera',
+	'bristol-myers',
+	'bristol myers',
+	'iuCPQ'.toLowerCase(),
+	'dental',
+	'eigen health',
+	'lifera',
 ];
 
-const COUNTRY_PATTERNS = [
-	["Canada", /\bcanada\b/i],
-	["United States", /\b(united states|usa|u\.s\.a\.)\b/i],
-	["United Kingdom", /\b(united kingdom|uk)\b/i],
-	["Spain", /\bspain\b/i],
-	["Germany", /\bgermany\b/i],
-	["Netherlands", /\bnetherlands\b/i],
-	["India", /\bindia\b/i],
-	["Japan", /\bjapan\b/i],
+const ACADEMIA_COMPANY_TERMS = ['university', 'college', 'academ', 'school of'];
+
+const PROFESSIONAL_COMPANY_TERMS = [
+	'rbc',
+	'bank',
+	'financial',
+	'kpmg',
+	'law',
+	'legal',
+	'government',
+	'ministry',
+	'numeris',
+	'consult',
 ];
 
-const normalize = (value) => String(value || "").trim().toLowerCase();
+const TECHNOLOGY_COMPANY_TERMS = [
+	'google',
+	'huawei',
+	'oracle',
+	'instacart',
+	'atlassian',
+	'tiktok',
+	'software',
+	'technology',
+	'tech',
+	'cloud',
+	'data lab',
+];
+
+const TECHNOLOGY_TITLE_TERMS = [
+	'software engineer',
+	'software developer',
+	'machine learning',
+	'ml engineer',
+	'data engineer',
+	'full stack',
+	'full-stack',
+	'developer',
+	'engineering manager',
+	'technical lead',
+];
+
+const HEALTH_TITLE_TERMS = [
+	'bioinformatic',
+	'computational biolog',
+	'physician',
+	'doctor',
+	'clinical',
+	'medical',
+	'genomic',
+];
+
+const ACADEMIA_TITLE_TERMS = [
+	'professor',
+	'phd',
+	'doctoral',
+	'graduate research',
+	'postdoctoral',
+	'predoctoral',
+	'research fellow',
+];
+
+const containsAny = (text, terms) => terms.some((term) => text.includes(term));
+
+export const hasCurrentCareerInfo = (alumnus) => {
+	const current = alumnus?.currentPosition || {};
+
+	return Boolean(String(current.company || '').trim() || String(current.title || '').trim());
+};
 
 export const getIndustryGroup = (alumnus) => {
-	const currentPosition = alumnus?.currentPosition || {};
-	const rawIndustry = normalize(currentPosition.industry);
+	if (!hasCurrentCareerInfo(alumnus)) {
+		return 'unavailable';
+	}
 
-	if (RAW_INDUSTRY_GROUPS[rawIndustry]) {
-		return RAW_INDUSTRY_GROUPS[rawIndustry];
+	const current = alumnus?.currentPosition || {};
+	const industry = String(current.industry || '').trim();
+
+	for (const [groupKey, industries] of Object.entries(RAW_INDUSTRY_GROUPS)) {
+		if (industries.has(industry)) {
+			return groupKey;
+		}
+	}
+
+	const company = normalize(current.company);
+	const title = normalize(current.title);
+	const combined = `${company} ${title}`;
+
+	/*
+	 * Company-level checks come before generic title checks.
+	 * This prevents a role such as "Senior Applied ML Scientist at RBC"
+	 * from being categorized as technology instead of professional services.
+	 */
+	if (containsAny(company, HEALTH_COMPANY_TERMS)) {
+		return 'health';
+	}
+
+	if (containsAny(company, ACADEMIA_COMPANY_TERMS)) {
+		return 'academia';
+	}
+
+	if (containsAny(company, PROFESSIONAL_COMPANY_TERMS)) {
+		return 'professional';
+	}
+
+	if (containsAny(company, TECHNOLOGY_COMPANY_TERMS)) {
+		return 'technology';
+	}
+
+	if (containsAny(combined, HEALTH_TITLE_TERMS)) {
+		return 'health';
+	}
+
+	if (containsAny(combined, ACADEMIA_TITLE_TERMS)) {
+		return 'academia';
+	}
+
+	if (containsAny(combined, TECHNOLOGY_TITLE_TERMS)) {
+		return 'technology';
 	}
 
 	/*
-	 * Only infer from employer/title when LinkedIn did not provide
-	 * an industry. This keeps the raw LinkedIn industry authoritative.
+	 * Current cleaned alumni data is fully covered by the mappings/fallbacks
+	 * above. If a future record introduces an unknown industry, keep it in the
+	 * professional bucket rather than making it disappear from sector filters.
+	 *
+	 * If the dataset grows substantially, consider adding a visible "Other"
+	 * sector instead of this final fallback.
 	 */
-	if (!rawIndustry) {
-		const fallbackText = normalize(
-			`${currentPosition.company || ""} ${currentPosition.title || ""}`,
-		);
-
-		for (const rule of FALLBACK_RULES) {
-			const match = rule.terms.some((term) =>
-				fallbackText.includes(term.toLowerCase()),
-			);
-
-			if (match) {
-				return rule.value;
-			}
-		}
-	}
-
-	return "other";
+	return 'professional';
 };
 
-export const getIndustryGroupDefinition = (value) =>
-	INDUSTRY_GROUPS.find((group) => group.value === value) ||
-	INDUSTRY_GROUPS[INDUSTRY_GROUPS.length - 1];
+export const getIndustryGroupDefinition = (groupKey) =>
+	INDUSTRY_GROUPS.find((group) => group.key === groupKey) || INDUSTRY_GROUPS[0];
 
-export const getCountry = (location) => {
-	const value = String(location || "").trim();
+const COUNTRY_MATCHERS = [
+	{ label: 'Canada', terms: ['canada'] },
+	{
+		label: 'United States',
+		terms: ['united states', 'usa', 'u.s.a.', 'u.s.'],
+	},
+	{
+		label: 'United Kingdom',
+		terms: ['united kingdom', 'england', 'scotland', 'wales'],
+	},
+	{ label: 'Spain', terms: ['spain'] },
+	{ label: 'Germany', terms: ['germany'] },
+	{ label: 'India', terms: ['india'] },
+	{ label: 'Japan', terms: ['japan'] },
+	{ label: 'Netherlands', terms: ['netherlands'] },
+	{ label: 'Saudi Arabia', terms: ['saudi arabia'] },
+];
 
-	if (!value) {
-		return "Unknown";
+export const getCountry = (alumnus) => {
+	const location = String(alumnus?.currentPosition?.location || '').trim();
+
+	if (!location) {
+		return 'Unknown';
 	}
 
-	for (const [country, pattern] of COUNTRY_PATTERNS) {
-		if (pattern.test(value)) {
-			return country;
-		}
+	const normalizedLocation = normalize(location);
+
+	const knownCountry = COUNTRY_MATCHERS.find(({ terms }) => terms.some((term) => normalizedLocation.includes(term)));
+
+	if (knownCountry) {
+		return knownCountry.label;
 	}
 
-	return "Other / Unknown";
+	/*
+	 * Locations in the cleaned data should contain a country.
+	 * This fallback keeps future values usable if they follow
+	 * "City, Region, Country" formatting.
+	 */
+	const segments = location
+		.split(',')
+		.map((segment) => segment.trim())
+		.filter(Boolean);
+
+	if (segments.length > 1) {
+		return segments.at(-1);
+	}
+
+	return location;
 };

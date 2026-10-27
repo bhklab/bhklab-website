@@ -1,13 +1,18 @@
-// AlumniIndustryExplorer.jsx
-
 import React, { useEffect, useMemo, useState } from 'react';
-import { Card } from 'primereact/card';
+
 import { Dropdown } from 'primereact/dropdown';
 import { InputText } from 'primereact/inputtext';
 import { SelectButton } from 'primereact/selectbutton';
 import { Tag } from 'primereact/tag';
+import { Badge } from 'primereact/badge';
 
-import { getCountry, getIndustryGroup, getIndustryGroupDefinition, INDUSTRY_GROUPS } from './utils/industryGroups';
+import {
+	getCountry,
+	getIndustryGroup,
+	getIndustryGroupDefinition,
+	hasCurrentCareerInfo,
+	INDUSTRY_GROUPS,
+} from './utils/industryGroups';
 
 import {
 	AlumniCardShell,
@@ -15,6 +20,7 @@ import {
 	Avatar,
 	CardFooter,
 	CardTop,
+	CountryWrap,
 	Description,
 	EmptyState,
 	Explorer,
@@ -26,230 +32,269 @@ import {
 	LocationRow,
 	Person,
 	ResultsHeader,
+	SearchIcon,
+	SearchWrap,
 	Toolbar,
+	UnavailableButton,
+	UnavailableCard,
+	UnavailableGrid,
+	UnavailableHeader,
+	UnavailableSection,
 } from './styles/AlumniIndustryExplorerStyles';
 
 const IMAGE_ROOT = 'https://storage.googleapis.com/caboodle-images/member-photos';
 
-const getInitials = (name) =>
-	String(name || '?')
+const DEFAULT_IMAGE = `${IMAGE_ROOT}/default_member.png`;
+
+const normalize = (value) =>
+	String(value || '')
+		.trim()
+		.toLowerCase();
+
+const getLastName = (name) => {
+	const parts = String(name || '')
+		.trim()
 		.split(/\s+/)
-		.filter(Boolean)
-		.slice(0, 2)
-		.map((part) => part[0]?.toUpperCase())
-		.join('');
+		.filter(Boolean);
+
+	return parts.at(-1) || '';
+};
+
+const getLinkedIn = (alumnus) => alumnus?.socials?.linkedIn || alumnus?.socials?.linkedin || '';
+
+const getImageUrl = (alumnus) => (alumnus?.image ? `${IMAGE_ROOT}/${alumnus.image}` : DEFAULT_IMAGE);
+
+const sortByName = (a, b) => {
+	const lastNameComparison = getLastName(a.name).localeCompare(getLastName(b.name));
+
+	if (lastNameComparison !== 0) {
+		return lastNameComparison;
+	}
+
+	return String(a.name || '').localeCompare(String(b.name || ''));
+};
 
 const AlumniCard = ({ alumnus }) => {
-	const [imageFailed, setImageFailed] = useState(false);
+	const current = alumnus.currentPosition || {};
+	const groupKey = alumnus.industryGroup;
+	const group = getIndustryGroupDefinition(groupKey);
 
-	const currentPosition = alumnus.currentPosition || {};
+	const linkedIn = getLinkedIn(alumnus);
 
-	const group = getIndustryGroupDefinition(alumnus.industryGroup);
-
-	const linkedIn = alumnus.socials?.linkedIn || alumnus.socials?.linkedin;
-
-	const location = currentPosition.location || '';
-
-	const description = currentPosition.description || '';
-
-	const imageUrl = alumnus.image ? `${IMAGE_ROOT}/${alumnus.image}` : null;
+	const industryLabel = String(current.industry || '').trim() || group.fullLabel;
 
 	return (
 		<AlumniCardShell>
-			<Card>
-				<CardTop>
-					<Avatar>
-						{imageUrl && !imageFailed ? (
-							<img src={imageUrl} alt={`${alumnus.name} profile`} onError={() => setImageFailed(true)} />
-						) : (
-							<span>{getInitials(alumnus.name)}</span>
-						)}
-					</Avatar>
+			<CardTop>
+				<Avatar
+					src={getImageUrl(alumnus)}
+					alt={alumnus.name}
+					onError={(event) => {
+						event.currentTarget.onerror = null;
+						event.currentTarget.src = DEFAULT_IMAGE;
+					}}
+				/>
 
-					<Person>
-						<h4>{alumnus.name}</h4>
+				<Person>
+					<h4>{alumnus.name}</h4>
 
-						<p className="title">{currentPosition.title || 'Current role unavailable'}</p>
+					{current.title && <p className="current-title">{current.title}</p>}
 
-						{currentPosition.company && <p className="company">{currentPosition.company}</p>}
-					</Person>
-				</CardTop>
+					{current.company && <p className="company">{current.company}</p>}
+				</Person>
+			</CardTop>
 
-				<IndustryRow>
-					<Tag
-						value={group.shortLabel}
-						icon={group.icon}
-						style={{
-							background: group.background,
-							color: group.color,
-						}}
-					/>
-				</IndustryRow>
+			<IndustryRow>
+				<Tag value={industryLabel} className={`industry-tag industry-tag--${groupKey}`} rounded />
+			</IndustryRow>
 
-				{location && (
-					<LocationRow>
-						<i className="pi pi-map-marker" aria-hidden="true" />
+			{current.location && (
+				<LocationRow>
+					<i className="pi pi-map-marker" aria-hidden="true" />
 
-						<span>{location}</span>
-					</LocationRow>
+					<span>{current.location}</span>
+				</LocationRow>
+			)}
+
+			{current.description && <Description>{current.description}</Description>}
+
+			<CardFooter>
+				<div className="bhk-role">
+					<strong>BHK:</strong> {alumnus.position || 'Alumnus'}
+				</div>
+
+				{linkedIn && (
+					<LinkedInButton
+						href={linkedIn}
+						target="_blank"
+						rel="noreferrer"
+						aria-label={`${alumnus.name} on LinkedIn`}
+						title="LinkedIn"
+					>
+						<i className="pi pi-linkedin" aria-hidden="true" />
+					</LinkedInButton>
 				)}
-
-				{description && <Description title={description}>{description}</Description>}
-
-				<CardFooter>
-					<span className="bhk-role">
-						<strong>BHK:</strong> {alumnus.position || 'Alumnus'}
-					</span>
-
-					{linkedIn && (
-						<LinkedInButton
-							href={linkedIn}
-							target="_blank"
-							rel="noreferrer"
-							title={`Open ${alumnus.name}'s LinkedIn profile`}
-							aria-label={`Open ${alumnus.name}'s LinkedIn profile`}
-						>
-							<i className="pi pi-linkedin" aria-hidden="true" />
-						</LinkedInButton>
-					)}
-				</CardFooter>
-			</Card>
+			</CardFooter>
 		</AlumniCardShell>
 	);
 };
 
-const AlumniIndustryExplorer = ({ alumni = [] }) => {
+const UnavailableAlumniCard = ({ alumnus }) => (
+	<UnavailableCard>
+		<img
+			src={getImageUrl(alumnus)}
+			alt={alumnus.name}
+			onError={(event) => {
+				event.currentTarget.onerror = null;
+				event.currentTarget.src = DEFAULT_IMAGE;
+			}}
+		/>
+
+		<div className="info">
+			<h4>{alumnus.name}</h4>
+
+			<p>{alumnus.position || 'BHK alumnus'}</p>
+		</div>
+
+		{getLinkedIn(alumnus) && (
+			<LinkedInButton
+				href={getLinkedIn(alumnus)}
+				target="_blank"
+				rel="noreferrer"
+				aria-label={`${alumnus.name} on LinkedIn`}
+				title="LinkedIn"
+			>
+				<i className="pi pi-linkedin" aria-hidden="true" />
+			</LinkedInButton>
+		)}
+	</UnavailableCard>
+);
+
+function AlumniIndustryExplorer({ alumni = [] }) {
 	const [selectedIndustry, setSelectedIndustry] = useState('all');
 
 	const [selectedCountry, setSelectedCountry] = useState('all');
 
-	const [query, setQuery] = useState('');
+	const [searchTerm, setSearchTerm] = useState('');
 
-	const enrichedAlumni = useMemo(
-		() =>
-			alumni.map((alumnus) => ({
-				...alumnus,
+	const [showUnavailable, setShowUnavailable] = useState(false);
 
-				industryGroup: getIndustryGroup(alumnus),
+	const { careerAlumni, unavailableAlumni } = useMemo(() => {
+		const career = [];
+		const unavailable = [];
 
-				country: getCountry(alumnus.currentPosition?.location),
-			})),
-		[alumni],
-	);
+		alumni.forEach((alumnus) => {
+			if (hasCurrentCareerInfo(alumnus)) {
+				career.push({
+					...alumnus,
+					industryGroup: getIndustryGroup(alumnus),
+					country: getCountry(alumnus),
+				});
 
-	const industryCounts = useMemo(
-		() =>
-			enrichedAlumni.reduce(
-				(accumulator, alumnus) => {
-					accumulator.all += 1;
+				return;
+			}
 
-					accumulator[alumnus.industryGroup] = (accumulator[alumnus.industryGroup] || 0) + 1;
+			unavailable.push(alumnus);
+		});
 
-					return accumulator;
-				},
-				{
-					all: 0,
-				},
-			),
-		[enrichedAlumni],
-	);
+		return {
+			careerAlumni: career.sort(sortByName),
+			unavailableAlumni: unavailable.sort(sortByName),
+		};
+	}, [alumni]);
+
+	const industryCounts = useMemo(() => {
+		const counts = {
+			all: careerAlumni.length,
+		};
+
+		INDUSTRY_GROUPS.filter((group) => group.key !== 'all').forEach((group) => {
+			counts[group.key] = careerAlumni.filter((alumnus) => alumnus.industryGroup === group.key).length;
+		});
+
+		return counts;
+	}, [careerAlumni]);
 
 	const industryOptions = useMemo(
 		() =>
-			INDUSTRY_GROUPS.map((group) => ({
+			INDUSTRY_GROUPS.filter((group) => group.key === 'all' || industryCounts[group.key] > 0).map((group) => ({
 				...group,
-
-				count: industryCounts[group.value] || 0,
+				value: group.key,
+				count: industryCounts[group.key] || 0,
 			})),
 		[industryCounts],
 	);
 
-	const countryOptions = useMemo(() => {
-		const pool =
+	const industryFilteredAlumni = useMemo(
+		() =>
 			selectedIndustry === 'all'
-				? enrichedAlumni
-				: enrichedAlumni.filter((alumnus) => alumnus.industryGroup === selectedIndustry);
+				? careerAlumni
+				: careerAlumni.filter((alumnus) => alumnus.industryGroup === selectedIndustry),
+		[careerAlumni, selectedIndustry],
+	);
 
-		const countries = [...new Set(pool.map((alumnus) => alumnus.country))]
-			.filter((country) => country !== 'Unknown')
-			.sort((a, b) => a.localeCompare(b));
+	const countryOptions = useMemo(() => {
+		const countries = Array.from(
+			new Set(
+				industryFilteredAlumni.map((alumnus) => alumnus.country).filter((country) => country && country !== 'Unknown'),
+			),
+		).sort((a, b) => a.localeCompare(b));
 
 		return [
 			{
 				label: 'All Countries',
-
 				value: 'all',
 			},
-
 			...countries.map((country) => ({
 				label: country,
-
 				value: country,
 			})),
 		];
-	}, [enrichedAlumni, selectedIndustry]);
+	}, [industryFilteredAlumni]);
 
 	useEffect(() => {
 		setSelectedCountry('all');
 	}, [selectedIndustry]);
 
 	const filteredAlumni = useMemo(() => {
-		const normalizedQuery = query.trim().toLowerCase();
+		const query = normalize(searchTerm);
 
-		return enrichedAlumni
+		return industryFilteredAlumni
 			.filter((alumnus) => {
-				if (selectedIndustry !== 'all' && alumnus.industryGroup !== selectedIndustry) {
-					return false;
-				}
-
 				if (selectedCountry !== 'all' && alumnus.country !== selectedCountry) {
 					return false;
 				}
 
-				if (!normalizedQuery) {
+				if (!query) {
 					return true;
 				}
 
-				const currentPosition = alumnus.currentPosition || {};
+				const current = alumnus.currentPosition || {};
 
-				const searchableText = [
+				const searchable = [
 					alumnus.name,
 					alumnus.position,
-
-					currentPosition.title,
-					currentPosition.company,
-					currentPosition.industry,
-					currentPosition.location,
+					current.title,
+					current.company,
+					current.industry,
+					current.location,
+					alumnus.country,
 				]
 					.filter(Boolean)
 					.join(' ')
 					.toLowerCase();
 
-				return searchableText.includes(normalizedQuery);
+				return searchable.includes(query);
 			})
-			.sort((a, b) => String(a.name).localeCompare(String(b.name)));
-	}, [enrichedAlumni, query, selectedCountry, selectedIndustry]);
+			.sort(sortByName);
+	}, [industryFilteredAlumni, searchTerm, selectedCountry]);
 
-	const activeGroup = getIndustryGroupDefinition(selectedIndustry);
-
-	const activeLabel = selectedIndustry === 'all' ? 'All Alumni' : activeGroup.label;
-
-	const industryButtonTemplate = (option) => (
-		<IndustryButtonContent>
-			<i className={option.icon} aria-hidden="true" />
-
-			<span>{option.shortLabel}</span>
-
-			<span className="count">{option.count}</span>
-		</IndustryButtonContent>
-	);
+	const selectedGroup = getIndustryGroupDefinition(selectedIndustry);
 
 	return (
 		<Explorer>
 			<Intro>
-				<h2>Alumni by Industry</h2>
-
-				<p>Explore where former BHK Lab members are working today.</p>
+				<p>Explore where former BHK Lab members are working today by career sector and country.</p>
 			</Intro>
 
 			<IndustrySelectorWrap>
@@ -257,55 +302,98 @@ const AlumniIndustryExplorer = ({ alumni = [] }) => {
 					value={selectedIndustry}
 					onChange={(event) => setSelectedIndustry(event.value || 'all')}
 					options={industryOptions}
-					optionLabel="shortLabel"
+					optionLabel="label"
 					optionValue="value"
-					itemTemplate={industryButtonTemplate}
 					allowEmpty={false}
+					itemTemplate={(option) => (
+						<IndustryButtonContent>
+							<i className={option.icon} aria-hidden="true" />
+
+							<span>{option.label}</span>
+
+							<span className="count">{option.count}</span>
+						</IndustryButtonContent>
+					)}
 				/>
 			</IndustrySelectorWrap>
 
 			<Toolbar>
-				<span className="p-input-icon-left">
-					<i className="pi pi-search" />
+				<SearchWrap>
+					<SearchIcon className="pi pi-search" aria-hidden="true" />
 
 					<InputText
-						value={query}
-						onChange={(event) => setQuery(event.target.value)}
-						placeholder="Search by name, role, or company"
+						value={searchTerm}
+						onChange={(event) => setSearchTerm(event.target.value)}
+						placeholder={'Search name, company, role...'}
 						aria-label="Search alumni"
 					/>
-				</span>
+				</SearchWrap>
 
-				<Dropdown
-					value={selectedCountry}
-					onChange={(event) => setSelectedCountry(event.value)}
-					options={countryOptions}
-					placeholder="All Countries"
-					aria-label="Filter alumni by country"
-				/>
+				<CountryWrap>
+					<Dropdown
+						value={selectedCountry}
+						onChange={(event) => setSelectedCountry(event.value)}
+						options={countryOptions}
+						optionLabel="label"
+						optionValue="value"
+						placeholder="All Countries"
+						aria-label="Filter by country"
+					/>
+				</CountryWrap>
 			</Toolbar>
 
 			<ResultsHeader>
-				<div>
-					<h3>{activeLabel}</h3>
+				<h3>{selectedGroup.fullLabel}</h3>
 
-					<p>Current role, employer, industry, and location when available.</p>
-				</div>
-
-				<strong>
+				<span>
 					{filteredAlumni.length} {filteredAlumni.length === 1 ? 'alumnus' : 'alumni'}
-				</strong>
+				</span>
 			</ResultsHeader>
 
-			<AlumniGrid>
-				{filteredAlumni.map((alumnus) => (
-					<AlumniCard key={alumnus._id?.$oid || alumnus._id || alumnus.name} alumnus={alumnus} />
-				))}
+			{filteredAlumni.length > 0 ? (
+				<AlumniGrid>
+					{filteredAlumni.map((alumnus) => (
+						<AlumniCard key={alumnus?._id?.$oid || alumnus.name} alumnus={alumnus} />
+					))}
+				</AlumniGrid>
+			) : (
+				<EmptyState>
+					<p>No alumni match the current filters.</p>
+				</EmptyState>
+			)}
 
-				{filteredAlumni.length === 0 && <EmptyState>No alumni match the selected filters.</EmptyState>}
-			</AlumniGrid>
+			{unavailableAlumni.length > 0 && (
+				<UnavailableSection>
+					<UnavailableHeader>
+						<div className="text">
+							<h3>Career information unavailable</h3>
+
+							<p>
+								{unavailableAlumni.length} alumni do not currently have public current-career information in the
+								dataset.
+							</p>
+						</div>
+
+						<UnavailableButton
+							type="button"
+							onClick={() => setShowUnavailable((value) => !value)}
+							aria-expanded={showUnavailable}
+						>
+							{showUnavailable ? 'Hide alumni' : `View ${unavailableAlumni.length} alumni`}
+						</UnavailableButton>
+					</UnavailableHeader>
+
+					{showUnavailable && (
+						<UnavailableGrid>
+							{unavailableAlumni.map((alumnus) => (
+								<UnavailableAlumniCard key={alumnus?._id?.$oid || alumnus.name} alumnus={alumnus} />
+							))}
+						</UnavailableGrid>
+					)}
+				</UnavailableSection>
+			)}
 		</Explorer>
 	);
-};
+}
 
 export default AlumniIndustryExplorer;

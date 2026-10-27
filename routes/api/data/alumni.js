@@ -1,50 +1,109 @@
-const Alumni = require('../../../database/models/alumni');
+const Alumni = require("../../../database/models/alumni");
 
 /*
  * API endpoint to return all alumni.
-*/
+ */
 const getAll = async (req, res) => {
-    let result = {
-        alumni: [],
-    };
-    console
-    try{
-        let res = await Alumni.find().lean();
-        res.forEach(alumni => {
-            result.alumni.push({
-                _id: alumni._id,
-                name: alumni.preferredName? alumni.preferredName : alumni.name,
-                position : alumni.position,
-                bio: alumni.bio,
-                startAndEndYear: alumni.startAndEndYear,
-                acknowledgements: {
-                    awards: alumni.acknowledgements.awards,
-                    conferences: alumni.acknowledgements.conferences,
-                    posters: alumni.acknowledgements.posters,
-                    presentations: alumni.acknowledgements.presentations,
-                    publications: alumni.acknowledgements.publications,
-                    otherAccomplishments: alumni.acknowledgements.otherAccomplishments
-                },
-                twitter: alumni.socials.twitter,
-                linkedIn: alumni.socials.linkedIn,
-                image: alumni.image,
-                awardsPostBHK: alumni.awardsPostBHK,
-                currentPosition:{
-                    company: alumni.currentPosition.company,
-                    title: alumni.currentPosition.title,
-                    industry: alumni.currentPosition.industry,
-                    location: alumni.currentPosition.location,
-                    description: alumni.currentPosition.description
-                }
-            })
-        })
-    }catch(error){
-        console.log(error);
-    }finally{
-        res.send(result);
-    }
-}
+  try {
+    const alumniRecords = await Alumni.find().lean();
+
+    const alumni = alumniRecords.map((alumnus) => {
+      /*
+       * Some older MongoDB records may not
+       * contain all nested objects.
+       *
+       * Normalize them here so one incomplete
+       * record cannot break the entire API.
+       */
+      const acknowledgements = alumnus.acknowledgements || {};
+
+      const socials = alumnus.socials || {};
+
+      const currentPosition = alumnus.currentPosition || {};
+
+      return {
+        _id: alumnus._id,
+
+        name: alumnus.preferredName || alumnus.name || "",
+
+        preferredName: alumnus.preferredName || "",
+
+        position: alumnus.position || "",
+
+        supervisor: alumnus.supervisor || "",
+
+        bio: alumnus.bio || "",
+
+        startAndEndYear: alumnus.startAndEndYear || "",
+
+        acknowledgements: {
+          awards: acknowledgements.awards || "",
+
+          conferences: acknowledgements.conferences || "",
+
+          posters: acknowledgements.posters || "",
+
+          presentations: acknowledgements.presentations || "",
+
+          publications: acknowledgements.publications || "",
+
+          otherAccomplishments: acknowledgements.otherAccomplishments || "",
+        },
+
+        /*
+         * Keep socials nested because the
+         * updated frontend uses:
+         *
+         * alumnus.socials.linkedIn
+         */
+        socials: {
+          twitter: socials.twitter || "",
+
+          bluesky: socials.bluesky || "",
+
+          linkedIn: socials.linkedIn || "",
+        },
+
+        /*
+         * Keep these top-level fields too
+         * for backward compatibility with
+         * older frontend components.
+         */
+        twitter: socials.twitter || "",
+
+        linkedIn: socials.linkedIn || "",
+
+        image: alumnus.image || "",
+
+        awardsPostBHK: alumnus.awardsPostBHK || "",
+
+        currentPosition: {
+          company: currentPosition.company || "",
+
+          title: currentPosition.title || "",
+
+          industry: currentPosition.industry || "",
+
+          location: currentPosition.location || "",
+
+          description: currentPosition.description || "",
+        },
+      };
+    });
+
+    return res.status(200).json({
+      alumni,
+    });
+  } catch (error) {
+    console.error("Error retrieving alumni:", error);
+
+    return res.status(500).json({
+      alumni: [],
+      error: "Unable to retrieve alumni.",
+    });
+  }
+};
 
 module.exports = {
-    getAll,
-}
+  getAll,
+};

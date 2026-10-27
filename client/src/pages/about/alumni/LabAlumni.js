@@ -26,16 +26,8 @@ function LabMembers() {
 
 				const alumni = Array.isArray(res.data?.alumni) ? res.data.alumni : [];
 
-				const sortedMembers = [...alumni].sort((a, b) => {
-					const aLastName = a.name?.trim().split(' ').at(-1) || '';
-
-					const bLastName = b.name?.trim().split(' ').at(-1) || '';
-
-					return aLastName.localeCompare(bLastName);
-				});
-
 				if (isMounted) {
-					setPeople(sortedMembers);
+					setPeople(alumni);
 
 					setError('');
 				}
