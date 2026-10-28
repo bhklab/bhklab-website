@@ -92,11 +92,57 @@ export const IndustryButtonContent = styled.span`
 		font-weight: 700;
 		text-align: center;
 	}
-`;
 
+	@media (max-width: 720px) {
+		.count {
+			display: none;
+		}
+	}
+`;
+export const ResetButton = styled.button`
+	display: inline-flex;
+	min-height: 44px;
+	align-items: center;
+	justify-content: center;
+	gap: 7px;
+	padding: 0 14px;
+	border: 1px solid #d0d5dd;
+	border-radius: 10px;
+	background: #ffffff;
+	color: #344054;
+	cursor: pointer;
+	font: inherit;
+	font-size: 0.88rem;
+	font-weight: 600;
+	transition:
+		border-color 0.16s ease,
+		background 0.16s ease,
+		color 0.16s ease;
+
+	&:hover:not(:disabled) {
+		border-color: #98a2b3;
+		background: #f9fafb;
+		color: #101828;
+	}
+
+	&:focus {
+		outline: none;
+		box-shadow: 0 0 0 3px rgba(16, 24, 40, 0.06);
+	}
+
+	&:disabled {
+		background: #f9fafb;
+		color: #98a2b3;
+		cursor: default;
+	}
+
+	i {
+		font-size: 0.82rem;
+	}
+`;
 export const Toolbar = styled.div`
 	display: grid;
-	grid-template-columns: minmax(220px, 1fr) minmax(190px, 260px);
+	grid-template-columns: minmax(220px, 1fr) minmax(190px, 260px) auto;
 	gap: 14px;
 	align-items: center;
 	margin-bottom: 24px;

@@ -40,6 +40,7 @@ import {
 	UnavailableGrid,
 	UnavailableHeader,
 	UnavailableSection,
+	ResetButton,
 } from './styles/AlumniIndustryExplorerStyles';
 
 const IMAGE_ROOT = 'https://storage.googleapis.com/caboodle-images/member-photos';
@@ -178,6 +179,12 @@ function AlumniIndustryExplorer({ alumni = [] }) {
 	const [searchTerm, setSearchTerm] = useState('');
 
 	const [showUnavailable, setShowUnavailable] = useState(false);
+
+	const resetFilters = () => {
+		setSelectedIndustry('all');
+		setSelectedCountry('all');
+		setSearchTerm('');
+	};
 
 	const { careerAlumni, unavailableAlumni } = useMemo(() => {
 		const career = [];
@@ -340,6 +347,14 @@ function AlumniIndustryExplorer({ alumni = [] }) {
 						aria-label="Filter by country"
 					/>
 				</CountryWrap>
+				<ResetButton
+					type="button"
+					onClick={resetFilters}
+					disabled={selectedIndustry === 'All' && !selectedCountry && !searchTerm}
+				>
+					<i className="pi pi-refresh" />
+					Reset
+				</ResetButton>
 			</Toolbar>
 
 			<ResultsHeader>
