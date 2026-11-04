@@ -8,6 +8,24 @@ import Chip from '@mui/material/Chip';
 
 const GEO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json';
 
+const COUNTRY_COLORS = [
+	{ light: '#dbeafe', hover: '#93c5fd', selected: '#3b82f6' }, // blue
+	{ light: '#dcfce7', hover: '#86efac', selected: '#22c55e' }, // green
+	{ light: '#fef3c7', hover: '#fcd34d', selected: '#f59e0b' }, // amber
+	{ light: '#fce7f3', hover: '#f9a8d4', selected: '#ec4899' }, // pink
+	{ light: '#ede9fe', hover: '#c4b5fd', selected: '#8b5cf6' }, // purple
+	{ light: '#cffafe', hover: '#67e8f9', selected: '#06b6d4' }, // cyan
+	{ light: '#ffedd5', hover: '#fdba74', selected: '#f97316' }, // orange
+	{ light: '#ccfbf1', hover: '#5eead4', selected: '#14b8a6' }, // teal
+	{ light: '#f3e8ff', hover: '#d8b4fe', selected: '#a855f7' }, // violet
+	{ light: '#fee2e2', hover: '#fca5a5', selected: '#ef4444' }, // red
+	{ light: '#ecfccb', hover: '#bef264', selected: '#84cc16' }, // lime
+	{ light: '#e0e7ff', hover: '#a5b4fc', selected: '#6366f1' }, // indigo
+	{ light: '#fef9c3', hover: '#fde047', selected: '#eab308' }, // yellow
+	{ light: '#ffe4e6', hover: '#fda4af', selected: '#f43f5e' }, // rose
+	{ light: '#e2f7ee', hover: '#8dd3b5', selected: '#2f9e73' }, // mint
+];
+
 // Keep consistent with Collaboration.jsx
 function normalizeCountryKey(name) {
 	const raw = String(name || '').trim();
@@ -42,6 +60,16 @@ export default function PublicationsCountryMap({
 
 	const [zoom, setZoom] = useState(1);
 	const [center, setCenter] = useState([0, 15]);
+
+	const countryColorMap = useMemo(() => {
+		const map = new Map();
+
+		countryGroups.forEach((group, index) => {
+			map.set(group.key, COUNTRY_COLORS[index % COUNTRY_COLORS.length]);
+		});
+
+		return map;
+	}, [countryGroups]);
 
 	// Build quick lookup: geoName -> group
 	const groupsByKey = useMemo(() => {
@@ -194,7 +222,13 @@ export default function PublicationsCountryMap({
 
 									const isSelected = key && selectedCountryKey === key;
 
-									const fill = isSelected ? '#60a5fa' : hasData ? '#cfe3ff' : '#e2e8f0';
+									const countryColor = key ? countryColorMap.get(key) : null;
+
+									const defaultFill = hasData ? countryColor.light : '#e2e8f0';
+
+									const hoverFill = hasData ? countryColor.hover : '#e2e8f0';
+
+									const selectedFill = hasData ? countryColor.selected : '#e2e8f0';
 
 									const tooltipText = hasData
 										? `${name || 'Unknown'} — ${count} publication${count === 1 ? '' : 's'} (${unique_authors} unique author${unique_authors === 1 ? '' : 's'})`
@@ -214,22 +248,21 @@ export default function PublicationsCountryMap({
 											}}
 											style={{
 												default: {
-													fill,
+													fill: isSelected ? selectedFill : defaultFill,
 													stroke: '#cbd5e1',
 													strokeWidth: 0.6,
 													outline: 'none',
 													cursor: hasData ? 'pointer' : 'default',
-													userSelect: 'none',
 												},
 												hover: {
-													fill: isSelected ? '#60a5fa' : hasData ? '#a5d0ff' : '#e2e8f0',
+													fill: isSelected ? selectedFill : hoverFill,
 													stroke: '#94a3b8',
 													strokeWidth: 0.8,
 													outline: 'none',
 													cursor: hasData ? 'pointer' : 'default',
 												},
 												pressed: {
-													fill: isSelected ? '#60a5fa' : hasData ? '#a5d0ff' : '#e2e8f0',
+													fill: selectedFill,
 													outline: 'none',
 												},
 											}}
