@@ -6,9 +6,7 @@ import { PreprintCard } from './presentations-and-publications-components/Public
 import StyledHeading from '../../styles/StyledHeading';
 import DisplayContainer from './PresentationsAndPupblicationsStyles';
 
-const customizedContent = (item, index) => (
-	<PreprintCard index={index} publication={item} />
-);
+const customizedContent = (item, index) => <PreprintCard index={index} publication={item} />;
 
 function Publications() {
 	const [ready, setReady] = useState(false);
@@ -17,6 +15,7 @@ function Publications() {
 	useEffect(() => {
 		const getPreprints = async () => {
 			const res = await axios.get('/api/data/preprints');
+			res.data.preprints.sort((a, b) => new Date(b.date) - new Date(a.date));
 			setPreprints(res.data.preprints);
 			setReady(true);
 		};
@@ -25,19 +24,14 @@ function Publications() {
 
 	return (
 		<Container maxWidth="lg">
-			{ ready
-					&& (
-						<>
-							<StyledHeading> Preprints </StyledHeading>
-							<DisplayContainer style={{ justifyContent: 'center' }}>
-								<PaginatedPublications
-									customizedContent={customizedContent}
-									publications={preprints}
-									itemsPerPage={5}
-								/>
-							</DisplayContainer>
-						</>
-					)}
+			{ready && (
+				<>
+					<StyledHeading> Preprints </StyledHeading>
+					<DisplayContainer style={{ justifyContent: 'center' }}>
+						<PaginatedPublications customizedContent={customizedContent} publications={preprints} itemsPerPage={5} />
+					</DisplayContainer>
+				</>
+			)}
 		</Container>
 	);
 }
